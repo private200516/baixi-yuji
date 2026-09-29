@@ -1,0 +1,26 @@
+node_modules/
+dist/
+*.log
+.pnpm-store/
+test-results/
+.tools/
+
+# Local design references, original font binaries and task notes stay on this machine.
+references/
+CODEX_*.txt
+README_使用说明.txt
+.delivery/
+docs/screenshots/
+docs/PHASE_A_README.md
+docs/IMPLEMENTATION_STATUS.md
+docs/mobile-screenshots/first-*.png
+docs/mobile-screenshots/*failure*.png
+
+# Credentials and machine-specific configuration must never be published.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store
+Thumbs.db

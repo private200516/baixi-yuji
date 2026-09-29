@@ -1,0 +1,14 @@
+:root {
+  --color-page: #EDE9DD;
+  --color-surface: #F4F0E6;
+  --color-brand: #5D7877;
+  --color-action: #355B5A;
+  --color-accent: #9A6A49;
+  --color-text: #34383A;
+  --color-text-secondary: #606765;
+  --color-accent-deep: #7C523B;
+  --color-white: #FFFFFF;
+  --font-body: 1.125rem;
+  --font-station: 1.625rem;
+  --button-height: 60px;
+}
