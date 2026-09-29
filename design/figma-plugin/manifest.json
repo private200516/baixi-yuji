@@ -1,0 +1,15 @@
+{
+  "name": "白溪舆记 · 完整设计导入",
+  "id": "baixi-yuji-offline-design-import",
+  "api": "1.0.0",
+  "main": "code.js",
+  "editorType": [
+    "figma"
+  ],
+  "documentAccess": "dynamic-page",
+  "networkAccess": {
+    "allowedDomains": [
+      "none"
+    ]
+  }
+}

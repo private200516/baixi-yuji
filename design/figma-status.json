@@ -1,0 +1,24 @@
+{
+  "fileUrl": "https://www.figma.com/design/y38iW9jOO77h0eReS4g1aD",
+  "fileName": "白溪舆记｜公交 APP 设计源稿",
+  "teamName": "浙江省宁海县古镇公交专线APP开发项目",
+  "status": "partial-cloud-import",
+  "localFigExported": false,
+  "cloudFoundations": {
+    "variableCollections": 2,
+    "variables": 28,
+    "textStyles": 6,
+    "documentationNodeId": "5:4"
+  },
+  "cloudArtboards": [
+    { "id": "regular-ride", "nodeId": "9:2", "status": "complete", "visualReview": "passed" },
+    { "id": "senior-ride", "nodeId": "10:230", "status": "complete", "visualReview": "not-reviewed" },
+    { "id": "regular-return", "nodeId": "10:2", "status": "partial", "completedChunks": 2, "totalChunks": 3 }
+  ],
+  "cloudBlocker": "The selected Figma team's Starter plan MCP tool-call limit was reached during import.",
+  "figExportBlocker": "The browser is not signed in to Figma; Save local copy requires an authenticated editor session.",
+  "completeLocalArtboards": 15,
+  "localFormats": ["svg", "png", "json"],
+  "fontNotes": "Main copy is native Noto Sans SC with static weight mapping. Exact LXGW WenKai wordmarks and vertical labels use editable vector outlines. SVG imports may outline text depending on the importing tool.",
+  "animationPreview": "https://private200516.github.io/baixi-yuji/#/ride"
+}

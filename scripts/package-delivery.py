@@ -50,7 +50,10 @@ if (ROOT / 'design/manifest.json').is_file():
     design = [file for file in (ROOT / 'design').rglob('*')
               if file.is_file() and not EXCLUDED_PARTS.intersection(file.parts)]
     design.extend(file for file in (ROOT / 'public/fonts').iterdir() if file.is_file())
-    design.append(ROOT / 'scripts/export-design.mjs')
+    design.extend(ROOT / 'scripts' / name for name in [
+        'export-design.mjs', 'collect-design-regions.mjs',
+        'build-figma-payload.py', 'build-figma-plugin.mjs', 'figma-plugin-runtime.js',
+    ])
     manifest['design'] = package('baixi-yuji-design.zip', design, ROOT)
 (OUTPUT / 'delivery-manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 for item in manifest.values():

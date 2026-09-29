@@ -4,9 +4,11 @@
 
 手机端主页面一屏显示，保留右侧凹槽跟随导航、全局字号和独立老年人模式。桌面端为手机外观的可交互展示。
 
-[在线 DEMO](https://private200516.github.io/baixi-yuji/#/ride) · [GitHub 源码](https://github.com/private200516/baixi-yuji) · [下载交付包](https://github.com/private200516/baixi-yuji/releases/tag/v0.1.0)
+[在线 DEMO](https://private200516.github.io/baixi-yuji/#/ride) · [Figma 设计源稿](https://www.figma.com/design/y38iW9jOO77h0eReS4g1aD) · [下载交付包](https://github.com/private200516/baixi-yuji/releases/tag/v0.1.0)
 
-设计资料位于 [design/](design/README.md)：15 个手机画板的实际 PNG、可编辑 SVG 及文字/坐标/矢量 JSON 数据。SVG 已内嵌字体，但并非 Figma 原生 `.fig` 文件；原生 Figma 文件仍待选择目标团队后创建。
+设计资料位于 [design/](design/README.md)：完整 15 个手机画板的实际 PNG、可编辑 SVG 及文字/坐标/矢量 JSON 数据。Figma 文件已创建，候车页已完成并通过截图核对，老年人首页结构已完成但尚未视觉复核，返程页仅完成部分；自动化写入受到调用额度限制，尚未完成全部 15 屏。**当前没有可下载的 `.fig` 文件，SVG/JSON 不冒充原生 `.fig`。** 具体范围见设计交付说明。
+
+另外提供 [Figma 本地导入插件](design/figma-plugin/README.md)：成品可直接从 manifest 导入，不需要运行源码或重建；运行后用于生成完整 15 屏和组件。插件已做代码与模拟结构检查，尚未在已登录的 Figma 桌面客户端实机运行。
 
 ![手机界面预览](docs/mobile-screenshots/updated-route.png)
 
@@ -77,7 +79,7 @@ Linux 首次安装可使用 `pnpm exec playwright install --with-deps chromium`�
 - `src/mobile/SeniorExperience.tsx`：独立的老年人模式。
 - `public/fonts/`：本地字体与许可；`public/art/`：无效演示 QR。
 - `docs/MOBILE_DESIGN.md`：设计说明、数据边界、字体来源和验证范围。
-- `docs/mobile-browser-results.json`、`docs/mobile-layout-check.json`：测试记录。
+- `docs/mobile-browser-results.json`、`docs/mobile-layout-check.json`：运行相应检查脚本后在本地生成的测试记录。
 - `docs/mobile-screenshots/`：实际运行截图。
 - `dist/`：生产构建。
 
