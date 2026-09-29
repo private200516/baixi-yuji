@@ -15,6 +15,7 @@ docs/PHASE_A_README.md
 docs/IMPLEMENTATION_STATUS.md
 docs/mobile-screenshots/first-*.png
 docs/mobile-screenshots/*failure*.png
+design/previews/vector-qa-*.png
 
 # Credentials and machine-specific configuration must never be published.
 .env

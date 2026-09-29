@@ -1,0 +1,307 @@
+{
+  "schemaVersion": 1,
+  "title": "白溪舆记 / BAIXI YUJI",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "fonts": [
+    {
+      "family": "Noto Sans SC",
+      "source": "../public/fonts/baixi-sans.woff2",
+      "license": "../public/fonts/OFL-NotoSansSC.txt"
+    },
+    {
+      "family": "LXGW WenKai",
+      "source": "../public/fonts/baixi-kai.woff2",
+      "license": "../public/fonts/OFL-LXGWWenKai.txt"
+    }
+  ],
+  "colors": {
+    "paper": "#f4f1e7",
+    "ink": "#303735",
+    "teal": "#507673",
+    "action": "#345c58",
+    "terracotta": "#a4714f"
+  },
+  "notes": [
+    "SVG exports preserve vector shapes and live text; they are not .fig files.",
+    "PNG previews are direct browser captures; SVGs are editable visual references and may differ in font rendering, CSS paint order, shadows, blur, texture, and pseudo-element details.",
+    "Snapshots are deterministic: reduced motion, no saved trip, standard direction, first station, 17:30 return, first landmark.",
+    "QR artwork is a non-functional demonstration code."
+  ],
+  "artboards": [
+    {
+      "id": "regular-ride",
+      "screen": "ride",
+      "size": "M",
+      "senior": false,
+      "width": 390,
+      "height": 844,
+      "background": "#f4f1e7",
+      "overflow": {
+        "documentWidth": 390,
+        "documentHeight": 844
+      },
+      "fontLoaded": true,
+      "svgFile": "svg/regular-ride.svg",
+      "previewFile": "previews/regular-ride.png",
+      "nodeCount": 70,
+      "editableTextCount": 32
+    },
+    {
+      "id": "regular-return",
+      "screen": "return",
+      "size": "M",
+      "senior": false,
+      "width": 390,
+      "height": 844,
+      "background": "#f4f1e7",
+      "overflow": {
+        "documentWidth": 390,
+        "documentHeight": 844
+      },
+      "fontLoaded": true,
+      "svgFile": "svg/regular-return.svg",
+      "previewFile": "previews/regular-return.png",
+      "nodeCount": 84,
+      "editableTextCount": 40
+    },
+    {
+      "id": "regular-scan",
+      "screen": "scan",
+      "size": "M",
+      "senior": false,
+      "width": 390,
+      "height": 844,
+      "background": "#f4f1e7",
+      "overflow": {
+        "documentWidth": 390,
+        "documentHeight": 844
+      },
+      "fontLoaded": true,
+      "svgFile": "svg/regular-scan.svg",
+      "previewFile": "previews/regular-scan.png",
+      "nodeCount": 72,
+      "editableTextCount": 31
+    },
+    {
+      "id": "regular-route",
+      "screen": "route",
+      "size": "M",
+      "senior": false,
+      "width": 390,
+      "height": 844,
+      "background": "#f4f1e7",
+      "overflow": {
+        "documentWidth": 390,
+        "documentHeight": 844
+      },
+      "fontLoaded": true,
+      "svgFile": "svg/regular-route.svg",
+      "previewFile": "previews/regular-route.png",
+      "nodeCount": 89,
+      "editableTextCount": 43
+    },
+    {
+      "id": "regular-ticket",
+      "screen": "ticket",
+      "size": "M",
+      "senior": false,
+      "width": 390,
+      "height": 844,
+      "background": "#f4f1e7",
+      "overflow": {
+        "documentWidth": 390,
+        "documentHeight": 844
+      },
+      "fontLoaded": true,
+      "svgFile": "svg/regular-ticket.svg",
+      "previewFile": "previews/regular-ticket.png",
+      "nodeCount": 80,
+      "editableTextCount": 36
+    },
+    {
+      "id": "regular-town",
+      "screen": "town",
+      "size": "M",
+      "senior": false,
+      "width": 390,
+      "height": 844,
+      "background": "#f4f1e7",
+      "overflow": {
+        "documentWidth": 390,
+        "documentHeight": 844
+      },
+      "fontLoaded": true,
+      "svgFile": "svg/regular-town.svg",
+      "previewFile": "previews/regular-town.png",
+      "nodeCount": 75,
+      "editableTextCount": 35
+    },
+    {
+      "id": "regular-help",
+      "screen": "help",
+      "size": "M",
+      "senior": false,
+      "width": 390,
+      "height": 844,
+      "background": "#f4f1e7",
+      "overflow": {
+        "documentWidth": 390,
+        "documentHeight": 844
+      },
+      "fontLoaded": true,
+      "svgFile": "svg/regular-help.svg",
+      "previewFile": "previews/regular-help.png",
+      "nodeCount": 78,
+      "editableTextCount": 35
+    },
+    {
+      "id": "regular-delay",
+      "screen": "delay",
+      "size": "M",
+      "senior": false,
+      "width": 390,
+      "height": 844,
+      "background": "#f4f1e7",
+      "overflow": {
+        "documentWidth": 390,
+        "documentHeight": 844
+      },
+      "fontLoaded": true,
+      "svgFile": "svg/regular-delay.svg",
+      "previewFile": "previews/regular-delay.png",
+      "nodeCount": 64,
+      "editableTextCount": 29
+    },
+    {
+      "id": "senior-ride",
+      "screen": "ride",
+      "size": "L",
+      "senior": true,
+      "width": 390,
+      "height": 844,
+      "background": "#f4f1e7",
+      "overflow": {
+        "documentWidth": 390,
+        "documentHeight": 844
+      },
+      "fontLoaded": true,
+      "svgFile": "svg/senior-ride.svg",
+      "previewFile": "previews/senior-ride.png",
+      "nodeCount": 35,
+      "editableTextCount": 18
+    },
+    {
+      "id": "senior-scan",
+      "screen": "scan",
+      "size": "L",
+      "senior": true,
+      "width": 390,
+      "height": 844,
+      "background": "#f4f1e7",
+      "overflow": {
+        "documentWidth": 390,
+        "documentHeight": 844
+      },
+      "fontLoaded": true,
+      "svgFile": "svg/senior-scan.svg",
+      "previewFile": "previews/senior-scan.png",
+      "nodeCount": 18,
+      "editableTextCount": 9
+    },
+    {
+      "id": "senior-return",
+      "screen": "return",
+      "size": "L",
+      "senior": true,
+      "width": 390,
+      "height": 844,
+      "background": "#f4f1e7",
+      "overflow": {
+        "documentWidth": 390,
+        "documentHeight": 844
+      },
+      "fontLoaded": true,
+      "svgFile": "svg/senior-return.svg",
+      "previewFile": "previews/senior-return.png",
+      "nodeCount": 25,
+      "editableTextCount": 14
+    },
+    {
+      "id": "senior-help",
+      "screen": "help",
+      "size": "L",
+      "senior": true,
+      "width": 390,
+      "height": 844,
+      "background": "#f4f1e7",
+      "overflow": {
+        "documentWidth": 390,
+        "documentHeight": 844
+      },
+      "fontLoaded": true,
+      "svgFile": "svg/senior-help.svg",
+      "previewFile": "previews/senior-help.png",
+      "nodeCount": 26,
+      "editableTextCount": 17
+    },
+    {
+      "id": "regular-settings",
+      "screen": "ride",
+      "size": "M",
+      "senior": false,
+      "sheet": "settings",
+      "width": 390,
+      "height": 844,
+      "background": "#f4f1e7",
+      "overflow": {
+        "documentWidth": 390,
+        "documentHeight": 844
+      },
+      "fontLoaded": true,
+      "svgFile": "svg/regular-settings.svg",
+      "previewFile": "previews/regular-settings.png",
+      "nodeCount": 96,
+      "editableTextCount": 45
+    },
+    {
+      "id": "typography-small",
+      "screen": "ride",
+      "size": "S",
+      "senior": false,
+      "width": 390,
+      "height": 844,
+      "background": "#f4f1e7",
+      "overflow": {
+        "documentWidth": 390,
+        "documentHeight": 844
+      },
+      "fontLoaded": true,
+      "svgFile": "svg/typography-small.svg",
+      "previewFile": "previews/typography-small.png",
+      "nodeCount": 70,
+      "editableTextCount": 32
+    },
+    {
+      "id": "typography-large",
+      "screen": "ride",
+      "size": "L",
+      "senior": false,
+      "width": 390,
+      "height": 844,
+      "background": "#f4f1e7",
+      "overflow": {
+        "documentWidth": 390,
+        "documentHeight": 844
+      },
+      "fontLoaded": true,
+      "svgFile": "svg/typography-large.svg",
+      "previewFile": "previews/typography-large.png",
+      "nodeCount": 70,
+      "editableTextCount": 32
+    }
+  ],
+  "errors": []
+}

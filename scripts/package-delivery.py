@@ -14,8 +14,8 @@ FILES = [
     'docs/mobile-screenshots/updated-settings.png',
     'docs/mobile-screenshots/senior-390-ride.png',
 ]
-DIRECTORIES = ['public', 'src', 'tests', 'scripts']
-EXCLUDED_PARTS = {'__pycache__', '.DS_Store', 'Thumbs.db'}
+DIRECTORIES = ['public', 'src', 'tests', 'scripts', 'design']
+EXCLUDED_PARTS = {'__pycache__', '.DS_Store', 'Thumbs.db', 'vector-qa-ride.png'}
 
 
 def package(name, files, base):
@@ -46,6 +46,12 @@ manifest = {
     'source': package('baixi-yuji-source.zip', source, ROOT),
     'demo': package('baixi-yuji-demo.zip', demo, ROOT / 'dist'),
 }
+if (ROOT / 'design/manifest.json').is_file():
+    design = [file for file in (ROOT / 'design').rglob('*')
+              if file.is_file() and not EXCLUDED_PARTS.intersection(file.parts)]
+    design.extend(file for file in (ROOT / 'public/fonts').iterdir() if file.is_file())
+    design.append(ROOT / 'scripts/export-design.mjs')
+    manifest['design'] = package('baixi-yuji-design.zip', design, ROOT)
 (OUTPUT / 'delivery-manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 for item in manifest.values():
     print(f"{item['archive']}: {len(item['files'])} files, {item['bytes']} uncompressed bytes")

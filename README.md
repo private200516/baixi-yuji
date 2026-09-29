@@ -4,7 +4,9 @@
 
 手机端主页面一屏显示，保留右侧凹槽跟随导航、全局字号和独立老年人模式。桌面端为手机外观的可交互展示。
 
-[在线 DEMO](https://private200516.github.io/baixi-yuji/#/ride) · [GitHub 源码](https://github.com/private200516/baixi-yuji)
+[在线 DEMO](https://private200516.github.io/baixi-yuji/#/ride) · [GitHub 源码](https://github.com/private200516/baixi-yuji) · [下载交付包](https://github.com/private200516/baixi-yuji/releases/tag/v0.1.0)
+
+设计资料位于 [design/](design/README.md)：15 个手机画板的实际 PNG、可编辑 SVG 及文字/坐标/矢量 JSON 数据。SVG 已内嵌字体，但并非 Figma 原生 `.fig` 文件；原生 Figma 文件仍待选择目标团队后创建。
 
 ![手机界面预览](docs/mobile-screenshots/updated-route.png)
 

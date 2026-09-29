@@ -21,9 +21,10 @@
 
 - `.delivery/baixi-yuji-source.zip`：可重新安装、构建的源代码包。
 - `.delivery/baixi-yuji-demo.zip`：`dist/` 内全部静态产物。
+- `.delivery/baixi-yuji-design.zip`：15 个画板的 PNG、可编辑 SVG、结构化布局数据、字体与许可，以及复现导出的脚本。
 - `.delivery/delivery-manifest.json`：每份交付文件的相对路径、大小与 SHA-256，便于审计和核对。
 
-打包脚本不会删除或修改原始参考文件。`.delivery/` 不进入 Git，避免重复提交 ZIP；可作为 GitHub Release 附件单独上传。Figma 文件的导出与交付由设计文档另行说明，不将截图当作可编辑 Figma 源文件。
+打包脚本不会删除或修改原始参考文件。`.delivery/` 不进入 Git，避免重复提交 ZIP；ZIP 作为 [v0.1.0 Release](https://github.com/private200516/baixi-yuji/releases/tag/v0.1.0) 附件交付。源代码 ZIP 同时包含设计目录。SVG、JSON 和 PNG 不冒充 Figma 原生 `.fig` 文件；当前原生 Figma 文件待选择目标团队后创建，设计资料的可编辑范围见 `design/README.md`。
 
 ## 项目边界
 
