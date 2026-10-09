@@ -1,0 +1,19 @@
+{
+  "attribution": "© OpenStreetMap contributors",
+  "query": "[out:json][timeout:55];area(3603199272)->.county;(way[\"waterway\"~\"^(river|stream|canal)$\"](area.county);way[\"natural\"=\"water\"](area.county);relation[\"natural\"=\"water\"](area.county););out geom;",
+  "elementCount": 1362,
+  "osmBaseTimestamp": "2026-10-08T08:09:16Z",
+  "rawFile": "data/geography/raw/water.overpass.json",
+  "coordinateOrder": "longitude,latitude",
+  "sha256": "946754dd9af7c17edf5521abce69d17934413702989578a62f0e7500e084d740",
+  "attributionUrl": "https://www.openstreetmap.org/copyright",
+  "source": "OpenStreetMap contributors",
+  "endpoint": "https://overpass-api.de/api/interpreter",
+  "retrievedAt": "2026-10-08T08:12:16.8356188Z",
+  "status": "downloaded",
+  "cost": "No key, login or payment; one bounded read-only data query.",
+  "sourceFormat": "Overpass JSON",
+  "license": "ODbL-1.0",
+  "coordinateSystem": "WGS84",
+  "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/"
+}

@@ -1,0 +1,51 @@
+/* One restrained motion language; layout, navigation slots and live map coordinates stay intact. */
+:root{--motion-enter-ease:cubic-bezier(.22,1,.36,1);--motion-state-ease:cubic-bezier(.4,0,.2,1)}
+.phone .headline{animation:ui-copy-enter 400ms var(--motion-enter-ease) both}
+.phone .hero-number{animation:ui-number-enter 440ms 35ms var(--motion-enter-ease) both;filter:none}
+.phone .sculpt-frame{animation:ui-surface-enter 460ms 35ms var(--motion-enter-ease) both}
+.phone .lower-landscape{animation:ui-copy-enter 440ms 90ms var(--motion-enter-ease) both}
+.phone .station-heading h3,.phone .destination{animation:ui-copy-enter 320ms var(--motion-enter-ease) both}
+.phone .teal-content>.surface-kicker{animation:ui-opacity-enter 320ms 65ms ease both}
+.phone .stop-list>li{animation:ui-copy-enter 360ms var(--motion-enter-ease) both;animation-delay:calc(70ms + var(--row,0) * 24ms)}
+.phone .stop-list>li:nth-child(2){--row:1}.phone .stop-list>li:nth-child(3){--row:2}.phone .stop-list>li:nth-child(4){--row:3}.phone .stop-list>li:nth-child(5){--row:4}.phone .stop-list>li:nth-child(6){--row:5}
+.phone .paper-ticket{animation:ui-copy-enter 440ms 70ms var(--motion-enter-ease) both}
+.phone .ticket-qr{animation:ui-opacity-enter 280ms ease both}
+.phone .route-draw{animation-duration:950ms}
+.phone .route-moving{filter:none;animation-duration:4400ms;animation-iteration-count:1;animation-fill-mode:both}
+.phone .route-bus,.phone .live-dot,.phone .waiting-icon>i{animation:none}
+.phone .dot-landscape circle{animation-duration:650ms}
+.phone .toast{animation:ui-copy-enter 300ms var(--motion-enter-ease) both}
+
+/* The scan line travels by transform; the code itself stays perfectly still. */
+.phone .scan-beam{top:10%;height:80%;background:none;box-shadow:none;pointer-events:none;animation:ui-scan-travel 4800ms cubic-bezier(.45,0,.55,1) infinite}
+.phone .scan-beam:before{content:'';position:absolute;inset:0 0 auto;height:1px;background:#cbe2ba;box-shadow:none}
+.phone .scanner-code{transform:none}
+
+.phone button:not(.groove-item):not(.village-pin),.motion-sheet button{
+  transition:transform 180ms var(--motion-enter-ease),background-color 220ms ease,border-color 220ms ease,color 220ms ease;
+}
+.phone button:not(.groove-item):not(.village-pin):not(:disabled):active,.motion-sheet button:not(:disabled):active{transform:scale(.982);transition-duration:90ms}
+.phone .notch-action button>.glyph:last-child,.phone .return-arrow>.glyph,.phone .town-return-action>.glyph,.phone .town-route-action>.glyph{transition:transform 220ms var(--motion-enter-ease)}
+@media(hover:hover) and (pointer:fine){
+  .phone .notch-action button:hover>.glyph:last-child,.phone .return-mini:hover .return-arrow>.glyph,.phone .town-return-action:hover>.glyph,.phone .town-route-action:hover>.glyph{transform:translateX(2px)}
+  .phone .app-settings:hover,.motion-sheet .sheet-close:hover{background:#355b5a0a}
+}
+
+/* The modal remains open and keeps its focus trap until its short exit finishes. */
+.sheet-panel.motion-sheet{animation:none}
+.sheet-panel.motion-sheet::backdrop{animation:ui-opacity-enter 240ms ease both}
+.sheet-panel.motion-sheet[data-closing=true]::backdrop{animation:ui-opacity-exit 170ms ease both}
+.motion-sheet .settings-font .font-options{--font-index:1;position:relative;isolation:isolate;padding:4px;gap:4px;border:1px solid #c3ccbb;border-radius:18px;background:#e9ece1}
+.motion-sheet .settings-font .font-options:before{content:'';position:absolute;z-index:-1;top:4px;bottom:4px;left:4px;width:calc((100% - 16px)/3);border-radius:13px;background:var(--teal-dark);transform:translateX(calc(var(--font-index) * (100% + 4px)));transition:transform 300ms var(--motion-state-ease)}
+.motion-sheet .settings-font .font-options>button{border-color:transparent;background:transparent;min-width:0}
+.motion-sheet .settings-font .font-options>button[aria-pressed=true]{background:transparent;border-color:transparent;color:var(--paper)}
+
+@keyframes ui-copy-enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@keyframes ui-number-enter{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@keyframes ui-surface-enter{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+@keyframes ui-opacity-enter{from{opacity:0}to{opacity:1}}
+@keyframes ui-opacity-exit{from{opacity:1}to{opacity:0}}
+@keyframes ui-scan-travel{0%,100%{transform:translateY(0);opacity:.15}12%,88%{opacity:.65}50%{transform:translateY(100%);opacity:.65}}
+
+html[data-motion=reduced] .phone *,html[data-motion=reduced] .motion-sheet,html[data-motion=reduced] .motion-sheet *,html[data-motion=reduced] .motion-sheet:before,html[data-motion=reduced] .motion-sheet::backdrop{animation:none!important;transition:none!important}
+@media(prefers-reduced-motion:reduce){.phone *,.motion-sheet,.motion-sheet *,.motion-sheet:before,.motion-sheet::backdrop{animation:none!important;transition:none!important}}

@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-09",
+  "base": "http://127.0.0.1:5173",
+  "lastRun": {
+    "filter": "Lazy map",
+    "checks": [
+      "Lazy map styles do not change the original non-map UI",
+      "Uncaught JavaScript errors"
+    ]
+  },
+  "checks": [
+    {
+      "name": "Original shell, five-item navigation and ride preview are retained",
+      "status": "PASS"
+    },
+    {
+      "name": "Original waiting direction, route details and station selection flow",
+      "status": "PASS"
+    },
+    {
+      "name": "Original favorite, return time, saved return and removal persist",
+      "status": "PASS"
+    },
+    {
+      "name": "Original QR, ticket refresh, empty orders, help and retry flow",
+      "status": "PASS"
+    },
+    {
+      "name": "Town map true-village selection updates the original description and keeps route entry",
+      "status": "PASS"
+    },
+    {
+      "name": "Lazy map styles do not change the original non-map UI",
+      "status": "PASS"
+    },
+    {
+      "name": "Original three text sizes, settings and preference restoration",
+      "status": "PASS"
+    },
+    {
+      "name": "Original senior four-action home, station, return, QR and help flows remain",
+      "status": "PASS"
+    },
+    {
+      "name": "Original groove moves continuously and icons retain their five slots",
+      "status": "PASS"
+    },
+    {
+      "name": "390px original eight pages keep the phone bounds and action spacing",
+      "status": "PASS"
+    },
+    {
+      "name": "320px original eight pages keep the phone bounds and action spacing",
+      "status": "PASS"
+    },
+    {
+      "name": "Uncaught JavaScript errors",
+      "status": "PASS",
+      "detail": []
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>地图组件验证</title><div id="root"></div><script type="module">
+import React,{useState,useEffect} from 'react';
+import {createRoot} from 'react-dom/client';
+import {GeographyMap} from '../src/geography/GeographyMap.tsx';
+import '../src/geography/geography.css';
+import 'maplibre-gl/dist/maplibre-gl.css';
+function Harness(){
+  const [selectedId,onSelect]=useState('xujiashan'),[scope,setScope]=useState('county'),[depth,setDepth]=useState('flat'),[data,setData]=useState(null),[quiet,setQuiet]=useState(false);
+  useEffect(()=>{fetch('/geography/route-research.json').then(r=>r.json()).then(setData);},[]);
+  const segment=data?.routes.find(r=>r.id==='qingtan-longgong'),route=segment?{id:segment.id,geometry:{type:'LineString',coordinates:segment.coordinates}}:null;
+  const points=data?.suggestions.filter(p=>['qingtan','longgong'].includes(p.villageId)).map(p=>({id:p.id,name:p.villageId,coordinates:p.coordinates,status:'suggested'}))??[];
+  return React.createElement('main',{className:'geography-app',style:{padding:'12px',maxWidth:'900px'}},
+    React.createElement('div',{},...['county','route','village'].map(id=>React.createElement('button',{'data-scope':id,key:id,onClick:()=>setScope(id)},id))),
+    React.createElement('button',{'data-depth':'relief',onClick:()=>setDepth('relief')},'轻立体'),React.createElement('button',{'data-depth':'flat',onClick:()=>setDepth('flat')},'平面'),
+    React.createElement('button',{'data-quiet':true,onClick:()=>setQuiet(true)},'减弱动效'),
+    React.createElement(GeographyMap,{selectedId,onSelect,scope,depth,route,boardingPoints:points,reducedMotion:quiet,large:false,onDepthChange:setDepth}),
+    React.createElement('p',{'data-selected':selectedId},selectedId),
+    ...['xujiashan','longgong','qingtan','meizhitian','ruoao'].map(id=>React.createElement('button',{key:id,'data-select':id,onClick:()=>onSelect(id)},id)));
+}
+createRoot(document.getElementById('root')).render(React.createElement(Harness));
+</script></html>

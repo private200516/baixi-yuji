@@ -1,0 +1,29 @@
+{
+  "id": "ninghai-village-detail-2026-10-09",
+  "crs": "EPSG:4326",
+  "sourceRetrievedAt": "2026-10-09T03:49:24.8558392Z",
+  "layers": {
+    "buildings": "geography/buildings.geojson",
+    "detail-roads": "geography/detail-roads.geojson",
+    "detail-water": "geography/detail-water.geojson"
+  },
+  "counts": {
+    "buildings": 1,
+    "roads": 79,
+    "water": 9
+  },
+  "villageBuildingCounts": {
+    "xujiashan": 1,
+    "longgong": 0,
+    "qingtan": 0,
+    "meizhitian": 0,
+    "ruoao": 0
+  },
+  "buildingHeightNote": "建筑高度为示意；仅显示实际取得的 OSM 轮廓，不代表完整村落建筑。",
+  "coverageNote": "五处代表点各 1 公里范围内的 OSM 方式对象；未取得完整建筑覆盖或 DEM。无数据处保持空白。",
+  "attribution": {
+    "label": "© OpenStreetMap contributors",
+    "url": "https://www.openstreetmap.org/copyright",
+    "license": "ODbL-1.0"
+  }
+}

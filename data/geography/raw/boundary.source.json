@@ -1,0 +1,19 @@
+{
+  "retrievedAt": "2026-10-08T05:04:28.0472201Z",
+  "license": "ODbL-1.0",
+  "query": "[out:json][timeout:45];relation(3199272);out geom;",
+  "coordinateOrder": "longitude,latitude",
+  "cost": "No key, login or payment; one bounded read-only data query.",
+  "attributionUrl": "https://www.openstreetmap.org/copyright",
+  "attribution": "© OpenStreetMap contributors",
+  "sha256": "ebd4b332302048242e2efc79becfba9c58be8b2b5ccb31a6e7a122168dc7f013",
+  "osmBaseTimestamp": "2026-10-08T05:03:09Z",
+  "rawFile": "data/geography/raw/boundary.overpass.json",
+  "coordinateSystem": "WGS84",
+  "elementCount": 1,
+  "sourceFormat": "Overpass JSON",
+  "status": "downloaded",
+  "source": "OpenStreetMap contributors",
+  "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+  "endpoint": "https://overpass-api.de/api/interpreter"
+}

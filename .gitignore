@@ -18,6 +18,12 @@ docs/mobile-screenshots/*failure*.png
 design/previews/vector-qa-*.png
 figma-capture.html
 
+# Government research copies stay local; source URLs and hashes are registered.
+data/research/
+docs/geography-initial.png
+docs/geography-390.png
+docs/geography-1440.png
+
 # Credentials and machine-specific configuration must never be published.
 .env
 .env.*
@@ -26,3 +32,11 @@ figma-capture.html
 *.key
 .DS_Store
 Thumbs.db
+
+# Original task instructions and intermediate local diagnostics are not release assets.
+WORKFLOW.md
+data/geography/raw/*.last-failure.json
+docs/town-scene-first*.png
+docs/town-scene-compact.png
+docs/ui-motion-scan.png
+docs/ui-motion-settings.png

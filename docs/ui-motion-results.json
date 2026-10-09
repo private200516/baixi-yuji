@@ -1,0 +1,136 @@
+{
+  "date": "2026-10-09",
+  "base": "http://127.0.0.1:5173",
+  "isolatedBrowserProfile": true,
+  "lastRun": {
+    "filter": "All eight|large text keeps",
+    "checks": [
+      "All eight ordinary pages expose text-size controls only inside Settings",
+      "390px large text keeps all eight pages within the phone and actions unobstructed",
+      "320px large text keeps all eight pages within the phone and actions unobstructed",
+      "Uncaught JavaScript errors"
+    ]
+  },
+  "checks": [
+    {
+      "name": "All eight ordinary pages expose text-size controls only inside Settings",
+      "status": "PASS",
+      "evidence": {
+        "screens": [
+          "ride",
+          "return",
+          "scan",
+          "route",
+          "ticket",
+          "town",
+          "help",
+          "delay"
+        ]
+      }
+    },
+    {
+      "name": "Settings size choices scale content, persist and apply across map and transit pages",
+      "status": "PASS",
+      "evidence": {
+        "stationFontPixels": [
+          27,
+          30,
+          35.4
+        ]
+      }
+    },
+    {
+      "name": "390px large text keeps all eight pages within the phone and actions unobstructed",
+      "status": "PASS",
+      "evidence": {
+        "screens": [
+          "ride",
+          "return",
+          "scan",
+          "route",
+          "ticket",
+          "town",
+          "help",
+          "delay"
+        ],
+        "size": "L",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      }
+    },
+    {
+      "name": "320px large text keeps all eight pages within the phone and actions unobstructed",
+      "status": "PASS",
+      "evidence": {
+        "screens": [
+          "ride",
+          "return",
+          "scan",
+          "route",
+          "ticket",
+          "town",
+          "help",
+          "delay"
+        ],
+        "size": "L",
+        "viewport": {
+          "width": 320,
+          "height": 568
+        }
+      }
+    },
+    {
+      "name": "390px rapid navigation keeps the same groove, synchronized motion and the final route",
+      "status": "PASS",
+      "evidence": {
+        "sampledFrames": 74,
+        "distinctFollowerPositions": 56
+      }
+    },
+    {
+      "name": "320px rapid navigation keeps the same groove, synchronized motion and the final route",
+      "status": "PASS",
+      "evidence": {
+        "sampledFrames": 76,
+        "distinctFollowerPositions": 55
+      }
+    },
+    {
+      "name": "Settings exits smoothly, keeps its modal during exit and restores focus",
+      "status": "PASS",
+      "evidence": {
+        "exitFrames": 12,
+        "lastVisibleAt": 183.50000000037244
+      }
+    },
+    {
+      "name": "system reduced motion disables CSS and dialog exit animation while preserving controls",
+      "status": "PASS",
+      "evidence": {
+        "sheet": "none",
+        "headline": "none",
+        "groove": "0s"
+      }
+    },
+    {
+      "name": "preference reduced motion disables CSS and dialog exit animation while preserving controls",
+      "status": "PASS",
+      "evidence": {
+        "sheet": "none",
+        "headline": "none",
+        "groove": "0s"
+      }
+    },
+    {
+      "name": "Senior mode keeps its original four actions and text controls only in Settings",
+      "status": "PASS"
+    },
+    {
+      "name": "Uncaught JavaScript errors",
+      "status": "PASS",
+      "detail": []
+    }
+  ]
+}

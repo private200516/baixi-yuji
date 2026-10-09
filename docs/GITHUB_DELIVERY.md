@@ -1,33 +1,40 @@
-# 源码与 DEMO 交付
+# 乡序 2.0 · GitHub交付
 
-源码包括 React / TypeScript 界面、CSS 动效、SVG 图形、已生成的本地网页字体及字体许可、锁定依赖、浏览器检查和可选 GitHub Pages 工作流模板。原始参考图片、重复导出、43 MB 原始 TTF、开发任务文本、本机缓存和凭据不进入仓库；本地文件保留。
+源码位于 `main` 分支，静态Demo位于 `gh-pages` 分支，通过GitHub Pages的分支模式发布。版本标签为 `v2.0.0`，旧版 `v0.1.0` 保留。
 
-## 构建与发布
+- [在线Demo](https://private200516.github.io/baixi-yuji/#/ride)
+- [古镇地图](https://private200516.github.io/baixi-yuji/#/town)
+- [2.0 Release](https://github.com/private200516/baixi-yuji/releases/tag/v2.0.0)
+- [更新说明](releases/v2.0.0.md)
 
-1. 使用 Node.js 24、pnpm 11.25.0，执行 `pnpm install --frozen-lockfile`。
-2. 执行 `pnpm test` 和 `pnpm build`。`dist/` 是独立静态 DEMO。
-3. 源码提交到 `main` 分支，`dist/` 内全部文件提交到独立 `gh-pages` 分支的根目录。
-4. GitHub 仓库 Settings → Pages 选择 Deploy from a branch、`gh-pages`、`/(root)`。
+## 源码与构建
 
-在线地址：[白溪舆记 DEMO](https://private200516.github.io/baixi-yuji/#/ride)。源码更新与 DEMO 更新分别提交；当前不宣称推送源码会自动更新演示站点。
+源码包含当前React/TypeScript界面、真实地图样本与来源记录、字体子集与OFL许可、动效、适老模式、依赖锁文件和验证脚本。原始任务书、政府资料本地副本、用户参考截图、原始TTF、开发缓存及凭据不进入发布包。
 
-现有凭据没有 `workflow` 权限，因此交付通过分支发布，不阻塞上线。`docs/github-pages-workflow.yml` 保留为可选自动化模板；有相应权限后，将它移到 `.github/workflows/pages.yml`，并把 Pages 来源改为 GitHub Actions 即可启用。模板使用锁文件和项目指定 pnpm 版本，只有部署步骤请求 Pages 与 OIDC 权限。
+使用Node.js 24和pnpm 11.25.0：
 
-`vite.config.ts` 采用相对路径 `./`，应用使用 `#/ride` 等 hash 路由，字体、二维码和资源可从 GitHub Pages 项目子路径读取。不要双击 `dist/index.html` 通过 `file://` 打开；使用 `pnpm preview` 或任意静态 HTTP 服务器。
+```sh
+pnpm install --frozen-lockfile
+pnpm test
+pnpm build
+```
 
-## 离线交付包
+运行开发服务器后可执行 `pnpm test:ui-motion`，生产子路径检查为 `node tests/ui-motion-production.mjs`。当前浏览器检查默认使用已安装的Edge，可用 `PLAYWRIGHT_CHANNEL` 指定浏览器通道。
 
-构建成功后运行 `python scripts/package-delivery.py`。脚本只复制明确列出的源码、文档和截图，生成：
+`dist/`是完整静态Demo，采用hash路由与相对资源路径。通过HTTP服务器或 `pnpm preview` 访问，不直接双击HTML。`version.json`标明当前发布版本。
 
-- `.delivery/baixi-yuji-source.zip`：可重新安装、构建的源代码包。
-- `.delivery/baixi-yuji-demo.zip`：`dist/` 内全部静态产物。
-- `.delivery/baixi-yuji-design.zip`：15 个画板的 PNG、可编辑 SVG、结构化布局数据、字体与许可、可直接导入的 Figma 插件及构建脚本/组件区域数据。成品插件直接从 manifest 导入，无需重建；开发重建请使用完整源码包安装依赖。
-- `.delivery/delivery-manifest.json`：每份交付文件的相对路径、大小与 SHA-256，便于审计和核对。
+## 版本包
 
-打包脚本不会删除或修改原始参考文件。`.delivery/` 不进入 Git，避免重复提交 ZIP；ZIP 作为 [v0.1.0 Release](https://github.com/private200516/baixi-yuji/releases/tag/v0.1.0) 附件交付。源代码 ZIP 同时包含设计目录。[Figma 原生文件](https://www.figma.com/design/y38iW9jOO77h0eReS4g1aD) 已创建，候车页完成且通过截图核对，老年人首页结构完成但尚未视觉复核，返程页仅完成部分；受自动化调用额度限制尚未全部写入。当前没有导出的本地 `.fig`；SVG、JSON、PNG 均不冒充该格式。具体状态见 `design/figma-status.json`，可编辑范围见 `design/README.md`。
+提交审阅后的源码并完成构建后，执行 `python scripts/package-release.py`，生成：
 
-## 项目边界
+- `.delivery/v2.0.0/xiangxu-v2.0.0-source.zip`：精确归档当前Git提交。
+- `.delivery/v2.0.0/xiangxu-v2.0.0-demo.zip`：构建产物。
+- `.delivery/v2.0.0/SHA256SUMS.txt`：两个包的校验值。
 
-在线 DEMO 与本地版本功能一致。公交信息、路线和二维码为演示；语音依赖设备本地中文语音；偏好设置保存在浏览器本地。没有生产公交接口、支付、真实客服或票据核验，也没有通过真机或完整 WCAG 认证。
+交付包作为Release附件上传，不重复提交ZIP到源码仓库。发布源码不会自动更新Demo；需要单独将验证过的构建产物提交至 `gh-pages` 根目录，保留 `.nojekyll`，并等待Pages部署完成。
 
-发布配置参考：[Vite 静态部署](https://vite.dev/guide/static-deploy.html)、[pnpm 持续集成](https://pnpm.io/continuous-integration)。
+## 设计资料与边界
+
+`design/`及 `scripts/package-delivery.py` 属于旧版设计交付。本次2.0没有同步更新Figma或导出新的 `.fig` 文件，不把旧设计资料标为2.0源稿。
+
+地图使用已登记的OpenStreetMap样本并保留ODbL署名，原始样本保留下载字节以核对SHA-256。村落代表点并非正式车站；公交班次、车票和二维码仍是设计演示。没有接入实时公交、定位、支付或票据核验。

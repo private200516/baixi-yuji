@@ -1,0 +1,38 @@
+/* Map-only skin for the original TransitApp. No page, navigation or modal rules. */
+.town-map.legacy-town-map{--legacy-map-paper:#f4f1e7;--legacy-map-ink:#355b5a;--body-size:calc(14px * var(--type-scale,1));display:flex;flex-direction:column;gap:5px;min-width:0;min-height:0;aspect-ratio:auto;font-family:'Baixi Sans',sans-serif;font-size:calc(12px * var(--type-scale,1));isolation:isolate}
+.legacy-town-map .legacy-map-controls{position:absolute;top:7px;left:5px;right:46px;z-index:7;display:flex;justify-content:space-between;gap:4px;min-width:0;font-size:calc(11px * var(--type-scale,1))}
+.legacy-town-map .legacy-map-controls>div{display:flex;gap:2px;padding:2px;border:1px solid #c8d3c5;border-radius:16px;min-width:0;flex:1}
+.legacy-town-map .legacy-map-controls button{border:0;min-height:calc(24px * var(--type-scale,1));min-width:0;flex:1;padding:3px;border-radius:12px;background:var(--legacy-map-paper);color:var(--legacy-map-ink);font:inherit;line-height:1.3;white-space:nowrap}
+.legacy-town-map .legacy-map-controls button[aria-pressed=true]{background:#355b5a;color:var(--legacy-map-paper)}
+.legacy-town-map .map-card{position:relative;flex:1;min-height:0;width:100%;overflow:hidden;border:1px solid #a6b2a1;border-radius:19px;background:#dedccf;color:var(--legacy-map-ink);isolation:isolate;box-shadow:none}
+.legacy-town-map .map-card .map-canvas{position:absolute;inset:0}
+.legacy-town-map .map-heading{display:none}
+.legacy-town-map .map-heading span{padding:3px 5px;background:#f4f1e7ed;border-radius:8px}
+.legacy-town-map .map-heading span:last-child{display:none}
+.legacy-town-map .map-tools{position:absolute;top:7px;right:7px;display:grid;z-index:5}
+.legacy-town-map .map-tools button{width:auto;min-width:34px;min-height:32px;border:1px solid #8a9a8b;border-radius:12px;padding:4px 6px;background:var(--legacy-map-paper);color:var(--legacy-map-ink);font-size:calc(10px * var(--type-scale,1));line-height:1.35;white-space:normal}
+.legacy-town-map .map-tools button:not(:last-child){display:none}
+.legacy-town-map .map-status,.legacy-town-map .map-card.map-compact .map-status{position:absolute;bottom:calc(var(--map-attribution-height,32px) + 5px);left:7px;max-width:calc(100% - 14px);padding:3px 5px;border-radius:8px;background:#f4f1e7ed;color:var(--legacy-map-ink);font-size:calc(9px * var(--type-scale,1));line-height:1.4;pointer-events:none;z-index:3}
+.legacy-town-map .map-card[data-map-scope=county] .map-status{display:none}
+.legacy-town-map .map-attribution{position:absolute;bottom:0;left:0;right:0;z-index:5;display:flex;flex-wrap:wrap;gap:1px 7px;justify-content:space-between;padding:4px 7px;background:var(--legacy-map-paper);color:var(--legacy-map-ink);font-size:calc(8px * var(--type-scale,1));line-height:1.35;overflow-wrap:anywhere}
+.legacy-town-map .map-attribution a{font:inherit;color:inherit;text-decoration:underline;text-underline-offset:2px}
+.legacy-town-map .map-attribution span{font:inherit}
+.legacy-town-map .village-pin{position:absolute;width:44px;height:44px;min-width:44px;min-height:44px;padding:0;border:0;border-radius:0;background:none!important;color:var(--legacy-map-ink);font-family:'Baixi Sans',sans-serif;font-size:calc(12px * var(--type-scale,1));line-height:1.4;z-index:2}
+.legacy-town-map .village-pin .pin-dot{position:absolute;left:16px;top:16px;width:12px;height:12px;box-sizing:border-box;background:#355b5a;border:2px solid var(--legacy-map-paper);border-radius:50%;box-shadow:0 0 0 1px #355b5a}
+.legacy-town-map .village-pin .pin-name{position:absolute;left:50%;top:38px;transform:translateX(-50%);padding:2px 4px;border:1px solid #9daa99;border-radius:7px;background:var(--legacy-map-paper);color:var(--legacy-map-ink);font:inherit;line-height:1.35;white-space:nowrap}
+.legacy-town-map .village-pin[aria-pressed=true]{z-index:4}
+.legacy-town-map .village-pin[aria-pressed=true] .pin-dot{background:#9a6a49;box-shadow:0 0 0 2px #9a6a49}
+.legacy-town-map .village-pin[aria-pressed=true] .pin-name{background:#355b5a;border-color:#355b5a;color:var(--legacy-map-paper)}
+.legacy-town-map .map-message{position:absolute;inset:7px 7px calc(var(--map-attribution-height,32px) + 5px);z-index:6;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;padding:7px;border-radius:14px;background:var(--legacy-map-paper);text-align:center;color:var(--legacy-map-ink);overflow:auto;font-size:calc(11px * var(--type-scale,1));line-height:1.45}
+.legacy-town-map .map-message strong,.legacy-town-map .map-message p{margin:0;font-size:inherit;line-height:inherit}
+.legacy-town-map .map-message button{min-height:32px;padding:5px 8px;border:1px solid #8a9a8b;border-radius:12px;color:var(--legacy-map-ink);background:#e2e8da;font:inherit;line-height:1.4;flex-shrink:0}
+.legacy-town-map .legacy-map-villages{display:flex;align-items:center;justify-content:space-between;gap:8px;flex:none;padding:1px 4px;color:var(--legacy-map-paper);font-size:calc(10px * var(--type-scale,1));line-height:1.4}
+.legacy-town-map .legacy-map-villages>span{white-space:nowrap}
+.legacy-town-map .legacy-map-villages select{font:inherit;line-height:1.4;min-height:28px;max-width:calc(100% - 58px);min-width:0;border:1px solid #d0d9c9;border-radius:12px;padding:3px 20px 3px 8px;color:var(--legacy-map-paper);background:#436b66}
+.legacy-town-map .legacy-map-villages option{color:var(--legacy-map-ink);background:var(--legacy-map-paper)}
+.legacy-town-map button:focus-visible,.legacy-town-map select:focus-visible,.legacy-town-map a:focus-visible{outline:2px solid #e6bd83;outline-offset:2px}
+.legacy-town-map .map-card .maplibregl-canvas:focus-visible{outline:2px solid #9a6a49;outline-offset:-3px}
+.legacy-town-map .map-card .legacy-map-controls{position:absolute;top:7px;left:5px;right:46px;display:flex;gap:4px;z-index:7}
+.legacy-town-map .map-card .legacy-map-controls button,.legacy-town-map .map-card .legacy-map-controls button:not(:last-child){display:block;min-width:0;min-height:calc(24px * var(--type-scale,1));padding:3px;border:0;border-radius:12px;font:inherit;line-height:1.3;white-space:nowrap;background:var(--legacy-map-paper);color:var(--legacy-map-ink)}
+.legacy-town-map .map-card .legacy-map-controls button[aria-pressed=true]{background:#355b5a;color:var(--legacy-map-paper)}
+@media(prefers-reduced-motion:reduce){.legacy-town-map *{transition:none!important;animation:none!important}}

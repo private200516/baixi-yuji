@@ -1,0 +1,267 @@
+{
+  "date": "2026-10-09",
+  "base": "http://127.0.0.1:5173",
+  "isolatedBrowserProfile": true,
+  "lastRun": {
+    "filter": "without WebGL",
+    "checks": [
+      "390px without WebGL the retry, village selector and original route action remain usable",
+      "320px without WebGL the retry, village selector and original route action remain usable",
+      "Uncaught JavaScript errors"
+    ]
+  },
+  "checks": [
+    {
+      "name": "Village changes animate the real projected map and keep the same canvas",
+      "status": "PASS",
+      "evidence": {
+        "distinctProjectedPositions": 34,
+        "sampledFrames": 55,
+        "finalCenter": [
+          121.28818860000001,
+          29.431560099999984
+        ]
+      }
+    },
+    {
+      "name": "Rapid village selections finish at the last village without replacing map canvas",
+      "status": "PASS"
+    },
+    {
+      "name": "Village picker, original route callback and return callback remain connected",
+      "status": "PASS"
+    },
+    {
+      "name": "390px M scene fills the viewport and floating controls remain accessible",
+      "status": "PASS",
+      "evidence": {
+        "problems": [],
+        "scene": {
+          "x": 0,
+          "y": 48,
+          "width": 390,
+          "height": 796
+        },
+        "map": {
+          "x": 0,
+          "y": 48,
+          "width": 390,
+          "height": 796
+        },
+        "canvas": {
+          "x": 0,
+          "y": 48,
+          "width": 390,
+          "height": 796
+        },
+        "mapBorderRadius": "0px"
+      }
+    },
+    {
+      "name": "390px L scene fills the viewport and floating controls remain accessible",
+      "status": "PASS",
+      "evidence": {
+        "problems": [],
+        "scene": {
+          "x": 0,
+          "y": 48,
+          "width": 390,
+          "height": 796
+        },
+        "map": {
+          "x": 0,
+          "y": 48,
+          "width": 390,
+          "height": 796
+        },
+        "canvas": {
+          "x": 0,
+          "y": 48,
+          "width": 390,
+          "height": 796
+        },
+        "mapBorderRadius": "0px"
+      }
+    },
+    {
+      "name": "320px M scene fills the viewport and floating controls remain accessible",
+      "status": "PASS",
+      "evidence": {
+        "problems": [],
+        "scene": {
+          "x": 0,
+          "y": 35,
+          "width": 320,
+          "height": 533
+        },
+        "map": {
+          "x": 0,
+          "y": 35,
+          "width": 320,
+          "height": 533
+        },
+        "canvas": {
+          "x": 0,
+          "y": 35,
+          "width": 320,
+          "height": 533
+        },
+        "mapBorderRadius": "0px"
+      }
+    },
+    {
+      "name": "320px L scene fills the viewport and floating controls remain accessible",
+      "status": "PASS",
+      "evidence": {
+        "problems": [],
+        "scene": {
+          "x": 0,
+          "y": 35,
+          "width": 320,
+          "height": 533
+        },
+        "map": {
+          "x": 0,
+          "y": 35,
+          "width": 320,
+          "height": 533
+        },
+        "canvas": {
+          "x": 0,
+          "y": 35,
+          "width": 320,
+          "height": 533
+        },
+        "mapBorderRadius": "0px"
+      }
+    },
+    {
+      "name": "System and in-app reduced motion each suppress automatic scene motion",
+      "status": "PASS",
+      "evidence": [
+        {
+          "mode": "system",
+          "finalCenter": "121.47794950000002,29.184526000000005"
+        },
+        {
+          "mode": "preference",
+          "finalCenter": "121.47794950000002,29.184526000000005"
+        }
+      ]
+    },
+    {
+      "name": "Non-map pages retain original layout styles after loading the scene",
+      "status": "PASS"
+    },
+    {
+      "name": "Original station, return card, ticket, help and retry operations remain intact",
+      "status": "PASS"
+    },
+    {
+      "name": "Original senior home retains four simple actions and never adds a map task",
+      "status": "PASS"
+    },
+    {
+      "name": "Uncaught JavaScript errors",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "390px groove follows continuously into and out of town while all five slots stay fixed",
+      "status": "PASS",
+      "evidence": [
+        {
+          "label": "古镇",
+          "distinctFollowerPositions": 28,
+          "sampledFrames": 40,
+          "fixedSlotLayouts": 1,
+          "largestFollowerStep": 19.857887660336814
+        },
+        {
+          "label": "候车",
+          "distinctFollowerPositions": 32,
+          "sampledFrames": 48,
+          "fixedSlotLayouts": 1,
+          "largestFollowerStep": 20.04548024305126
+        }
+      ]
+    },
+    {
+      "name": "320px groove follows continuously into and out of town while all five slots stay fixed",
+      "status": "PASS",
+      "evidence": [
+        {
+          "label": "古镇",
+          "distinctFollowerPositions": 30,
+          "sampledFrames": 43,
+          "fixedSlotLayouts": 2,
+          "largestFollowerStep": 13.346102998828357
+        },
+        {
+          "label": "候车",
+          "distinctFollowerPositions": 31,
+          "sampledFrames": 48,
+          "fixedSlotLayouts": 2,
+          "largestFollowerStep": 13.51509418733005
+        }
+      ]
+    },
+    {
+      "name": "Small, medium and large text scale scene information and persist across old pages",
+      "status": "PASS",
+      "evidence": [
+        {
+          ".town-title-card h2": 36,
+          ".town-route-identity strong": 22.5,
+          ".town-village-copy h3": 22.5,
+          ".town-route-action": 10.8,
+          ".town-village-picker": 13.5,
+          ".town-select-wrap select": 15.3,
+          ".town-return-action strong": 24.3,
+          ".village-pin .pin-name": 10.8,
+          ".groove-symbol > span": 7.2
+        },
+        {
+          ".town-title-card h2": 40,
+          ".town-route-identity strong": 25,
+          ".town-village-copy h3": 25,
+          ".town-route-action": 12,
+          ".town-village-picker": 15,
+          ".town-select-wrap select": 17,
+          ".town-return-action strong": 27,
+          ".village-pin .pin-name": 12,
+          ".groove-symbol > span": 8
+        },
+        {
+          ".town-title-card h2": 47.2,
+          ".town-route-identity strong": 29.5,
+          ".town-village-copy h3": 29.5,
+          ".town-route-action": 14.16,
+          ".town-village-picker": 17.7,
+          ".town-select-wrap select": 20.06,
+          ".town-return-action strong": 31.86,
+          ".village-pin .pin-name": 14.16,
+          ".groove-symbol > span": 9.44
+        }
+      ]
+    },
+    {
+      "name": "390px without WebGL the retry, village selector and original route action remain usable",
+      "status": "PASS",
+      "evidence": {
+        "width": 390,
+        "size": "M",
+        "retryCenterReachable": true
+      }
+    },
+    {
+      "name": "320px without WebGL the retry, village selector and original route action remain usable",
+      "status": "PASS",
+      "evidence": {
+        "width": 320,
+        "size": "L",
+        "retryCenterReachable": true
+      }
+    }
+  ]
+}

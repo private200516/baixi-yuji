@@ -1,0 +1,38 @@
+{
+  "id": "ninghai-village-detail-2026-10-09",
+  "crs": "EPSG:4326",
+  "sourceRetrievedAt": "2026-10-09T03:49:24.8558392Z",
+  "layers": {
+    "buildings": "geography/buildings.geojson",
+    "detail-roads": "geography/detail-roads.geojson",
+    "detail-water": "geography/detail-water.geojson"
+  },
+  "counts": {
+    "buildings": 1,
+    "roads": 79,
+    "water": 9
+  },
+  "villageBuildingCounts": {
+    "xujiashan": 1,
+    "longgong": 0,
+    "qingtan": 0,
+    "meizhitian": 0,
+    "ruoao": 0
+  },
+  "buildingHeightNote": "建筑高度为示意；仅显示实际取得的 OSM 轮廓，不代表完整村落建筑。",
+  "coverageNote": "五处代表点各 1 公里范围内的 OSM 方式对象；未取得完整建筑覆盖或 DEM。无数据处保持空白。",
+  "attribution": {
+    "label": "© OpenStreetMap contributors",
+    "url": "https://www.openstreetmap.org/copyright",
+    "license": "ODbL-1.0"
+  },
+  "checksums": {
+    "public/geography/buildings.geojson": "675aa043db6eb70e49026032f8f6fa2fd661d54d56eab95ecd3e3077f0c25fc8",
+    "public/geography/detail-roads.geojson": "28499c9a7c65280c2d8b4e6c79c8e1946fe64c7c62802f9eb717b1649c5587b3",
+    "public/geography/detail-water.geojson": "d2a9905739c8c98e8da1a1eefb214bd0503efd3f97f632d9c19ad849c3fef9df"
+  },
+  "skipped": [],
+  "coordinateConversion": "None; original WGS84 geometry vertices retained in longitude,latitude order.",
+  "boundaryRule": "1 km around each village point is query scope, not an official village boundary.",
+  "buildingValidation": "Only closed ways with at least 4 valid coordinate pairs accepted; no invented footprints or inferred missing geometry."
+}

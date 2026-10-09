@@ -1,88 +1,72 @@
-# 白溪舆记 · 手机公共交通 APP
+# 乡序 2.0 · 手机公共交通 APP 原型
 
-基于 `export.zip` 效果图制作的 React + TypeScript 交互原型。米白、灰青、陶赭曲面；右侧竖向导航；手机主页面一屏完整展示，无底部导航、无需下拉。
+[在线 Demo](https://private200516.github.io/baixi-yuji/#/ride) · [古镇地图](https://private200516.github.io/baixi-yuji/#/town) · [2.0 下载与更新说明](https://github.com/private200516/baixi-yuji/releases/tag/v2.0.0)
 
-手机端主页面一屏显示，保留右侧凹槽跟随导航、全局字号和独立老年人模式。桌面端为手机外观的可交互展示。
+按用户最新参考图，**古镇页改为地图铺底、悬浮信息卡、选村胶囊与返程入口**；配合统一的页面退场、分层入场和控件反馈。小/中/大字号统一收进“设置 → 文字大小”。原页面布局和操作逻辑保持原样。当前入口为 `src/mobile/TransitApp.tsx`，产品名为“乡序”。
 
-[在线 DEMO](https://private200516.github.io/baixi-yuji/#/ride) · [Figma 设计源稿](https://www.figma.com/design/y38iW9jOO77h0eReS4g1aD) · [下载交付包](https://github.com/private200516/baixi-yuji/releases/tag/v0.1.0)
+## 当前界面
 
-设计资料位于 [design/](design/README.md)：完整 15 个手机画板的实际 PNG、可编辑 SVG 及文字/坐标/矢量 JSON 数据。Figma 文件已创建，候车页已完成并通过截图核对，老年人首页结构已完成但尚未视觉复核，返程页仅完成部分；自动化写入受到调用额度限制，尚未完成全部 15 屏。**当前没有可下载的 `.fig` 文件，SVG/JSON 不冒充原生 `.fig`。** 具体范围见设计交付说明。
+- 原五项右侧凹槽导航：候车、返程、乘车码、古镇、帮助。
+- 原八个页面：`ride`、`return`、`scan`、`route`、`ticket`、`town`、`help`、`delay`。
+- 原候车方向、附近站点搜索、收藏、返程时段与返程卡、演示二维码与车票、帮助与异常重试操作不变。
+- 小/中/大字号仅在设置中选择，仍影响所有页面并保存在本机；独立老年人模式与本地偏好保留。
+- 原 `transit.css`、`single-screen.css`、`groove-navigation.css`、`accessibility.css` 没有修改。乡序与新增村名使用原同款字体的补充字形；通过Unicode范围限制，只补旧字体子集缺少的123个字符，不替换原有字形。
 
-另外提供 [Figma 本地导入插件](design/figma-plugin/README.md)：成品可直接从 manifest 导入，不需要运行源码或重建；运行后用于生成完整 15 屏和组件。插件已做代码与模拟结构检查，尚未在已登录的 Figma 桌面客户端实机运行。
+候车页 `RouteRiver` 仍是点击进入线路详情的示意图，不把演示站点绑定到真实地理坐标。
 
-![手机界面预览](docs/mobile-screenshots/updated-route.png)
+## 古镇地图场景
+
+`src/mobile/TownScene.tsx` 是古镇页的独立场景：全幅暖米白真实地图，顶部导览卡与线路标识，右侧原五项凹槽导航，底部村落信息、文字选村和陶土色返程入口。地图继续使用本地 WGS84 道路、水系与五个已登记村落代表点；不会为接近参考图而虚构河流、道路或站点。
+
+选村复用同一个地图实例，以720ms平滑移动到新村落；测量悬浮控件尺寸，使点位保持在上方标题和底部卡片之间。卡片分层淡入、内容轻移，原凹槽与圆座480ms同步移动，图标保留固定排列位置。尊重系统减少动态效果、应用设置及老年模式。
+
+“查看公交线路”仍进入原线路详情，返程入口仍进入原返程页。选择古村保留在应用状态内。MapLibre/WebGL失败时仍能用文字列表选择村落；底图保留OpenStreetMap署名和ODbL许可。
+
+场景样式只作用于古镇页面，不加载历史 `geography.css` 或 `mobile-product.css`。历史卡片地图封装 `GeographicTownMap.tsx` 保留，但当前古镇页使用场景布局。当前视图为平面真实地图，没有虚构建筑或地形。
+
+原公交业务页面依旧是明确标注的概念演示，站点、时间、车票与二维码不是已核实的运营服务。此前道路研究数据和广泛重排的 `src/geography/MobileApp.tsx` 保留为阶段记录，**不再作为当前APP入口**。
+
+## 统一动效与设置
+
+页面字号按钮已移除，设置中的三档字号控件用连续滑动的选中底座反馈选择。帮助文案同步指向设置入口。
+
+`useScreenMotion.ts` 保持右侧导航即时响应，旧内容120ms轻移淡出后，新内容分层进入；连续点击只进入最终选择的页面。`SheetPanel.tsx` 保持弹层模态与焦点到170ms退出结束，避免关闭时突然消失。按压反馈、数字更新、票根入场、线路描绘和扫描线都在 `ui-motion.css` 统一；不增加动画库。减少装饰性循环、数值模糊和发光，扫描码本身保持静止。
+
+系统减弱动效、应用“减少动态效果”及老年模式同时抑制CSS和JavaScript过渡。新验收见 [UI动效检查](docs/ui-motion-validation.md)。
 
 ## 运行
 
-需要 Node.js 24 与 pnpm 11.25.0。Windows PowerShell 若限制脚本执行，可将下面的 `pnpm` 写成 `pnpm.cmd`。
+Node.js 24、pnpm 11.25.0；不需要API Key或付费接口。
 
 ```sh
-npm install --global pnpm@11.25.0
 pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-打开 http://127.0.0.1:5173/#/ride 。普通启动不需要 API Key、后端或原始字体文件。
-
-## 检查与构建
+Windows可使用 `pnpm.cmd`。开发预览：http://127.0.0.1:5173/#/ride ，地图位于 http://127.0.0.1:5173/#/town 。
 
 ```sh
 pnpm typecheck
 pnpm test
+pnpm test:ui-motion
 pnpm build
 pnpm preview
 ```
 
-生产预览地址为 http://127.0.0.1:4173/#/ride ，构建产物在 `dist/`。
+浏览器回归需先运行开发服务器，默认使用本机Edge，可用 `PLAYWRIGHT_CHANNEL`、`PREVIEW_URL` 指定通道与地址。生产预览为 http://127.0.0.1:4173/ 。
 
-浏览器检查前，在另一个终端运行 `pnpm dev`，然后：
+本轮浏览器结果与截图使用 `docs/ui-motion-*`，生产子路径检查为 `node tests/ui-motion-production.mjs`。`town-scene-*`保留上一轮古镇布局验收记录，其字号入口断言属于当时设计。旧 `map-only-*`、`round2-*`、地理重排测试及截图是历史记录，不代表当前场景的验收。
 
-```sh
-pnpm exec playwright install chromium
-pnpm test:browser
-pnpm test:visual
-pnpm test:groove
-pnpm test:accessibility
-pnpm test:production
-```
+## 数据及交付
 
-Linux 首次安装可使用 `pnpm exec playwright install --with-deps chromium`。可选环境变量：`PREVIEW_URL` 指向其他测试地址；`PLAYWRIGHT_CHANNEL=chrome` 使用已安装的 Google Chrome；`PLAYWRIGHT_MODULE` 指向已有 Playwright 模块。默认使用项目锁定的 Playwright 及其 Chromium，不依赖特定电脑路径。`pnpm test` 保留旧阶段独立数据模块的回归检查。
+地图运行只请求本地资源，不调用公共瓦片、Overpass或设备定位。来源、许可、数据时刻、查询及哈希见：
 
-## GitHub 与 DEMO
+- [数据来源](docs/data-sources.md)
+- [村落核验](docs/village-verification.md)
+- [地图局部数据](docs/map-depth-data.md)
+- [本轮范围与验收](docs/town-scene-validation.md)
+- [以前的GitHub与Figma交付记录](docs/previous-release-readme.md)
 
-源码位于 `main` 分支，已构建的静态 DEMO 位于 `gh-pages` 分支。GitHub Pages 使用 **Deploy from a branch → gh-pages → /(root)** 发布。站点地址为 https://private200516.github.io/baixi-yuji/ 。修改源码后，需要重新构建并更新 `gh-pages` 才会改变线上页面。
+2.0源码位于 `main`，静态Demo通过 `gh-pages` 发布，完整变更见 [v2.0.0](docs/releases/v2.0.0.md)。旧版 `v0.1.0` 保留；`design/` 为旧版设计交付资料，本次没有更新线上Figma。
 
-仓库附带 `docs/github-pages-workflow.yml` 自动部署模板。它尚未启用：当前上传凭据允许推送源码，但不允许创建 GitHub Actions 工作流。若后续需要自动部署，可通过有工作流权限的账号将模板保存为 `.github/workflows/pages.yml`，再把 Pages 来源改为 **GitHub Actions**。
-
-页面采用 hash 路由与相对资源路径，适合 GitHub Pages 项目子目录。部署检查及打包说明见 [GitHub 交付说明](docs/GITHUB_DELIVERY.md)。
-
-## 已实现
-
-- 候车、返程、乘车码、线路详情、电子样票、古镇导览、帮助、异常状态八个页面。
-- 右侧五项凹槽跟随导航；小/中/大全局字号（90% / 100% / 118%），涵盖所有页面和弹层；站点搜索和方向切换。
-- 设置中的老年人模式：独立的简明首页、四个大按钮、明确的返回首页、当前页面语音朗读；默认大字号并减少动效，退出恢复原字号。
-- 本机收藏、返程卡保存/移除、示例票面刷新、帮助弹层。
-- 曲面入场、线路绘入与移动光点、同步移动的侧栏凹槽和圆形底座、扫描光带、点阵、票面和弹层动效。
-- 系统/应用「减少动态效果」、弹层键盘关闭和焦点归还。
-- 本地字体：Noto Sans SC + 霞鹜文楷，WOFF2 子集约 212 KB。原包无字体，采用视觉接近的替代。
-
-96 组普通手机页面/字号/尺寸、48 组老年人页面检查通过；覆盖 320×568、360×740、390×844、430×932。另有 192 组凹槽与排版检查，包括内嵌浏览器和桌面预览。适老检查涵盖全局文字逐档增大、模式记忆、返程保存、一键返回与按钮触控尺寸（手机至少 44×44 CSS px）。当前验证为 Chrome 模拟视口，非真机认证。
-
-## 文件
-
-- `src/mobile/TransitApp.tsx`：当前界面与状态。
-- `src/mobile/TransitArt.tsx`：矢量标志、站线、点阵、导览地图。
-- `src/mobile/transit.css`：视觉和动效。
-- `src/mobile/single-screen.css`：右侧导航和随高度变化的一屏布局。
-- `src/mobile/GrooveNavigation.tsx`、`groove-navigation.css`：连续 U 形凹槽、同步圆形底座与内容区高度适配。
-- `src/mobile/FontSizeControl.tsx`、`accessibility.css`：统一字号、设置与按钮/返程卡适配。
-- `src/mobile/SeniorExperience.tsx`：独立的老年人模式。
-- `public/fonts/`：本地字体与许可；`public/art/`：无效演示 QR。
-- `docs/MOBILE_DESIGN.md`：设计说明、数据边界、字体来源和验证范围。
-- `docs/mobile-browser-results.json`、`docs/mobile-layout-check.json`：运行相应检查脚本后在本地生成的测试记录。
-- `docs/mobile-screenshots/`：实际运行截图。
-- `dist/`：生产构建。
-
-这是交互设计原型，站点、时刻、地图和二维码为演示；未接入实时公交、定位、支付、客服、车票核验或通知。设置仅保存在当前浏览器，不会上传个人数据。字体遵循 `public/fonts/` 中各自的 OFL 许可；本项目未额外授予代码或视觉设计的开源许可。
-
-原始效果图、原始 TTF、开发任务记录和本机工具不随源码仓库发布。网页所需字体子集和演示素材已经包含；需要重新生成字体时见设计说明。
+![古镇地图场景](docs/ui-motion-screenshots/390-town-L.png)

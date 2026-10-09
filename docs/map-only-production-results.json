@@ -1,0 +1,18 @@
+{
+  "checkedAt": "2026-10-09T05:34:04.850Z",
+  "status": "PASS",
+  "screens": [
+    "ride",
+    "return",
+    "scan",
+    "route",
+    "ticket",
+    "town",
+    "help",
+    "delay"
+  ],
+  "subpath": "/pages-project/",
+  "mapPoints": 5,
+  "selection": "longgong",
+  "errors": []
+}

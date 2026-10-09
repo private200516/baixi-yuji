@@ -1,0 +1,47 @@
+{
+  "license": "ODbL-1.0",
+  "coordinateOrder": "longitude,latitude",
+  "attributionUrl": "https://www.openstreetmap.org/copyright",
+  "source": "OpenStreetMap contributors",
+  "elementCount": 89,
+  "sha256": "5d0786d519a6b94ce050d335a99dfb9cebf12cfdafb8fcd9157b40d6cf149419",
+  "rawFile": "data/geography/raw/village-detail.overpass.json",
+  "scope": "Mapped building ways, highways and waterway ways within 1km of each of five village label points; not a complete cadastral survey",
+  "queryCoverage": [
+    {
+      "lat": 29.3211666,
+      "lon": 121.5337458,
+      "id": "xujiashan"
+    },
+    {
+      "lat": 29.3753662,
+      "lon": 121.2721072,
+      "id": "longgong"
+    },
+    {
+      "lat": 29.4315601,
+      "lon": 121.2881886,
+      "id": "qingtan"
+    },
+    {
+      "lat": 29.2348314,
+      "lon": 121.506495,
+      "id": "meizhitian"
+    },
+    {
+      "lat": 29.184526,
+      "lon": 121.4779495,
+      "id": "ruoao"
+    }
+  ],
+  "retrievedAt": "2026-10-09T03:49:24.8558392Z",
+  "coordinateSystem": "WGS84",
+  "attribution": "© OpenStreetMap contributors",
+  "query": "[out:json][timeout:50];(way[\"building\"](around:1000,29.3211666,121.5337458);way[\"highway\"](around:1000,29.3211666,121.5337458);way[\"waterway\"](around:1000,29.3211666,121.5337458);way[\"building\"](around:1000,29.3753662,121.2721072);way[\"highway\"](around:1000,29.3753662,121.2721072);way[\"waterway\"](around:1000,29.3753662,121.2721072);way[\"building\"](around:1000,29.4315601,121.2881886);way[\"highway\"](around:1000,29.4315601,121.2881886);way[\"waterway\"](around:1000,29.4315601,121.2881886);way[\"building\"](around:1000,29.2348314,121.506495);way[\"highway\"](around:1000,29.2348314,121.506495);way[\"waterway\"](around:1000,29.2348314,121.506495);way[\"building\"](around:1000,29.184526,121.4779495);way[\"highway\"](around:1000,29.184526,121.4779495);way[\"waterway\"](around:1000,29.184526,121.4779495););out geom;",
+  "radiusMeters": 1000,
+  "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+  "cost": "One bounded read-only request, no key, login, payment or tile download",
+  "status": "downloaded",
+  "endpoint": "https://overpass-api.de/api/interpreter",
+  "osmBaseTimestamp": "2026-10-09T03:47:28Z"
+}

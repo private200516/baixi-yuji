@@ -14,7 +14,7 @@ export function SeniorExperience({ screen, station, destination, minutes, slot, 
   useEffect(() => { heading.current?.focus({ preventScroll: true }); }, [current]);
   return <main id="main-view" className={`senior-main senior-${current}`}>
     <header className="senior-topbar">
-      {current === 'ride' ? <span className="senior-brand"><RiverMark/>白溪舆记</span> :
+      {current === 'ride' ? <span className="senior-brand"><RiverMark/>乡序</span> :
         <button className="senior-back" onClick={() => onGo('ride')}><Glyph name="back"/>返回首页</button>}
       <button className="senior-settings" onClick={onSettings}><Glyph name="settings"/>设置</button>
     </header>

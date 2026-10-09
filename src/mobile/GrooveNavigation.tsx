@@ -36,8 +36,8 @@ function ease(progress: number) {
   return 3 * (1-t) * t * t + t * t * t;
 }
 
-export function GrooveNavigation<T extends string>({ items, active, onSelect, reducedMotion }: {
-  items: Item<T>[]; active: T; onSelect: (id: T) => void; reducedMotion: boolean;
+export function GrooveNavigation<T extends string>({ items, active, onSelect, reducedMotion, caption = '慢行', wordmark = 'BAIXI' }: {
+  items: Item<T>[]; active: T; onSelect: (id: T) => void; reducedMotion: boolean; caption?: string; wordmark?: string;
 }) {
   const rail = useRef<HTMLDivElement>(null);
   const svg = useRef<SVGSVGElement>(null);
@@ -79,7 +79,9 @@ export function GrooveNavigation<T extends string>({ items, active, onSelect, re
     }
     move(true);
     const observer = new ResizeObserver(() => {
-      if (element.clientWidth !== size.width || element.clientHeight !== size.height) move(false);
+      // A responsive page change may resize the rail while the notch is travelling.
+      // Continue from its current position instead of cancelling into a final snap.
+      if (element.clientWidth !== size.width || element.clientHeight !== size.height) move(true);
     });
     observer.observe(element);
     const onMotion = () => move(false);
@@ -88,7 +90,7 @@ export function GrooveNavigation<T extends string>({ items, active, onSelect, re
   }, [index, items.length, reducedMotion]);
 
   return <nav className="side-nav groove-nav" aria-label="主要导航">
-    <span className="rail-caption">慢行</span>
+    <span className="rail-caption">{caption}</span>
     <div className="rail-buttons groove-rail" ref={rail}>
       <svg className="groove-shape" ref={svg} aria-hidden="true">
         <path className="groove-outline" ref={path}/>
@@ -98,6 +100,6 @@ export function GrooveNavigation<T extends string>({ items, active, onSelect, re
         <span className="groove-symbol"><Glyph name={item.icon}/><span>{item.label}</span></span>
       </button>)}
     </div>
-    <span className="rail-end-line"/><span className="rail-wordmark">BAIXI</span>
+    <span className="rail-end-line"/><span className="rail-wordmark">{wordmark}</span>
   </nav>;
 }

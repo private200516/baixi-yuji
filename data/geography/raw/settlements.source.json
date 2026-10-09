@@ -1,0 +1,19 @@
+{
+  "cost": "No key, login or payment; one bounded read-only data query.",
+  "coordinateSystem": "WGS84",
+  "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+  "coordinateOrder": "longitude,latitude",
+  "elementCount": 651,
+  "status": "downloaded",
+  "osmBaseTimestamp": "2026-10-08T05:03:09Z",
+  "source": "OpenStreetMap contributors",
+  "endpoint": "https://overpass-api.de/api/interpreter",
+  "license": "ODbL-1.0",
+  "query": "[out:json][timeout:45];area(3603199272)->.county;(nwr[\"place\"](area.county);nwr[\"name\"~\"^(许家山|龙宫|清潭|力洋|东香|西岙|梅枝田|箬岙|前童|梁皇|河洪|上金|海洋|中湖|西翁|张家)(村)?$\"](area.county););out geom;",
+  "retrievedAt": "2026-10-08T05:05:09.0067655Z",
+  "sha256": "3353f5db897f4cb0eb068a2abe5c34f98b996abf34fca72d1a246b6b67b31bbc",
+  "attribution": "© OpenStreetMap contributors",
+  "attributionUrl": "https://www.openstreetmap.org/copyright",
+  "sourceFormat": "Overpass JSON",
+  "rawFile": "data/geography/raw/settlements.overpass.json"
+}
