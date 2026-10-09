@@ -1,0 +1,33 @@
+{
+  "id": "ninghai-osm-2026-10-08",
+  "title": "宁海县二维地理样本",
+  "checkedAt": "2026-10-08",
+  "crs": "EPSG:4326",
+  "extent": [
+    121.1583471,
+    29.0932992,
+    121.8169183,
+    29.5246868
+  ],
+  "coverageNote": "县域 OSM 样本；主要道路与已绘制水系，非完整街道图。未核实道路通行性、接驳站点和公交班次。",
+  "attribution": {
+    "label": "© OpenStreetMap contributors",
+    "url": "https://www.openstreetmap.org/copyright",
+    "license": "ODbL-1.0"
+  },
+  "layers": {
+    "boundary": "geography/boundary.geojson",
+    "roads": "geography/roads.geojson",
+    "water": "geography/water.geojson"
+  },
+  "counts": {
+    "boundary": 1,
+    "roads": 3774,
+    "water": 1352
+  },
+  "hashes": {
+    "boundary": "da8615b7c8cbf7d9fd1444240c4078b76e4f332bc341e7ec4a98b20aebb85d74",
+    "roads": "38c7951d99aa8e601afb9bd04fb686e4a90bbc6ead9b1b2c450849d882c38fa1",
+    "water": "0e141cfcebe10a8ebfef5dcf7f3c2cc0f1a4db6caf3c6c9a9c759deb85e793a0"
+  }
+}
