@@ -1,11 +1,11 @@
 # 乡序 2.0 · GitHub交付
 
-源码位于 `main` 分支，静态Demo位于 `gh-pages` 分支，通过GitHub Pages的分支模式发布。版本标签为 `v2.0.0`，旧版 `v0.1.0` 保留。
+源码位于 `main` 分支，静态Demo位于 `gh-pages` 分支，通过GitHub Pages的分支模式发布。当前版本标签为 `v2.0.1`，旧版 `v2.0.0` 与 `v0.1.0` 保留。
 
 - [在线Demo](https://private200516.github.io/baixi-yuji/#/ride)
 - [古镇地图](https://private200516.github.io/baixi-yuji/#/town)
-- [2.0 Release](https://github.com/private200516/baixi-yuji/releases/tag/v2.0.0)
-- [更新说明](releases/v2.0.0.md)
+- [2.0.1 Release](https://github.com/private200516/baixi-yuji/releases/tag/v2.0.1)
+- [更新说明](releases/v2.0.1.md)
 
 ## 源码与构建
 
@@ -27,9 +27,9 @@ pnpm build
 
 提交审阅后的源码并完成构建后，执行 `python scripts/package-release.py`，生成：
 
-- `.delivery/v2.0.0/xiangxu-v2.0.0-source.zip`：精确归档当前Git提交。
-- `.delivery/v2.0.0/xiangxu-v2.0.0-demo.zip`：构建产物。
-- `.delivery/v2.0.0/SHA256SUMS.txt`：两个包的校验值。
+- `.delivery/v2.0.1/xiangxu-v2.0.1-source.zip`：精确归档当前Git提交。
+- `.delivery/v2.0.1/xiangxu-v2.0.1-demo.zip`：构建产物。
+- `.delivery/v2.0.1/SHA256SUMS.txt`：两个包的校验值。
 
 交付包作为Release附件上传，不重复提交ZIP到源码仓库。发布源码不会自动更新Demo；需要单独将验证过的构建产物提交至 `gh-pages` 根目录，保留 `.nojekyll`，并等待Pages部署完成。
 

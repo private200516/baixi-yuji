@@ -32,7 +32,7 @@
 .town-return-action .town-return-direction{font-size:calc(13px * var(--type-scale))}
 .town-return-action .glyph{width:18px;height:18px}
 .phone .town-scene-main .groove-nav{position:absolute;right:15px;bottom:80px;width:60px;height:392px;display:flex;padding:0;z-index:5}
-.phone .town-scene-main .groove-nav .groove-rail{height:100%;--groove-padding:20px}
+.phone .town-scene-main .groove-nav .groove-layout{height:100%;--groove-padding:20px}
 .phone .town-scene-main .rail-caption,.phone .town-scene-main .rail-end-line,.phone .town-scene-main .rail-wordmark{display:none}
 .phone .town-scene-main .groove-disc{fill:var(--paper)}
 .phone .town-scene-main .groove-item.active{color:var(--teal-dark)}

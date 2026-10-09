@@ -7,12 +7,22 @@
 }
 .phone .groove-nav { padding-top: 69px; z-index: 4; }
 .phone .groove-nav .rail-caption { padding-bottom: 9px; }
-.phone .groove-nav .groove-rail {
+.phone .groove-nav .groove-layout {
   --groove-padding: 20px;
+  position: relative;
+  height: min(392px, calc(100% - 54px));
+  min-height: 0;
+  width: 100%;
+  flex-shrink: 0;
+}
+.phone .groove-nav .groove-rail {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: grid;
   grid-template-rows: repeat(5, minmax(0, 1fr));
   gap: 0;
-  height: min(392px, calc(100% - 54px));
+  height: 100%;
   min-height: 0;
   width: 100%;
   padding: var(--groove-padding) 0;
@@ -21,6 +31,7 @@
 }
 .groove-shape { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
 .groove-outline, .groove-disc { fill: var(--teal-dark); }
+.groove-disc { transition: fill 480ms cubic-bezier(.4, 0, .2, 1); }
 .phone .groove-rail > .groove-item {
   width: 100%; height: 100%; min-height: 0; padding: 0;
   border: 0; border-radius: 0; background: none;
@@ -164,13 +175,13 @@
 }
 @media (max-height: 800px) {
   .phone .groove-nav { padding-top: 58px; }
-  .phone .groove-nav .groove-rail { height: min(340px, calc(100% - 35px)); --groove-padding: 19px; }
+  .phone .groove-nav .groove-layout { height: min(340px, calc(100% - 35px)); --groove-padding: 19px; }
   .phone .groove-nav .rail-end-line { display: none; }
   .phone .groove-nav .rail-wordmark { margin-top: 14px; }
 }
 @media (max-height: 680px) {
   .phone .groove-nav { padding-top: 47px; }
-  .phone .groove-nav .groove-rail { height: calc(100% - 20px); --groove-padding: 18px; }
+  .phone .groove-nav .groove-layout { height: calc(100% - 20px); --groove-padding: 18px; }
   .phone .groove-nav .rail-wordmark { display: none; }
   .phone .groove-nav .rail-caption { font-size:calc(10px * var(--type-scale, 1)); padding-bottom: 8px; }
   .phone .size-controls button { height: 27px; width: 31px; }

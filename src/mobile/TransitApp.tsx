@@ -175,7 +175,7 @@ export default function TransitApp() {
               </div>
               <div className="lower-landscape" key={`landscape-${screen}`}><div className="vertical-signature"><span className="calligraphy">乡序</span><span className="vertical-en">XIANG XU</span><RiverMark/></div><section className="terracotta"><div className="terracotta-inner"><button className="return-mini" onClick={() => go(screen === 'return' ? 'town' : 'return')}><span><small>{screen === 'return' ? '古镇漫游' : prefs.savedReturn ? '已保存返程' : '返程安排'}</small><span className="return-summary"><strong>{screen === 'return' ? '再逛一逛' : prefs.savedReturn || '17:30'}</strong>{screen !== 'return' && <span>古镇 → 城区</span>}</span></span><span className="return-arrow"><Glyph name="arrow"/></span></button><DotLandscape/></div></section></div>
               </>}
-              <GrooveNavigation key="primary-navigation" items={nav} active={active} onSelect={go} reducedMotion={prefs.quiet} wordmark="乡序"/>
+              <GrooveNavigation key="primary-navigation" items={nav} active={active} layout={`${screen}:${prefs.size}`} onSelect={go} reducedMotion={motionReduced} wordmark="乡序"/>
               <p className="prototype-note">设计演示 · 站点与时刻待核实 · 非实际出行依据</p>
             </main>
           </div>}

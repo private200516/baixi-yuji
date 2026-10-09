@@ -1,6 +1,8 @@
 # 乡序 2.0 · 手机公共交通 APP 原型
 
-[在线 Demo](https://private200516.github.io/baixi-yuji/#/ride) · [古镇地图](https://private200516.github.io/baixi-yuji/#/town) · [2.0 下载与更新说明](https://github.com/private200516/baixi-yuji/releases/tag/v2.0.0)
+[在线 Demo](https://private200516.github.io/baixi-yuji/#/ride) · [古镇地图](https://private200516.github.io/baixi-yuji/#/town) · [2.0.1 下载与更新说明](https://github.com/private200516/baixi-yuji/releases/tag/v2.0.1)
+
+**2.0.1 修复：**进入和离开古镇时，导航条的位置、高度、图标间距与圆座颜色连续过渡，保持两种页面原有的最终布局。快速点击可从当前位置转向；系统及应用减少动效设置依然立即生效。
 
 按用户最新参考图，**古镇页改为地图铺底、悬浮信息卡、选村胶囊与返程入口**；配合统一的页面退场、分层入场和控件反馈。小/中/大字号统一收进“设置 → 文字大小”。原页面布局和操作逻辑保持原样。当前入口为 `src/mobile/TransitApp.tsx`，产品名为“乡序”。
 
@@ -10,7 +12,7 @@
 - 原八个页面：`ride`、`return`、`scan`、`route`、`ticket`、`town`、`help`、`delay`。
 - 原候车方向、附近站点搜索、收藏、返程时段与返程卡、演示二维码与车票、帮助与异常重试操作不变。
 - 小/中/大字号仅在设置中选择，仍影响所有页面并保存在本机；独立老年人模式与本地偏好保留。
-- 原 `transit.css`、`single-screen.css`、`groove-navigation.css`、`accessibility.css` 没有修改。乡序与新增村名使用原同款字体的补充字形；通过Unicode范围限制，只补旧字体子集缺少的123个字符，不替换原有字形。
+- 保留原排版与字体。乡序与新增村名使用原同款字体的补充字形；通过Unicode范围限制，只补旧字体子集缺少的123个字符，不替换原有字形。
 
 候车页 `RouteRiver` 仍是点击进入线路详情的示意图，不把演示站点绑定到真实地理坐标。
 
@@ -32,7 +34,7 @@
 
 `useScreenMotion.ts` 保持右侧导航即时响应，旧内容120ms轻移淡出后，新内容分层进入；连续点击只进入最终选择的页面。`SheetPanel.tsx` 保持弹层模态与焦点到170ms退出结束，避免关闭时突然消失。按压反馈、数字更新、票根入场、线路描绘和扫描线都在 `ui-motion.css` 统一；不增加动画库。减少装饰性循环、数值模糊和发光，扫描码本身保持静止。
 
-系统减弱动效、应用“减少动态效果”及老年模式同时抑制CSS和JavaScript过渡。新验收见 [UI动效检查](docs/ui-motion-validation.md)。
+系统减弱动效、应用“减少动态效果”及老年模式同时抑制CSS和JavaScript过渡。验收见 [UI动效检查](docs/ui-motion-validation.md) 与 [2.0.1导航过渡检查](docs/navigation-motion-validation.md)。
 
 ## 运行
 
@@ -49,6 +51,7 @@ Windows可使用 `pnpm.cmd`。开发预览：http://127.0.0.1:5173/#/ride ，地
 pnpm typecheck
 pnpm test
 pnpm test:ui-motion
+pnpm test:navigation-motion
 pnpm build
 pnpm preview
 ```
@@ -67,6 +70,6 @@ pnpm preview
 - [本轮范围与验收](docs/town-scene-validation.md)
 - [以前的GitHub与Figma交付记录](docs/previous-release-readme.md)
 
-2.0源码位于 `main`，静态Demo通过 `gh-pages` 发布，完整变更见 [v2.0.0](docs/releases/v2.0.0.md)。旧版 `v0.1.0` 保留；`design/` 为旧版设计交付资料，本次没有更新线上Figma。
+2.0源码位于 `main`，静态Demo通过 `gh-pages` 发布，当前修复见 [v2.0.1](docs/releases/v2.0.1.md)，初版变更见 [v2.0.0](docs/releases/v2.0.0.md)。旧版保留；`design/` 为旧版设计交付资料，本次没有更新线上Figma。
 
 ![古镇地图场景](docs/ui-motion-screenshots/390-town-L.png)

@@ -4,7 +4,6 @@ import { mapVillages } from '../data/villages';
 import type { TextSize } from './FontSizeControl';
 import { Glyph, TransitMark } from './TransitArt';
 import 'maplibre-gl/dist/maplibre-gl.css';
-import './town-scene.css';
 
 const SceneMap = lazy(() => import('../geography/GeographyMap').then(module => ({ default: module.GeographyMap })));
 
