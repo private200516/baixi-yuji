@@ -1,6 +1,8 @@
 # 乡序 2.0 · 手机公共交通 APP 原型
 
-[在线 Demo](https://private200516.github.io/baixi-yuji/#/ride) · [古镇地图](https://private200516.github.io/baixi-yuji/#/town) · [2.0.1 下载与更新说明](https://github.com/private200516/baixi-yuji/releases/tag/v2.0.1)
+[在线 Demo](https://private200516.github.io/baixi-yuji/#/ride) · [古镇地图](https://private200516.github.io/baixi-yuji/#/town) · [2.1.0 下载与更新说明](https://github.com/private200516/baixi-yuji/releases/tag/v2.1.0)
+
+**2.1.0 数据联动：**保留2.0界面与动效，接通“选择古村 → 查看道路方案 → 选择目的村 → 查看返程 → 保存研究计划”。去返方向分别使用已登记的道路研究记录；不提供真实公交班次、ETA或上车点。研究计划单独保存在本机，原字号、老年模式、收藏和演示返程保持独立。[本轮改动、前后截图与验收](docs/journey-link-validation.md)。
 
 **2.0.1 修复：**进入和离开古镇时，导航条的位置、高度、图标间距与圆座颜色连续过渡，保持两种页面原有的最终布局。快速点击可从当前位置转向；系统及应用减少动效设置依然立即生效。
 
@@ -22,7 +24,7 @@
 
 选村复用同一个地图实例，以720ms平滑移动到新村落；测量悬浮控件尺寸，使点位保持在上方标题和底部卡片之间。卡片分层淡入、内容轻移，原凹槽与圆座480ms同步移动，图标保留固定排列位置。尊重系统减少动态效果、应用设置及老年模式。
 
-“查看公交线路”仍进入原线路详情，返程入口仍进入原返程页。选择古村保留在应用状态内。MapLibre/WebGL失败时仍能用文字列表选择村落；底图保留OpenStreetMap署名和ODbL许可。
+“查看道路方案”进入原线路面板的研究状态，复用四个条目选择目的村；返程入口携带独立方向的研究记录。明确选定方案后，可在原地图画布查看该区间；未选择方案时保持默认村落平面视图。MapLibre/WebGL失败时仍能用文字选择器选村；底图保留OpenStreetMap署名和ODbL许可。
 
 场景样式只作用于古镇页面，不加载历史 `geography.css` 或 `mobile-product.css`。历史卡片地图封装 `GeographicTownMap.tsx` 保留，但当前古镇页使用场景布局。当前视图为平面真实地图，没有虚构建筑或地形。
 
@@ -52,13 +54,14 @@ pnpm typecheck
 pnpm test
 pnpm test:ui-motion
 pnpm test:navigation-motion
+pnpm test:journey
 pnpm build
 pnpm preview
 ```
 
 浏览器回归需先运行开发服务器，默认使用本机Edge，可用 `PLAYWRIGHT_CHANNEL`、`PREVIEW_URL` 指定通道与地址。生产预览为 http://127.0.0.1:4173/ 。
 
-本轮浏览器结果与截图使用 `docs/ui-motion-*`，生产子路径检查为 `node tests/ui-motion-production.mjs`。`town-scene-*`保留上一轮古镇布局验收记录，其字号入口断言属于当时设计。旧 `map-only-*`、`round2-*`、地理重排测试及截图是历史记录，不代表当前场景的验收。
+2.1.0浏览器结果与前后截图位于 `docs/journey-link/`，生产子路径检查为 `node tests/ui-motion-production.mjs`。`docs/ui-motion-*`和`town-scene-*`保留此前动效与古镇布局验收记录。旧 `map-only-*`、`round2-*`、地理重排测试及截图是历史记录，不代表当前场景的验收。
 
 ## 数据及交付
 
@@ -67,9 +70,9 @@ pnpm preview
 - [数据来源](docs/data-sources.md)
 - [村落核验](docs/village-verification.md)
 - [地图局部数据](docs/map-depth-data.md)
-- [本轮范围与验收](docs/town-scene-validation.md)
+- [本轮范围与验收](docs/journey-link-validation.md)
 - [以前的GitHub与Figma交付记录](docs/previous-release-readme.md)
 
-2.0源码位于 `main`，静态Demo通过 `gh-pages` 发布，当前修复见 [v2.0.1](docs/releases/v2.0.1.md)，初版变更见 [v2.0.0](docs/releases/v2.0.0.md)。旧版保留；`design/` 为旧版设计交付资料，本次没有更新线上Figma。
+源码位于 `main`，静态Demo通过 `gh-pages` 发布，当前数据联动见 [v2.1.0](docs/releases/v2.1.0.md)，导航修复见 [v2.0.1](docs/releases/v2.0.1.md)，初版变更见 [v2.0.0](docs/releases/v2.0.0.md)。旧版保留；`design/` 为旧版设计交付资料，本次没有更新线上Figma。
 
-![古镇地图场景](docs/ui-motion-screenshots/390-town-L.png)
+![古村地图场景](docs/journey-link/after/390x844-L-town.png)

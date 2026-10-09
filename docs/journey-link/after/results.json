@@ -1,0 +1,1105 @@
+{
+  "at": "2026-10-09T12:42:36.242Z",
+  "base": "http://127.0.0.1:5173",
+  "baselineCommit": "9a5651a083f204ac2963159576752434f11c4d4c",
+  "isolatedBrowserProfile": true,
+  "lastRun": {
+    "filter": "Network failure|missing reverse|explicit no path|Storage write|Changed data|Existing online",
+    "checks": [
+      "Network failure keeps both endpoint choices usable and saves only a data-unavailable intention",
+      "A missing reverse never reverses outbound geometry or invents its distance",
+      "A explicit no path never reverses outbound geometry or invents its distance",
+      "Storage write failure never shows saved success or creates a plan",
+      "Existing online plan stays viewable after network failure and failed removal preserves every saved field",
+      "Changed data version warns without silently replacing the stored snapshot",
+      "No uncaught JavaScript errors"
+    ]
+  },
+  "checks": [
+    {
+      "name": "Source design constraints preserve CSS, SVG artwork, groove motion and default map scene",
+      "status": "PASS",
+      "evidence": {
+        "baseline": "9a5651a083f204ac2963159576752434f11c4d4c",
+        "changed": [
+          "src/mobile/SeniorExperience.tsx",
+          "src/mobile/TownScene.tsx",
+          "src/mobile/TransitApp.tsx"
+        ],
+        "forbidden": [],
+        "reviewScope": "Only data links and reused content slots may change; screenshots remain separately reviewable."
+      },
+      "verifiedAt": "2026-10-09T12:37:11.517Z"
+    },
+    {
+      "name": "390px L complete journey uses independent 41.9 / 58.2 km routes and restores saved return",
+      "status": "PASS",
+      "evidence": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "outboundKm": 41.9,
+        "returnKm": 58.2,
+        "savedPlan": {
+          "mode": "research",
+          "selectedVillageId": "xujiashan",
+          "originVillageId": "xujiashan",
+          "destinationVillageId": "longgong",
+          "routeProposalId": "longgong-xujiashan",
+          "direction": "return",
+          "schemaVersion": 1,
+          "kind": "research-plan",
+          "dataVersion": "2026-10-09-road-research-v2",
+          "savedAt": "2026-10-09T12:36:25.986Z",
+          "routeStatus": "source-road-geometry",
+          "operatingStatus": "research-not-confirmed"
+        },
+        "focusRestored": true
+      },
+      "verifiedAt": "2026-10-09T12:37:11.517Z"
+    },
+    {
+      "name": "320px L complete journey uses independent 41.9 / 58.2 km routes and restores saved return",
+      "status": "PASS",
+      "evidence": {
+        "viewport": {
+          "width": 320,
+          "height": 568
+        },
+        "outboundKm": 41.9,
+        "returnKm": 58.2,
+        "savedPlan": {
+          "mode": "research",
+          "selectedVillageId": "xujiashan",
+          "originVillageId": "xujiashan",
+          "destinationVillageId": "longgong",
+          "routeProposalId": "longgong-xujiashan",
+          "direction": "return",
+          "schemaVersion": 1,
+          "kind": "research-plan",
+          "dataVersion": "2026-10-09-road-research-v2",
+          "savedAt": "2026-10-09T12:36:33.937Z",
+          "routeStatus": "source-road-geometry",
+          "operatingStatus": "research-not-confirmed"
+        },
+        "focusRestored": true
+      },
+      "verifiedAt": "2026-10-09T12:37:11.517Z"
+    },
+    {
+      "name": "Changing village clears destination and does not silently choose one; existing return entry carries the village",
+      "status": "PASS",
+      "evidence": {
+        "mode": "research",
+        "origin": "qingtan",
+        "destination": "",
+        "direction": "return",
+        "proposal": ""
+      },
+      "verifiedAt": "2026-10-09T12:37:11.517Z"
+    },
+    {
+      "name": "Existing font, favorite, motion and 18:00 demo return persist independently of a research plan",
+      "status": "PASS",
+      "evidence": {
+        "preservedPrefs": {
+          "size": "S",
+          "regularSize": "M",
+          "senior": false,
+          "favorite": true,
+          "savedReturn": "18:00",
+          "quiet": true
+        },
+        "legacyDemoReturn": {
+          "kind": "demo-return",
+          "time": "18:00"
+        },
+        "researchPlanPreserved": true
+      },
+      "verifiedAt": "2026-10-09T12:37:11.517Z"
+    },
+    {
+      "name": "Network failure keeps both endpoint choices usable and saves only a data-unavailable intention",
+      "status": "PASS",
+      "verifiedAt": "2026-10-09T12:42:25.108Z",
+      "evidence": {
+        "mode": "research",
+        "selectedVillageId": "xujiashan",
+        "originVillageId": "xujiashan",
+        "destinationVillageId": "longgong",
+        "routeProposalId": null,
+        "direction": "return",
+        "schemaVersion": 1,
+        "kind": "research-plan",
+        "dataVersion": null,
+        "savedAt": "2026-10-09T12:42:26.487Z",
+        "routeStatus": "data-unavailable",
+        "operatingStatus": "research-not-confirmed"
+      }
+    },
+    {
+      "name": "A missing reverse never reverses outbound geometry or invents its distance",
+      "status": "PASS",
+      "verifiedAt": "2026-10-09T12:42:27.382Z",
+      "evidence": {
+        "mode": "research",
+        "selectedVillageId": "xujiashan",
+        "originVillageId": "xujiashan",
+        "destinationVillageId": "longgong",
+        "routeProposalId": null,
+        "direction": "return",
+        "schemaVersion": 1,
+        "kind": "research-plan",
+        "dataVersion": "2026-10-09-road-research-v2",
+        "savedAt": "2026-10-09T12:42:28.486Z",
+        "routeStatus": "unavailable",
+        "operatingStatus": "research-not-confirmed"
+      }
+    },
+    {
+      "name": "A explicit no path never reverses outbound geometry or invents its distance",
+      "status": "PASS",
+      "verifiedAt": "2026-10-09T12:42:28.644Z",
+      "evidence": {
+        "mode": "research",
+        "selectedVillageId": "xujiashan",
+        "originVillageId": "xujiashan",
+        "destinationVillageId": "longgong",
+        "routeProposalId": "longgong-xujiashan",
+        "direction": "return",
+        "schemaVersion": 1,
+        "kind": "research-plan",
+        "dataVersion": "2026-10-09-road-research-v2",
+        "savedAt": "2026-10-09T12:42:29.903Z",
+        "routeStatus": "unavailable",
+        "operatingStatus": "research-not-confirmed"
+      }
+    },
+    {
+      "name": "Storage write failure never shows saved success or creates a plan",
+      "status": "PASS",
+      "verifiedAt": "2026-10-09T12:42:30.069Z",
+      "evidence": {
+        "savedPlan": null,
+        "reportsFailure": true
+      }
+    },
+    {
+      "name": "Changed data version warns without silently replacing the stored snapshot",
+      "status": "PASS",
+      "verifiedAt": "2026-10-09T12:42:33.880Z",
+      "evidence": {
+        "currentVersion": "2026-10-09-road-research-v2-test-update",
+        "savedVersion": "2026-10-09-road-research-v2",
+        "savedAtUnchanged": true
+      }
+    },
+    {
+      "name": "390px senior return reuses simple controls with research endpoints and no fake departure",
+      "status": "PASS",
+      "evidence": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "originalActionCount": 4,
+        "research": "从龙宫村 · 非车站\n\n返回许家山村\n车站与班次\n待核验\n暂无已核实班次"
+      },
+      "verifiedAt": "2026-10-09T12:37:11.517Z"
+    },
+    {
+      "name": "320px senior return reuses simple controls with research endpoints and no fake departure",
+      "status": "PASS",
+      "evidence": {
+        "viewport": {
+          "width": 320,
+          "height": 568
+        },
+        "originalActionCount": 4,
+        "research": "从龙宫村 · 非车站\n\n返回许家山村\n车站与班次\n待核验\n暂无已核实班次"
+      },
+      "verifiedAt": "2026-10-09T12:37:11.517Z"
+    },
+    {
+      "name": "390px original town, demo route and return still match baseline frames",
+      "status": "PASS",
+      "evidence": [
+        {
+          "name": "town",
+          "before": "docs/journey-link/before/390x844-L-town.png",
+          "after": "docs/journey-link/after/390x844-L-town.png",
+          "phone": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 844
+          },
+          "rail": {
+            "x": 315,
+            "y": 372,
+            "width": 60,
+            "height": 392
+          }
+        },
+        {
+          "name": "route",
+          "before": "docs/journey-link/before/390x844-L-route.png",
+          "after": "docs/journey-link/after/390x844-L-route.png",
+          "phone": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 844
+          },
+          "rail": {
+            "x": 315,
+            "y": 284.15625,
+            "width": 60,
+            "height": 392
+          }
+        },
+        {
+          "name": "return",
+          "before": "docs/journey-link/before/390x844-L-return.png",
+          "after": "docs/journey-link/after/390x844-L-return.png",
+          "phone": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 844
+          },
+          "rail": {
+            "x": 315,
+            "y": 284.15625,
+            "width": 60,
+            "height": 392
+          }
+        }
+      ],
+      "verifiedAt": "2026-10-09T12:37:11.517Z"
+    },
+    {
+      "name": "320px original town, demo route and return still match baseline frames",
+      "status": "PASS",
+      "evidence": [
+        {
+          "name": "town",
+          "before": "docs/journey-link/before/320x568-L-town.png",
+          "after": "docs/journey-link/after/320x568-L-town.png",
+          "phone": {
+            "x": 0,
+            "y": 0,
+            "width": 320,
+            "height": 568
+          },
+          "rail": {
+            "x": 253,
+            "y": 226,
+            "width": 55,
+            "height": 285
+          }
+        },
+        {
+          "name": "route",
+          "before": "docs/journey-link/before/320x568-L-route.png",
+          "after": "docs/journey-link/after/320x568-L-route.png",
+          "phone": {
+            "x": 0,
+            "y": 0,
+            "width": 320,
+            "height": 568
+          },
+          "rail": {
+            "x": 253,
+            "y": 209.796875,
+            "width": 55,
+            "height": 341
+          }
+        },
+        {
+          "name": "return",
+          "before": "docs/journey-link/before/320x568-L-return.png",
+          "after": "docs/journey-link/after/320x568-L-return.png",
+          "phone": {
+            "x": 0,
+            "y": 0,
+            "width": 320,
+            "height": 568
+          },
+          "rail": {
+            "x": 253,
+            "y": 209.796875,
+            "width": 55,
+            "height": 341
+          }
+        }
+      ],
+      "verifiedAt": "2026-10-09T12:37:11.517Z"
+    },
+    {
+      "name": "Desktop ride keeps original preview frame and original unaffected pages keep their entry slots",
+      "status": "PASS",
+      "evidence": {
+        "before": "docs/journey-link/before/1440x900-M-ride.png",
+        "after": "docs/journey-link/after/1440x900-M-ride.png",
+        "pageSlots": {
+          "ride": {
+            "actions": 1,
+            "nav": 5,
+            "outsideFontControls": 0
+          },
+          "scan": {
+            "actions": 1,
+            "nav": 5,
+            "outsideFontControls": 0
+          },
+          "ticket": {
+            "actions": 1,
+            "nav": 5,
+            "outsideFontControls": 0
+          },
+          "help": {
+            "actions": 1,
+            "nav": 5,
+            "outsideFontControls": 0
+          },
+          "delay": {
+            "actions": 1,
+            "nav": 5,
+            "outsideFontControls": 0
+          }
+        }
+      },
+      "verifiedAt": "2026-10-09T12:37:11.517Z"
+    },
+    {
+      "name": "No uncaught JavaScript errors",
+      "status": "PASS",
+      "verifiedAt": "2026-10-09T12:42:36.021Z",
+      "evidence": []
+    },
+    {
+      "name": "Existing online plan stays viewable after network failure and failed removal preserves every saved field",
+      "status": "PASS",
+      "verifiedAt": "2026-10-09T12:42:31.724Z",
+      "evidence": {
+        "preservedPlan": {
+          "mode": "research",
+          "selectedVillageId": "xujiashan",
+          "originVillageId": "xujiashan",
+          "destinationVillageId": "longgong",
+          "routeProposalId": "longgong-xujiashan",
+          "direction": "return",
+          "schemaVersion": 1,
+          "kind": "research-plan",
+          "dataVersion": "2026-10-09-road-research-v2",
+          "savedAt": "2026-10-09T12:42:32.502Z",
+          "routeStatus": "source-road-geometry",
+          "operatingStatus": "research-not-confirmed"
+        },
+        "rawStorageUnchanged": true,
+        "offlineViewOpensWithoutSaving": true,
+        "failedRemovalKeepsDialogAndPlan": true,
+        "focusRestored": true
+      }
+    }
+  ],
+  "captures": [
+    {
+      "path": "docs/journey-link/after/390x844-L-research-route.png",
+      "at": "2026-10-09T12:36:24.829Z",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "evidence": {
+        "hash": "#/route",
+        "screen": "route",
+        "size": "L",
+        "phone": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844
+        },
+        "rail": {
+          "x": 315,
+          "y": 284.15625,
+          "width": 60,
+          "height": 392
+        },
+        "selectedVillage": null,
+        "map": null,
+        "routeStops": [
+          "龙宫村",
+          "清潭村",
+          "梅枝田村",
+          "箬岙村"
+        ],
+        "primaryAction": "查看返程",
+        "dialog": null,
+        "font": "\"Baixi Sans\", \"Noto Sans SC\", \"Microsoft YaHei\", sans-serif",
+        "horizontalOverflow": false
+      }
+    },
+    {
+      "path": "docs/journey-link/after/390x844-L-research-return.png",
+      "at": "2026-10-09T12:36:25.943Z",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "evidence": {
+        "hash": "#/return",
+        "screen": "return",
+        "size": "L",
+        "phone": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844
+        },
+        "rail": {
+          "x": 315,
+          "y": 284.15625,
+          "width": 60,
+          "height": 392
+        },
+        "selectedVillage": null,
+        "map": null,
+        "routeStops": [],
+        "primaryAction": "保存研究计划",
+        "dialog": null,
+        "font": "\"Baixi Sans\", \"Noto Sans SC\", \"Microsoft YaHei\", sans-serif",
+        "horizontalOverflow": false
+      }
+    },
+    {
+      "path": "docs/journey-link/after/390x844-L-saved-research-dialog.png",
+      "at": "2026-10-09T12:36:27.312Z",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "evidence": {
+        "hash": "#/return",
+        "screen": "return",
+        "size": "L",
+        "phone": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844
+        },
+        "rail": {
+          "x": 315,
+          "y": 284.15625,
+          "width": 60,
+          "height": 392
+        },
+        "selectedVillage": null,
+        "map": null,
+        "routeStops": [],
+        "primaryAction": "查看本地计划",
+        "dialog": "乡序 / 服务本地研究计划关闭古村研究 · 非运营班次返程龙宫村 → 许家山村已保存在此浏览器 · 站点与班次待核验保存时间：2026/10/9 21:36:25。数据版本：2026-10-09-road-research-v2。道路研究不等于公交线路，不发送发车提醒。移除本地计划",
+        "font": "\"Baixi Sans\", \"Noto Sans SC\", \"Microsoft YaHei\", sans-serif",
+        "horizontalOverflow": false
+      }
+    },
+    {
+      "path": "docs/journey-link/after/320x568-L-research-route.png",
+      "at": "2026-10-09T12:36:32.695Z",
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "evidence": {
+        "hash": "#/route",
+        "screen": "route",
+        "size": "L",
+        "phone": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 568
+        },
+        "rail": {
+          "x": 253,
+          "y": 209.796875,
+          "width": 55,
+          "height": 341
+        },
+        "selectedVillage": null,
+        "map": null,
+        "routeStops": [
+          "龙宫村",
+          "清潭村",
+          "梅枝田村",
+          "箬岙村"
+        ],
+        "primaryAction": "查看返程",
+        "dialog": null,
+        "font": "\"Baixi Sans\", \"Noto Sans SC\", \"Microsoft YaHei\", sans-serif",
+        "horizontalOverflow": false
+      }
+    },
+    {
+      "path": "docs/journey-link/after/320x568-L-research-return.png",
+      "at": "2026-10-09T12:36:33.911Z",
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "evidence": {
+        "hash": "#/return",
+        "screen": "return",
+        "size": "L",
+        "phone": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 568
+        },
+        "rail": {
+          "x": 253,
+          "y": 209.796875,
+          "width": 55,
+          "height": 341
+        },
+        "selectedVillage": null,
+        "map": null,
+        "routeStops": [],
+        "primaryAction": "保存研究计划",
+        "dialog": null,
+        "font": "\"Baixi Sans\", \"Noto Sans SC\", \"Microsoft YaHei\", sans-serif",
+        "horizontalOverflow": false
+      }
+    },
+    {
+      "path": "docs/journey-link/after/320x568-L-saved-research-dialog.png",
+      "at": "2026-10-09T12:36:35.172Z",
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "evidence": {
+        "hash": "#/return",
+        "screen": "return",
+        "size": "L",
+        "phone": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 568
+        },
+        "rail": {
+          "x": 253,
+          "y": 209.796875,
+          "width": 55,
+          "height": 341
+        },
+        "selectedVillage": null,
+        "map": null,
+        "routeStops": [],
+        "primaryAction": "查看本地计划",
+        "dialog": "乡序 / 服务本地研究计划关闭古村研究 · 非运营班次返程龙宫村 → 许家山村已保存在此浏览器 · 站点与班次待核验保存时间：2026/10/9 21:36:33。数据版本：2026-10-09-road-research-v2。道路研究不等于公交线路，不发送发车提醒。移除本地计划",
+        "font": "\"Baixi Sans\", \"Noto Sans SC\", \"Microsoft YaHei\", sans-serif",
+        "horizontalOverflow": false
+      }
+    },
+    {
+      "path": "docs/journey-link/after/390x844-L-senior-research-return.png",
+      "at": "2026-10-09T12:36:51.809Z",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "evidence": {
+        "hash": "#/return",
+        "size": "L",
+        "phone": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844
+        },
+        "rail": null,
+        "selectedVillage": null,
+        "map": null,
+        "routeStops": [],
+        "primaryAction": null,
+        "dialog": null,
+        "font": "\"Baixi Sans\", \"Noto Sans SC\", \"Microsoft YaHei\", sans-serif",
+        "horizontalOverflow": false
+      }
+    },
+    {
+      "path": "docs/journey-link/after/320x568-L-senior-research-return.png",
+      "at": "2026-10-09T12:36:53.640Z",
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "evidence": {
+        "hash": "#/return",
+        "size": "L",
+        "phone": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 568
+        },
+        "rail": null,
+        "selectedVillage": null,
+        "map": null,
+        "routeStops": [],
+        "primaryAction": null,
+        "dialog": null,
+        "font": "\"Baixi Sans\", \"Noto Sans SC\", \"Microsoft YaHei\", sans-serif",
+        "horizontalOverflow": false
+      }
+    },
+    {
+      "path": "docs/journey-link/after/390x844-L-town.png",
+      "at": "2026-10-09T12:36:56.424Z",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "evidence": {
+        "hash": "#/town",
+        "screen": "town",
+        "size": "L",
+        "phone": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844
+        },
+        "rail": {
+          "x": 315,
+          "y": 372,
+          "width": 60,
+          "height": 392
+        },
+        "selectedVillage": "xujiashan",
+        "map": {
+          "scope": "village",
+          "depth": "flat",
+          "presentation": "scene",
+          "center": "121.53374580000002,29.321166599999998"
+        },
+        "routeStops": [],
+        "primaryAction": null,
+        "dialog": null,
+        "font": "\"Baixi Sans\", \"Noto Sans SC\", \"Microsoft YaHei\", sans-serif",
+        "horizontalOverflow": false
+      }
+    },
+    {
+      "path": "docs/journey-link/after/390x844-L-route.png",
+      "at": "2026-10-09T12:36:57.483Z",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "evidence": {
+        "hash": "#/route",
+        "screen": "route",
+        "size": "L",
+        "phone": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844
+        },
+        "rail": {
+          "x": 315,
+          "y": 284.15625,
+          "width": 60,
+          "height": 392
+        },
+        "selectedVillage": null,
+        "map": null,
+        "routeStops": [
+          "溪畔站",
+          "青云路站",
+          "东湖站",
+          "城南客运站"
+        ],
+        "primaryAction": "出示乘车码",
+        "dialog": null,
+        "font": "\"Baixi Sans\", \"Noto Sans SC\", \"Microsoft YaHei\", sans-serif",
+        "horizontalOverflow": false
+      }
+    },
+    {
+      "path": "docs/journey-link/after/390x844-L-return.png",
+      "at": "2026-10-09T12:36:58.524Z",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "evidence": {
+        "hash": "#/return",
+        "screen": "return",
+        "size": "L",
+        "phone": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844
+        },
+        "rail": {
+          "x": 315,
+          "y": 284.15625,
+          "width": 60,
+          "height": 392
+        },
+        "selectedVillage": null,
+        "map": null,
+        "routeStops": [],
+        "primaryAction": "保存这趟返程",
+        "dialog": null,
+        "font": "\"Baixi Sans\", \"Noto Sans SC\", \"Microsoft YaHei\", sans-serif",
+        "horizontalOverflow": false
+      }
+    },
+    {
+      "path": "docs/journey-link/after/390x844-L-saved-return-dialog.png",
+      "at": "2026-10-09T12:36:59.827Z",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "evidence": {
+        "hash": "#/return",
+        "screen": "return",
+        "size": "L",
+        "phone": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844
+        },
+        "rail": {
+          "x": 315,
+          "y": 284.15625,
+          "width": 60,
+          "height": 392
+        },
+        "selectedVillage": null,
+        "map": null,
+        "routeStops": [],
+        "primaryAction": "查看返程卡",
+        "dialog": "乡序 / 服务归途，已经记下关闭我的返程 · 5 路17:30古镇起点站 → 城区终点站已保存在此浏览器 · 演示班次出发前再确认一下班次。本原型不会发送通知。移除返程卡",
+        "font": "\"Baixi Sans\", \"Noto Sans SC\", \"Microsoft YaHei\", sans-serif",
+        "horizontalOverflow": false
+      }
+    },
+    {
+      "path": "docs/journey-link/after/320x568-L-town.png",
+      "at": "2026-10-09T12:37:02.534Z",
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "evidence": {
+        "hash": "#/town",
+        "screen": "town",
+        "size": "L",
+        "phone": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 568
+        },
+        "rail": {
+          "x": 253,
+          "y": 226,
+          "width": 55,
+          "height": 285
+        },
+        "selectedVillage": "xujiashan",
+        "map": {
+          "scope": "village",
+          "depth": "flat",
+          "presentation": "scene",
+          "center": "121.53374580000002,29.321166599999998"
+        },
+        "routeStops": [],
+        "primaryAction": null,
+        "dialog": null,
+        "font": "\"Baixi Sans\", \"Noto Sans SC\", \"Microsoft YaHei\", sans-serif",
+        "horizontalOverflow": false
+      }
+    },
+    {
+      "path": "docs/journey-link/after/320x568-L-route.png",
+      "at": "2026-10-09T12:37:03.503Z",
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "evidence": {
+        "hash": "#/route",
+        "screen": "route",
+        "size": "L",
+        "phone": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 568
+        },
+        "rail": {
+          "x": 253,
+          "y": 209.796875,
+          "width": 55,
+          "height": 341
+        },
+        "selectedVillage": null,
+        "map": null,
+        "routeStops": [
+          "溪畔站",
+          "青云路站",
+          "东湖站",
+          "城南客运站"
+        ],
+        "primaryAction": "出示乘车码",
+        "dialog": null,
+        "font": "\"Baixi Sans\", \"Noto Sans SC\", \"Microsoft YaHei\", sans-serif",
+        "horizontalOverflow": false
+      }
+    },
+    {
+      "path": "docs/journey-link/after/320x568-L-return.png",
+      "at": "2026-10-09T12:37:04.455Z",
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "evidence": {
+        "hash": "#/return",
+        "screen": "return",
+        "size": "L",
+        "phone": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 568
+        },
+        "rail": {
+          "x": 253,
+          "y": 209.796875,
+          "width": 55,
+          "height": 341
+        },
+        "selectedVillage": null,
+        "map": null,
+        "routeStops": [],
+        "primaryAction": "保存这趟返程",
+        "dialog": null,
+        "font": "\"Baixi Sans\", \"Noto Sans SC\", \"Microsoft YaHei\", sans-serif",
+        "horizontalOverflow": false
+      }
+    },
+    {
+      "path": "docs/journey-link/after/320x568-L-saved-return-dialog.png",
+      "at": "2026-10-09T12:37:05.713Z",
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "evidence": {
+        "hash": "#/return",
+        "screen": "return",
+        "size": "L",
+        "phone": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 568
+        },
+        "rail": {
+          "x": 253,
+          "y": 209.796875,
+          "width": 55,
+          "height": 341
+        },
+        "selectedVillage": null,
+        "map": null,
+        "routeStops": [],
+        "primaryAction": "查看返程卡",
+        "dialog": "乡序 / 服务归途，已经记下关闭我的返程 · 5 路17:30古镇起点站 → 城区终点站已保存在此浏览器 · 演示班次出发前再确认一下班次。本原型不会发送通知。移除返程卡",
+        "font": "\"Baixi Sans\", \"Noto Sans SC\", \"Microsoft YaHei\", sans-serif",
+        "horizontalOverflow": false
+      }
+    },
+    {
+      "path": "docs/journey-link/after/1440x900-M-ride.png",
+      "at": "2026-10-09T12:37:07.604Z",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "evidence": {
+        "hash": "#/ride",
+        "screen": "ride",
+        "size": "M",
+        "phone": {
+          "x": 725,
+          "y": 90,
+          "width": 336,
+          "height": 712.3125
+        },
+        "rail": {
+          "x": 993.015625,
+          "y": 351.140625,
+          "width": 50.390625,
+          "height": 329.265625
+        },
+        "selectedVillage": null,
+        "map": null,
+        "routeStops": [],
+        "primaryAction": "查找附近站点",
+        "dialog": null,
+        "font": "\"Baixi Sans\", \"Noto Sans SC\", \"Microsoft YaHei\", sans-serif",
+        "horizontalOverflow": false
+      }
+    },
+    {
+      "path": "docs/journey-link/after/320x568-L-offline-saved-dialog.png",
+      "at": "2026-10-09T12:42:27.367Z",
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "evidence": {
+        "hash": "#/return",
+        "screen": "return",
+        "size": "L",
+        "phone": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 568
+        },
+        "rail": {
+          "x": 253,
+          "y": 209.796875,
+          "width": 55,
+          "height": 341
+        },
+        "selectedVillage": null,
+        "map": null,
+        "routeStops": [],
+        "primaryAction": "查看本地计划",
+        "dialog": "乡序 / 服务本地研究计划关闭古村研究 · 非运营班次返程龙宫村 → 许家山村已保存在此浏览器 · 站点与班次待核验保存时间：2026/10/9 21:42:26。数据版本：未载入，待核验。道路研究不等于公交线路，不发送发车提醒。移除本地计划",
+        "font": "\"Baixi Sans\", \"Noto Sans SC\", \"Microsoft YaHei\", sans-serif",
+        "horizontalOverflow": false
+      }
+    },
+    {
+      "path": "docs/journey-link/after/390x844-L-storage-failure.png",
+      "at": "2026-10-09T12:42:31.710Z",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "evidence": {
+        "hash": "#/return",
+        "screen": "return",
+        "size": "L",
+        "phone": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844
+        },
+        "rail": {
+          "x": 315,
+          "y": 284.15625,
+          "width": 60,
+          "height": 392
+        },
+        "selectedVillage": null,
+        "map": null,
+        "routeStops": [],
+        "primaryAction": "保存研究计划",
+        "dialog": null,
+        "font": "\"Baixi Sans\", \"Noto Sans SC\", \"Microsoft YaHei\", sans-serif",
+        "horizontalOverflow": false
+      }
+    },
+    {
+      "path": "docs/journey-link/after/390x844-L-existing-plan-offline-removal-failure.png",
+      "at": "2026-10-09T12:42:33.766Z",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "evidence": {
+        "hash": "#/return",
+        "screen": "return",
+        "size": "L",
+        "phone": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844
+        },
+        "rail": {
+          "x": 315,
+          "y": 284.15625,
+          "width": 60,
+          "height": 392
+        },
+        "selectedVillage": null,
+        "map": null,
+        "routeStops": [],
+        "primaryAction": "查看本地计划",
+        "dialog": "乡序 / 服务本地研究计划关闭古村研究 · 非运营班次返程龙宫村 → 许家山村已保存在此浏览器 · 站点与班次待核验未能移除本地计划，请稍后重试。移除本地计划",
+        "font": "\"Baixi Sans\", \"Noto Sans SC\", \"Microsoft YaHei\", sans-serif",
+        "horizontalOverflow": false
+      }
+    },
+    {
+      "path": "docs/journey-link/after/390x844-L-version-warning.png",
+      "at": "2026-10-09T12:42:36.009Z",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "evidence": {
+        "hash": "#/route",
+        "screen": "route",
+        "size": "L",
+        "phone": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844
+        },
+        "rail": {
+          "x": 315,
+          "y": 284.15625,
+          "width": 60,
+          "height": 392
+        },
+        "selectedVillage": null,
+        "map": null,
+        "routeStops": [
+          "龙宫村",
+          "清潭村",
+          "梅枝田村",
+          "箬岙村"
+        ],
+        "primaryAction": "查看返程",
+        "dialog": null,
+        "font": "\"Baixi Sans\", \"Noto Sans SC\", \"Microsoft YaHei\", sans-serif",
+        "horizontalOverflow": false
+      }
+    }
+  ]
+}

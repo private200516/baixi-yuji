@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { createServer } from 'node:http';
-import { readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { resolve, sep } from 'node:path';
 import { chromium, launchOptions } from './browser-runtime.mjs';
 
@@ -47,8 +47,28 @@ try {
   await page.getByRole('button', { name: '关闭弹窗', exact: true }).click();
   await page.getByRole('dialog').waitFor({ state: 'hidden' });
   assert.equal(await page.locator('html').getAttribute('data-text-size'), 'L');
-  await writeFile('docs/ui-motion-production-results.json', JSON.stringify({ checkedAt: new Date().toISOString(), status: 'PASS', screens: ['ride', 'return', 'scan', 'route', 'ticket', 'town', 'help', 'delay'], subpath: prefix, mapPoints: 5, selection: 'longgong', errors }, null, 2));
-  console.log('PASS production build: original eight routes, town scene, local fonts, real map worker/data and village selection under a project subpath');
+  await page.goto(`${base}#/town`);
+  await page.getByLabel('选择古村', { exact: true }).selectOption('xujiashan');
+  await page.locator('.town-route-action').click();
+  await page.locator('.detail-stops').getByRole('button', { name: /龙宫村/ }).click();
+  await page.waitForFunction(() => document.querySelector('.mobile-main')?.dataset.routeProposal === 'xujiashan-longgong');
+  assert.match(await page.locator('.route-chips').textContent(), /41\.9 km/);
+  await page.locator('.notch-action button').click();
+  await page.locator('.screen-return').waitFor();
+  assert.match(await page.locator('.return-stops').textContent(), /58\.2 km/);
+  await page.locator('.notch-action button').click();
+  await page.waitForFunction(() => !!JSON.parse(localStorage.getItem('xiangxu.journey.v1') || '{}').savedPlan);
+  await page.reload();
+  await page.getByRole('button', { name: '查看本地计划', exact: true }).click();
+  assert.match(await page.getByRole('dialog').textContent(), /龙宫村.*许家山村/);
+  const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('xiangxu.journey.v1')).savedPlan);
+  assert.equal(saved.routeProposalId, 'longgong-xujiashan');
+  assert.equal(saved.direction, 'return');
+  assert.equal(saved.operatingStatus, 'research-not-confirmed');
+  assert.deepEqual(errors, [], 'research data and navigation work under a production project subpath');
+  await mkdir('docs/journey-link', { recursive: true });
+  await writeFile('docs/journey-link/production-results.json', JSON.stringify({ checkedAt: new Date().toISOString(), status: 'PASS', screens: ['ride', 'return', 'scan', 'route', 'ticket', 'town', 'help', 'delay'], subpath: prefix, mapPoints: 5, selection: 'longgong', journey: { routeProposalId: saved.routeProposalId, direction: saved.direction, dataVersion: saved.dataVersion, restored: true }, errors }, null, 2));
+  console.log('PASS production build: eight routes, map/font resources and the complete research-return-save-restore chain under a project subpath');
 } finally {
   await browser.close();
   await new Promise(resolve => server.close(resolve));

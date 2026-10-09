@@ -2,10 +2,11 @@ import { useEffect, useRef } from 'react';
 import { Glyph, RiverMark } from './TransitArt';
 
 type SeniorScreen = 'ride' | 'scan' | 'return' | 'help';
-export function SeniorExperience({ screen, station, destination, minutes, slot, savedReturn, speaking,
+export function SeniorExperience({ screen, station, destination, minutes, slot, savedReturn, speaking, research,
   onGo, onSettings, onListen, onStations, onTimes, onSave }: {
   screen: string; station: string; destination: string; minutes: number; slot: string;
   savedReturn: string | null; speaking: boolean;
+  research?: { from: string; to: string; saved: boolean; complete: boolean };
   onGo: (screen: SeniorScreen) => void; onSettings: () => void; onListen: () => void;
   onStations: () => void; onTimes: () => void; onSave: () => void;
 }) {
@@ -32,11 +33,11 @@ export function SeniorExperience({ screen, station, destination, minutes, slot, 
     </>}
     {current === 'scan' && <section className="senior-scan-card"><p>上车时，出示此码</p><div className="senior-qr"><img src="./art/demo-qr.svg" alt="演示二维码，不能用于乘车或支付"/></div><strong>演示码 · 不能乘车</strong><p>真实乘车请按司机指引购票</p></section>}
     {current === 'return' && <>
-      <section className="senior-return-card"><p>在古镇起点站上车</p><h3>返回城区终点站</h3><span className="senior-departure">出发时间</span><strong className="senior-time">{slot}</strong><button className="senior-secondary" onClick={onTimes}>换个时间<Glyph name="chevron"/></button></section>
-      <button className="senior-primary" onClick={onSave}><Glyph name="check"/>{savedReturn === slot ? '已记住这趟车' : '记住这趟车'}</button>
-      <p className="senior-explanation">{savedReturn === slot ? '下次打开，还能看到这个时间。' : '记在本机，方便下次查看。'}<br/>不发送发车提醒。</p>
+      <section className="senior-return-card"><p>{research ? `从${research.from} · 非车站` : '在古镇起点站上车'}</p><h3>{research ? `返回${research.to}` : '返回城区终点站'}</h3><span className="senior-departure">{research ? '车站与班次' : '出发时间'}</span><strong className="senior-time">{research ? '待核验' : slot}</strong><button className="senior-secondary" onClick={onTimes} disabled={!!research}>{research ? '暂无已核实班次' : '换个时间'}<Glyph name="chevron"/></button></section>
+      <button className="senior-primary" onClick={onSave} disabled={research && !research.complete}><Glyph name="check"/>{research ? !research.complete ? '请先选好研究区间' : research.saved ? '查看本地计划' : '记住研究计划' : savedReturn === slot ? '已记住这趟车' : '记住这趟车'}</button>
+      <p className="senior-explanation">{research ? '仅作研究参考，没有预约车辆。' : savedReturn === slot ? '下次打开，还能看到这个时间。' : '记在本机，方便下次查看。'}<br/>不发送发车提醒。</p>
     </>}
-    {current === 'help' && <section className="senior-help-card"><div className="senior-help-icon"><Glyph name="help"/></div><h3>请找司机<br/>或站务人员帮忙</h3><p>可以把这个页面给对方看：</p><div className="senior-help-message">我在<strong>{station}</strong>，<br/>想去<strong>{destination}</strong>。<br/>请帮我确认乘车方向。</div><p className="senior-help-note">这里暂未接通电话或在线客服</p></section>}
-    <p className="senior-demo">演示信息，出行前请向工作人员确认</p>
+    {current === 'help' && <section className="senior-help-card"><div className="senior-help-icon"><Glyph name="help"/></div><h3>请找司机<br/>或站务人员帮忙</h3><p>可以把这个页面给对方看：</p><div className="senior-help-message">{research ? '计划从' : '我在'}<strong>{research ? research.from : station}</strong>，<br/>想去<strong>{research ? research.to : destination}</strong>。<br/>{research ? '请帮我核实车站和班次。' : '请帮我确认乘车方向。'}</div><p className="senior-help-note">这里暂未接通电话或在线客服</p></section>}
+    <p className="senior-demo">{research && ['return', 'help'].includes(current) ? '古村研究，车站与班次待核验' : '演示信息，出行前请向工作人员确认'}</p>
   </main>;
 }

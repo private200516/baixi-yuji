@@ -1,0 +1,544 @@
+{
+  "capturedAt": "2026-10-09T12:20:05.601Z",
+  "base": "http://127.0.0.1:5173",
+  "expectedCommit": "9a5651a083f204ac2963159576752434f11c4d4c",
+  "commit": "9a5651a083f204ac2963159576752434f11c4d4c",
+  "trackedSourceDiffBefore": "",
+  "sourceBefore": {
+    "src/mobile/TransitApp.tsx": "d82b9c82b1c381ce51bfa0acb149290378abd6f7c41d01c4e3510b5b50381c61",
+    "src/mobile/TownScene.tsx": "311670acec67d2417e523f2fe4b6cc02161cab3234fdfb812020a451109b6132",
+    "src/mobile/GrooveNavigation.tsx": "b344d77e8f680fd3e4afb221542e2090d4e3612f9a4284d922400f96bdd6ba62",
+    "src/mobile/SheetPanel.tsx": "21e1891b302b88f12fc23f356ffd9a1303e7450cd2157fc2e75bea3090df0e44",
+    "src/mobile/useScreenMotion.ts": "524787b163726d96c9b97d0b333f203f38af666872ba8d4d872c24fc4ea0a96c",
+    "src/main.tsx": "c32cd6fdf50583391032f33ae8cf06f895606fbec932f9ec5497b9487fea8e48"
+  },
+  "isolatedBrowserProfile": true,
+  "captures": [
+    {
+      "name": "town",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "size": "L",
+      "path": "docs/journey-link/before/390x844-L-town.png",
+      "at": "2026-10-09T12:20:12.103Z",
+      "state": {
+        "hash": "#/town",
+        "screen": "town",
+        "size": "L",
+        "motion": "full",
+        "selectedVillage": "xujiashan",
+        "routeTitle": null,
+        "routeStops": [],
+        "returnStops": [],
+        "returnTime": null,
+        "primaryAction": null,
+        "dialogTitle": null,
+        "savedCard": null,
+        "prefs": {
+          "size": "L",
+          "regularSize": "M",
+          "senior": false,
+          "favorite": false,
+          "savedReturn": null,
+          "quiet": false
+        },
+        "focus": {
+          "tag": "BUTTON",
+          "label": null,
+          "text": "设置"
+        },
+        "phone": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844
+        },
+        "rail": {
+          "x": 315,
+          "y": 372,
+          "width": 60,
+          "height": 392
+        }
+      }
+    },
+    {
+      "name": "town",
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "size": "L",
+      "path": "docs/journey-link/before/320x568-L-town.png",
+      "at": "2026-10-09T12:20:12.153Z",
+      "state": {
+        "hash": "#/town",
+        "screen": "town",
+        "size": "L",
+        "motion": "full",
+        "selectedVillage": "xujiashan",
+        "routeTitle": null,
+        "routeStops": [],
+        "returnStops": [],
+        "returnTime": null,
+        "primaryAction": null,
+        "dialogTitle": null,
+        "savedCard": null,
+        "prefs": {
+          "size": "L",
+          "regularSize": "M",
+          "senior": false,
+          "favorite": false,
+          "savedReturn": null,
+          "quiet": false
+        },
+        "focus": {
+          "tag": "BUTTON",
+          "label": null,
+          "text": "设置"
+        },
+        "phone": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 568
+        },
+        "rail": {
+          "x": 253,
+          "y": 226,
+          "width": 55,
+          "height": 285
+        }
+      }
+    },
+    {
+      "name": "route",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "size": "L",
+      "path": "docs/journey-link/before/390x844-L-route.png",
+      "at": "2026-10-09T12:20:13.611Z",
+      "state": {
+        "hash": "#/route",
+        "screen": "route",
+        "size": "L",
+        "motion": "full",
+        "selectedVillage": null,
+        "routeTitle": "溪畔站城南客运站",
+        "routeStops": [
+          "溪畔站",
+          "青云路站",
+          "东湖站",
+          "城南客运站"
+        ],
+        "returnStops": [],
+        "returnTime": null,
+        "primaryAction": "出示乘车码",
+        "dialogTitle": null,
+        "savedCard": null,
+        "prefs": {
+          "size": "L",
+          "regularSize": "M",
+          "senior": false,
+          "favorite": false,
+          "savedReturn": null,
+          "quiet": false
+        },
+        "focus": {
+          "tag": "BODY",
+          "label": null,
+          "text": null
+        },
+        "phone": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844
+        },
+        "rail": {
+          "x": 315,
+          "y": 284.15625,
+          "width": 60,
+          "height": 392
+        }
+      }
+    },
+    {
+      "name": "route",
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "size": "L",
+      "path": "docs/journey-link/before/320x568-L-route.png",
+      "at": "2026-10-09T12:20:13.684Z",
+      "state": {
+        "hash": "#/route",
+        "screen": "route",
+        "size": "L",
+        "motion": "full",
+        "selectedVillage": null,
+        "routeTitle": "溪畔站城南客运站",
+        "routeStops": [
+          "溪畔站",
+          "青云路站",
+          "东湖站",
+          "城南客运站"
+        ],
+        "returnStops": [],
+        "returnTime": null,
+        "primaryAction": "出示乘车码",
+        "dialogTitle": null,
+        "savedCard": null,
+        "prefs": {
+          "size": "L",
+          "regularSize": "M",
+          "senior": false,
+          "favorite": false,
+          "savedReturn": null,
+          "quiet": false
+        },
+        "focus": {
+          "tag": "BODY",
+          "label": null,
+          "text": null
+        },
+        "phone": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 568
+        },
+        "rail": {
+          "x": 253,
+          "y": 209.796875,
+          "width": 55,
+          "height": 341
+        }
+      }
+    },
+    {
+      "name": "return",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "size": "L",
+      "path": "docs/journey-link/before/390x844-L-return.png",
+      "at": "2026-10-09T12:20:14.658Z",
+      "state": {
+        "hash": "#/return",
+        "screen": "return",
+        "size": "L",
+        "motion": "full",
+        "selectedVillage": null,
+        "routeTitle": null,
+        "routeStops": [],
+        "returnStops": [
+          "古镇起点站",
+          "南门站",
+          "老街站",
+          "东湖站",
+          "市政府站",
+          "城区终点站"
+        ],
+        "returnTime": "17:30",
+        "primaryAction": "保存这趟返程",
+        "dialogTitle": null,
+        "savedCard": null,
+        "prefs": {
+          "size": "L",
+          "regularSize": "M",
+          "senior": false,
+          "favorite": false,
+          "savedReturn": null,
+          "quiet": false
+        },
+        "focus": {
+          "tag": "BUTTON",
+          "label": null,
+          "text": "返程"
+        },
+        "phone": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844
+        },
+        "rail": {
+          "x": 315,
+          "y": 284.15625,
+          "width": 60,
+          "height": 392
+        }
+      }
+    },
+    {
+      "name": "return",
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "size": "L",
+      "path": "docs/journey-link/before/320x568-L-return.png",
+      "at": "2026-10-09T12:20:14.696Z",
+      "state": {
+        "hash": "#/return",
+        "screen": "return",
+        "size": "L",
+        "motion": "full",
+        "selectedVillage": null,
+        "routeTitle": null,
+        "routeStops": [],
+        "returnStops": [
+          "古镇起点站",
+          "南门站",
+          "老街站",
+          "东湖站",
+          "市政府站",
+          "城区终点站"
+        ],
+        "returnTime": "17:30",
+        "primaryAction": "保存这趟返程",
+        "dialogTitle": null,
+        "savedCard": null,
+        "prefs": {
+          "size": "L",
+          "regularSize": "M",
+          "senior": false,
+          "favorite": false,
+          "savedReturn": null,
+          "quiet": false
+        },
+        "focus": {
+          "tag": "BUTTON",
+          "label": null,
+          "text": "返程"
+        },
+        "phone": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 568
+        },
+        "rail": {
+          "x": 253,
+          "y": 209.796875,
+          "width": 55,
+          "height": 341
+        }
+      }
+    },
+    {
+      "name": "saved-return-dialog",
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "size": "L",
+      "path": "docs/journey-link/before/320x568-L-saved-return-dialog.png",
+      "at": "2026-10-09T12:20:15.956Z",
+      "state": {
+        "hash": "#/return",
+        "screen": "return",
+        "size": "L",
+        "motion": "full",
+        "selectedVillage": null,
+        "routeTitle": null,
+        "routeStops": [],
+        "returnStops": [
+          "古镇起点站",
+          "南门站",
+          "老街站",
+          "东湖站",
+          "市政府站",
+          "城区终点站"
+        ],
+        "returnTime": "17:30",
+        "primaryAction": "查看返程卡",
+        "dialogTitle": "归途，已经记下",
+        "savedCard": "我的返程 · 5 路17:30古镇起点站 → 城区终点站已保存在此浏览器 · 演示班次",
+        "prefs": {
+          "size": "L",
+          "regularSize": "M",
+          "senior": false,
+          "favorite": false,
+          "savedReturn": "17:30",
+          "quiet": false
+        },
+        "focus": {
+          "tag": "BUTTON",
+          "label": "关闭弹窗",
+          "text": "关闭"
+        },
+        "phone": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 568
+        },
+        "rail": {
+          "x": 253,
+          "y": 209.796875,
+          "width": 55,
+          "height": 341
+        }
+      }
+    },
+    {
+      "name": "saved-return-dialog",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "size": "L",
+      "path": "docs/journey-link/before/390x844-L-saved-return-dialog.png",
+      "at": "2026-10-09T12:20:16.005Z",
+      "state": {
+        "hash": "#/return",
+        "screen": "return",
+        "size": "L",
+        "motion": "full",
+        "selectedVillage": null,
+        "routeTitle": null,
+        "routeStops": [],
+        "returnStops": [
+          "古镇起点站",
+          "南门站",
+          "老街站",
+          "东湖站",
+          "市政府站",
+          "城区终点站"
+        ],
+        "returnTime": "17:30",
+        "primaryAction": "查看返程卡",
+        "dialogTitle": "归途，已经记下",
+        "savedCard": "我的返程 · 5 路17:30古镇起点站 → 城区终点站已保存在此浏览器 · 演示班次",
+        "prefs": {
+          "size": "L",
+          "regularSize": "M",
+          "senior": false,
+          "favorite": false,
+          "savedReturn": "17:30",
+          "quiet": false
+        },
+        "focus": {
+          "tag": "BUTTON",
+          "label": "关闭弹窗",
+          "text": "关闭"
+        },
+        "phone": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844
+        },
+        "rail": {
+          "x": 315,
+          "y": 284.15625,
+          "width": 60,
+          "height": 392
+        }
+      }
+    },
+    {
+      "name": "ride",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "size": "M",
+      "path": "docs/journey-link/before/1440x900-M-ride.png",
+      "at": "2026-10-09T12:20:17.835Z",
+      "state": {
+        "hash": "#/ride",
+        "screen": "ride",
+        "size": "M",
+        "motion": "full",
+        "selectedVillage": null,
+        "routeTitle": null,
+        "routeStops": [],
+        "returnStops": [],
+        "returnTime": null,
+        "primaryAction": "查找附近站点",
+        "dialogTitle": null,
+        "savedCard": null,
+        "prefs": null,
+        "focus": {
+          "tag": "BODY",
+          "label": null,
+          "text": null
+        },
+        "phone": {
+          "x": 725,
+          "y": 90,
+          "width": 336,
+          "height": 712.3125
+        },
+        "rail": {
+          "x": 993.015625,
+          "y": 351.140625,
+          "width": 50.390625,
+          "height": 329.265625
+        }
+      }
+    }
+  ],
+  "focusChecks": [
+    {
+      "viewport": 390,
+      "action": "close settings",
+      "restored": true
+    },
+    {
+      "viewport": 320,
+      "action": "close settings",
+      "restored": true
+    },
+    {
+      "viewport": 320,
+      "action": "close saved return",
+      "restored": true
+    },
+    {
+      "viewport": 390,
+      "action": "close saved return",
+      "restored": true
+    }
+  ],
+  "errors": [],
+  "sourceAfter": {
+    "src/mobile/TransitApp.tsx": "d82b9c82b1c381ce51bfa0acb149290378abd6f7c41d01c4e3510b5b50381c61",
+    "src/mobile/TownScene.tsx": "311670acec67d2417e523f2fe4b6cc02161cab3234fdfb812020a451109b6132",
+    "src/mobile/GrooveNavigation.tsx": "b344d77e8f680fd3e4afb221542e2090d4e3612f9a4284d922400f96bdd6ba62",
+    "src/mobile/SheetPanel.tsx": "21e1891b302b88f12fc23f356ffd9a1303e7450cd2157fc2e75bea3090df0e44",
+    "src/mobile/useScreenMotion.ts": "524787b163726d96c9b97d0b333f203f38af666872ba8d4d872c24fc4ea0a96c",
+    "src/main.tsx": "c32cd6fdf50583391032f33ae8cf06f895606fbec932f9ec5497b9487fea8e48"
+  },
+  "sourceUnchanged": true,
+  "baselineMatches": true,
+  "status": "PASS",
+  "reusableEntryAudit": {
+    "source": "read-only source review and captured browser flow",
+    "village": "TownScene select[aria-label=选择古村] and geographic markers call onSelect -> TransitApp villageId; villageId is React-only state, default mapVillages[0].id.",
+    "route": "TownScene 查看公交线路 and route identity call go(route); existing route screen uses four fixed demo stations; selected qingtan does not determine this list.",
+    "return": "Five-item rail and town-return-action call go(return); slot state defaults to savedReturn or 17:30; fixed six-stop return demonstration remains independent of village.",
+    "storage": {
+      "key": "baixi.mobile.v2",
+      "fields": [
+        "size",
+        "regularSize",
+        "senior",
+        "favorite",
+        "savedReturn",
+        "quiet"
+      ],
+      "savedReturn": "time string only; no village, origin, destination, path or plan identifier"
+    },
+    "focus": "SheetPanel remembers the trigger and restores it after closing if still connected; ordinary page transitions do not explicitly set focus to the new heading."
+  },
+  "completedAt": "2026-10-09T12:20:18.075Z"
+}

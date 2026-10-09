@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
 import { DotLandscape, Glyph, RiverMark, RouteRiver, TransitMark } from './TransitArt';
 import type { GlyphName } from './TransitArt';
@@ -7,7 +7,11 @@ import { FontSizeControl } from './FontSizeControl';
 import { SeniorExperience } from './SeniorExperience';
 import { SheetPanel } from './SheetPanel';
 import { useReducedMotion, useScreenMotion } from './useScreenMotion';
-import { mapVillages } from '../data/villages';
+import { demoStations as stations, demoReturnStops as returnStops, demoReturnSlots } from '../data/demoTransit';
+import { chooseJourneyDestination, createJourney, findJourneyRoute, journeyEndpoints, openResearch, selectJourneyVillage, setJourneyDirection } from './journey';
+import { useJourney } from './useJourney';
+import { ResearchReturnPanel, ResearchRoutePanel, villageName } from './ResearchPanels';
+import type { MapRoute } from '../geography/map-depth';
 
 const TownScene = lazy(() => import('./TownScene'));
 
@@ -25,8 +29,6 @@ function readPrefs(): Prefs {
   } catch { return defaults; }
 }
 function readScreen(): Screen { const value = location.hash.replace('#/', ''); return screens.includes(value as Screen) ? value as Screen : 'ride'; }
-const stations = ['溪畔站', '青云路站', '东湖站', '城南客运站'];
-const returnStops = ['古镇起点站', '南门站', '老街站', '东湖站', '市政府站', '城区终点站'];
 const labels: Record<Screen, string> = { ride: '找站候车', return: '安心返程', scan: '扫码乘车', route: '线路详情', ticket: '电子车票', town: '古镇导览', help: '帮助中心', delay: '出行提醒' };
 const faqs = [
   ['如何使用乘车码？','点击右侧“乘车码”，上车后将二维码对准车载扫码区。本原型展示演示码，不能实际乘车或支付。'],
@@ -40,13 +42,26 @@ export default function TransitApp() {
   const mainRef = useRef<HTMLElement>(null);
   const motionReduced = useReducedMotion(prefs.quiet || prefs.senior);
   const { screen, target, navigate } = useScreenMotion<Screen>(readScreen, mainRef, motionReduced);
+  const trip = useJourney(screen === 'town');
+  const { journey, setJourney, research, savedPlan } = trip;
+  const isResearch = journey.mode === 'research';
+  const villageId = journey.selectedVillageId;
+  const endpoints = journeyEndpoints(journey);
+  const currentResearchRoute = findJourneyRoute(journey, research);
+  const mapRoute = useMemo<MapRoute | null>(() => isResearch && currentResearchRoute ? ({ id: currentResearchRoute.id,
+    geometry: currentResearchRoute.geometryStatus === 'source-road-geometry' && currentResearchRoute.coordinates ? { type: 'LineString', coordinates: currentResearchRoute.coordinates } : null,
+    geometryStatus: currentResearchRoute.geometryStatus }) : null, [isResearch, currentResearchRoute]);
+  const versionChanged = !!savedPlan && !!research && savedPlan.dataVersion !== research.version;
+  const sameSavedSelection = !!savedPlan && isResearch && savedPlan.originVillageId === journey.originVillageId && savedPlan.destinationVillageId === journey.destinationVillageId && savedPlan.direction === journey.direction;
+  const savedResearch = sameSavedSelection && (trip.status !== 'ready' || (savedPlan!.dataVersion === research?.version && savedPlan!.routeProposalId === (currentResearchRoute?.id || null)));
+  const savedEndpoints = savedPlan ? journeyEndpoints(savedPlan) : null;
   const [sheet, setSheet] = useState<Sheet>(null);
   const [toast, setToast] = useState('');
+  const [planError, setPlanError] = useState('');
   const [reverse, setReverse] = useState(false);
   const [station, setStation] = useState(stations[0]);
   const [slot, setSlot] = useState(() => readPrefs().savedReturn || '17:30');
   const [query, setQuery] = useState('');
-  const [villageId, setVillageId] = useState(mapVillages[0].id);
   const [faq, setFaq] = useState(0);
   const [ticketVersion, setTicketVersion] = useState(1);
   const [retrying, setRetrying] = useState(false);
@@ -64,6 +79,9 @@ export default function TransitApp() {
     return () => window.removeEventListener('hashchange', onHash);
   }, [navigate]);
   useEffect(() => {
+    if (target === 'return' && readScreen() === 'return' && isResearch && journey.direction !== 'return') setJourney(current => setJourneyDirection(current, 'return', research));
+  }, [target, isResearch, journey.direction, research, setJourney]);
+  useEffect(() => {
     document.title = `乡序 · ${labels[screen]}`;
     scrollRef.current?.scrollTo({ top: 0, behavior: 'instant' });
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -80,7 +98,25 @@ export default function TransitApp() {
     setSpeaking(false);
     if (prefs.senior && !['ride', 'return', 'scan', 'help'].includes(screen)) location.hash = '/ride';
   }, [screen, prefs.senior]);
-  function go(next: Screen) { if (readScreen() === next) scrollRef.current?.scrollTo({ top: 0, behavior: motionReduced ? 'instant' : 'smooth' }); else location.hash = `/${next}`; setSheet(null); }
+  function go(next: Screen) {
+    if (next === 'return' && isResearch) setJourney(current => setJourneyDirection(current, 'return', research));
+    if (readScreen() === next) scrollRef.current?.scrollTo({ top: 0, behavior: motionReduced ? 'instant' : 'smooth' }); else location.hash = `/${next}`;
+    setSheet(null);
+  }
+  function startResearch(id: string, next: 'route' | 'return') {
+    setJourney(current => setJourneyDirection(openResearch(selectJourneyVillage(current, id)), next === 'return' ? 'return' : 'outbound', research));
+    if (trip.status === 'error') trip.retry();
+    go(next);
+  }
+  function chooseResearchDestination(id: string) {
+    setJourney(current => setJourneyDirection(chooseJourneyDestination(current, id, research), current.direction, research));
+  }
+  function openDemoRoute() { setJourney(current => createJourney(current.selectedVillageId)); go('route'); }
+  function saveResearchPlan() {
+    if (!journey.destinationVillageId) { go('route'); return; }
+    if (savedResearch) { setPlanError(''); setSheet('saved'); return; }
+    setToast(trip.savePlan().message);
+  }
   function save(next: Partial<Prefs>, message?: string) {
     const value = { ...prefs, ...next }; setPrefs(value);
     try { localStorage.setItem(STORE, JSON.stringify(value)); if (message) setToast(message); }
@@ -92,6 +128,7 @@ export default function TransitApp() {
     setToast(''); go('ride');
   }
   function chooseStation(name: string) {
+    setJourney(current => createJourney(current.selectedVillageId));
     setStation(name);
     if (name === stations[3]) setReverse(true);
     else if (name === stations[0]) setReverse(false);
@@ -103,7 +140,7 @@ export default function TransitApp() {
     const voices = window.speechSynthesis.getVoices();
     const voice = voices.find(v => v.lang.startsWith('zh') && v.localService);
     if (!voice) { setToast('这台设备暂不能朗读，请查看页面文字，或请身边的人帮忙。'); return; }
-    const message = prefs.senior && screen === 'scan' ? '上车时出示乘车码。当前为演示码，不能用于乘车。真实乘车请按司机指引购票。' : prefs.senior && screen === 'return' ? `返程在古镇起点站上车，返回城区终点站，出发时间${slot}。点击换个时间可以选择班次，点击记住这趟车可以保存。` : prefs.senior && screen === 'help' ? `请找司机或站务人员帮忙。我在${station}，想去${destination}，请帮我确认乘车方向。` : `${station}，开往${destination}。下一班约${minutes}分钟。返程计划${slot}。`;
+    const message = isResearch && ['route', 'return', 'help'].includes(screen) ? `道路研究计划，从${villageName(endpoints.fromVillageId)}到${villageName(endpoints.toVillageId)}。古村不是车站，上下客点、运营班次和车辆通行条件仍未核验。保存计划不代表预约车辆。` : prefs.senior && screen === 'scan' ? '上车时出示乘车码。当前为演示码，不能用于乘车。真实乘车请按司机指引购票。' : prefs.senior && screen === 'return' ? `返程在古镇起点站上车，返回城区终点站，出发时间${slot}。点击换个时间可以选择班次，点击记住这趟车可以保存。` : prefs.senior && screen === 'help' ? `请找司机或站务人员帮忙。我在${station}，想去${destination}，请帮我确认乘车方向。` : `${station}，开往${destination}。下一班约${minutes}分钟。返程计划${slot}。`;
     const utterance = new SpeechSynthesisUtterance(`乡序。以下为演示信息。${message}出行前请向工作人员确认。`);
     utterance.lang = 'zh-CN'; utterance.voice = voice; utterance.rate = .85;
     utterance.onend = () => setSpeaking(false); utterance.onerror = () => { setSpeaking(false); setToast('朗读暂不可用，请使用大字模式。'); };
@@ -112,19 +149,19 @@ export default function TransitApp() {
   function retry() { setRetrying(true); retryTimer.current = setTimeout(() => { setRetrying(false); go('ride'); setToast('已重新载入演示班次，真实车辆状态尚未接入。'); }, 1000); }
   const action: Record<Screen, { label: string; icon: GlyphName; run: () => void }> = {
     ride: { label: '查找附近站点', icon: 'pin', run: () => { setQuery(''); setSheet('nearby'); } },
-    return: { label: prefs.savedReturn === slot ? '查看返程卡' : '保存这趟返程', icon: prefs.savedReturn === slot ? 'ticket' : 'bell', run: () => { if (prefs.savedReturn === slot) setSheet('saved'); else { save({ savedReturn: slot }, `已保存 ${slot} 返程卡到本机`); } } },
+    return: isResearch ? { label: !journey.destinationVillageId ? '先选研究区间' : savedResearch ? '查看本地计划' : sameSavedSelection ? '更新研究计划' : '保存研究计划', icon: 'ticket', run: saveResearchPlan } : { label: prefs.savedReturn === slot ? '查看返程卡' : '保存这趟返程', icon: prefs.savedReturn === slot ? 'ticket' : 'bell', run: () => { if (prefs.savedReturn === slot) setSheet('saved'); else { save({ savedReturn: slot }, `已保存 ${slot} 返程卡到本机`); } } },
     scan: { label: '查看我的车票', icon: 'ticket', run: () => go('ticket') },
-    route: { label: '出示乘车码', icon: 'scan', run: () => go('scan') },
+    route: isResearch ? { label: '查看返程', icon: 'back', run: () => go('return') } : { label: '出示乘车码', icon: 'scan', run: () => go('scan') },
     ticket: { label: '我的车票记录', icon: 'ticket', run: () => setSheet('orders') },
-    town: { label: '查看公交线路', icon: 'pin', run: () => go('route') },
+    town: { label: '查看道路方案', icon: 'pin', run: () => startResearch(villageId, 'route') },
     help: { label: '联系服务中心', icon: 'help', run: () => setSheet('contact') },
     delay: { label: '查看帮助', icon: 'help', run: () => go('help') },
   };
   const title: Record<Screen, ReactNode> = {
     ride: <><span className="hero-number" key={minutes}>{minutes}</span><span className="hero-unit">分钟</span></>,
-    return: <span className="hero-number time-number" key={slot}>{slot}</span>,
+    return: isResearch ? <>返程</> : <span className="hero-number time-number" key={slot}>{slot}</span>,
     scan: <>乘车码<span className="title-dot">.</span></>,
-    route: <><span className="hero-number">5</span><span className="hero-unit">路</span></>,
+    route: isResearch ? <>研究</> : <><span className="hero-number">5</span><span className="hero-unit">路</span></>,
     ticket: <>一程山水</>, town: <>古镇漫游</>, help: <>在你身边</>, delay: <>稍候片刻</>,
   };
 
@@ -136,11 +173,11 @@ export default function TransitApp() {
       <section className="device-stage" aria-label="乡序手机应用">
         <div className={`phone ${prefs.senior ? 'senior-phone' : ''}`}>
           <div className="device-status" aria-hidden="true"><span>9:41</span><span className="dynamic-island"/><span className="status-icons"><svg viewBox="0 0 52 14"><path d="M2 12V9m4 3V7m4 5V4m4 8V1" stroke="currentColor" strokeWidth="2"/><path d="M20 5q6-6 12 0m-10 3q4-4 8 0m-6 3q2-2 4 0" fill="none" stroke="currentColor" strokeWidth="1.5"/><rect x="37" y="3" width="12" height="8" rx="2" stroke="currentColor" fill="none"/><rect x="39" y="5" width="8" height="4" rx="1" fill="currentColor"/><path d="M51 6v2" stroke="currentColor"/></svg></span></div>
-          {prefs.senior ? <SeniorExperience screen={screen} station={station} destination={destination} minutes={minutes} slot={slot} savedReturn={prefs.savedReturn} speaking={speaking} onGo={go} onSettings={() => setSheet('settings')} onListen={listen} onStations={() => { setQuery(''); setSheet('nearby'); }} onTimes={() => setSheet('times')} onSave={() => save({ savedReturn: slot })}/> : <div className="phone-scroll" ref={scrollRef}>
-            <div className="app-topbar"><span className="location-chip"><Glyph name="pin"/>宁海 · 前童</span><span className="demo-tag"><i/>概念演示</span><button className="app-settings" onClick={() => setSheet('settings')}><Glyph name="settings"/>设置</button></div>
-            <main ref={mainRef} data-screen={screen} id="main-view" className={`mobile-main ${screen === 'town' ? 'town-scene-main' : ''}`} tabIndex={-1}>
-              {screen === 'town' ? <Suspense fallback={<div className="town-map-loading" role="status">正在展开古村地图…</div>}><TownScene selected={villageId} onSelect={setVillageId} size={prefs.size} reducedMotion={motionReduced} returnTime={prefs.savedReturn || '17:30'} onRoute={() => go('route')} onReturn={() => go('return')}/></Suspense> : <>
-              <header className="trip-header"><div className="headline" key={screen}><p>{screen === 'ride' ? '下一班 · 预计到站' : screen === 'return' ? '返程出发 · 从容回家' : labels[screen]}</p><h2 className={`hero-title ${['ride','route','return'].includes(screen) ? 'numeric-title' : ''}`}>{title[screen]}</h2></div><button className="route-identity" onClick={() => go('route')} aria-label="查看 5 路线路详情"><TransitMark/><strong>S-384x</strong><span>宁海慢行专线</span></button></header>
+          {prefs.senior ? <SeniorExperience screen={screen} station={station} destination={destination} minutes={minutes} slot={slot} savedReturn={prefs.savedReturn} speaking={speaking} research={isResearch ? { from: villageName(endpoints.fromVillageId), to: villageName(endpoints.toVillageId), saved: savedResearch, complete: !!journey.destinationVillageId } : undefined} onGo={go} onSettings={() => setSheet('settings')} onListen={listen} onStations={() => { setQuery(''); setSheet('nearby'); }} onTimes={() => setSheet('times')} onSave={isResearch ? saveResearchPlan : () => save({ savedReturn: slot })}/> : <div className="phone-scroll" ref={scrollRef}>
+            <div className="app-topbar"><span className="location-chip"><Glyph name="pin"/>宁海 · 古村</span><span className="demo-tag"><i/>概念演示</span><button className="app-settings" onClick={() => setSheet('settings')}><Glyph name="settings"/>设置</button></div>
+            <main ref={mainRef} data-screen={screen} data-journey-mode={journey.mode} data-origin={journey.originVillageId || ''} data-destination={journey.destinationVillageId || ''} data-direction={journey.direction} data-route-proposal={currentResearchRoute?.id || ''} id="main-view" className={`mobile-main ${screen === 'town' ? 'town-scene-main' : ''}`} tabIndex={-1}>
+              {screen === 'town' ? <Suspense fallback={<div className="town-map-loading" role="status">正在展开古村地图…</div>}><TownScene selected={villageId} onSelect={id => setJourney(current => selectJourneyVillage(current, id))} size={prefs.size} reducedMotion={motionReduced} returnTime="待核验" returnDirection={isResearch && journey.destinationVillageId ? `回${villageName(journey.originVillageId).replace(/村$/, '')}` : '待选终点'} route={mapRoute} onRoute={id => startResearch(id, 'route')} onReturn={id => startResearch(id, 'return')}/></Suspense> : <>
+              <header className="trip-header"><div className="headline" key={screen}><p>{isResearch && ['route', 'return'].includes(screen) ? '古村研究 · 待核验' : screen === 'ride' ? '下一班 · 预计到站' : screen === 'return' ? '返程出发 · 从容回家' : labels[screen]}</p><h2 className={`hero-title ${screen === 'ride' || (!isResearch && ['route','return'].includes(screen)) ? 'numeric-title' : ''}`}>{title[screen]}</h2></div><button className="route-identity" onClick={() => isResearch ? (trip.status === 'error' ? trip.retry() : go('route')) : openDemoRoute()} aria-label={isResearch ? trip.status === 'error' ? '重试道路研究数据' : '查看古村道路研究' : '查看 5 路线路详情'}><TransitMark/><strong>S-384x</strong><span>{isResearch ? trip.status === 'error' ? '点击重试资料' : '概念设计题签' : '宁海慢行专线'}</span></button></header>
               <div className="sculpt-frame" key={screen}>
                 <svg className="sculpt-cap" viewBox="0 0 400 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 100V60C0 25 25 0 65 0H138C192 0 186 56 247 56H339C380 56 400 78 400 100Z"/></svg>
                 <div className={`teal-content screen-${screen}`}>
@@ -148,21 +185,21 @@ export default function TransitApp() {
                     <div className="surface-kicker"><span><i className="live-dot"/>5 路 · 候车中</span><button className="surface-icon" aria-label={prefs.favorite ? '取消收藏线路' : '收藏线路'} aria-pressed={prefs.favorite} onClick={() => save({ favorite: !prefs.favorite }, prefs.favorite ? '已取消收藏' : '已收藏 5 路到本机')}><Glyph name="star"/></button></div>
                     <div className="station-heading"><h3 key={station}>{station}<span>·</span></h3><button className="direction-control" onClick={changeDirection} aria-label="切换行车方向"><Glyph name="swap"/></button></div>
                     <p className="destination" key={destination}>开往{destination}</p>
-                    <button className="route-preview" onClick={() => go('route')} aria-label="展开完整线路"><RouteRiver stops={route} reversed={reverse}/></button>
-                    <div className="ride-meta"><span><Glyph name="bus"/>距本站 2 站</span><span><i/>示例班次</span><button onClick={() => go('route')}>全程线路<Glyph name="arrow"/></button></div>
+                    <button className="route-preview" onClick={openDemoRoute} aria-label="展开完整线路"><RouteRiver stops={route} reversed={reverse}/></button>
+                    <div className="ride-meta"><span><Glyph name="bus"/>距本站 2 站</span><span><i/>示例班次</span><button onClick={openDemoRoute}>全程线路<Glyph name="arrow"/></button></div>
                   </>}
-                  {screen === 'return' && <>
+                  {screen === 'return' && (isResearch ? <ResearchReturnPanel journey={journey} research={research} status={trip.status} versionChanged={versionChanged}/> : <>
                     <div className="surface-kicker"><span>去有方向，回有着落</span><Glyph name="back"/></div><h3 className="return-title">古镇起点站 <span>→</span><br/>城区终点站</h3>
                     <ol className="stop-list return-stops">{returnStops.map((stop, i) => <li key={stop} className={i === 0 ? 'current' : ''}><i/><span>{stop}</span>{i === 0 && <small>上车点</small>}{i === 5 && <small>约 35 分钟</small>}</li>)}</ol>
-                    <div className="return-slots" role="group" aria-label="选择返程班次">{['17:30','18:00','18:30'].map(time => <button key={time} aria-pressed={slot === time} onClick={() => setSlot(time)}>{time}{time === '18:30' && <small>末班</small>}</button>)}</div><p className="surface-footnote">选择示例班次，保存到本机返程卡</p>
-                  </>}
+                    <div className="return-slots" role="group" aria-label="选择返程班次">{demoReturnSlots.map(time => <button key={time} aria-pressed={slot === time} onClick={() => setSlot(time)}>{time}{time === '18:30' && <small>末班</small>}</button>)}</div><p className="surface-footnote">选择示例班次，保存到本机返程卡</p>
+                  </>)}
                   {screen === 'scan' && <>
                     <div className="surface-kicker"><span>上车，从这里开始</span><Glyph name="scan"/></div><h3 className="center-title">将乘车码对准扫码区</h3><p className="center-subtitle">靠近车载设备，即可轻松出行</p><div className="scanner"><span className="scan-corner tl"/><span className="scan-corner tr"/><span className="scan-corner bl"/><span className="scan-corner br"/><div className="scanner-code"><img src="./art/demo-qr.svg" alt="无效演示二维码"/><span className="qr-demo">DEMO</span></div><div className="scan-beam"/></div><div className="scan-demo-pill"><i/>演示乘车码 · 不可用于乘车</div><button className="surface-text-button" onClick={() => go('ticket')}>查看电子车票<Glyph name="arrow"/></button>
                   </>}
-                  {screen === 'route' && <>
+                  {screen === 'route' && (isResearch ? <ResearchRoutePanel journey={journey} research={research} status={trip.status} versionChanged={versionChanged} onDestination={chooseResearchDestination} onDirection={() => setJourney(current => setJourneyDirection(current, current.direction === 'outbound' ? 'return' : 'outbound', research))}/> : <>
                     <div className="surface-kicker"><span>沿溪而行 · 5 路</span><button className="surface-icon" onClick={changeDirection} aria-label="切换线路方向"><Glyph name="swap"/></button></div><h3 className="route-title">{route[0]}<Glyph name="arrow"/>{destination}</h3><div className="route-chips"><span>全程 4 站</span><span>约 18 分钟</span><span>示例线路</span></div>
                     <ol className="stop-list detail-stops">{route.map((stop,i) => <li key={stop} className={stop === station ? 'current' : ''}><i/><button onClick={() => chooseStation(stop)}><strong>{stop}</strong><small>{stop === station ? '当前候车站点' : i === 3 ? '终点站 · 点击选择' : '点击设为候车站'}</small></button>{stop === station && <span className="here-label">当前站</span>}</li>)}</ol><div className="route-service"><Glyph name="clock"/><span>首班 06:30 <i/> 末班 18:30</span></div><p className="surface-footnote">站点、票价与班次均为设计示例，待核实。</p>
-                  </>}
+                  </>)}
                   {screen === 'ticket' && <>
                     <div className="surface-kicker"><span>把一路风景，收进票根</span><Glyph name="ticket"/></div><article className="paper-ticket"><div className="ticket-heading"><span>乡序 · 电子车票</span><TransitMark/></div><h3>{station}<Glyph name="arrow"/>{destination}</h3><div className="ticket-divider"/><div className="ticket-qr" key={ticketVersion}><img src="./art/demo-qr.svg" alt="演示电子车票二维码，不可用于乘车"/><span className="qr-demo">DEMO</span></div><button className="refresh-code" onClick={() => { setTicketVersion(v => v+1); setToast('演示票面已刷新；此二维码不具备乘车或支付功能。'); }}><Glyph name="refresh"/>刷新演示票面</button><p>样票 NO. 000{ticketVersion} · 未购票</p><div className="ticket-divider"/><div className="ticket-bottom"><span>5 路 · 单程</span><strong>演示票</strong></div></article><p className="surface-footnote">仅供界面体验，不具备支付与核验功能</p>
                   </>}
@@ -173,7 +210,7 @@ export default function TransitApp() {
                 </div>
                 <div className="sculpt-tail"><svg viewBox="0 0 400 125" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H400V4Q400 29 364 29H276C243 29 219 40 219 64S238 96 247 96V99Q247 121 214 121H128C98 121 91 134 75 122C39 109 42 94 42 70V61C42 42 29 35 18 32Q0 28 0 0Z"/></svg><div className="notch-action"><button onClick={action[screen].run}><Glyph name={action[screen].icon}/><span>{action[screen].label}</span><Glyph name="chevron"/></button></div></div>
               </div>
-              <div className="lower-landscape" key={`landscape-${screen}`}><div className="vertical-signature"><span className="calligraphy">乡序</span><span className="vertical-en">XIANG XU</span><RiverMark/></div><section className="terracotta"><div className="terracotta-inner"><button className="return-mini" onClick={() => go(screen === 'return' ? 'town' : 'return')}><span><small>{screen === 'return' ? '古镇漫游' : prefs.savedReturn ? '已保存返程' : '返程安排'}</small><span className="return-summary"><strong>{screen === 'return' ? '再逛一逛' : prefs.savedReturn || '17:30'}</strong>{screen !== 'return' && <span>古镇 → 城区</span>}</span></span><span className="return-arrow"><Glyph name="arrow"/></span></button><DotLandscape/></div></section></div>
+              <div className="lower-landscape" key={`landscape-${screen}`}><div className="vertical-signature"><span className="calligraphy">乡序</span><span className="vertical-en">XIANG XU</span><RiverMark/></div><section className="terracotta"><div className="terracotta-inner"><button className="return-mini" onClick={() => go(screen === 'return' ? 'town' : 'return')}><span><small>{screen === 'return' ? '古村漫游' : isResearch ? savedResearch ? '已存研究计划' : '返程待核验' : prefs.savedReturn ? '已保存返程' : '返程安排'}</small><span className="return-summary"><strong>{screen === 'return' ? '再逛一逛' : isResearch ? '待核验' : prefs.savedReturn || '17:30'}</strong>{screen !== 'return' && <span>{isResearch ? journey.destinationVillageId ? `回${villageName(journey.originVillageId).replace(/村$/, '')}` : '待选终点' : '古镇 → 城区'}</span>}</span></span><span className="return-arrow"><Glyph name="arrow"/></span></button><DotLandscape/></div></section></div>
               </>}
               <GrooveNavigation key="primary-navigation" items={nav} active={active} layout={`${screen}:${prefs.size}`} onSelect={go} reducedMotion={motionReduced} wordmark="乡序"/>
               <p className="prototype-note">设计演示 · 站点与时刻待核实 · 非实际出行依据</p>
@@ -186,16 +223,16 @@ export default function TransitApp() {
       <aside className="margin-note"><span>一方水土</span><i/><span>一程风景</span><small>30° N / 121° E</small></aside>
     </div>
     <footer className="studio-footer"><span>为慢一点的旅行，设计刚刚好的抵达。</span><div><i/><i/><i/><span>宁海 · 中国</span></div></footer>
-    <SheetPanel open={sheet !== null} reducedMotion={motionReduced} title={sheet === 'settings' ? '设置' : sheet === 'times' ? '选择出发时间' : sheet === 'nearby' ? '选一个上车站' : sheet === 'saved' ? '归途，已经记下' : sheet === 'orders' ? '我的车票' : sheet === 'faq' ? '出行小贴士' : '出行服务'} onClose={() => setSheet(null)}>
+    <SheetPanel open={sheet !== null} reducedMotion={motionReduced} title={sheet === 'settings' ? '设置' : sheet === 'times' ? '选择出发时间' : sheet === 'nearby' ? '选一个上车站' : sheet === 'saved' ? isResearch ? '本地研究计划' : '归途，已经记下' : sheet === 'orders' ? '我的车票' : sheet === 'faq' ? '出行小贴士' : '出行服务'} onClose={() => setSheet(null)}>
       {sheet === 'settings' && <div className="settings-content">
         <section className="settings-font"><h3>文字大小</h3><p>小、中、大 · 所有页面一起调整</p><FontSizeControl value={prefs.size} onChange={size => save({ size })}/></section>
         <div className="settings-senior"><div><Glyph name="heart"/><h3>老年人模式</h3></div>{prefs.senior ? <p>四个大按钮，操作更简单。</p> : <p>更少选项 · 更大按钮<br/>候车、乘车码、返程和求助，一眼就能找到。</p>}<button className="senior-mode-switch" role="switch" aria-checked={prefs.senior} aria-label="老年人模式" onClick={() => toggleSenior(!prefs.senior)}><span>{prefs.senior ? '退出老年人模式' : '开启老年人模式'}</span><span className="setting-switch-track" aria-hidden="true"><i/></span></button></div>
         {!prefs.senior ? <label className="settings-motion"><span>减少动态效果</span><input type="checkbox" checked={prefs.quiet} onChange={e => save({ quiet: e.target.checked })}/></label> : <p className="settings-tip">退出后恢复原来的字号。</p>}
       </div>}
-      {sheet === 'times' && <div className="senior-time-list">{['17:30', '18:00', '18:30'].map(time => <button key={time} aria-pressed={slot === time} onClick={() => { setSlot(time); setSheet(null); }}><span>{time}{time === '18:30' && <small>末班</small>}</span>{slot === time ? <Glyph name="check"/> : <Glyph name="chevron"/>}</button>)}</div>}
+      {sheet === 'times' && <div className="senior-time-list">{demoReturnSlots.map(time => <button key={time} aria-pressed={slot === time} onClick={() => { setSlot(time); setSheet(null); }}><span>{time}{time === '18:30' && <small>末班</small>}</span>{slot === time ? <Glyph name="check"/> : <Glyph name="chevron"/>}</button>)}</div>}
       {sheet === 'faq' && <div className="faq-answer"><Glyph name="help"/><h3>{faqs[faq][0]}</h3><p>{faqs[faq][1]}</p><button className="sheet-primary" onClick={() => setSheet(null)}>知道了<Glyph name="check"/></button></div>}
       {sheet === 'nearby' && <><p className="sheet-description">当前展示示例站点，尚未接入定位和步行导航。</p><label className="station-search"><Glyph name="search"/><input aria-label="搜索站点" placeholder="搜索站点名称" value={query} onChange={e => setQuery(e.target.value)}/></label><div className="nearby-list">{stations.filter(name => name.includes(query.trim())).map((name,i) => <button key={name} onClick={() => { chooseStation(name); setToast(`已选择 ${name}`); }}><span className="station-pin"><Glyph name="pin"/></span><span><strong>{name}</strong><small>5 路 · 示例站点 {i+1}</small></span>{station === name ? <Glyph name="check"/> : <Glyph name="chevron"/>}</button>)}{!stations.some(name => name.includes(query.trim())) && <div className="empty-state"><Glyph name="search"/><h3>没有找到这个站</h3><p>试试“溪畔”“东湖”或其他站名</p><button onClick={() => setQuery('')}>查看全部站点</button></div>}</div></>}
-      {sheet === 'saved' && <><div className="saved-card"><Glyph name="ticket"/><span>我的返程 · 5 路</span><strong>{prefs.savedReturn}</strong><p>古镇起点站 → 城区终点站</p><small>已保存在此浏览器 · 演示班次</small></div><p className="sheet-description">出发前再确认一下班次。本原型不会发送通知。</p><button className="sheet-primary" onClick={() => { save({ savedReturn: null }, '已移除本机返程卡'); setSheet(null); }}>移除返程卡</button></>}
+      {sheet === 'saved' && (isResearch && savedPlan && savedEndpoints ? <><div className="saved-card"><Glyph name="ticket"/><span>古村研究 · 非运营班次</span><strong>{savedPlan.direction === 'return' ? '返程' : '去程'}</strong><p>{villageName(savedEndpoints.fromVillageId)} → {villageName(savedEndpoints.toVillageId)}</p><small>已保存在此浏览器 · 站点与班次待核验</small></div><p className="sheet-description" aria-live="polite">{planError || `保存时间：${new Date(savedPlan.savedAt).toLocaleString('zh-CN')}。数据版本：${savedPlan.dataVersion || '未载入，待核验'}。${versionChanged ? '当前资料已有更新，旧计划需重新核对。' : ''}道路研究不等于公交线路，不发送发车提醒。`}</p><button className="sheet-primary" onClick={() => { const result = trip.removePlan(); if (result.ok) { setSheet(null); setToast(result.message); } else setPlanError(result.message); }}>移除本地计划</button></> : <><div className="saved-card"><Glyph name="ticket"/><span>我的返程 · 5 路</span><strong>{prefs.savedReturn}</strong><p>古镇起点站 → 城区终点站</p><small>已保存在此浏览器 · 演示班次</small></div><p className="sheet-description">出发前再确认一下班次。本原型不会发送通知。</p><button className="sheet-primary" onClick={() => { save({ savedReturn: null }, '已移除本机返程卡'); setSheet(null); }}>移除返程卡</button></>)}
       {sheet === 'orders' && <div className="empty-state"><Glyph name="ticket"/><h3>第一程，还未启程</h3><p>尚无真实购票记录。<br/>你可以先浏览演示车票的样式。</p><button className="sheet-primary" onClick={() => { setSheet(null); go('ticket'); }}>查看演示车票<Glyph name="arrow"/></button></div>}
       {sheet === 'contact' && <div className="empty-state"><Glyph name="help"/><h3>需要一点帮助？</h3><p>本原型尚未接入在线客服与公交服务热线。<br/>实际出行请咨询现场工作人员。</p><button className="sheet-primary" onClick={() => { setSheet(null); go('help'); }}>查看出行帮助<Glyph name="arrow"/></button></div>}
     </SheetPanel>
