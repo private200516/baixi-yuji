@@ -1,6 +1,8 @@
 # 乡序 2.0 · 手机公共交通 APP 原型
 
-[在线 Demo](https://private200516.github.io/baixi-yuji/#/ride) · [古镇地图](https://private200516.github.io/baixi-yuji/#/town) · [2.1.0 下载与更新说明](https://github.com/private200516/baixi-yuji/releases/tag/v2.1.0)
+[在线 Demo](https://private200516.github.io/baixi-yuji/#/ride) · [古镇地图](https://private200516.github.io/baixi-yuji/#/town) · [2.1.1 下载与更新说明](https://github.com/private200516/baixi-yuji/releases/tag/v2.1.1)
+
+**2.1.1 六色主题：**采用海湾青、灯花橙、花田黄、石米白、瓦影墨与雾青，统一页面、地图、图案和老年模式。布局与交互保持原样；海湾青小字配纯白、橙色按钮配墨字，保留清晰对比。[配色与实测记录](docs/palette-validation.md)。
 
 **2.1.0 数据联动：**保留2.0界面与动效，接通“选择古村 → 查看道路方案 → 选择目的村 → 查看返程 → 保存研究计划”。去返方向分别使用已登记的道路研究记录；不提供真实公交班次、ETA或上车点。研究计划单独保存在本机，原字号、老年模式、收藏和演示返程保持独立。[本轮改动、前后截图与验收](docs/journey-link-validation.md)。
 
@@ -20,7 +22,7 @@
 
 ## 古镇地图场景
 
-`src/mobile/TownScene.tsx` 是古镇页的独立场景：全幅暖米白真实地图，顶部导览卡与线路标识，右侧原五项凹槽导航，底部村落信息、文字选村和陶土色返程入口。地图继续使用本地 WGS84 道路、水系与五个已登记村落代表点；不会为接近参考图而虚构河流、道路或站点。
+`src/mobile/TownScene.tsx` 是古镇页的独立场景：全幅暖米白真实地图，顶部导览卡与线路标识，右侧原五项凹槽导航，底部村落信息、文字选村和灯花橙返程入口。地图继续使用本地 WGS84 道路、水系与五个已登记村落代表点；不会为接近参考图而虚构河流、道路或站点。
 
 选村复用同一个地图实例，以720ms平滑移动到新村落；测量悬浮控件尺寸，使点位保持在上方标题和底部卡片之间。卡片分层淡入、内容轻移，原凹槽与圆座480ms同步移动，图标保留固定排列位置。尊重系统减少动态效果、应用设置及老年模式。
 
@@ -73,6 +75,8 @@ pnpm preview
 - [本轮范围与验收](docs/journey-link-validation.md)
 - [以前的GitHub与Figma交付记录](docs/previous-release-readme.md)
 
-源码位于 `main`，静态Demo通过 `gh-pages` 发布，当前数据联动见 [v2.1.0](docs/releases/v2.1.0.md)，导航修复见 [v2.0.1](docs/releases/v2.0.1.md)，初版变更见 [v2.0.0](docs/releases/v2.0.0.md)。旧版保留；`design/` 为旧版设计交付资料，本次没有更新线上Figma。
+每次上线递增版本号：小修复或视觉调整升补丁版本，功能增量升次版本；同步源码、Demo、下载包并保留旧版。
 
-![古村地图场景](docs/journey-link/after/390x844-L-town.png)
+源码位于 `main`，静态Demo通过 `gh-pages` 发布，最新配色见 [v2.1.1](docs/releases/v2.1.1.md)，当前数据联动见 [v2.1.0](docs/releases/v2.1.0.md)，导航修复见 [v2.0.1](docs/releases/v2.0.1.md)，初版变更见 [v2.0.0](docs/releases/v2.0.0.md)。旧版保留；`design/` 为旧版设计交付资料，本次没有更新线上Figma。
+
+![古村地图场景](docs/palette-v2.1.1/town.png)

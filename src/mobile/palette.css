@@ -1,0 +1,54 @@
+/* 乡序 · 海湾青 / 灯花橙 / 花田黄 / 石米白 / 瓦影墨 / 雾青 */
+:root {
+  --teal: #087F8C;
+  --clay: #F47C64;
+  --sun: #EBCB63;
+  --paper: #F5F2E9;
+  --ink: #24383A;
+  --mist: #E5EFEB;
+  --teal-dark: var(--ink);
+  /* Paper on teal is only 4.24:1; white keeps small labels readable at 4.75:1. */
+  --on-teal: #FFFFFF;
+  --muted: color-mix(in srgb, var(--ink) 80%, var(--paper));
+  --line: color-mix(in srgb, var(--ink) 24%, var(--mist));
+  --line-strong: color-mix(in srgb, var(--ink) 60%, var(--mist));
+}
+
+.teal-content, .sculpt-tail, .saved-card, .refresh-code {
+  color: var(--on-teal);
+}
+.route-river text { fill: var(--on-teal); }
+.teal-content:after { opacity: .035; }
+.surface-text-button { color: var(--on-teal); }
+.ride-meta > button { color: var(--on-teal); }
+.rail-wordmark { opacity: 1; }
+.scene-selector button > span { opacity: 1; }
+.tail-copy, .stop-list li > small, .help-listen small, .motion-setting small,
+.saved-card > small, .landmark-description h3 > span { opacity: 1; }
+
+/* Warm actions use ink: white on the supplied orange is only 2.65:1. */
+.terracotta, .town-return-action, .senior-primary, .senior-tasks .senior-code-task {
+  color: var(--ink);
+}
+.town-return-action { background: var(--clay); }
+.phone .return-mini small, .landscape-caption { opacity: 1; }
+.ticket-bottom strong, .qr-demo { color: var(--ink); }
+.sound-toggle[aria-pressed=true] { color: var(--ink); }
+.surface-icon[aria-pressed=true] { color: var(--on-teal); }
+.surface-icon[aria-pressed=true] .glyph { fill: var(--sun); }
+
+/* The same groove geometry and its 480ms colour transition are retained. */
+.phone .groove-rail > .groove-item { color: var(--paper); }
+.phone .groove-rail > .groove-item.active { color: var(--sun); }
+.phone .town-scene-main .groove-item.active { color: var(--ink); }
+.phone .town-scene-main .groove-disc { fill: var(--paper); }
+
+button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visible {
+  outline-color: var(--ink);
+}
+.teal-content button:focus-visible, .groove-item:focus-visible {
+  outline-color: var(--on-teal);
+}
+.town-select-wrap select:focus-visible { outline-color: var(--ink); }
+.phone .town-scene-main .groove-item.active:focus-visible { outline-color: var(--ink); }
+.station-search input::placeholder { color: var(--muted); opacity: 1; }

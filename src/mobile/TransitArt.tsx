@@ -32,13 +32,13 @@ export function TransitMark() {
   return <svg className="transit-mark" viewBox="0 0 70 44" fill="currentColor" aria-hidden="true"><rect x="4" y="-3" width="16" height="48" rx="8" transform="rotate(42 20 22)"/><rect x="30" y="7" width="16" height="36" rx="8" transform="rotate(42 38 25)"/><path d="M58 23c5-5 11-1 11 5v8c0 5-3 7-7 7h-7c-6 0-8-6-4-10Z"/></svg>;
 }
 export function RiverMark() {
-  return <svg className="river-mark" viewBox="0 0 68 66" aria-hidden="true"><circle cx="42" cy="9" r="7" fill="#b75135"/><path d="M4 28C11 12 20 17 31 26c12 8 22-12 29-4 9 10 5 29-3 35C32 73 1 56 4 28Z" fill="#527d7a"/><path d="M6 38c14-4 28-2 46-10-9 8-31 12-28 15 9 5 22 8 36 12C42 58 31 43 6 38Z" fill="#f4f1e7"/></svg>;
+  return <svg className="river-mark" viewBox="0 0 68 66" aria-hidden="true"><circle cx="42" cy="9" r="7" fill="var(--clay)"/><path d="M4 28C11 12 20 17 31 26c12 8 22-12 29-4 9 10 5 29-3 35C32 73 1 56 4 28Z" fill="var(--teal)"/><path d="M6 38c14-4 28-2 46-10-9 8-31 12-28 15 9 5 22 8 36 12C42 58 31 43 6 38Z" fill="var(--paper)"/></svg>;
 }
 export function DotLandscape() {
   return <svg className="dot-landscape" viewBox="0 0 320 108" aria-hidden="true">{Array.from({ length: 11 }, (_, row) => Array.from({ length: 30 }, (_, col) => {
     const height = col < 11 ? 4 + Math.sin(col / 3) * 2 : col < 18 ? 7 : 10 - Math.abs(col - 25) * .9;
     if (10 - row > height || (row === 10 && (col < 4 || (col > 12 && col < 20)))) return null;
-    return <circle key={`${row}-${col}`} cx={7 + col * 10.5} cy={7 + row * 9} r="2.65" fill={(row * 3 + col * 7) % 13 < 3 ? '#719793' : (row === 1 && col === 25 ? '#bb4c33' : '#f4f1e7')} style={{ '--dot-delay': `${(col * 24 + row * 34)}ms` } as CSSProperties}/>;
+    return <circle key={`${row}-${col}`} cx={7 + col * 10.5} cy={7 + row * 9} r="2.65" fill={(row * 3 + col * 7) % 13 < 3 ? 'var(--mist)' : (row === 1 && col === 25 ? 'var(--sun)' : 'var(--paper)')} style={{ '--dot-delay': `${(col * 24 + row * 34)}ms` } as CSSProperties}/>;
   }))}</svg>;
 }
 export function RouteRiver({ stops, reversed = false }: { stops: string[]; reversed?: boolean }) {
@@ -46,9 +46,9 @@ export function RouteRiver({ stops, reversed = false }: { stops: string[]; rever
   return <svg className={`route-river ${reversed ? 'reversed' : ''}`} viewBox="0 0 324 157" role="img" aria-label={`线路示意：${stops.join('、')}`}>
     <path className="route-track" d="M20 102C55 102 48 83 115 102S171 80 210 80 256 28 304 28"/>
     <path className="route-draw" d="M20 102C55 102 48 83 115 102S171 80 210 80 256 28 304 28"/>
-    <circle className="route-moving" r="5" fill="#e2ba86"/>
-    {points.map(([x,y], i) => <g key={stops[i]}><circle cx={x} cy={y} r={i === 0 || i === 3 ? 9 : 6} fill={i === 0 || i === 3 ? '#507673' : '#f4f1e7'} stroke="#f4f1e7" strokeWidth={i === 0 ? 3 : 2}/><text x={x} y={y + 29} textAnchor={i === 0 ? 'start' : i === 3 ? 'end' : 'middle'}>{stops[i]}</text></g>)}
-    <g className="route-bus" transform="translate(59 58)"><rect x="-13" y="-12" width="26" height="26" rx="9" fill="#f4f1e7"/><path d="m-3 14 3 4 3-4" fill="#f4f1e7"/><rect x="-6" y="-7" width="12" height="15" rx="3" stroke="#436763" fill="none" strokeWidth="1.5"/><path d="M-6 0H6M-3 4h1m4 0h1" stroke="#436763" strokeWidth="1.5"/></g>
+    <circle className="route-moving" r="5" fill="var(--sun)"/>
+    {points.map(([x,y], i) => <g key={stops[i]}><circle cx={x} cy={y} r={i === 0 || i === 3 ? 9 : 6} fill={i === 0 || i === 3 ? 'var(--teal)' : 'var(--paper)'} stroke="var(--paper)" strokeWidth={i === 0 ? 3 : 2}/><text x={x} y={y + 29} textAnchor={i === 0 ? 'start' : i === 3 ? 'end' : 'middle'}>{stops[i]}</text></g>)}
+    <g className="route-bus" transform="translate(59 58)"><rect x="-13" y="-12" width="26" height="26" rx="9" fill="var(--paper)"/><path d="m-3 14 3 4 3-4" fill="var(--paper)"/><rect x="-6" y="-7" width="12" height="15" rx="3" stroke="var(--ink)" fill="none" strokeWidth="1.5"/><path d="M-6 0H6M-3 4h1m4 0h1" stroke="var(--ink)" strokeWidth="1.5"/></g>
   </svg>;
 }
 export const landmarks = [
@@ -59,12 +59,12 @@ export const landmarks = [
 ];
 export function TownMap({ selected, onSelect }: { selected: number; onSelect: (index: number) => void }) {
   return <div className="town-map"><svg viewBox="0 0 340 344" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M-20 97C75 100 7 175 106 177S67 231 116 255 93 301 178 364" stroke="#8eb7bc" strokeWidth="13" fill="none"/>
-    <path d="M99 218C158 177 190 247 259 215s64 21 113 3" stroke="#8eb7bc" strokeWidth="4" fill="none"/>
-    <path className="map-trail" d="M86 51C183 41 89 146 94 217S239 252 242 289M121 108C215 56 154 128 243 133M97 218C151 267 168 184 243 133" stroke="#f4f1e7" strokeWidth="3" fill="none"/>
-    <path d="m222 44 27-26q9-8 19 2l19 20 12-7q8-6 16 3l25 25h-33l-12-8-14 7-22-20-21 17Z" fill="#80a39a" opacity=".6"/>
-    <path d="m-3 302 34-34q8-9 16 1l21 23 15-8 29 28H-3Z" fill="#80a39a" opacity=".6"/>
-    {[[22,57],[312,164],[299,290],[63,279],[23,198]].map(([x,y]) => <g key={x} fill="#8eb6a6" opacity=".75"><ellipse cx={x} cy={y} rx="5" ry="12"/><path d={`M${x} ${y}v18`} stroke="#8eb6a6" strokeWidth="2"/></g>)}
-    {Array.from({length: 43},(_,i) => {const x = 20+(i*47)%303, y = 39+(i*31)%268; return <circle key={i} cx={x} cy={y} r={i%3 === 0 ? 2.6 : 1.8} fill={i%4 === 0 ? '#c2935f' : '#e6ddbe'} opacity=".7"/>;})}
+    <path d="M-20 97C75 100 7 175 106 177S67 231 116 255 93 301 178 364" stroke="var(--mist)" strokeWidth="13" fill="none"/>
+    <path d="M99 218C158 177 190 247 259 215s64 21 113 3" stroke="var(--mist)" strokeWidth="4" fill="none"/>
+    <path className="map-trail" d="M86 51C183 41 89 146 94 217S239 252 242 289M121 108C215 56 154 128 243 133M97 218C151 267 168 184 243 133" stroke="var(--paper)" strokeWidth="3" fill="none"/>
+    <path d="m222 44 27-26q9-8 19 2l19 20 12-7q8-6 16 3l25 25h-33l-12-8-14 7-22-20-21 17Z" fill="var(--teal)" opacity=".6"/>
+    <path d="m-3 302 34-34q8-9 16 1l21 23 15-8 29 28H-3Z" fill="var(--teal)" opacity=".6"/>
+    {[[22,57],[312,164],[299,290],[63,279],[23,198]].map(([x,y]) => <g key={x} fill="var(--mist)" opacity=".75"><ellipse cx={x} cy={y} rx="5" ry="12"/><path d={`M${x} ${y}v18`} stroke="var(--mist)" strokeWidth="2"/></g>)}
+    {Array.from({length: 43},(_,i) => {const x = 20+(i*47)%303, y = 39+(i*31)%268; return <circle key={i} cx={x} cy={y} r={i%3 === 0 ? 2.6 : 1.8} fill={i%4 === 0 ? 'var(--sun)' : 'var(--paper)'} opacity=".7"/>;})}
   </svg>{landmarks.map((item,i) => <button key={item.name} className={`map-landmark ${selected === i ? 'selected' : ''}`} style={{ left: `${item.x/340*100}%`, top: `${item.y/344*100}%` }} onClick={() => onSelect(i)} aria-label={`查看${item.name}`} aria-pressed={selected === i}><span><Glyph name={item.type}/></span><strong>{item.name}</strong></button>)}<span className="map-label">古镇漫游 · 示意地图</span></div>;
 }

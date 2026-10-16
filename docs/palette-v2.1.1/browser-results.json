@@ -1,0 +1,407 @@
+{
+  "at": "2026-10-16T04:35:01.495Z",
+  "base": "http://127.0.0.1:5173",
+  "isolatedBrowserProfile": true,
+  "checks": [
+    {
+      "name": "390-M-ride viewport overflow",
+      "status": "PASS",
+      "evidence": {
+        "pageX": false,
+        "pageY": false
+      }
+    },
+    {
+      "name": "390-M-settings viewport overflow",
+      "status": "PASS",
+      "evidence": {
+        "pageX": false,
+        "pageY": false
+      }
+    },
+    {
+      "name": "390-M-town viewport overflow",
+      "status": "PASS",
+      "evidence": {
+        "pageX": false,
+        "pageY": false
+      }
+    },
+    {
+      "name": "390-M-return viewport overflow",
+      "status": "PASS",
+      "evidence": {
+        "pageX": false,
+        "pageY": false
+      }
+    },
+    {
+      "name": "390-senior-ride viewport overflow",
+      "status": "PASS",
+      "evidence": {
+        "pageX": false,
+        "pageY": false
+      }
+    },
+    {
+      "name": "390-senior-scan viewport overflow",
+      "status": "PASS",
+      "evidence": {
+        "pageX": false,
+        "pageY": false
+      }
+    },
+    {
+      "name": "390-senior-return viewport overflow",
+      "status": "PASS",
+      "evidence": {
+        "pageX": false,
+        "pageY": false
+      }
+    },
+    {
+      "name": "320-L-ride viewport overflow",
+      "status": "PASS",
+      "evidence": {
+        "pageX": false,
+        "pageY": false
+      }
+    },
+    {
+      "name": "320-L-settings viewport overflow",
+      "status": "PASS",
+      "evidence": {
+        "pageX": false,
+        "pageY": false
+      }
+    },
+    {
+      "name": "320-L-town viewport overflow",
+      "status": "PASS",
+      "evidence": {
+        "pageX": false,
+        "pageY": false
+      }
+    },
+    {
+      "name": "Uncaught JavaScript errors",
+      "status": "PASS",
+      "evidence": []
+    },
+    {
+      "name": "Final frozen palette: actual SVG/pseudo painted backgrounds keep specified text contrast",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "completedAt": "2026-10-16T04:35:17.401Z",
+  "finalRenderedContrastMeasurements": [
+    {
+      "name": "390-M-ride",
+      "at": "2026-10-16T04:37:33.083Z",
+      "measurements": {
+        "values": {
+          "activeNavigation": {
+            "foreground": "rgb(235, 203, 99)",
+            "background": "rgb(36, 56, 58)",
+            "ratio": 7.789
+          },
+          "tealHeading": {
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(8, 127, 140)",
+            "ratio": 4.746
+          },
+          "tealRouteLink": {
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(8, 127, 140)",
+            "ratio": 4.746
+          },
+          "orangeCaption": {
+            "foreground": "rgb(36, 56, 58)",
+            "background": "rgb(244, 124, 100)",
+            "ratio": 4.65
+          },
+          "desktopNumberOpacity": "1"
+        },
+        "overflow": {
+          "x": false,
+          "y": false
+        },
+        "visibleDialog": false
+      }
+    },
+    {
+      "name": "390-M-settings",
+      "at": "2026-10-16T04:37:33.953Z",
+      "measurements": {
+        "values": {
+          "activeNavigation": {
+            "foreground": "rgb(235, 203, 99)",
+            "background": "rgb(36, 56, 58)",
+            "ratio": 7.789
+          },
+          "tealHeading": {
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(8, 127, 140)",
+            "ratio": 4.746
+          },
+          "tealRouteLink": {
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(8, 127, 140)",
+            "ratio": 4.746
+          },
+          "orangeCaption": {
+            "foreground": "rgb(36, 56, 58)",
+            "background": "rgb(244, 124, 100)",
+            "ratio": 4.65
+          },
+          "settingsFontSelected": {
+            "foreground": "rgb(245, 242, 233)",
+            "background": "rgb(36, 56, 58)",
+            "ratio": 11.024
+          },
+          "desktopNumberOpacity": "1"
+        },
+        "overflow": {
+          "x": false,
+          "y": false
+        },
+        "visibleDialog": true
+      }
+    },
+    {
+      "name": "390-M-town",
+      "at": "2026-10-16T04:37:36.698Z",
+      "measurements": {
+        "values": {
+          "activeNavigation": {
+            "foreground": "rgb(36, 56, 58)",
+            "background": "rgb(245, 242, 233)",
+            "ratio": 11.024
+          },
+          "orangeTownReturn": {
+            "foreground": "rgb(36, 56, 58)",
+            "background": "rgb(244, 124, 100)",
+            "ratio": 4.65
+          },
+          "desktopNumberOpacity": "1"
+        },
+        "overflow": {
+          "x": false,
+          "y": false
+        },
+        "visibleDialog": false
+      }
+    },
+    {
+      "name": "390-M-return",
+      "at": "2026-10-16T04:37:37.719Z",
+      "measurements": {
+        "values": {
+          "activeNavigation": {
+            "foreground": "rgb(235, 203, 99)",
+            "background": "rgb(36, 56, 58)",
+            "ratio": 7.789
+          },
+          "tealHeading": {
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(8, 127, 140)",
+            "ratio": 4.746
+          },
+          "tealFootnote": {
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(8, 127, 140)",
+            "ratio": 4.746
+          },
+          "orangeCaption": {
+            "foreground": "rgb(36, 56, 58)",
+            "background": "rgb(244, 124, 100)",
+            "ratio": 4.65
+          },
+          "desktopNumberOpacity": "1"
+        },
+        "overflow": {
+          "x": false,
+          "y": false
+        },
+        "visibleDialog": false
+      }
+    },
+    {
+      "name": "390-senior-ride",
+      "at": "2026-10-16T04:37:38.970Z",
+      "measurements": {
+        "values": {
+          "desktopNumberOpacity": "1"
+        },
+        "overflow": {
+          "x": false,
+          "y": false
+        },
+        "visibleDialog": false
+      }
+    },
+    {
+      "name": "390-senior-scan",
+      "at": "2026-10-16T04:37:39.769Z",
+      "measurements": {
+        "values": {
+          "desktopNumberOpacity": "1"
+        },
+        "overflow": {
+          "x": false,
+          "y": false
+        },
+        "visibleDialog": false
+      }
+    },
+    {
+      "name": "390-senior-return",
+      "at": "2026-10-16T04:37:40.653Z",
+      "measurements": {
+        "values": {
+          "desktopNumberOpacity": "1"
+        },
+        "overflow": {
+          "x": false,
+          "y": false
+        },
+        "visibleDialog": false
+      }
+    },
+    {
+      "name": "320-L-ride",
+      "at": "2026-10-16T04:37:42.527Z",
+      "measurements": {
+        "values": {
+          "activeNavigation": {
+            "foreground": "rgb(235, 203, 99)",
+            "background": "rgb(36, 56, 58)",
+            "ratio": 7.789
+          },
+          "tealHeading": {
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(8, 127, 140)",
+            "ratio": 4.746
+          },
+          "tealRouteLink": {
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(8, 127, 140)",
+            "ratio": 4.746
+          },
+          "orangeCaption": {
+            "foreground": "rgb(36, 56, 58)",
+            "background": "rgb(244, 124, 100)",
+            "ratio": 4.65
+          },
+          "desktopNumberOpacity": "1"
+        },
+        "overflow": {
+          "x": false,
+          "y": false
+        },
+        "visibleDialog": false
+      }
+    },
+    {
+      "name": "320-L-settings",
+      "at": "2026-10-16T04:37:43.338Z",
+      "measurements": {
+        "values": {
+          "activeNavigation": {
+            "foreground": "rgb(235, 203, 99)",
+            "background": "rgb(36, 56, 58)",
+            "ratio": 7.789
+          },
+          "tealHeading": {
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(8, 127, 140)",
+            "ratio": 4.746
+          },
+          "tealRouteLink": {
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(8, 127, 140)",
+            "ratio": 4.746
+          },
+          "orangeCaption": {
+            "foreground": "rgb(36, 56, 58)",
+            "background": "rgb(244, 124, 100)",
+            "ratio": 4.65
+          },
+          "settingsFontSelected": {
+            "foreground": "rgb(245, 242, 233)",
+            "background": "rgb(36, 56, 58)",
+            "ratio": 11.024
+          },
+          "desktopNumberOpacity": "1"
+        },
+        "overflow": {
+          "x": false,
+          "y": false
+        },
+        "visibleDialog": true
+      }
+    },
+    {
+      "name": "320-L-town",
+      "at": "2026-10-16T04:37:45.926Z",
+      "measurements": {
+        "values": {
+          "activeNavigation": {
+            "foreground": "rgb(36, 56, 58)",
+            "background": "rgb(245, 242, 233)",
+            "ratio": 11.024
+          },
+          "orangeTownReturn": {
+            "foreground": "rgb(36, 56, 58)",
+            "background": "rgb(244, 124, 100)",
+            "ratio": 4.65
+          },
+          "desktopNumberOpacity": "1"
+        },
+        "overflow": {
+          "x": false,
+          "y": false
+        },
+        "visibleDialog": false
+      }
+    },
+    {
+      "name": "1440-M-ride",
+      "at": "2026-10-16T04:37:47.422Z",
+      "measurements": {
+        "values": {
+          "activeNavigation": {
+            "foreground": "rgb(235, 203, 99)",
+            "background": "rgb(36, 56, 58)",
+            "ratio": 7.789
+          },
+          "tealHeading": {
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(8, 127, 140)",
+            "ratio": 4.746
+          },
+          "tealRouteLink": {
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(8, 127, 140)",
+            "ratio": 4.746
+          },
+          "orangeCaption": {
+            "foreground": "rgb(36, 56, 58)",
+            "background": "rgb(244, 124, 100)",
+            "ratio": 4.65
+          },
+          "desktopNumberOpacity": "1"
+        },
+        "overflow": {
+          "x": false,
+          "y": false
+        },
+        "visibleDialog": false
+      }
+    }
+  ],
+  "finalPaletteSha256": "a5dd1d476fd77f1d5e4ea5886230c0a4fca9bbeca76b6a36edf9e457aed5a6d1",
+  "finalRefreshAt": "2026-10-16T04:37:47.664Z",
+  "contrastMethod": "Computed text colors against actual CSS surface backgrounds, SVG disc fills and selected-font pseudo-element background. Ratios are nominal flat paint contrast, not a full accessibility certification."
+}

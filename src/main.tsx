@@ -8,6 +8,7 @@ import './mobile/accessibility.css';
 import './mobile/town-scene.css';
 import './mobile/brand-fonts.css';
 import './mobile/ui-motion.css';
+import './mobile/palette.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode><App /></React.StrictMode>,

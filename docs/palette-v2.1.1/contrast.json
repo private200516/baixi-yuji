@@ -1,0 +1,47 @@
+[
+  {
+    "name": "ride",
+    "checked": 28,
+    "failures": []
+  },
+  {
+    "name": "return",
+    "checked": 36,
+    "failures": []
+  },
+  {
+    "name": "scan",
+    "checked": 27,
+    "failures": []
+  },
+  {
+    "name": "route",
+    "checked": 38,
+    "failures": []
+  },
+  {
+    "name": "ticket",
+    "checked": 30,
+    "failures": []
+  },
+  {
+    "name": "town",
+    "checked": 24,
+    "failures": []
+  },
+  {
+    "name": "help",
+    "checked": 31,
+    "failures": []
+  },
+  {
+    "name": "delay",
+    "checked": 25,
+    "failures": []
+  },
+  {
+    "name": "settings",
+    "checked": 12,
+    "failures": []
+  }
+]
