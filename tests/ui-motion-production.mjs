@@ -6,7 +6,7 @@ import { chromium, launchOptions } from './browser-runtime.mjs';
 
 const root = resolve('dist');
 const prefix = '/pages-project/';
-const types = { html: 'text/html', js: 'text/javascript', css: 'text/css', mjs: 'text/javascript', json: 'application/json', geojson: 'application/geo+json', svg: 'image/svg+xml', woff2: 'font/woff2' };
+const types = { html: 'text/html', js: 'text/javascript', css: 'text/css', mjs: 'text/javascript', json: 'application/json', geojson: 'application/geo+json', svg: 'image/svg+xml', woff2: 'font/woff2', mp4: 'video/mp4', png: 'image/png' };
 const server = createServer(async (request, response) => {
   try {
     const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
@@ -26,7 +26,7 @@ try {
   page.on('response', response => { if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`); });
   const base = `http://127.0.0.1:${server.address().port}${prefix}`;
   for (const screen of ['ride', 'return', 'scan', 'route', 'ticket', 'town', 'help', 'delay']) {
-    await page.goto(`${base}#/${screen}`);
+    await page.goto(`${base}#/${screen}`); await page.locator('.launch-app[data-launch=done]').waitFor({ timeout: 12000 });
     await page.evaluate(() => document.fonts.ready);
     await page.locator('.phone').waitFor();
     if (screen === 'town') {
@@ -47,7 +47,7 @@ try {
   await page.getByRole('button', { name: '关闭弹窗', exact: true }).click();
   await page.getByRole('dialog').waitFor({ state: 'hidden' });
   assert.equal(await page.locator('html').getAttribute('data-text-size'), 'L');
-  await page.goto(`${base}#/town`);
+  await page.goto(`${base}#/town`); await page.locator('.launch-app[data-launch=done]').waitFor({ timeout: 12000 });
   await page.getByLabel('选择古村', { exact: true }).selectOption('xujiashan');
   await page.locator('.town-route-action').click();
   await page.locator('.detail-stops').getByRole('button', { name: /龙宫村/ }).click();
@@ -58,7 +58,7 @@ try {
   assert.match(await page.locator('.return-stops').textContent(), /58\.2 km/);
   await page.locator('.notch-action button').click();
   await page.waitForFunction(() => !!JSON.parse(localStorage.getItem('xiangxu.journey.v1') || '{}').savedPlan);
-  await page.reload();
+  await page.reload(); await page.locator('.launch-app[data-launch=done]').waitFor({ timeout: 12000 });
   await page.getByRole('button', { name: '查看本地计划', exact: true }).click();
   assert.match(await page.getByRole('dialog').textContent(), /龙宫村.*许家山村/);
   const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('xiangxu.journey.v1')).savedPlan);

@@ -1,8 +1,10 @@
 # 乡序 2.0 · 手机公共交通 APP 原型
 
-[在线 Demo](https://private200516.github.io/baixi-yuji/#/ride) · [古镇地图](https://private200516.github.io/baixi-yuji/#/town) · [2.2.0 下载与更新说明](https://github.com/private200516/baixi-yuji/releases/tag/v2.2.0)
+[在线 Demo](https://private200516.github.io/baixi-yuji/#/ride) · [古镇地图](https://private200516.github.io/baixi-yuji/#/town) · [2.2.1 下载与更新说明](https://github.com/private200516/baixi-yuji/releases/tag/v2.2.1)
 
-**2.2.0 NH 品牌与启动动画：**首页、古镇、车票、老年模式和浏览器图标统一换用用户提供的 NH 圆形徽标。首次启动播放约4秒的原始视频，最后一帧用640ms平滑淡入已经挂载的首页；支持跳过，同一标签页会话内不重播。直接打开古镇等链接会保留对应页面；减少动态效果或老年模式直接进入应用。[启动行为与验证记录](docs/startup-validation.md)。
+**2.2.1 主题巴士与每次启动：**右上角展示前童、许家山、龙宫、力洋四款主题巴士之一，每次完整打开等概率随机选择，当前浏览期间保持同款。两行文字改为“宁海旅游专线”和“XML6805JEVJ0C8”。每次打开或刷新都播放完整约4秒启动动画，无跳过入口；系统减少动态效果、应用安静模式及老年模式仍播放原视频，仅简化末尾过渡。[本轮行为与验收](docs/theme-bus-validation.md)。
+
+**2.2.0 NH 品牌：**引入用户提供的 NH 圆形徽标及原始启动视频。当前启动策略以2.2.1为准；车票、老年模式、品牌签名和浏览器图标保留NH徽标。[2.2.0历史验收记录](docs/startup-validation.md)。
 
 **2.1.1 六色主题：**采用海湾青、灯花橙、花田黄、石米白、瓦影墨与雾青，统一页面、地图、图案和老年模式。布局与交互保持原样；海湾青小字配纯白、橙色按钮配墨字，保留清晰对比。[配色与实测记录](docs/palette-validation.md)。
 
@@ -60,6 +62,7 @@ pnpm test:ui-motion
 pnpm test:navigation-motion
 pnpm test:journey
 pnpm test:startup
+pnpm test:theme-bus
 pnpm build
 pnpm preview
 ```
@@ -80,6 +83,6 @@ pnpm preview
 
 每次上线递增版本号：小修复或视觉调整升补丁版本，功能增量升次版本；同步源码、Demo、下载包并保留旧版。
 
-源码位于 `main`，静态Demo通过 `gh-pages` 发布，NH徽标与启动动画见 [v2.2.0](docs/releases/v2.2.0.md)，六色主题见 [v2.1.1](docs/releases/v2.1.1.md)，数据联动见 [v2.1.0](docs/releases/v2.1.0.md)，导航修复见 [v2.0.1](docs/releases/v2.0.1.md)，初版变更见 [v2.0.0](docs/releases/v2.0.0.md)。旧版保留；`design/` 为旧版设计交付资料，本次没有更新线上Figma。
+源码位于 `main`，静态Demo通过 `gh-pages` 发布，主题巴士与当前启动策略见 [v2.2.1](docs/releases/v2.2.1.md)，NH品牌初版见 [v2.2.0](docs/releases/v2.2.0.md)，六色主题见 [v2.1.1](docs/releases/v2.1.1.md)，数据联动见 [v2.1.0](docs/releases/v2.1.0.md)，导航修复见 [v2.0.1](docs/releases/v2.0.1.md)，初版变更见 [v2.0.0](docs/releases/v2.0.0.md)。旧版保留；`design/` 为旧版设计交付资料，本次没有更新线上Figma。
 
 ![古村地图场景](docs/palette-v2.1.1/town.png)

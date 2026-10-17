@@ -1,0 +1,2238 @@
+{
+  "at": "2026-10-17T19:19:35.573Z",
+  "base": "http://127.0.0.1:5173",
+  "isolatedBrowserProfiles": true,
+  "lastRun": {
+    "filter": "six-page|Navigation, village",
+    "checks": [
+      "Navigation, village changes and Settings keep one theme and the original route buttons still work",
+      "320x568 L six-page headings and bus labels do not overlap or overflow",
+      "360x780 L six-page headings and bus labels do not overlap or overflow",
+      "390x844 M six-page headings and bus labels do not overlap or overflow",
+      "390x844 L six-page headings and bus labels do not overlap or overflow",
+      "430x932 M six-page headings and bus labels do not overlap or overflow",
+      "1440x900 M six-page headings and bus labels do not overlap or overflow",
+      "No uncaught JavaScript errors"
+    ]
+  },
+  "checks": [
+    {
+      "name": "The supplied artwork is byte-identical and selection uses four equal-width random ranges",
+      "status": "PASS",
+      "at": "2026-10-17T19:00:44.584Z",
+      "evidence": {
+        "sha256": "12bfc677e5a4290b697617cd6ee455549a3dd1c45a5640bfccd29851302ba033",
+        "bytes": 1422312,
+        "originalAttachment": "codex-clipboard-e2d2c782-dea5-48fb-9040-df89be44fb85.png",
+        "forcedValues": [
+          {
+            "random": 0.1,
+            "theme": "qiantong"
+          },
+          {
+            "random": 0.3,
+            "theme": "xujiashan"
+          },
+          {
+            "random": 0.6,
+            "theme": "longgong"
+          },
+          {
+            "random": 0.9,
+            "theme": "liyang"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Random 0.1 shows only the 前童 bus and leaves NH brand marks intact",
+      "status": "PASS",
+      "at": "2026-10-17T19:00:44.601Z",
+      "evidence": {
+        "random": 0.1,
+        "theme": "qiantong",
+        "name": "前童",
+        "image": {
+          "width": 1024,
+          "height": 1024
+        },
+        "viewBox": "247 202 578 198",
+        "nhMarksPreserved": true
+      }
+    },
+    {
+      "name": "Random 0.3 shows only the 许家山 bus and leaves NH brand marks intact",
+      "status": "PASS",
+      "at": "2026-10-17T19:00:50.938Z",
+      "evidence": {
+        "random": 0.3,
+        "theme": "xujiashan",
+        "name": "许家山",
+        "image": {
+          "width": 1024,
+          "height": 1024
+        },
+        "viewBox": "247 384 578 198",
+        "nhMarksPreserved": true
+      }
+    },
+    {
+      "name": "Random 0.6 shows only the 龙宫 bus and leaves NH brand marks intact",
+      "status": "PASS",
+      "at": "2026-10-17T19:00:56.994Z",
+      "evidence": {
+        "random": 0.6,
+        "theme": "longgong",
+        "name": "龙宫",
+        "image": {
+          "width": 1024,
+          "height": 1024
+        },
+        "viewBox": "247 566 578 198",
+        "nhMarksPreserved": true
+      }
+    },
+    {
+      "name": "Random 0.9 shows only the 力洋 bus and leaves NH brand marks intact",
+      "status": "PASS",
+      "at": "2026-10-17T19:01:03.063Z",
+      "evidence": {
+        "random": 0.9,
+        "theme": "liyang",
+        "name": "力洋",
+        "image": {
+          "width": 1024,
+          "height": 1024
+        },
+        "viewBox": "247 748 578 198",
+        "nhMarksPreserved": true
+      }
+    },
+    {
+      "name": "Navigation, village changes and Settings keep one theme and the original route buttons still work",
+      "status": "PASS",
+      "at": "2026-10-17T19:18:29.171Z",
+      "evidence": {
+        "stableTheme": "longgong",
+        "villageOrigin": "longgong",
+        "researchAndDemoRoutesUsable": true
+      }
+    },
+    {
+      "name": "320x568 L six-page headings and bus labels do not overlap or overflow",
+      "status": "PASS",
+      "at": "2026-10-17T19:18:45.493Z",
+      "evidence": [
+        {
+          "screen": "ride",
+          "viewport": {
+            "width": 320,
+            "height": 568
+          },
+          "size": "L",
+          "right": {
+            "x": 183.640625,
+            "y": 41,
+            "width": 120.359375,
+            "height": 84.484375,
+            "right": 304,
+            "bottom": 125.484375
+          },
+          "title": {
+            "x": 16,
+            "y": 60,
+            "width": 113.890625,
+            "height": 75.03125,
+            "right": 129.890625,
+            "bottom": 135.03125
+          },
+          "caption": {
+            "x": 19,
+            "y": 41,
+            "width": 110.890625,
+            "height": 15,
+            "right": 129.890625,
+            "bottom": 56
+          },
+          "bus": {
+            "x": 183.640625,
+            "y": 41,
+            "width": 120.359375,
+            "height": 41.21875,
+            "right": 304,
+            "bottom": 82.21875
+          },
+          "model": {
+            "x": 224.3125,
+            "y": 111.328125,
+            "width": 79.6875,
+            "height": 14.15625,
+            "right": 304,
+            "bottom": 125.484375
+          },
+          "fonts": {
+            "title": "16.52px",
+            "model": "9.44px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "return",
+          "viewport": {
+            "width": 320,
+            "height": 568
+          },
+          "size": "L",
+          "right": {
+            "x": 183.640625,
+            "y": 41,
+            "width": 120.359375,
+            "height": 84.484375,
+            "right": 304,
+            "bottom": 125.484375
+          },
+          "title": {
+            "x": 16,
+            "y": 60,
+            "width": 144.4375,
+            "height": 67.53125,
+            "right": 160.4375,
+            "bottom": 127.53125
+          },
+          "caption": {
+            "x": 19,
+            "y": 41,
+            "width": 141.4375,
+            "height": 15,
+            "right": 160.4375,
+            "bottom": 56
+          },
+          "bus": {
+            "x": 183.640625,
+            "y": 41,
+            "width": 120.359375,
+            "height": 41.21875,
+            "right": 304,
+            "bottom": 82.21875
+          },
+          "model": {
+            "x": 224.3125,
+            "y": 111.328125,
+            "width": 79.6875,
+            "height": 14.15625,
+            "right": 304,
+            "bottom": 125.484375
+          },
+          "fonts": {
+            "title": "16.52px",
+            "model": "9.44px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "scan",
+          "viewport": {
+            "width": 320,
+            "height": 568
+          },
+          "size": "L",
+          "right": {
+            "x": 183.640625,
+            "y": 41,
+            "width": 120.359375,
+            "height": 84.484375,
+            "right": 304,
+            "bottom": 125.484375
+          },
+          "title": {
+            "x": 16,
+            "y": 60,
+            "width": 120.515625,
+            "height": 53.625,
+            "right": 136.515625,
+            "bottom": 113.625
+          },
+          "caption": {
+            "x": 19,
+            "y": 41,
+            "width": 117.515625,
+            "height": 15,
+            "right": 136.515625,
+            "bottom": 56
+          },
+          "bus": {
+            "x": 183.640625,
+            "y": 41,
+            "width": 120.359375,
+            "height": 41.21875,
+            "right": 304,
+            "bottom": 82.21875
+          },
+          "model": {
+            "x": 224.3125,
+            "y": 111.328125,
+            "width": 79.6875,
+            "height": 14.15625,
+            "right": 304,
+            "bottom": 125.484375
+          },
+          "fonts": {
+            "title": "16.52px",
+            "model": "9.44px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "ticket",
+          "viewport": {
+            "width": 320,
+            "height": 568
+          },
+          "size": "L",
+          "right": {
+            "x": 183.640625,
+            "y": 41,
+            "width": 120.359375,
+            "height": 84.484375,
+            "right": 304,
+            "bottom": 125.484375
+          },
+          "title": {
+            "x": 16,
+            "y": 60,
+            "width": 143,
+            "height": 53.625,
+            "right": 159,
+            "bottom": 113.625
+          },
+          "caption": {
+            "x": 19,
+            "y": 41,
+            "width": 140,
+            "height": 15,
+            "right": 159,
+            "bottom": 56
+          },
+          "bus": {
+            "x": 183.640625,
+            "y": 41,
+            "width": 120.359375,
+            "height": 41.21875,
+            "right": 304,
+            "bottom": 82.21875
+          },
+          "model": {
+            "x": 224.3125,
+            "y": 111.328125,
+            "width": 79.6875,
+            "height": 14.15625,
+            "right": 304,
+            "bottom": 125.484375
+          },
+          "fonts": {
+            "title": "16.52px",
+            "model": "9.44px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "town",
+          "viewport": {
+            "width": 320,
+            "height": 568
+          },
+          "size": "L",
+          "right": {
+            "x": 198.890625,
+            "y": 43,
+            "width": 120.359375,
+            "height": 87.484375,
+            "right": 319.25,
+            "bottom": 130.484375
+          },
+          "title": {
+            "x": 14,
+            "y": 43,
+            "width": 176.890625,
+            "height": 101.5,
+            "right": 190.890625,
+            "bottom": 144.5
+          },
+          "caption": null,
+          "bus": {
+            "x": 198.890625,
+            "y": 46,
+            "width": 120.359375,
+            "height": 41.21875,
+            "right": 319.25,
+            "bottom": 87.21875
+          },
+          "model": {
+            "x": 239.5625,
+            "y": 116.328125,
+            "width": 79.6875,
+            "height": 14.15625,
+            "right": 319.25,
+            "bottom": 130.484375
+          },
+          "fonts": {
+            "title": "16.52px",
+            "model": "9.44px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "help",
+          "viewport": {
+            "width": 320,
+            "height": 568
+          },
+          "size": "L",
+          "right": {
+            "x": 183.640625,
+            "y": 41,
+            "width": 120.359375,
+            "height": 84.484375,
+            "right": 304,
+            "bottom": 125.484375
+          },
+          "title": {
+            "x": 16,
+            "y": 60,
+            "width": 143,
+            "height": 53.625,
+            "right": 159,
+            "bottom": 113.625
+          },
+          "caption": {
+            "x": 19,
+            "y": 41,
+            "width": 140,
+            "height": 15,
+            "right": 159,
+            "bottom": 56
+          },
+          "bus": {
+            "x": 183.640625,
+            "y": 41,
+            "width": 120.359375,
+            "height": 41.21875,
+            "right": 304,
+            "bottom": 82.21875
+          },
+          "model": {
+            "x": 224.3125,
+            "y": 111.328125,
+            "width": 79.6875,
+            "height": 14.15625,
+            "right": 304,
+            "bottom": 125.484375
+          },
+          "fonts": {
+            "title": "16.52px",
+            "model": "9.44px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        }
+      ]
+    },
+    {
+      "name": "360x780 L six-page headings and bus labels do not overlap or overflow",
+      "status": "PASS",
+      "at": "2026-10-17T19:18:58.867Z",
+      "evidence": [
+        {
+          "screen": "ride",
+          "viewport": {
+            "width": 360,
+            "height": 780
+          },
+          "size": "L",
+          "right": {
+            "x": 202.40625,
+            "y": 56,
+            "width": 141.59375,
+            "height": 99.859375,
+            "right": 344,
+            "bottom": 155.859375
+          },
+          "title": {
+            "x": 16,
+            "y": 79,
+            "width": 129.078125,
+            "height": 85.046875,
+            "right": 145.078125,
+            "bottom": 164.046875
+          },
+          "caption": {
+            "x": 19,
+            "y": 56,
+            "width": 126.078125,
+            "height": 17,
+            "right": 145.078125,
+            "bottom": 73
+          },
+          "bus": {
+            "x": 202.40625,
+            "y": 56,
+            "width": 141.59375,
+            "height": 48.5,
+            "right": 344,
+            "bottom": 104.5
+          },
+          "model": {
+            "x": 251.46875,
+            "y": 139.921875,
+            "width": 92.53125,
+            "height": 15.9375,
+            "right": 344,
+            "bottom": 155.859375
+          },
+          "fonts": {
+            "title": "18.88px",
+            "model": "10.62px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "return",
+          "viewport": {
+            "width": 360,
+            "height": 780
+          },
+          "size": "L",
+          "right": {
+            "x": 202.40625,
+            "y": 56,
+            "width": 141.59375,
+            "height": 99.859375,
+            "right": 344,
+            "bottom": 155.859375
+          },
+          "title": {
+            "x": 16,
+            "y": 79,
+            "width": 160.890625,
+            "height": 73.796875,
+            "right": 176.890625,
+            "bottom": 152.796875
+          },
+          "caption": {
+            "x": 19,
+            "y": 56,
+            "width": 157.890625,
+            "height": 17,
+            "right": 176.890625,
+            "bottom": 73
+          },
+          "bus": {
+            "x": 202.40625,
+            "y": 56,
+            "width": 141.59375,
+            "height": 48.5,
+            "right": 344,
+            "bottom": 104.5
+          },
+          "model": {
+            "x": 251.46875,
+            "y": 139.921875,
+            "width": 92.53125,
+            "height": 15.9375,
+            "right": 344,
+            "bottom": 155.859375
+          },
+          "fonts": {
+            "title": "18.88px",
+            "model": "10.62px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "scan",
+          "viewport": {
+            "width": 360,
+            "height": 780
+          },
+          "size": "L",
+          "right": {
+            "x": 202.40625,
+            "y": 56,
+            "width": 141.59375,
+            "height": 99.859375,
+            "right": 344,
+            "bottom": 155.859375
+          },
+          "title": {
+            "x": 16,
+            "y": 79,
+            "width": 132.40625,
+            "height": 58.640625,
+            "right": 148.40625,
+            "bottom": 137.640625
+          },
+          "caption": {
+            "x": 19,
+            "y": 56,
+            "width": 129.40625,
+            "height": 17,
+            "right": 148.40625,
+            "bottom": 73
+          },
+          "bus": {
+            "x": 202.40625,
+            "y": 56,
+            "width": 141.59375,
+            "height": 48.5,
+            "right": 344,
+            "bottom": 104.5
+          },
+          "model": {
+            "x": 251.46875,
+            "y": 139.921875,
+            "width": 92.53125,
+            "height": 15.9375,
+            "right": 344,
+            "bottom": 155.859375
+          },
+          "fonts": {
+            "title": "18.88px",
+            "model": "10.62px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "ticket",
+          "viewport": {
+            "width": 360,
+            "height": 780
+          },
+          "size": "L",
+          "right": {
+            "x": 202.40625,
+            "y": 56,
+            "width": 141.59375,
+            "height": 99.859375,
+            "right": 344,
+            "bottom": 155.859375
+          },
+          "title": {
+            "x": 16,
+            "y": 79,
+            "width": 157.203125,
+            "height": 58.640625,
+            "right": 173.203125,
+            "bottom": 137.640625
+          },
+          "caption": {
+            "x": 19,
+            "y": 56,
+            "width": 154.203125,
+            "height": 17,
+            "right": 173.203125,
+            "bottom": 73
+          },
+          "bus": {
+            "x": 202.40625,
+            "y": 56,
+            "width": 141.59375,
+            "height": 48.5,
+            "right": 344,
+            "bottom": 104.5
+          },
+          "model": {
+            "x": 251.46875,
+            "y": 139.921875,
+            "width": 92.53125,
+            "height": 15.9375,
+            "right": 344,
+            "bottom": 155.859375
+          },
+          "fonts": {
+            "title": "18.88px",
+            "model": "10.62px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "town",
+          "viewport": {
+            "width": 360,
+            "height": 780
+          },
+          "size": "L",
+          "right": {
+            "x": 204.40625,
+            "y": 60,
+            "width": 141.59375,
+            "height": 102.859375,
+            "right": 346,
+            "bottom": 162.859375
+          },
+          "title": {
+            "x": 14,
+            "y": 60,
+            "width": 176.890625,
+            "height": 101.5,
+            "right": 190.890625,
+            "bottom": 161.5
+          },
+          "caption": null,
+          "bus": {
+            "x": 204.40625,
+            "y": 63,
+            "width": 141.59375,
+            "height": 48.5,
+            "right": 346,
+            "bottom": 111.5
+          },
+          "model": {
+            "x": 253.46875,
+            "y": 146.921875,
+            "width": 92.53125,
+            "height": 15.9375,
+            "right": 346,
+            "bottom": 162.859375
+          },
+          "fonts": {
+            "title": "18.88px",
+            "model": "10.62px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "help",
+          "viewport": {
+            "width": 360,
+            "height": 780
+          },
+          "size": "L",
+          "right": {
+            "x": 202.40625,
+            "y": 56,
+            "width": 141.59375,
+            "height": 99.859375,
+            "right": 344,
+            "bottom": 155.859375
+          },
+          "title": {
+            "x": 16,
+            "y": 79,
+            "width": 157.203125,
+            "height": 58.640625,
+            "right": 173.203125,
+            "bottom": 137.640625
+          },
+          "caption": {
+            "x": 19,
+            "y": 56,
+            "width": 154.203125,
+            "height": 17,
+            "right": 173.203125,
+            "bottom": 73
+          },
+          "bus": {
+            "x": 202.40625,
+            "y": 56,
+            "width": 141.59375,
+            "height": 48.5,
+            "right": 344,
+            "bottom": 104.5
+          },
+          "model": {
+            "x": 251.46875,
+            "y": 139.921875,
+            "width": 92.53125,
+            "height": 15.9375,
+            "right": 344,
+            "bottom": 155.859375
+          },
+          "fonts": {
+            "title": "18.88px",
+            "model": "10.62px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        }
+      ]
+    },
+    {
+      "name": "390x844 M six-page headings and bus labels do not overlap or overflow",
+      "status": "PASS",
+      "at": "2026-10-17T19:19:05.947Z",
+      "evidence": [
+        {
+          "screen": "ride",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "size": "M",
+          "right": {
+            "x": 245,
+            "y": 60,
+            "width": 120,
+            "height": 85.984375,
+            "right": 365,
+            "bottom": 145.984375
+          },
+          "title": {
+            "x": 25,
+            "y": 83,
+            "width": 132.34375,
+            "height": 84.796875,
+            "right": 157.34375,
+            "bottom": 167.796875
+          },
+          "caption": {
+            "x": 28,
+            "y": 60,
+            "width": 129.34375,
+            "height": 17,
+            "right": 157.34375,
+            "bottom": 77
+          },
+          "bus": {
+            "x": 245,
+            "y": 60,
+            "width": 120,
+            "height": 41.09375,
+            "right": 365,
+            "bottom": 101.09375
+          },
+          "model": {
+            "x": 286.15625,
+            "y": 132.484375,
+            "width": 78.84375,
+            "height": 13.5,
+            "right": 365,
+            "bottom": 145.984375
+          },
+          "fonts": {
+            "title": "16px",
+            "model": "9px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "return",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "size": "M",
+          "right": {
+            "x": 245,
+            "y": 60,
+            "width": 120,
+            "height": 85.984375,
+            "right": 365,
+            "bottom": 145.984375
+          },
+          "title": {
+            "x": 25,
+            "y": 83,
+            "width": 158.375,
+            "height": 72.828125,
+            "right": 183.375,
+            "bottom": 155.828125
+          },
+          "caption": {
+            "x": 28,
+            "y": 60,
+            "width": 155.375,
+            "height": 17,
+            "right": 183.375,
+            "bottom": 77
+          },
+          "bus": {
+            "x": 245,
+            "y": 60,
+            "width": 120,
+            "height": 41.09375,
+            "right": 365,
+            "bottom": 101.09375
+          },
+          "model": {
+            "x": 286.15625,
+            "y": 132.484375,
+            "width": 78.84375,
+            "height": 13.5,
+            "right": 365,
+            "bottom": 145.984375
+          },
+          "fonts": {
+            "title": "16px",
+            "model": "9px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "scan",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "size": "M",
+          "right": {
+            "x": 245,
+            "y": 60,
+            "width": 120,
+            "height": 85.984375,
+            "right": 365,
+            "bottom": 145.984375
+          },
+          "title": {
+            "x": 25,
+            "y": 83,
+            "width": 133.15625,
+            "height": 59.625,
+            "right": 158.15625,
+            "bottom": 142.625
+          },
+          "caption": {
+            "x": 28,
+            "y": 60,
+            "width": 130.15625,
+            "height": 17,
+            "right": 158.15625,
+            "bottom": 77
+          },
+          "bus": {
+            "x": 245,
+            "y": 60,
+            "width": 120,
+            "height": 41.09375,
+            "right": 365,
+            "bottom": 101.09375
+          },
+          "model": {
+            "x": 286.15625,
+            "y": 132.484375,
+            "width": 78.84375,
+            "height": 13.5,
+            "right": 365,
+            "bottom": 145.984375
+          },
+          "fonts": {
+            "title": "16px",
+            "model": "9px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "ticket",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "size": "M",
+          "right": {
+            "x": 245,
+            "y": 60,
+            "width": 120,
+            "height": 85.984375,
+            "right": 365,
+            "bottom": 145.984375
+          },
+          "title": {
+            "x": 25,
+            "y": 83,
+            "width": 158.40625,
+            "height": 59.625,
+            "right": 183.40625,
+            "bottom": 142.625
+          },
+          "caption": {
+            "x": 28,
+            "y": 60,
+            "width": 155.40625,
+            "height": 17,
+            "right": 183.40625,
+            "bottom": 77
+          },
+          "bus": {
+            "x": 245,
+            "y": 60,
+            "width": 120,
+            "height": 41.09375,
+            "right": 365,
+            "bottom": 101.09375
+          },
+          "model": {
+            "x": 286.15625,
+            "y": 132.484375,
+            "width": 78.84375,
+            "height": 13.5,
+            "right": 365,
+            "bottom": 145.984375
+          },
+          "fonts": {
+            "title": "16px",
+            "model": "9px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "town",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "size": "M",
+          "right": {
+            "x": 250,
+            "y": 60,
+            "width": 120,
+            "height": 88.984375,
+            "right": 370,
+            "bottom": 148.984375
+          },
+          "title": {
+            "x": 18,
+            "y": 60,
+            "width": 185.609375,
+            "height": 110.546875,
+            "right": 203.609375,
+            "bottom": 170.546875
+          },
+          "caption": null,
+          "bus": {
+            "x": 250,
+            "y": 63,
+            "width": 120,
+            "height": 41.09375,
+            "right": 370,
+            "bottom": 104.09375
+          },
+          "model": {
+            "x": 291.15625,
+            "y": 135.484375,
+            "width": 78.84375,
+            "height": 13.5,
+            "right": 370,
+            "bottom": 148.984375
+          },
+          "fonts": {
+            "title": "16px",
+            "model": "9px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "help",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "size": "M",
+          "right": {
+            "x": 245,
+            "y": 60,
+            "width": 120,
+            "height": 85.984375,
+            "right": 365,
+            "bottom": 145.984375
+          },
+          "title": {
+            "x": 25,
+            "y": 83,
+            "width": 158.40625,
+            "height": 59.625,
+            "right": 183.40625,
+            "bottom": 142.625
+          },
+          "caption": {
+            "x": 28,
+            "y": 60,
+            "width": 155.40625,
+            "height": 17,
+            "right": 183.40625,
+            "bottom": 77
+          },
+          "bus": {
+            "x": 245,
+            "y": 60,
+            "width": 120,
+            "height": 41.09375,
+            "right": 365,
+            "bottom": 101.09375
+          },
+          "model": {
+            "x": 286.15625,
+            "y": 132.484375,
+            "width": 78.84375,
+            "height": 13.5,
+            "right": 365,
+            "bottom": 145.984375
+          },
+          "fonts": {
+            "title": "16px",
+            "model": "9px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        }
+      ]
+    },
+    {
+      "name": "390x844 L six-page headings and bus labels do not overlap or overflow",
+      "status": "PASS",
+      "at": "2026-10-17T19:19:13.086Z",
+      "evidence": [
+        {
+          "screen": "ride",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "size": "L",
+          "right": {
+            "x": 229.40625,
+            "y": 60,
+            "width": 141.59375,
+            "height": 99.859375,
+            "right": 371,
+            "bottom": 159.859375
+          },
+          "title": {
+            "x": 19,
+            "y": 86,
+            "width": 156.59375,
+            "height": 100.0625,
+            "right": 175.59375,
+            "bottom": 186.0625
+          },
+          "caption": {
+            "x": 22,
+            "y": 60,
+            "width": 153.59375,
+            "height": 20,
+            "right": 175.59375,
+            "bottom": 80
+          },
+          "bus": {
+            "x": 229.40625,
+            "y": 60,
+            "width": 141.59375,
+            "height": 48.5,
+            "right": 371,
+            "bottom": 108.5
+          },
+          "model": {
+            "x": 278.46875,
+            "y": 143.921875,
+            "width": 92.53125,
+            "height": 15.9375,
+            "right": 371,
+            "bottom": 159.859375
+          },
+          "fonts": {
+            "title": "18.88px",
+            "model": "10.62px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "return",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "size": "L",
+          "right": {
+            "x": 229.40625,
+            "y": 60,
+            "width": 141.59375,
+            "height": 99.859375,
+            "right": 371,
+            "bottom": 159.859375
+          },
+          "title": {
+            "x": 19,
+            "y": 86,
+            "width": 190.453125,
+            "height": 85.03125,
+            "right": 209.453125,
+            "bottom": 171.03125
+          },
+          "caption": {
+            "x": 22,
+            "y": 60,
+            "width": 187.453125,
+            "height": 20,
+            "right": 209.453125,
+            "bottom": 80
+          },
+          "bus": {
+            "x": 229.40625,
+            "y": 60,
+            "width": 141.59375,
+            "height": 48.5,
+            "right": 371,
+            "bottom": 108.5
+          },
+          "model": {
+            "x": 278.46875,
+            "y": 143.921875,
+            "width": 92.53125,
+            "height": 15.9375,
+            "right": 371,
+            "bottom": 159.859375
+          },
+          "fonts": {
+            "title": "18.88px",
+            "model": "10.62px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "scan",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "size": "L",
+          "right": {
+            "x": 229.40625,
+            "y": 60,
+            "width": 141.59375,
+            "height": 99.859375,
+            "right": 371,
+            "bottom": 159.859375
+          },
+          "title": {
+            "x": 19,
+            "y": 86,
+            "width": 158.484375,
+            "height": 70.375,
+            "right": 177.484375,
+            "bottom": 156.375
+          },
+          "caption": {
+            "x": 22,
+            "y": 60,
+            "width": 155.484375,
+            "height": 20,
+            "right": 177.484375,
+            "bottom": 80
+          },
+          "bus": {
+            "x": 229.40625,
+            "y": 60,
+            "width": 141.59375,
+            "height": 48.5,
+            "right": 371,
+            "bottom": 108.5
+          },
+          "model": {
+            "x": 278.46875,
+            "y": 143.921875,
+            "width": 92.53125,
+            "height": 15.9375,
+            "right": 371,
+            "bottom": 159.859375
+          },
+          "fonts": {
+            "title": "18.88px",
+            "model": "10.62px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "ticket",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "size": "L",
+          "right": {
+            "x": 229.40625,
+            "y": 60,
+            "width": 141.59375,
+            "height": 99.859375,
+            "right": 371,
+            "bottom": 159.859375
+          },
+          "title": {
+            "x": 19,
+            "y": 86,
+            "width": 188.640625,
+            "height": 70.375,
+            "right": 207.640625,
+            "bottom": 156.375
+          },
+          "caption": {
+            "x": 22,
+            "y": 60,
+            "width": 185.640625,
+            "height": 20,
+            "right": 207.640625,
+            "bottom": 80
+          },
+          "bus": {
+            "x": 229.40625,
+            "y": 60,
+            "width": 141.59375,
+            "height": 48.5,
+            "right": 371,
+            "bottom": 108.5
+          },
+          "model": {
+            "x": 278.46875,
+            "y": 143.921875,
+            "width": 92.53125,
+            "height": 15.9375,
+            "right": 371,
+            "bottom": 159.859375
+          },
+          "fonts": {
+            "title": "18.88px",
+            "model": "10.62px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "town",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "size": "L",
+          "right": {
+            "x": 240.40625,
+            "y": 60,
+            "width": 141.59375,
+            "height": 102.859375,
+            "right": 382,
+            "bottom": 162.859375
+          },
+          "title": {
+            "x": 18,
+            "y": 60,
+            "width": 214.40625,
+            "height": 124.140625,
+            "right": 232.40625,
+            "bottom": 184.140625
+          },
+          "caption": null,
+          "bus": {
+            "x": 240.40625,
+            "y": 63,
+            "width": 141.59375,
+            "height": 48.5,
+            "right": 382,
+            "bottom": 111.5
+          },
+          "model": {
+            "x": 289.46875,
+            "y": 146.921875,
+            "width": 92.53125,
+            "height": 15.9375,
+            "right": 382,
+            "bottom": 162.859375
+          },
+          "fonts": {
+            "title": "18.88px",
+            "model": "10.62px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "help",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "size": "L",
+          "right": {
+            "x": 229.40625,
+            "y": 60,
+            "width": 141.59375,
+            "height": 99.859375,
+            "right": 371,
+            "bottom": 159.859375
+          },
+          "title": {
+            "x": 19,
+            "y": 86,
+            "width": 188.640625,
+            "height": 70.375,
+            "right": 207.640625,
+            "bottom": 156.375
+          },
+          "caption": {
+            "x": 22,
+            "y": 60,
+            "width": 185.640625,
+            "height": 20,
+            "right": 207.640625,
+            "bottom": 80
+          },
+          "bus": {
+            "x": 229.40625,
+            "y": 60,
+            "width": 141.59375,
+            "height": 48.5,
+            "right": 371,
+            "bottom": 108.5
+          },
+          "model": {
+            "x": 278.46875,
+            "y": 143.921875,
+            "width": 92.53125,
+            "height": 15.9375,
+            "right": 371,
+            "bottom": 159.859375
+          },
+          "fonts": {
+            "title": "18.88px",
+            "model": "10.62px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        }
+      ]
+    },
+    {
+      "name": "430x932 M six-page headings and bus labels do not overlap or overflow",
+      "status": "PASS",
+      "at": "2026-10-17T19:19:20.231Z",
+      "evidence": [
+        {
+          "screen": "ride",
+          "viewport": {
+            "width": 430,
+            "height": 932
+          },
+          "size": "M",
+          "right": {
+            "x": 285,
+            "y": 60,
+            "width": 120,
+            "height": 85.984375,
+            "right": 405,
+            "bottom": 145.984375
+          },
+          "title": {
+            "x": 25,
+            "y": 83,
+            "width": 132.34375,
+            "height": 84.796875,
+            "right": 157.34375,
+            "bottom": 167.796875
+          },
+          "caption": {
+            "x": 28,
+            "y": 60,
+            "width": 129.34375,
+            "height": 17,
+            "right": 157.34375,
+            "bottom": 77
+          },
+          "bus": {
+            "x": 285,
+            "y": 60,
+            "width": 120,
+            "height": 41.09375,
+            "right": 405,
+            "bottom": 101.09375
+          },
+          "model": {
+            "x": 326.15625,
+            "y": 132.484375,
+            "width": 78.84375,
+            "height": 13.5,
+            "right": 405,
+            "bottom": 145.984375
+          },
+          "fonts": {
+            "title": "16px",
+            "model": "9px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "return",
+          "viewport": {
+            "width": 430,
+            "height": 932
+          },
+          "size": "M",
+          "right": {
+            "x": 285,
+            "y": 60,
+            "width": 120,
+            "height": 85.984375,
+            "right": 405,
+            "bottom": 145.984375
+          },
+          "title": {
+            "x": 25,
+            "y": 83,
+            "width": 158.375,
+            "height": 72.828125,
+            "right": 183.375,
+            "bottom": 155.828125
+          },
+          "caption": {
+            "x": 28,
+            "y": 60,
+            "width": 155.375,
+            "height": 17,
+            "right": 183.375,
+            "bottom": 77
+          },
+          "bus": {
+            "x": 285,
+            "y": 60,
+            "width": 120,
+            "height": 41.09375,
+            "right": 405,
+            "bottom": 101.09375
+          },
+          "model": {
+            "x": 326.15625,
+            "y": 132.484375,
+            "width": 78.84375,
+            "height": 13.5,
+            "right": 405,
+            "bottom": 145.984375
+          },
+          "fonts": {
+            "title": "16px",
+            "model": "9px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "scan",
+          "viewport": {
+            "width": 430,
+            "height": 932
+          },
+          "size": "M",
+          "right": {
+            "x": 285,
+            "y": 60,
+            "width": 120,
+            "height": 85.984375,
+            "right": 405,
+            "bottom": 145.984375
+          },
+          "title": {
+            "x": 25,
+            "y": 83,
+            "width": 133.15625,
+            "height": 59.625,
+            "right": 158.15625,
+            "bottom": 142.625
+          },
+          "caption": {
+            "x": 28,
+            "y": 60,
+            "width": 130.15625,
+            "height": 17,
+            "right": 158.15625,
+            "bottom": 77
+          },
+          "bus": {
+            "x": 285,
+            "y": 60,
+            "width": 120,
+            "height": 41.09375,
+            "right": 405,
+            "bottom": 101.09375
+          },
+          "model": {
+            "x": 326.15625,
+            "y": 132.484375,
+            "width": 78.84375,
+            "height": 13.5,
+            "right": 405,
+            "bottom": 145.984375
+          },
+          "fonts": {
+            "title": "16px",
+            "model": "9px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "ticket",
+          "viewport": {
+            "width": 430,
+            "height": 932
+          },
+          "size": "M",
+          "right": {
+            "x": 285,
+            "y": 60,
+            "width": 120,
+            "height": 85.984375,
+            "right": 405,
+            "bottom": 145.984375
+          },
+          "title": {
+            "x": 25,
+            "y": 83,
+            "width": 158.40625,
+            "height": 59.625,
+            "right": 183.40625,
+            "bottom": 142.625
+          },
+          "caption": {
+            "x": 28,
+            "y": 60,
+            "width": 155.40625,
+            "height": 17,
+            "right": 183.40625,
+            "bottom": 77
+          },
+          "bus": {
+            "x": 285,
+            "y": 60,
+            "width": 120,
+            "height": 41.09375,
+            "right": 405,
+            "bottom": 101.09375
+          },
+          "model": {
+            "x": 326.15625,
+            "y": 132.484375,
+            "width": 78.84375,
+            "height": 13.5,
+            "right": 405,
+            "bottom": 145.984375
+          },
+          "fonts": {
+            "title": "16px",
+            "model": "9px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "town",
+          "viewport": {
+            "width": 430,
+            "height": 932
+          },
+          "size": "M",
+          "right": {
+            "x": 290,
+            "y": 60,
+            "width": 120,
+            "height": 88.984375,
+            "right": 410,
+            "bottom": 148.984375
+          },
+          "title": {
+            "x": 18,
+            "y": 60,
+            "width": 185.609375,
+            "height": 110.546875,
+            "right": 203.609375,
+            "bottom": 170.546875
+          },
+          "caption": null,
+          "bus": {
+            "x": 290,
+            "y": 63,
+            "width": 120,
+            "height": 41.09375,
+            "right": 410,
+            "bottom": 104.09375
+          },
+          "model": {
+            "x": 331.15625,
+            "y": 135.484375,
+            "width": 78.84375,
+            "height": 13.5,
+            "right": 410,
+            "bottom": 148.984375
+          },
+          "fonts": {
+            "title": "16px",
+            "model": "9px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "help",
+          "viewport": {
+            "width": 430,
+            "height": 932
+          },
+          "size": "M",
+          "right": {
+            "x": 285,
+            "y": 60,
+            "width": 120,
+            "height": 85.984375,
+            "right": 405,
+            "bottom": 145.984375
+          },
+          "title": {
+            "x": 25,
+            "y": 83,
+            "width": 158.40625,
+            "height": 59.625,
+            "right": 183.40625,
+            "bottom": 142.625
+          },
+          "caption": {
+            "x": 28,
+            "y": 60,
+            "width": 155.40625,
+            "height": 17,
+            "right": 183.40625,
+            "bottom": 77
+          },
+          "bus": {
+            "x": 285,
+            "y": 60,
+            "width": 120,
+            "height": 41.09375,
+            "right": 405,
+            "bottom": 101.09375
+          },
+          "model": {
+            "x": 326.15625,
+            "y": 132.484375,
+            "width": 78.84375,
+            "height": 13.5,
+            "right": 405,
+            "bottom": 145.984375
+          },
+          "fonts": {
+            "title": "16px",
+            "model": "9px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        }
+      ]
+    },
+    {
+      "name": "1440x900 M six-page headings and bus labels do not overlap or overflow",
+      "status": "PASS",
+      "at": "2026-10-17T19:19:27.434Z",
+      "evidence": [
+        {
+          "screen": "ride",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "size": "M",
+          "right": {
+            "x": 935.0625,
+            "y": 171.40625,
+            "width": 100.796875,
+            "height": 72.21875,
+            "right": 1035.859375,
+            "bottom": 243.625
+          },
+          "title": {
+            "x": 750.140625,
+            "y": 191.4375,
+            "width": 101.359375,
+            "height": 65.875,
+            "right": 851.5,
+            "bottom": 257.3125
+          },
+          "caption": {
+            "x": 752.65625,
+            "y": 171.40625,
+            "width": 98.84375,
+            "height": 15,
+            "right": 851.5,
+            "bottom": 186.40625
+          },
+          "bus": {
+            "x": 935.0625,
+            "y": 171.40625,
+            "width": 100.796875,
+            "height": 34.515625,
+            "right": 1035.859375,
+            "bottom": 205.921875
+          },
+          "model": {
+            "x": 969.625,
+            "y": 232.28125,
+            "width": 66.234375,
+            "height": 11.34375,
+            "right": 1035.859375,
+            "bottom": 243.625
+          },
+          "fonts": {
+            "title": "16px",
+            "model": "9px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "return",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "size": "M",
+          "right": {
+            "x": 935.0625,
+            "y": 171.40625,
+            "width": 100.796875,
+            "height": 72.21875,
+            "right": 1035.859375,
+            "bottom": 243.625
+          },
+          "title": {
+            "x": 750.140625,
+            "y": 191.4375,
+            "width": 121.328125,
+            "height": 56.71875,
+            "right": 871.46875,
+            "bottom": 248.15625
+          },
+          "caption": {
+            "x": 752.65625,
+            "y": 171.40625,
+            "width": 118.8125,
+            "height": 15,
+            "right": 871.46875,
+            "bottom": 186.40625
+          },
+          "bus": {
+            "x": 935.0625,
+            "y": 171.40625,
+            "width": 100.796875,
+            "height": 34.515625,
+            "right": 1035.859375,
+            "bottom": 205.921875
+          },
+          "model": {
+            "x": 969.625,
+            "y": 232.28125,
+            "width": 66.234375,
+            "height": 11.34375,
+            "right": 1035.859375,
+            "bottom": 243.625
+          },
+          "fonts": {
+            "title": "16px",
+            "model": "9px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "scan",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "size": "M",
+          "right": {
+            "x": 935.0625,
+            "y": 171.40625,
+            "width": 100.796875,
+            "height": 72.21875,
+            "right": 1035.859375,
+            "bottom": 243.625
+          },
+          "title": {
+            "x": 750.140625,
+            "y": 191.4375,
+            "width": 106.1875,
+            "height": 47.703125,
+            "right": 856.328125,
+            "bottom": 239.140625
+          },
+          "caption": {
+            "x": 752.65625,
+            "y": 171.40625,
+            "width": 103.671875,
+            "height": 15,
+            "right": 856.328125,
+            "bottom": 186.40625
+          },
+          "bus": {
+            "x": 935.0625,
+            "y": 171.40625,
+            "width": 100.796875,
+            "height": 34.515625,
+            "right": 1035.859375,
+            "bottom": 205.921875
+          },
+          "model": {
+            "x": 969.625,
+            "y": 232.28125,
+            "width": 66.234375,
+            "height": 11.34375,
+            "right": 1035.859375,
+            "bottom": 243.625
+          },
+          "fonts": {
+            "title": "16px",
+            "model": "9px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "ticket",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "size": "M",
+          "right": {
+            "x": 935.0625,
+            "y": 171.40625,
+            "width": 100.796875,
+            "height": 72.21875,
+            "right": 1035.859375,
+            "bottom": 243.625
+          },
+          "title": {
+            "x": 750.140625,
+            "y": 191.4375,
+            "width": 126.296875,
+            "height": 47.703125,
+            "right": 876.4375,
+            "bottom": 239.140625
+          },
+          "caption": {
+            "x": 752.65625,
+            "y": 171.40625,
+            "width": 123.78125,
+            "height": 15,
+            "right": 876.4375,
+            "bottom": 186.40625
+          },
+          "bus": {
+            "x": 935.0625,
+            "y": 171.40625,
+            "width": 100.796875,
+            "height": 34.515625,
+            "right": 1035.859375,
+            "bottom": 205.921875
+          },
+          "model": {
+            "x": 969.625,
+            "y": 232.28125,
+            "width": 66.234375,
+            "height": 11.34375,
+            "right": 1035.859375,
+            "bottom": 243.625
+          },
+          "fonts": {
+            "title": "16px",
+            "model": "9px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "town",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "size": "M",
+          "right": {
+            "x": 938.40625,
+            "y": 172.25,
+            "width": 100.796875,
+            "height": 74.734375,
+            "right": 1039.203125,
+            "bottom": 246.984375
+          },
+          "title": {
+            "x": 745.109375,
+            "y": 172.25,
+            "width": 156.171875,
+            "height": 93.140625,
+            "right": 901.28125,
+            "bottom": 265.390625
+          },
+          "caption": null,
+          "bus": {
+            "x": 938.40625,
+            "y": 174.765625,
+            "width": 100.796875,
+            "height": 34.515625,
+            "right": 1039.203125,
+            "bottom": 209.28125
+          },
+          "model": {
+            "x": 972.96875,
+            "y": 235.640625,
+            "width": 66.234375,
+            "height": 11.34375,
+            "right": 1039.203125,
+            "bottom": 246.984375
+          },
+          "fonts": {
+            "title": "16px",
+            "model": "9px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        },
+        {
+          "screen": "help",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "size": "M",
+          "right": {
+            "x": 935.0625,
+            "y": 171.40625,
+            "width": 100.796875,
+            "height": 72.21875,
+            "right": 1035.859375,
+            "bottom": 243.625
+          },
+          "title": {
+            "x": 750.140625,
+            "y": 191.4375,
+            "width": 126.296875,
+            "height": 47.703125,
+            "right": 876.4375,
+            "bottom": 239.140625
+          },
+          "caption": {
+            "x": 752.65625,
+            "y": 171.40625,
+            "width": 123.78125,
+            "height": 15,
+            "right": 876.4375,
+            "bottom": 186.40625
+          },
+          "bus": {
+            "x": 935.0625,
+            "y": 171.40625,
+            "width": 100.796875,
+            "height": 34.515625,
+            "right": 1035.859375,
+            "bottom": 205.921875
+          },
+          "model": {
+            "x": 969.625,
+            "y": 232.28125,
+            "width": 66.234375,
+            "height": 11.34375,
+            "right": 1035.859375,
+            "bottom": 243.625
+          },
+          "fonts": {
+            "title": "16px",
+            "model": "9px"
+          },
+          "theme": "xujiashan",
+          "problems": []
+        }
+      ]
+    },
+    {
+      "name": "No uncaught JavaScript errors",
+      "status": "PASS",
+      "at": "2026-10-17T19:19:35.572Z",
+      "evidence": []
+    }
+  ],
+  "captures": [
+    {
+      "name": "theme-qiantong-390",
+      "path": ".delivery/bus-v221/theme-qiantong-390.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "at": "2026-10-17T19:00:50.835Z"
+    },
+    {
+      "name": "theme-qiantong-art",
+      "path": ".delivery/bus-v221/theme-qiantong-art.png",
+      "at": "2026-10-17T19:00:50.919Z"
+    },
+    {
+      "name": "theme-xujiashan-390",
+      "path": ".delivery/bus-v221/theme-xujiashan-390.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "at": "2026-10-17T19:00:56.908Z"
+    },
+    {
+      "name": "theme-xujiashan-art",
+      "path": ".delivery/bus-v221/theme-xujiashan-art.png",
+      "at": "2026-10-17T19:00:56.979Z"
+    },
+    {
+      "name": "theme-longgong-390",
+      "path": ".delivery/bus-v221/theme-longgong-390.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "at": "2026-10-17T19:01:02.967Z"
+    },
+    {
+      "name": "theme-longgong-art",
+      "path": ".delivery/bus-v221/theme-longgong-art.png",
+      "at": "2026-10-17T19:01:03.048Z"
+    },
+    {
+      "name": "theme-liyang-390",
+      "path": ".delivery/bus-v221/theme-liyang-390.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "at": "2026-10-17T19:01:09.055Z"
+    },
+    {
+      "name": "theme-liyang-art",
+      "path": ".delivery/bus-v221/theme-liyang-art.png",
+      "at": "2026-10-17T19:01:09.129Z"
+    },
+    {
+      "name": "layout-320-568-L-ride",
+      "path": ".delivery/bus-v221/layout-320-568-L-ride.png",
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "at": "2026-10-17T19:18:53.621Z"
+    },
+    {
+      "name": "layout-320-568-L-town",
+      "path": ".delivery/bus-v221/layout-320-568-L-town.png",
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "at": "2026-10-17T19:18:57.993Z"
+    },
+    {
+      "name": "layout-360-780-L-ride",
+      "path": ".delivery/bus-v221/layout-360-780-L-ride.png",
+      "viewport": {
+        "width": 360,
+        "height": 780
+      },
+      "at": "2026-10-17T19:19:01.173Z"
+    },
+    {
+      "name": "layout-360-780-L-town",
+      "path": ".delivery/bus-v221/layout-360-780-L-town.png",
+      "viewport": {
+        "width": 360,
+        "height": 780
+      },
+      "at": "2026-10-17T19:19:05.084Z"
+    },
+    {
+      "name": "layout-390-844-M-ride",
+      "path": ".delivery/bus-v221/layout-390-844-M-ride.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "at": "2026-10-17T19:19:08.342Z"
+    },
+    {
+      "name": "layout-390-844-M-town",
+      "path": ".delivery/bus-v221/layout-390-844-M-town.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "at": "2026-10-17T19:19:12.230Z"
+    },
+    {
+      "name": "layout-390-844-L-ride",
+      "path": ".delivery/bus-v221/layout-390-844-L-ride.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "at": "2026-10-17T19:19:15.443Z"
+    },
+    {
+      "name": "layout-390-844-L-town",
+      "path": ".delivery/bus-v221/layout-390-844-L-town.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "at": "2026-10-17T19:19:19.367Z"
+    },
+    {
+      "name": "layout-430-932-M-ride",
+      "path": ".delivery/bus-v221/layout-430-932-M-ride.png",
+      "viewport": {
+        "width": 430,
+        "height": 932
+      },
+      "at": "2026-10-17T19:19:22.632Z"
+    },
+    {
+      "name": "layout-430-932-M-town",
+      "path": ".delivery/bus-v221/layout-430-932-M-town.png",
+      "viewport": {
+        "width": 430,
+        "height": 932
+      },
+      "at": "2026-10-17T19:19:26.564Z"
+    },
+    {
+      "name": "layout-1440-900-M-ride",
+      "path": ".delivery/bus-v221/layout-1440-900-M-ride.png",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "at": "2026-10-17T19:19:30.321Z"
+    },
+    {
+      "name": "layout-1440-900-M-town",
+      "path": ".delivery/bus-v221/layout-1440-900-M-town.png",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "at": "2026-10-17T19:19:34.477Z"
+    }
+  ]
+}

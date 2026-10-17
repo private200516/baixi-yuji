@@ -3,15 +3,17 @@ import type { CSSProperties } from 'react';
 import { boardingPoints, mapVillages } from '../data/villages';
 import type { MapRoute } from '../geography/map-depth';
 import type { TextSize } from './FontSizeControl';
-import { Glyph, TransitMark } from './TransitArt';
+import { Glyph } from './TransitArt';
+import { RouteIdentityContent } from './ThemeBus';
 import 'maplibre-gl/dist/maplibre-gl.css';
 
 const SceneMap = lazy(() => import('../geography/GeographyMap').then(module => ({ default: module.GeographyMap })));
 
-export default function TownScene({ selected, onSelect, size, reducedMotion, returnTime, returnDirection, route, onRoute, onReturn }: {
+export default function TownScene({ selected, onSelect, size, reducedMotion, returnTime, returnDirection, route, onRoute, onReturn, busTheme }: {
   selected: string; onSelect: (id: string) => void; size: TextSize;
   reducedMotion: boolean; returnTime: string; returnDirection: string; route: MapRoute | null;
   onRoute: (villageId: string) => void; onReturn: (villageId: string) => void;
+  busTheme: number;
 }) {
   const village = mapVillages.find(item => item.id === selected)!;
   const scene = useRef<HTMLDivElement>(null);
@@ -49,7 +51,7 @@ export default function TownScene({ selected, onSelect, size, reducedMotion, ret
     </div>
     <header className="town-scene-header">
       <div className="town-title-card"><p>古村导览</p><h2>古村漫游</h2></div>
-      <button className="town-route-identity" onClick={() => onRoute(selected)} aria-label="查看古村道路研究方案"><TransitMark/><strong>S-384x</strong><span>概念设计题签</span></button>
+      <button className="town-route-identity" onClick={() => onRoute(selected)} aria-label="查看古村道路研究方案"><RouteIdentityContent theme={busTheme}/></button>
     </header>
     <div className="town-scene-dock">
       <article className="town-village-card" data-village-id={selected}>

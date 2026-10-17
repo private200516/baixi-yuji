@@ -1,8 +1,8 @@
-/* A bounded one-time launch; the supplied film is kept intact. */
+/* The supplied film plays on every full app launch, with bounded failure recovery. */
 .nh-mark{display:block;object-fit:contain;flex-shrink:0}
 .launch-app{opacity:1;transition:opacity 640ms cubic-bezier(.22,1,.36,1)}
 .launch-app[data-launch=intro],.launch-app[data-launch=fallback]{opacity:0}
-.launch-screen{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:var(--paper);color:var(--ink);isolation:isolate;opacity:1;transition:opacity 640ms cubic-bezier(.4,0,.2,1)}
+.launch-screen{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:var(--paper);color:var(--ink);isolation:isolate;opacity:1;outline:none;transition:opacity 640ms cubic-bezier(.4,0,.2,1)}
 .launch-screen[data-phase=revealing]{opacity:0}
 .launch-composition{width:100%;display:flex;flex-direction:column;align-items:center;transform:translateY(-3vh);pointer-events:none}
 .launch-media{position:relative;width:min(100vw,500px);aspect-ratio:1}
@@ -13,8 +13,6 @@
 .launch-wordmark{display:flex;flex-direction:column;align-items:center;gap:13px;margin-top:-48px}
 .launch-wordmark strong{font-family:'Baixi Kai','LXGW WenKai',serif;font-size:calc(clamp(30px,8vw,39px) * var(--type-scale,1));font-weight:400;letter-spacing:.14em;padding-left:.14em;line-height:1.4}
 .launch-wordmark span{font-size:calc(12px * var(--type-scale,1));line-height:1.6;letter-spacing:.16em;color:var(--muted)}
-.launch-skip{position:absolute;right:max(24px,env(safe-area-inset-right));bottom:max(24px,env(safe-area-inset-bottom));min-height:44px;padding:10px 17px;border:1px solid var(--line-strong);border-radius:24px;background:var(--paper);color:var(--ink);font-size:calc(12px * var(--type-scale,1));line-height:1.5}
-.launch-skip:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
 @media(max-height:600px){.launch-media{width:min(82vw,65dvh)}.launch-wordmark{margin-top:-28px;gap:8px}.launch-wordmark strong{font-size:calc(30px * var(--type-scale,1))}}
 @media(prefers-reduced-motion:reduce){.launch-app,.launch-screen,.launch-video{transition:none}}
 html[data-motion=reduced] .launch-app,html[data-motion=reduced] .launch-screen{transition:none}

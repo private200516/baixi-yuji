@@ -22,7 +22,7 @@ async function newPage(width = 390, height = 844, reducedMotion = 'no-preference
   return page;
 }
 async function load(page, screen = 'ride') {
-  await page.goto(`${base}/#/${screen}`); await page.locator(`.mobile-main[data-screen=${screen}]`).waitFor(); await page.evaluate(() => document.fonts.ready);
+  await page.goto(`${base}/#/${screen}`); await page.locator('.launch-app[data-launch=done]').waitFor({ timeout: 12000 }); await page.locator(`.mobile-main[data-screen=${screen}]`).waitFor(); await page.evaluate(() => document.fonts.ready);
   if (screen === 'town') await page.locator('.village-pin[aria-pressed=true]').waitFor({ timeout: 30000 });
 }
 const rail = page => page.getByRole('navigation', { name: '主要导航' });
@@ -58,7 +58,7 @@ await check('Settings size choices scale content, persist and apply across map a
     assert.equal(await page.locator('html').getAttribute('data-text-size'), size);
     await nav(page, '古镇'); await page.locator('.town-village-card').waitFor();
     assert.equal(await page.locator('html').getAttribute('data-text-size'), size);
-    await page.reload(); await page.locator('.town-village-card').waitFor();
+    await page.reload(); await page.locator('.launch-app[data-launch=done]').waitFor({ timeout: 12000 }); await page.locator('.town-village-card').waitFor();
     assert.equal(await page.locator('html').getAttribute('data-text-size'), size);
     await settings(page);
     assert.equal(await page.getByRole('dialog').getByRole('button', { name: label, exact: true }).getAttribute('aria-pressed'), 'true');

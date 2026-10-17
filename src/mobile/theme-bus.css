@@ -1,0 +1,9 @@
+.phone .route-identity,.phone .town-route-identity{width:calc(120px * var(--type-scale,1));gap:0}
+.phone .theme-bus{display:block;width:100%;height:auto;aspect-ratio:578/198;overflow:hidden;mix-blend-mode:multiply;flex-shrink:0}
+.phone .route-identity strong,.phone .town-route-identity strong{font-size:calc(16px * var(--type-scale,1));line-height:1.4;letter-spacing:0;white-space:nowrap;margin-top:6px}
+.phone .route-identity>.bus-model,.phone .town-route-identity>.bus-model{font-family:Arial,sans-serif;font-size:calc(9px * var(--type-scale,1));line-height:1.5;letter-spacing:.2px;color:var(--muted);white-space:nowrap;margin-top:3px}
+@media(max-width:350px){
+  .phone .route-identity,.phone .town-route-identity{width:calc(102px * var(--type-scale,1))}
+  .phone .route-identity strong,.phone .town-route-identity strong{font-size:calc(14px * var(--type-scale,1));margin-top:4px}
+  .phone .route-identity>.bus-model,.phone .town-route-identity>.bus-model{font-size:calc(8px * var(--type-scale,1));letter-spacing:0;margin-top:2px}
+}

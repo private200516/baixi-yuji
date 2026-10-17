@@ -48,7 +48,7 @@ async function pageFor(width = 390, height = 844, { prefs = defaultPrefs, reduce
 }
 async function screen(page, name) { await page.locator(`.mobile-main[data-screen="${name}"]`).waitFor(); }
 async function load(page, name = 'town') {
-  await page.goto(`${base}/#/${name}`); await screen(page, name); await page.evaluate(() => document.fonts.ready);
+  await page.goto(`${base}/#/${name}`); await page.locator('.launch-app[data-launch=done]').waitFor({ timeout: 12000 }); await screen(page, name); await page.evaluate(() => document.fonts.ready);
   if (name === 'town') await page.locator('.town-village-picker select').waitFor();
 }
 async function nav(page, label, name) { await page.getByRole('navigation', { name: '主要导航' }).getByRole('button', { name: label, exact: true }).click(); await screen(page, name); }
@@ -127,7 +127,7 @@ for (const [width, height] of [[390, 844], [320, 568]]) {
     assert.match(text, /龙宫村.*许家山村/s); assert.ok(text.includes(fixture.version)); assert.match(text, /保存时间/);
     await snapshot(page, `${width}x${height}-L-saved-research-dialog`); await closeDialog(page);
     assert.equal(await page.locator('.notch-action button').evaluate(el => el === document.activeElement), true, 'saved dialog restores its trigger focus');
-    await page.reload(); await screen(page, 'return'); await page.waitForFunction(() => document.querySelector('.return-stops')?.textContent.includes('58.2 km'));
+    await page.reload(); await page.locator('.launch-app[data-launch=done]').waitFor({ timeout: 12000 }); await screen(page, 'return'); await page.waitForFunction(() => document.querySelector('.return-stops')?.textContent.includes('58.2 km'));
     assert.equal((await state(page)).proposal, 'longgong-xujiashan'); assert.equal((await stored(page)).savedPlan.savedAt, saved.savedPlan.savedAt);
     assert.match(await page.locator('.notch-action button').innerText(), /查看本地计划/);
     await page.locator('.notch-action button').click(); assert.match(await page.locator('.saved-card').innerText(), /龙宫村.*许家山村/s); await closeDialog(page);
@@ -208,7 +208,7 @@ await check('Existing online plan stays viewable after network failure and faile
   const page = await pageFor(390, 844, { reduced: true }); await outbound(page); await toReturn(page); await save(page);
   const original = await stored(page), originalRaw = await page.evaluate(key => localStorage.getItem(key), key);
   await page.route('**/geography/route-research.json*', route => route.abort('internetdisconnected'));
-  await page.reload(); await screen(page, 'return'); await page.getByRole('button', { name: '重试道路研究数据', exact: true }).waitFor();
+  await page.reload(); await page.locator('.launch-app[data-launch=done]').waitFor({ timeout: 12000 }); await screen(page, 'return'); await page.getByRole('button', { name: '重试道路研究数据', exact: true }).waitFor();
   assert.match(await page.locator('.return-stops').innerText(), /道路资料暂不可用/);
   assert.equal(await page.locator('.notch-action button').innerText(), '查看本地计划');
   assert.equal(await page.evaluate(key => localStorage.getItem(key), key), originalRaw);
@@ -241,7 +241,7 @@ await check('Changed data version warns without silently replacing the stored sn
   const page = await pageFor(390, 844, { reduced: true }); await outbound(page); await toReturn(page); await save(page);
   const original = await stored(page), newer = structuredClone(fixture); newer.version += '-test-update';
   await page.route('**/geography/route-research.json*', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(newer) }));
-  await page.reload(); await screen(page, 'return'); await page.getByText('旧计划待复核', { exact: true }).waitFor();
+  await page.reload(); await page.locator('.launch-app[data-launch=done]').waitFor({ timeout: 12000 }); await screen(page, 'return'); await page.getByText('旧计划待复核', { exact: true }).waitFor();
   assert.deepEqual((await stored(page)).savedPlan, original.savedPlan);
   assert.equal(await page.locator('.notch-action button').innerText(), '更新研究计划');
   await page.locator('.route-identity').click(); await screen(page, 'route'); assert.match(await page.locator('.route-chips').innerText(), /资料有更新/);

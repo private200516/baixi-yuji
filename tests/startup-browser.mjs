@@ -3,9 +3,8 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { chromium } from 'playwright';
 
 const base = (process.env.PREVIEW_URL || 'http://127.0.0.1:5173').replace(/\/$/, '');
-const output = '.delivery/nh-launch', reportPath = `${output}/test-results.json`;
+const output = '.delivery/bus-v221', reportPath = `${output}/startup-results.json`;
 const filter = process.env.STARTUP_TEST_FILTER ? new RegExp(process.env.STARTUP_TEST_FILTER, 'i') : null;
-const launchKey = 'xiangxu.launch.nh.v1';
 const browser = await chromium.launch({ headless: true, channel: process.env.PLAYWRIGHT_CHANNEL || 'msedge' });
 const checks = [], names = [], errors = [], captures = [], contexts = new Set();
 await mkdir(output, { recursive: true });
@@ -27,18 +26,13 @@ async function create({ width = 390, height = 844, size = 'M', quiet = false, se
   const page = await context.newPage(), videoRequests = [];
   page.setDefaultTimeout(15000); page.on('pageerror', error => errors.push(error.message));
   page.on('request', request => { if (/\/brand\/nh-launch\.mp4(?:\?|$)/.test(request.url())) videoRequests.push(request.url()); });
-  await page.addInitScript(({ size, quiet, senior, fault, launchKey }) => {
+  await page.addInitScript(({ size, quiet, senior, fault }) => {
     if (!sessionStorage.getItem('startup-test-seeded')) {
       localStorage.setItem('baixi.mobile.v2', JSON.stringify({ size, regularSize: 'M', quiet, senior, favorite: false, savedReturn: '18:00' }));
       sessionStorage.setItem('startup-test-seeded', 'true');
     }
-    if (fault === 'storage') {
-      const original = Storage.prototype.setItem;
-      Storage.prototype.setItem = function(key, value) {
-        if (key === launchKey) throw new DOMException('Injected session write failure', 'QuotaExceededError');
-        return original.call(this, key, value);
-      };
-    }
+    // Old releases remembered a completed launch. It must no longer suppress the film.
+    sessionStorage.setItem('xiangxu.launch.nh.v1', 'seen');
     if (fault === 'play-rejection') HTMLMediaElement.prototype.play = () => Promise.reject(new DOMException('Injected autoplay rejection', 'NotAllowedError'));
     if (fault === 'endless-progress') {
       const started = new WeakMap();
@@ -66,7 +60,7 @@ async function create({ width = 390, height = 844, size = 'M', quiet = false, se
       requestAnimationFrame(sample);
     }
     requestAnimationFrame(sample);
-  }, { size, quiet, senior, fault, launchKey });
+  }, { size, quiet, senior, fault });
   return { page, context, videoRequests };
 }
 async function load(page, screen = 'ride') { await page.goto(`${base}/#/${screen}`, { waitUntil: 'domcontentloaded' }); await page.locator('.launch-app').waitFor({ state: 'attached' }); }
@@ -81,7 +75,7 @@ async function evidence(page) { return page.evaluate(() => window.__startupEvide
 async function screenshot(page, name) {
   const path = `${output}/${name}.png`; await page.screenshot({ path }); captures.push({ name, path, at: new Date().toISOString(), viewport: page.viewportSize() });
 }
-async function viewport(page, selectors = ['.launch-wordmark', '.launch-media', '.launch-skip']) {
+async function viewport(page, selectors = ['.launch-wordmark', '.launch-media']) {
   const result = await page.evaluate(selectors => {
     const issues = [];
     if (document.documentElement.scrollWidth > innerWidth + 1) issues.push('horizontal document overflow');
@@ -90,14 +84,12 @@ async function viewport(page, selectors = ['.launch-wordmark', '.launch-media', 
       const r = element.getBoundingClientRect(); if (!r.width || !r.height) continue;
       if (r.left < -1 || r.right > innerWidth + 1 || r.top < -1 || r.bottom > innerHeight + 1) issues.push(`${selector} outside viewport`);
     }
-    const button = document.querySelector('.launch-skip');
-    if (button) { const r = button.getBoundingClientRect(), hit = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2); if (!hit || !button.contains(hit)) issues.push('skip button is covered'); }
     return issues;
   }, selectors);
   assert.deepEqual(result, []); return result;
 }
 async function focusReleased(page) {
-  await page.waitForFunction(() => document.activeElement?.id === 'main-view');
+  await page.waitForFunction(() => document.activeElement?.id === 'main-view' || document.activeElement?.matches('.senior-heading h2'));
   assert.equal(await page.getByRole('button', { name: '设置', exact: true }).isEnabled(), true);
 }
 
@@ -106,7 +98,11 @@ await check('390px natural MP4 playback advances to a trusted ended event, then 
   assert.equal(await page.locator('.launch-app').evaluate(el => el.inert), true);
   assert.equal(await page.locator('.launch-app').getAttribute('aria-hidden'), 'true');
   await page.waitForFunction(() => document.querySelector('.launch-video')?.currentTime > .4);
-  await page.keyboard.press('Tab'); assert.equal(await page.locator('.launch-skip').evaluate(el => el === document.activeElement), true);
+  assert.equal(await page.locator('.launch-screen button,.launch-skip').count(), 0);
+  await page.keyboard.press('Tab'); assert.equal(await page.locator('.launch-screen').evaluate(el => el === document.activeElement), true);
+  await page.keyboard.press('Shift+Tab'); assert.equal(await page.locator('.launch-screen').evaluate(el => el === document.activeElement), true);
+  await page.keyboard.press('Escape'); await page.waitForTimeout(200);
+  assert.equal(await page.locator('.launch-app').getAttribute('data-launch'), 'intro', 'Escape must not skip the film');
   await viewport(page); await screenshot(page, '390-natural-playing');
   await page.waitForFunction(() => {
     const overlay = document.querySelector('.launch-screen');
@@ -134,39 +130,55 @@ for (const [width, height, size] of [[320, 568, 'L'], [1440, 900, 'M']]) {
     await page.waitForFunction(() => document.querySelector('.launch-video')?.currentTime > .3);
     await viewport(page); await screenshot(page, `${width}-${size}-intro`);
     assert.equal(await page.locator('html').getAttribute('data-text-size'), size);
-    await page.getByRole('button', { name: '跳过动画', exact: false }).click(); await done(page); await focusReleased(page);
+    await done(page); await focusReleased(page);
     await viewport(page, ['.phone']); await screenshot(page, `${width}-${size}-home`);
     return { width, height, size, reason: await page.locator('.launch-app').getAttribute('data-launch-reason') };
   });
 }
 
-await check('Skip releases focus and a completed tab session does not replay on reload or navigation', async () => {
-  const { page, videoRequests } = await create(); await load(page); await page.locator('.launch-skip').click(); await done(page); await focusReleased(page);
-  assert.equal(await page.evaluate(key => sessionStorage.getItem(key), launchKey), 'seen');
+await check('Every full reload replays naturally while in-app navigation does not restart the film', async () => {
+  const { page, videoRequests } = await create(); await load(page); await done(page); await focusReleased(page);
+  assert.ok((await evidence(page)).events.some(event => event.type === 'ended' && event.trusted));
+  const firstRequests = videoRequests.length;
+  await page.reload({ waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(() => document.querySelector('.launch-video')?.currentTime > .2);
+  assert.equal(await page.locator('.launch-app').getAttribute('data-launch'), 'intro');
+  assert.equal(await page.locator('.launch-app').evaluate(el => el.inert), true);
+  await done(page); await focusReleased(page);
+  assert.ok((await evidence(page)).events.some(event => event.type === 'ended' && event.trusted));
+  assert.ok(videoRequests.length > firstRequests);
   const count = videoRequests.length;
-  await page.reload({ waitUntil: 'domcontentloaded' }); await done(page); assert.equal(await page.locator('.launch-video').count(), 0); assert.equal(videoRequests.length, count);
   await page.getByRole('navigation', { name: '主要导航' }).getByRole('button', { name: '古镇', exact: true }).click(); await page.locator('.mobile-main[data-screen=town]').waitFor();
   await page.getByRole('navigation', { name: '主要导航' }).getByRole('button', { name: '候车', exact: true }).click(); await page.locator('.mobile-main[data-screen=ride]').waitFor();
   assert.equal(await page.locator('.launch-screen').count(), 0); assert.equal(videoRequests.length, count);
-  return { initialVideoRequests: count, requestsAfterReloadAndNavigation: videoRequests.length, completedSession: true };
+  assert.equal(await page.evaluate(() => JSON.parse(localStorage.getItem('baixi.mobile.v2')).savedReturn), '18:00');
+  return { firstVideoRequests: firstRequests, requestsAfterReload: count, requestsAfterNavigation: videoRequests.length, legacySeenFlagIgnored: true };
 });
 
-await check('A town deep link survives startup and Escape uses the existing skip route', async () => {
-  const { page } = await create(); await load(page, 'town'); await page.locator('.launch-skip').waitFor(); await page.keyboard.press('Escape'); await done(page);
+await check('A town deep link survives the full film and Escape cannot skip the launch', async () => {
+  const { page } = await create(); await load(page, 'town');
+  await page.waitForFunction(() => document.querySelector('.launch-video')?.currentTime > .2);
+  await page.keyboard.press('Escape'); await page.waitForTimeout(200);
+  assert.equal(await page.locator('.launch-app').getAttribute('data-launch'), 'intro'); await done(page);
   assert.ok(page.url().endsWith('#/town')); await page.locator('.mobile-main[data-screen=town]').waitFor();
   await page.locator('.village-pin[aria-pressed=true]').waitFor({ timeout: 30000 }); await focusReleased(page);
-  assert.equal(await page.locator('.launch-app').getAttribute('data-launch-reason'), 'skipped'); await screenshot(page, '390-deeplink-town');
+  assert.equal(await page.locator('.launch-app').getAttribute('data-launch-reason'), 'ended'); await screenshot(page, '390-deeplink-town');
   return { hash: '#/town', selectedVillage: await page.locator('.town-village-card').getAttribute('data-village-id') };
 });
 
 for (const mode of ['system', 'quiet', 'senior']) {
-  await check(`${mode} reduced motion opens the app without creating or requesting the video`, async () => {
+  await check(`${mode} reduced motion plays the full film and shortens only the final reveal`, async () => {
     const { page, videoRequests } = await create({ system: mode === 'system', quiet: mode === 'quiet', senior: mode === 'senior', size: mode === 'senior' ? 'L' : 'M' });
-    await load(page); await done(page); await page.waitForTimeout(250);
-    assert.equal(await page.locator('.launch-video,.launch-screen').count(), 0); assert.equal(videoRequests.length, 0);
+    await load(page); await page.waitForFunction(() => document.querySelector('.launch-video')?.currentTime > .3);
+    assert.equal(await page.locator('.launch-app').getAttribute('data-launch'), 'intro');
+    await done(page); await focusReleased(page);
+    const data = await evidence(page), ended = data.events.find(event => event.type === 'ended' && event.trusted);
+    assert.ok(ended, 'motion preferences must not skip the requested film'); assert.ok(ended.time >= ended.duration - .05);
+    assert.ok(data.doneAt - ended.at < 300, 'reduced motion adds an animated exit');
+    assert.equal(await page.locator('.launch-video,.launch-screen').count(), 0); assert.ok(videoRequests.length > 0);
     if (mode === 'senior') assert.equal(await page.locator('.senior-tasks button').count(), 4);
     else assert.equal(await page.getByRole('navigation', { name: '主要导航' }).getByRole('button').count(), 5);
-    await screenshot(page, `390-${mode}-direct-home`); return { videoRequests: 0, videoElements: 0, viewport: page.viewportSize() };
+    await screenshot(page, `390-${mode}-home`); return { videoRequests: videoRequests.length, ended, finalRevealMs: data.doneAt - ended.at, viewport: page.viewportSize() };
   });
 }
 
@@ -204,21 +216,32 @@ await check('Progress without an ended event still respects the absolute startup
   return { simulatedFault: 'advancing media time with no ended event', releaseAfterMs: elapsed, reason: 'media-timeout' };
 });
 
-await check('Session storage write failure cannot prevent skip, app access or in-memory no-replay', async () => {
-  const { page, videoRequests } = await create({ fault: 'storage' }); await load(page); await page.locator('.launch-skip').click(); await done(page); await focusReleased(page);
-  assert.equal(await page.evaluate(key => sessionStorage.getItem(key), launchKey), null);
-  const initialRequests = videoRequests.length;
-  await page.getByRole('navigation', { name: '主要导航' }).getByRole('button', { name: '返程', exact: true }).click(); await page.locator('.mobile-main[data-screen=return]').waitFor();
-  assert.equal(await page.locator('.launch-screen').count(), 0); assert.equal(videoRequests.length, initialRequests);
-  assert.equal(await page.evaluate(() => JSON.parse(localStorage.getItem('baixi.mobile.v2')).savedReturn), '18:00');
-  return { sessionWriteRejected: true, reason: await page.locator('.launch-app').getAttribute('data-launch-reason'), replayedDuringNavigation: false };
+await check('A second tab in the same browser context also plays the film to completion', async () => {
+  const { page, context } = await create(); await load(page); await done(page);
+  const next = await context.newPage(); next.on('pageerror', error => errors.push(error.message));
+  await next.addInitScript(() => {
+    window.__secondTabEnded = null;
+    document.addEventListener('ended', event => {
+      if (event.target instanceof HTMLVideoElement) window.__secondTabEnded = { trusted: event.isTrusted, time: event.target.currentTime, duration: event.target.duration };
+    }, true);
+  });
+  await next.goto(`${base}/#/ride`, { waitUntil: 'domcontentloaded' });
+  await next.waitForFunction(() => document.querySelector('.launch-video')?.currentTime > .3);
+  assert.equal(await next.locator('.launch-app').evaluate(el => el.inert), true);
+  await next.locator('.launch-app[data-launch=done]').waitFor();
+  const ended = await next.evaluate(() => window.__secondTabEnded); assert.ok(ended?.trusted);
+  await focusReleased(next); return { completedTabs: 2, ended };
 });
 
-await check('Enabling OS reduced motion during playback immediately releases the app', async () => {
+await check('Enabling OS reduced motion during playback does not interrupt the film', async () => {
   const { page } = await create(); await load(page); await page.waitForFunction(() => document.querySelector('.launch-video')?.currentTime > .2);
-  const started = Date.now(); await page.emulateMedia({ reducedMotion: 'reduce' }); await done(page); await focusReleased(page);
-  assert.equal(await page.locator('.launch-app').getAttribute('data-launch-reason'), 'reduced-motion');
-  assert.ok(Date.now() - started < 550); return { reason: 'reduced-motion', releaseAfterMs: Date.now() - started };
+  await page.emulateMedia({ reducedMotion: 'reduce' }); await page.waitForTimeout(200);
+  assert.equal(await page.locator('.launch-app').getAttribute('data-launch'), 'intro');
+  await done(page); await focusReleased(page);
+  assert.equal(await page.locator('.launch-app').getAttribute('data-launch-reason'), 'ended');
+  const data = await evidence(page), ended = data.events.find(event => event.type === 'ended' && event.trusted);
+  assert.ok(ended); assert.ok(data.doneAt - ended.at < 300);
+  return { reason: 'ended', fullFilmPlayed: true, finalRevealMs: data.doneAt - ended.at };
 });
 
 checks.push({ name: 'No uncaught JavaScript errors', status: errors.length ? 'FAIL' : 'PASS', at: new Date().toISOString(), evidence: errors }); names.push('No uncaught JavaScript errors');

@@ -1,7 +1,7 @@
 {
   "name": "baixi-yuji",
   "private": true,
-  "version": "2.2.0",
+  "version": "2.2.1",
   "type": "module",
   "packageManager": "pnpm@11.25.0",
   "engines": {
@@ -26,6 +26,7 @@
     "test:navigation-motion": "node tests/navigation-layout-motion.mjs",
     "test:journey": "node tests/journey-browser.mjs",
     "test:startup": "node tests/startup-browser.mjs",
+    "test:theme-bus": "node tests/theme-bus-browser.mjs",
     "test:round2-production": "node tests/round2-production.mjs",
     "test:map-depth": "node tests/map-depth-browser.mjs",
     "data:geography": "node scripts/prepare-geography.mjs",
