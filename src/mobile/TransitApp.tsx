@@ -6,6 +6,7 @@ import { GrooveNavigation } from './GrooveNavigation';
 import { FontSizeControl } from './FontSizeControl';
 import { SeniorExperience } from './SeniorExperience';
 import { SheetPanel } from './SheetPanel';
+import { StartupGate } from './StartupGate';
 import { useReducedMotion, useScreenMotion } from './useScreenMotion';
 import { demoStations as stations, demoReturnStops as returnStops, demoReturnSlots } from '../data/demoTransit';
 import { chooseJourneyDestination, createJourney, findJourneyRoute, journeyEndpoints, openResearch, selectJourneyVillage, setJourneyDirection } from './journey';
@@ -165,7 +166,7 @@ export default function TransitApp() {
     ticket: <>一程山水</>, town: <>古镇漫游</>, help: <>在你身边</>, delay: <>稍候片刻</>,
   };
 
-  return <div className="experience">
+  return <StartupGate reducedMotion={motionReduced}><div className="experience">
     <a className="skip-link" href="#main-view">跳到主要内容</a>
     <header className="studio-header"><a href="#/ride" aria-label="乡序首页" className="studio-brand"><RiverMark/><span>乡序<small>XIANG XU</small></span></a><span className="studio-caption">宁海古镇 · 公共交通出行</span><span className="edition">MOBILE EXPERIENCE <i/> 2026</span></header>
     <div className="showcase">
@@ -236,5 +237,5 @@ export default function TransitApp() {
       {sheet === 'orders' && <div className="empty-state"><Glyph name="ticket"/><h3>第一程，还未启程</h3><p>尚无真实购票记录。<br/>你可以先浏览演示车票的样式。</p><button className="sheet-primary" onClick={() => { setSheet(null); go('ticket'); }}>查看演示车票<Glyph name="arrow"/></button></div>}
       {sheet === 'contact' && <div className="empty-state"><Glyph name="help"/><h3>需要一点帮助？</h3><p>本原型尚未接入在线客服与公交服务热线。<br/>实际出行请咨询现场工作人员。</p><button className="sheet-primary" onClick={() => { setSheet(null); go('help'); }}>查看出行帮助<Glyph name="arrow"/></button></div>}
     </SheetPanel>
-  </div>;
+  </div></StartupGate>;
 }

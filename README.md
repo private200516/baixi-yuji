@@ -1,6 +1,8 @@
 # 乡序 2.0 · 手机公共交通 APP 原型
 
-[在线 Demo](https://private200516.github.io/baixi-yuji/#/ride) · [古镇地图](https://private200516.github.io/baixi-yuji/#/town) · [2.1.1 下载与更新说明](https://github.com/private200516/baixi-yuji/releases/tag/v2.1.1)
+[在线 Demo](https://private200516.github.io/baixi-yuji/#/ride) · [古镇地图](https://private200516.github.io/baixi-yuji/#/town) · [2.2.0 下载与更新说明](https://github.com/private200516/baixi-yuji/releases/tag/v2.2.0)
+
+**2.2.0 NH 品牌与启动动画：**首页、古镇、车票、老年模式和浏览器图标统一换用用户提供的 NH 圆形徽标。首次启动播放约4秒的原始视频，最后一帧用640ms平滑淡入已经挂载的首页；支持跳过，同一标签页会话内不重播。直接打开古镇等链接会保留对应页面；减少动态效果或老年模式直接进入应用。[启动行为与验证记录](docs/startup-validation.md)。
 
 **2.1.1 六色主题：**采用海湾青、灯花橙、花田黄、石米白、瓦影墨与雾青，统一页面、地图、图案和老年模式。布局与交互保持原样；海湾青小字配纯白、橙色按钮配墨字，保留清晰对比。[配色与实测记录](docs/palette-validation.md)。
 
@@ -57,6 +59,7 @@ pnpm test
 pnpm test:ui-motion
 pnpm test:navigation-motion
 pnpm test:journey
+pnpm test:startup
 pnpm build
 pnpm preview
 ```
@@ -77,6 +80,6 @@ pnpm preview
 
 每次上线递增版本号：小修复或视觉调整升补丁版本，功能增量升次版本；同步源码、Demo、下载包并保留旧版。
 
-源码位于 `main`，静态Demo通过 `gh-pages` 发布，最新配色见 [v2.1.1](docs/releases/v2.1.1.md)，当前数据联动见 [v2.1.0](docs/releases/v2.1.0.md)，导航修复见 [v2.0.1](docs/releases/v2.0.1.md)，初版变更见 [v2.0.0](docs/releases/v2.0.0.md)。旧版保留；`design/` 为旧版设计交付资料，本次没有更新线上Figma。
+源码位于 `main`，静态Demo通过 `gh-pages` 发布，NH徽标与启动动画见 [v2.2.0](docs/releases/v2.2.0.md)，六色主题见 [v2.1.1](docs/releases/v2.1.1.md)，数据联动见 [v2.1.0](docs/releases/v2.1.0.md)，导航修复见 [v2.0.1](docs/releases/v2.0.1.md)，初版变更见 [v2.0.0](docs/releases/v2.0.0.md)。旧版保留；`design/` 为旧版设计交付资料，本次没有更新线上Figma。
 
 ![古村地图场景](docs/palette-v2.1.1/town.png)

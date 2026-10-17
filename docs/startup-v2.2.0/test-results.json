@@ -1,0 +1,287 @@
+{
+  "at": "2026-10-17T17:29:00.071Z",
+  "base": "http://127.0.0.1:5173",
+  "isolatedBrowserProfile": true,
+  "lastRun": {
+    "filter": "natural MP4",
+    "checks": [
+      "390px natural MP4 playback advances to a trusted ended event, then crossfades into the app",
+      "No uncaught JavaScript errors"
+    ]
+  },
+  "checks": [
+    {
+      "name": "390px natural MP4 playback advances to a trusted ended event, then crossfades into the app",
+      "status": "PASS",
+      "at": "2026-10-17T17:28:53.959Z",
+      "evidence": {
+        "requests": 1,
+        "ended": {
+          "type": "ended",
+          "at": 4396,
+          "time": 4.041667,
+          "duration": 4.041667,
+          "trusted": true
+        },
+        "trustedTimeUpdates": 16,
+        "crossfadeFrames": 39,
+        "revealDurationMs": 650,
+        "focus": "main-view"
+      }
+    },
+    {
+      "name": "320px L startup and revealed page stay inside the viewport",
+      "status": "PASS",
+      "at": "2026-10-17T17:23:21.451Z",
+      "evidence": {
+        "width": 320,
+        "height": 568,
+        "size": "L",
+        "reason": "skipped"
+      }
+    },
+    {
+      "name": "1440px M startup and revealed page stay inside the viewport",
+      "status": "PASS",
+      "at": "2026-10-17T17:23:23.155Z",
+      "evidence": {
+        "width": 1440,
+        "height": 900,
+        "size": "M",
+        "reason": "skipped"
+      }
+    },
+    {
+      "name": "Skip releases focus and a completed tab session does not replay on reload or navigation",
+      "status": "PASS",
+      "at": "2026-10-17T17:23:25.152Z",
+      "evidence": {
+        "initialVideoRequests": 1,
+        "requestsAfterReloadAndNavigation": 1,
+        "completedSession": true
+      }
+    },
+    {
+      "name": "A town deep link survives startup and Escape uses the existing skip route",
+      "status": "PASS",
+      "at": "2026-10-17T17:23:28.126Z",
+      "evidence": {
+        "hash": "#/town",
+        "selectedVillage": "xujiashan"
+      }
+    },
+    {
+      "name": "system reduced motion opens the app without creating or requesting the video",
+      "status": "PASS",
+      "at": "2026-10-17T17:23:29.801Z",
+      "evidence": {
+        "videoRequests": 0,
+        "videoElements": 0,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      }
+    },
+    {
+      "name": "quiet reduced motion opens the app without creating or requesting the video",
+      "status": "PASS",
+      "at": "2026-10-17T17:23:30.572Z",
+      "evidence": {
+        "videoRequests": 0,
+        "videoElements": 0,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      }
+    },
+    {
+      "name": "senior reduced motion opens the app without creating or requesting the video",
+      "status": "PASS",
+      "at": "2026-10-17T17:23:31.339Z",
+      "evidence": {
+        "videoRequests": 0,
+        "videoElements": 0,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      }
+    },
+    {
+      "name": "A failed MP4 request falls back to the logo and releases the app within a bounded time",
+      "status": "PASS",
+      "at": "2026-10-17T17:23:32.013Z",
+      "evidence": {
+        "reason": "media-error",
+        "fallbackShown": true,
+        "releaseAfterMs": 966.7
+      }
+    },
+    {
+      "name": "Rejected play promise falls back without an unhandled error or focus trap",
+      "status": "PASS",
+      "at": "2026-10-17T17:23:33.905Z",
+      "evidence": {
+        "reason": "playback-blocked",
+        "releaseAfterMs": 966.7
+      }
+    },
+    {
+      "name": "A hung video request cannot hold the app beyond the no-progress watchdog",
+      "status": "PASS",
+      "at": "2026-10-17T17:23:35.183Z",
+      "evidence": {
+        "reason": "media-timeout",
+        "releaseAfterMs": 3716.5,
+        "fallbackShown": true
+      }
+    },
+    {
+      "name": "Progress without an ended event still respects the absolute startup deadline",
+      "status": "PASS",
+      "at": "2026-10-17T17:23:39.551Z",
+      "evidence": {
+        "simulatedFault": "advancing media time with no ended event",
+        "releaseAfterMs": 9466.300000000001,
+        "reason": "media-timeout"
+      }
+    },
+    {
+      "name": "Session storage write failure cannot prevent skip, app access or in-memory no-replay",
+      "status": "PASS",
+      "at": "2026-10-17T17:23:49.527Z",
+      "evidence": {
+        "sessionWriteRejected": true,
+        "reason": "skipped",
+        "replayedDuringNavigation": false
+      }
+    },
+    {
+      "name": "Enabling OS reduced motion during playback immediately releases the app",
+      "status": "PASS",
+      "at": "2026-10-17T17:23:51.065Z",
+      "evidence": {
+        "reason": "reduced-motion",
+        "releaseAfterMs": 168
+      }
+    },
+    {
+      "name": "No uncaught JavaScript errors",
+      "status": "PASS",
+      "at": "2026-10-17T17:28:59.855Z",
+      "evidence": []
+    }
+  ],
+  "captures": [
+    {
+      "name": "320-L-intro",
+      "path": ".delivery/nh-launch/320-L-intro.png",
+      "at": "2026-10-17T17:23:22.212Z",
+      "viewport": {
+        "width": 320,
+        "height": 568
+      }
+    },
+    {
+      "name": "320-L-home",
+      "path": ".delivery/nh-launch/320-L-home.png",
+      "at": "2026-10-17T17:23:23.144Z",
+      "viewport": {
+        "width": 320,
+        "height": 568
+      }
+    },
+    {
+      "name": "1440-M-intro",
+      "path": ".delivery/nh-launch/1440-M-intro.png",
+      "at": "2026-10-17T17:23:23.973Z",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    {
+      "name": "1440-M-home",
+      "path": ".delivery/nh-launch/1440-M-home.png",
+      "at": "2026-10-17T17:23:25.138Z",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    {
+      "name": "390-deeplink-town",
+      "path": ".delivery/nh-launch/390-deeplink-town.png",
+      "at": "2026-10-17T17:23:29.772Z",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "name": "390-system-direct-home",
+      "path": ".delivery/nh-launch/390-system-direct-home.png",
+      "at": "2026-10-17T17:23:30.561Z",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "name": "390-quiet-direct-home",
+      "path": ".delivery/nh-launch/390-quiet-direct-home.png",
+      "at": "2026-10-17T17:23:31.329Z",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "name": "390-senior-direct-home",
+      "path": ".delivery/nh-launch/390-senior-direct-home.png",
+      "at": "2026-10-17T17:23:32.002Z",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "name": "390-mp4-error-recovered",
+      "path": ".delivery/nh-launch/390-mp4-error-recovered.png",
+      "at": "2026-10-17T17:23:33.895Z",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "name": "390-natural-playing",
+      "path": ".delivery/nh-launch/390-natural-playing.png",
+      "at": "2026-10-17T17:28:55.059Z",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "name": "390-natural-crossfade",
+      "path": ".delivery/nh-launch/390-natural-crossfade.png",
+      "at": "2026-10-17T17:28:58.928Z",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "name": "390-natural-home",
+      "path": ".delivery/nh-launch/390-natural-home.png",
+      "at": "2026-10-17T17:28:59.815Z",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    }
+  ]
+}

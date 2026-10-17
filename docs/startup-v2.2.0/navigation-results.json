@@ -1,0 +1,1613 @@
+{
+  "date": "2026-10-09",
+  "base": "http://127.0.0.1:5173",
+  "isolatedBrowserProfile": true,
+  "lastRun": {
+    "filter": null,
+    "checks": [
+      "390x844 M first town entry and return animate the global rail and item spacing continuously",
+      "430x932 M first town entry and return animate the global rail and item spacing continuously",
+      "320x568 M first town entry and return animate the global rail and item spacing continuously",
+      "320x568 L first town entry and return animate the global rail and item spacing continuously",
+      "1440x900 M first town entry and return animate the global rail and item spacing continuously",
+      "390px interrupted town to ride to town transition retains the same navigation and final target",
+      "320px interrupted town to ride to town transition retains the same navigation and final target",
+      "1440px interrupted town to ride to town transition retains the same navigation and final target",
+      "system reduced motion settles global geometry and groove immediately",
+      "preference reduced motion settles global geometry and groove immediately",
+      "Uncaught JavaScript errors"
+    ]
+  },
+  "checks": [
+    {
+      "name": "390x844 M first town entry and return animate the global rail and item spacing continuously",
+      "status": "PASS",
+      "evidence": [
+        {
+          "label": "古镇",
+          "previewZoom": 1,
+          "frames": 74,
+          "geometry": {
+            "rail.x": {
+              "range": 0,
+              "distinct": 1,
+              "largestStep": 0
+            },
+            "rail.y": {
+              "range": 90,
+              "distinct": 29,
+              "largestStep": 8.51715087890625
+            },
+            "rail.width": {
+              "range": 0,
+              "distinct": 1,
+              "largestStep": 0
+            },
+            "rail.height": {
+              "range": 0.00006103515625,
+              "distinct": 1,
+              "largestStep": 0.00006103515625
+            },
+            "item0.y": {
+              "range": 90,
+              "distinct": 29,
+              "largestStep": 8.51715087890625
+            },
+            "item0.height": {
+              "range": 0.000030517578125,
+              "distinct": 1,
+              "largestStep": 0.000030517578125
+            },
+            "item1.y": {
+              "range": 90,
+              "distinct": 29,
+              "largestStep": 8.51715087890625
+            },
+            "item1.height": {
+              "range": 0.00006103515625,
+              "distinct": 1,
+              "largestStep": 0.00006103515625
+            },
+            "item2.y": {
+              "range": 90,
+              "distinct": 29,
+              "largestStep": 8.51715087890625
+            },
+            "item2.height": {
+              "range": 0.00006103515625,
+              "distinct": 1,
+              "largestStep": 0.00006103515625
+            },
+            "item3.y": {
+              "range": 90,
+              "distinct": 29,
+              "largestStep": 8.5172119140625
+            },
+            "item3.height": {
+              "range": 0.0001220703125,
+              "distinct": 1,
+              "largestStep": 0.0001220703125
+            },
+            "item4.y": {
+              "range": 90,
+              "distinct": 29,
+              "largestStep": 8.5172119140625
+            },
+            "item4.height": {
+              "range": 0,
+              "distinct": 1,
+              "largestStep": 0
+            },
+            "gap0": {
+              "range": 0.000030517578125,
+              "distinct": 1,
+              "largestStep": 0.000030517578125
+            },
+            "gap1": {
+              "range": 0.00006103515625,
+              "distinct": 1,
+              "largestStep": 0.00006103515625
+            },
+            "gap2": {
+              "range": 0.00006103515625,
+              "distinct": 1,
+              "largestStep": 0.00006103515625
+            },
+            "gap3": {
+              "range": 0.0001220703125,
+              "distinct": 1,
+              "largestStep": 0.0001220703125
+            }
+          },
+          "fillColors": 28,
+          "from": {
+            "x": 315,
+            "y": 282,
+            "width": 60,
+            "height": 392
+          },
+          "to": {
+            "x": 315,
+            "y": 372,
+            "width": 60,
+            "height": 392
+          },
+          "alignment": {
+            "verticalError": 0.00933837890625,
+            "horizontalError": 0
+          }
+        },
+        {
+          "label": "候车",
+          "previewZoom": 1,
+          "frames": 80,
+          "geometry": {
+            "rail.x": {
+              "range": 0,
+              "distinct": 1,
+              "largestStep": 0
+            },
+            "rail.y": {
+              "range": 90,
+              "distinct": 31,
+              "largestStep": 8.50299072265625
+            },
+            "rail.width": {
+              "range": 0,
+              "distinct": 1,
+              "largestStep": 0
+            },
+            "rail.height": {
+              "range": 0.00006103515625,
+              "distinct": 1,
+              "largestStep": 0.00006103515625
+            },
+            "item0.y": {
+              "range": 90,
+              "distinct": 31,
+              "largestStep": 8.50299072265625
+            },
+            "item0.height": {
+              "range": 0.000030517578125,
+              "distinct": 1,
+              "largestStep": 0.000030517578125
+            },
+            "item1.y": {
+              "range": 90,
+              "distinct": 30,
+              "largestStep": 8.50299072265625
+            },
+            "item1.height": {
+              "range": 0.00006103515625,
+              "distinct": 1,
+              "largestStep": 0.00006103515625
+            },
+            "item2.y": {
+              "range": 90,
+              "distinct": 31,
+              "largestStep": 8.50299072265625
+            },
+            "item2.height": {
+              "range": 0.000091552734375,
+              "distinct": 1,
+              "largestStep": 0.00006103515625
+            },
+            "item3.y": {
+              "range": 90,
+              "distinct": 31,
+              "largestStep": 8.5029296875
+            },
+            "item3.height": {
+              "range": 0.0001220703125,
+              "distinct": 1,
+              "largestStep": 0.00006103515625
+            },
+            "item4.y": {
+              "range": 90,
+              "distinct": 30,
+              "largestStep": 8.5029296875
+            },
+            "item4.height": {
+              "range": 0,
+              "distinct": 1,
+              "largestStep": 0
+            },
+            "gap0": {
+              "range": 0.000030517578125,
+              "distinct": 1,
+              "largestStep": 0.000030517578125
+            },
+            "gap1": {
+              "range": 0.00006103515625,
+              "distinct": 1,
+              "largestStep": 0.00006103515625
+            },
+            "gap2": {
+              "range": 0.000091552734375,
+              "distinct": 1,
+              "largestStep": 0.00006103515625
+            },
+            "gap3": {
+              "range": 0.0001220703125,
+              "distinct": 1,
+              "largestStep": 0.00006103515625
+            }
+          },
+          "fillColors": 28,
+          "from": {
+            "x": 315,
+            "y": 372,
+            "width": 60,
+            "height": 392
+          },
+          "to": {
+            "x": 315,
+            "y": 282,
+            "width": 60,
+            "height": 392
+          },
+          "alignment": {
+            "verticalError": 0.0046844482421875,
+            "horizontalError": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "430x932 M first town entry and return animate the global rail and item spacing continuously",
+      "status": "PASS",
+      "evidence": [
+        {
+          "label": "古镇",
+          "previewZoom": 1,
+          "frames": 72,
+          "geometry": {
+            "rail.x": {
+              "range": 0,
+              "distinct": 1,
+              "largestStep": 0
+            },
+            "rail.y": {
+              "range": 178,
+              "distinct": 29,
+              "largestStep": 16.85894775390625
+            },
+            "rail.width": {
+              "range": 0,
+              "distinct": 1,
+              "largestStep": 0
+            },
+            "rail.height": {
+              "range": 0.00006103515625,
+              "distinct": 1,
+              "largestStep": 0.000030517578125
+            },
+            "item0.y": {
+              "range": 178,
+              "distinct": 29,
+              "largestStep": 16.85894775390625
+            },
+            "item0.height": {
+              "range": 0.00006103515625,
+              "distinct": 1,
+              "largestStep": 0.000030517578125
+            },
+            "item1.y": {
+              "range": 178,
+              "distinct": 29,
+              "largestStep": 16.85894775390625
+            },
+            "item1.height": {
+              "range": 0.00006103515625,
+              "distinct": 1,
+              "largestStep": 0.00006103515625
+            },
+            "item2.y": {
+              "range": 178,
+              "distinct": 29,
+              "largestStep": 16.85894775390625
+            },
+            "item2.height": {
+              "range": 0.000091552734375,
+              "distinct": 1,
+              "largestStep": 0.00006103515625
+            },
+            "item3.y": {
+              "range": 178,
+              "distinct": 29,
+              "largestStep": 16.85894775390625
+            },
+            "item3.height": {
+              "range": 0,
+              "distinct": 1,
+              "largestStep": 0
+            },
+            "item4.y": {
+              "range": 178,
+              "distinct": 29,
+              "largestStep": 16.85894775390625
+            },
+            "item4.height": {
+              "range": 0,
+              "distinct": 1,
+              "largestStep": 0
+            },
+            "gap0": {
+              "range": 0.00006103515625,
+              "distinct": 1,
+              "largestStep": 0.000030517578125
+            },
+            "gap1": {
+              "range": 0.00006103515625,
+              "distinct": 1,
+              "largestStep": 0.00006103515625
+            },
+            "gap2": {
+              "range": 0.000091552734375,
+              "distinct": 1,
+              "largestStep": 0.00006103515625
+            },
+            "gap3": {
+              "range": 0,
+              "distinct": 1,
+              "largestStep": 0
+            }
+          },
+          "fillColors": 28,
+          "from": {
+            "x": 355,
+            "y": 282,
+            "width": 60,
+            "height": 392
+          },
+          "to": {
+            "x": 355,
+            "y": 460,
+            "width": 60,
+            "height": 392
+          },
+          "alignment": {
+            "verticalError": 0.00933837890625,
+            "horizontalError": 0
+          }
+        },
+        {
+          "label": "候车",
+          "previewZoom": 1,
+          "frames": 80,
+          "geometry": {
+            "rail.x": {
+              "range": 0,
+              "distinct": 1,
+              "largestStep": 0
+            },
+            "rail.y": {
+              "range": 178,
+              "distinct": 31,
+              "largestStep": 16.733612060546875
+            },
+            "rail.width": {
+              "range": 0,
+              "distinct": 1,
+              "largestStep": 0
+            },
+            "rail.height": {
+              "range": 0.00006103515625,
+              "distinct": 1,
+              "largestStep": 0.00006103515625
+            },
+            "item0.y": {
+              "range": 178,
+              "distinct": 31,
+              "largestStep": 16.733612060546875
+            },
+            "item0.height": {
+              "range": 0.00006103515625,
+              "distinct": 1,
+              "largestStep": 0.000030517578125
+            },
+            "item1.y": {
+              "range": 178,
+              "distinct": 31,
+              "largestStep": 16.733612060546875
+            },
+            "item1.height": {
+              "range": 0.00006103515625,
+              "distinct": 1,
+              "largestStep": 0.000030517578125
+            },
+            "item2.y": {
+              "range": 178,
+              "distinct": 31,
+              "largestStep": 16.733642578125
+            },
+            "item2.height": {
+              "range": 0.00006103515625,
+              "distinct": 1,
+              "largestStep": 0.00006103515625
+            },
+            "item3.y": {
+              "range": 178,
+              "distinct": 31,
+              "largestStep": 16.733642578125
+            },
+            "item3.height": {
+              "range": 0.0001220703125,
+              "distinct": 1,
+              "largestStep": 0.0001220703125
+            },
+            "item4.y": {
+              "range": 178,
+              "distinct": 31,
+              "largestStep": 16.733642578125
+            },
+            "item4.height": {
+              "range": 0,
+              "distinct": 1,
+              "largestStep": 0
+            },
+            "gap0": {
+              "range": 0.00006103515625,
+              "distinct": 1,
+              "largestStep": 0.000030517578125
+            },
+            "gap1": {
+              "range": 0.00006103515625,
+              "distinct": 1,
+              "largestStep": 0.000030517578125
+            },
+            "gap2": {
+              "range": 0.00006103515625,
+              "distinct": 1,
+              "largestStep": 0.00006103515625
+            },
+            "gap3": {
+              "range": 0.0001220703125,
+              "distinct": 1,
+              "largestStep": 0.0001220703125
+            }
+          },
+          "fillColors": 28,
+          "from": {
+            "x": 355,
+            "y": 460,
+            "width": 60,
+            "height": 392
+          },
+          "to": {
+            "x": 355,
+            "y": 282,
+            "width": 60,
+            "height": 392
+          },
+          "alignment": {
+            "verticalError": 0.0046844482421875,
+            "horizontalError": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "320x568 M first town entry and return animate the global rail and item spacing continuously",
+      "status": "PASS",
+      "evidence": [
+        {
+          "label": "古镇",
+          "previewZoom": 1,
+          "frames": 76,
+          "geometry": {
+            "rail.x": {
+              "range": 0,
+              "distinct": 1,
+              "largestStep": 0
+            },
+            "rail.y": {
+              "range": 18,
+              "distinct": 29,
+              "largestStep": 1.6906890869140625
+            },
+            "rail.width": {
+              "range": 0,
+              "distinct": 1,
+              "largestStep": 0
+            },
+            "rail.height": {
+              "range": 56,
+              "distinct": 29,
+              "largestStep": 5.265625
+            },
+            "item0.y": {
+              "range": 20,
+              "distinct": 30,
+              "largestStep": 1.8781890869140625
+            },
+            "item0.height": {
+              "range": 12,
+              "distinct": 29,
+              "largestStep": 1.1250152587890625
+            },
+            "item1.y": {
+              "range": 8.003448486328125,
+              "distinct": 29,
+              "largestStep": 0.753173828125
+            },
+            "item1.height": {
+              "range": 12,
+              "distinct": 29,
+              "largestStep": 1.140625
+            },
+            "item2.y": {
+              "range": 4.017364501953125,
+              "distinct": 29,
+              "largestStep": 0.387451171875
+            },
+            "item2.height": {
+              "range": 12,
+              "distinct": 29,
+              "largestStep": 1.109375
+            },
+            "item3.y": {
+              "range": 16.001739501953125,
+              "distinct": 29,
+              "largestStep": 1.496826171875
+            },
+            "item3.height": {
+              "range": 12,
+              "distinct": 29,
+              "largestStep": 1.140625
+            },
+            "item4.y": {
+              "range": 28.001739501953125,
+              "distinct": 29,
+              "largestStep": 2.637451171875
+            },
+            "item4.height": {
+              "range": 12,
+              "distinct": 29,
+              "largestStep": 1.140625
+            },
+            "gap0": {
+              "range": 12,
+              "distinct": 29,
+              "largestStep": 1.1250152587890625
+            },
+            "gap1": {
+              "range": 12,
+              "distinct": 29,
+              "largestStep": 1.140625
+            },
+            "gap2": {
+              "range": 12,
+              "distinct": 29,
+              "largestStep": 1.109375
+            },
+            "gap3": {
+              "range": 12,
+              "distinct": 29,
+              "largestStep": 1.140625
+            }
+          },
+          "fillColors": 28,
+          "from": {
+            "x": 253,
+            "y": 208,
+            "width": 55,
+            "height": 341
+          },
+          "to": {
+            "x": 253,
+            "y": 226,
+            "width": 55,
+            "height": 285
+          },
+          "alignment": {
+            "verticalError": 0.0000152587890625,
+            "horizontalError": 0
+          }
+        },
+        {
+          "label": "候车",
+          "previewZoom": 1,
+          "frames": 80,
+          "geometry": {
+            "rail.x": {
+              "range": 0,
+              "distinct": 1,
+              "largestStep": 0
+            },
+            "rail.y": {
+              "range": 18,
+              "distinct": 30,
+              "largestStep": 1.6812286376953125
+            },
+            "rail.width": {
+              "range": 0,
+              "distinct": 1,
+              "largestStep": 0
+            },
+            "rail.height": {
+              "range": 56,
+              "distinct": 31,
+              "largestStep": 5.218780517578125
+            },
+            "item0.y": {
+              "range": 20,
+              "distinct": 31,
+              "largestStep": 1.8687286376953125
+            },
+            "item0.height": {
+              "range": 12,
+              "distinct": 30,
+              "largestStep": 1.1249847412109375
+            },
+            "item1.y": {
+              "range": 8.015594482421875,
+              "distinct": 31,
+              "largestStep": 0.75494384765625
+            },
+            "item1.height": {
+              "range": 12,
+              "distinct": 30,
+              "largestStep": 1.125
+            },
+            "item2.y": {
+              "range": 4.020477294921875,
+              "distinct": 31,
+              "largestStep": 0.37005615234375
+            },
+            "item2.height": {
+              "range": 12,
+              "distinct": 30,
+              "largestStep": 1.125
+            },
+            "item3.y": {
+              "range": 16.004852294921875,
+              "distinct": 30,
+              "largestStep": 1.490631103515625
+            },
+            "item3.height": {
+              "range": 12.000030517578125,
+              "distinct": 30,
+              "largestStep": 1.125
+            },
+            "item4.y": {
+              "range": 28.004852294921875,
+              "distinct": 31,
+              "largestStep": 2.60443115234375
+            },
+            "item4.height": {
+              "range": 12,
+              "distinct": 30,
+              "largestStep": 1.125
+            },
+            "gap0": {
+              "range": 12,
+              "distinct": 30,
+              "largestStep": 1.1249847412109375
+            },
+            "gap1": {
+              "range": 12,
+              "distinct": 30,
+              "largestStep": 1.125
+            },
+            "gap2": {
+              "range": 12,
+              "distinct": 30,
+              "largestStep": 1.125
+            },
+            "gap3": {
+              "range": 12.000030517578125,
+              "distinct": 30,
+              "largestStep": 1.125
+            }
+          },
+          "fillColors": 28,
+          "from": {
+            "x": 253,
+            "y": 226,
+            "width": 55,
+            "height": 285
+          },
+          "to": {
+            "x": 253,
+            "y": 208,
+            "width": 55,
+            "height": 341
+          },
+          "alignment": {
+            "verticalError": 0,
+            "horizontalError": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "320x568 L first town entry and return animate the global rail and item spacing continuously",
+      "status": "PASS",
+      "evidence": [
+        {
+          "label": "古镇",
+          "previewZoom": 1,
+          "frames": 75,
+          "geometry": {
+            "rail.x": {
+              "range": 0,
+              "distinct": 1,
+              "largestStep": 0
+            },
+            "rail.y": {
+              "range": 16.203125,
+              "distinct": 29,
+              "largestStep": 1.52191162109375
+            },
+            "rail.width": {
+              "range": 0,
+              "distinct": 1,
+              "largestStep": 0
+            },
+            "rail.height": {
+              "range": 56,
+              "distinct": 29,
+              "largestStep": 5.265625
+            },
+            "item0.y": {
+              "range": 18.203125,
+              "distinct": 29,
+              "largestStep": 1.70941162109375
+            },
+            "item0.height": {
+              "range": 12,
+              "distinct": 29,
+              "largestStep": 1.125
+            },
+            "item1.y": {
+              "range": 6.2064208984375,
+              "distinct": 29,
+              "largestStep": 0.58441162109375
+            },
+            "item1.height": {
+              "range": 12,
+              "distinct": 29,
+              "largestStep": 1.140625
+            },
+            "item2.y": {
+              "range": 5.796875,
+              "distinct": 29,
+              "largestStep": 0.55621337890625
+            },
+            "item2.height": {
+              "range": 12,
+              "distinct": 28,
+              "largestStep": 1.109375
+            },
+            "item3.y": {
+              "range": 17.796875,
+              "distinct": 29,
+              "largestStep": 1.66558837890625
+            },
+            "item3.height": {
+              "range": 12,
+              "distinct": 29,
+              "largestStep": 1.140625
+            },
+            "item4.y": {
+              "range": 29.796875,
+              "distinct": 29,
+              "largestStep": 2.80621337890625
+            },
+            "item4.height": {
+              "range": 12,
+              "distinct": 29,
+              "largestStep": 1.140625
+            },
+            "gap0": {
+              "range": 12,
+              "distinct": 29,
+              "largestStep": 1.125
+            },
+            "gap1": {
+              "range": 12,
+              "distinct": 29,
+              "largestStep": 1.140625
+            },
+            "gap2": {
+              "range": 12,
+              "distinct": 28,
+              "largestStep": 1.109375
+            },
+            "gap3": {
+              "range": 12,
+              "distinct": 29,
+              "largestStep": 1.140625
+            }
+          },
+          "fillColors": 28,
+          "from": {
+            "x": 253,
+            "y": 209.796875,
+            "width": 55,
+            "height": 341
+          },
+          "to": {
+            "x": 253,
+            "y": 226,
+            "width": 55,
+            "height": 285
+          },
+          "alignment": {
+            "verticalError": 0.0000152587890625,
+            "horizontalError": 0
+          }
+        },
+        {
+          "label": "候车",
+          "previewZoom": 1,
+          "frames": 79,
+          "geometry": {
+            "rail.x": {
+              "range": 0,
+              "distinct": 1,
+              "largestStep": 0
+            },
+            "rail.y": {
+              "range": 16.203125,
+              "distinct": 30,
+              "largestStep": 1.519073486328125
+            },
+            "rail.width": {
+              "range": 0,
+              "distinct": 1,
+              "largestStep": 0
+            },
+            "rail.height": {
+              "range": 56,
+              "distinct": 31,
+              "largestStep": 5.250030517578125
+            },
+            "item0.y": {
+              "range": 18.203125,
+              "distinct": 30,
+              "largestStep": 1.706573486328125
+            },
+            "item0.height": {
+              "range": 12,
+              "distinct": 29,
+              "largestStep": 1.125
+            },
+            "item1.y": {
+              "range": 6.218414306640625,
+              "distinct": 28,
+              "largestStep": 0.581573486328125
+            },
+            "item1.height": {
+              "range": 12,
+              "distinct": 29,
+              "largestStep": 1.125
+            },
+            "item2.y": {
+              "range": 5.80535888671875,
+              "distinct": 29,
+              "largestStep": 0.543426513671875
+            },
+            "item2.height": {
+              "range": 12,
+              "distinct": 29,
+              "largestStep": 1.125
+            },
+            "item3.y": {
+              "range": 17.80535888671875,
+              "distinct": 31,
+              "largestStep": 1.668426513671875
+            },
+            "item3.height": {
+              "range": 12,
+              "distinct": 29,
+              "largestStep": 1.125
+            },
+            "item4.y": {
+              "range": 29.796875,
+              "distinct": 31,
+              "largestStep": 2.793426513671875
+            },
+            "item4.height": {
+              "range": 12.000030517578125,
+              "distinct": 29,
+              "largestStep": 1.125
+            },
+            "gap0": {
+              "range": 12,
+              "distinct": 29,
+              "largestStep": 1.125
+            },
+            "gap1": {
+              "range": 12,
+              "distinct": 29,
+              "largestStep": 1.125
+            },
+            "gap2": {
+              "range": 12,
+              "distinct": 29,
+              "largestStep": 1.125
+            },
+            "gap3": {
+              "range": 12,
+              "distinct": 29,
+              "largestStep": 1.125
+            }
+          },
+          "fillColors": 27,
+          "from": {
+            "x": 253,
+            "y": 226,
+            "width": 55,
+            "height": 285
+          },
+          "to": {
+            "x": 253,
+            "y": 209.796875,
+            "width": 55,
+            "height": 341
+          },
+          "alignment": {
+            "verticalError": 0,
+            "horizontalError": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "1440x900 M first town entry and return animate the global rail and item spacing continuously",
+      "status": "PASS",
+      "evidence": [
+        {
+          "label": "古镇",
+          "previewZoom": 0.84,
+          "frames": 73,
+          "geometry": {
+            "rail.x": {
+              "range": 0,
+              "distinct": 1,
+              "largestStep": 0
+            },
+            "rail.y": {
+              "range": 37.97039794921875,
+              "distinct": 29,
+              "largestStep": 3.599853515625
+            },
+            "rail.width": {
+              "range": 0,
+              "distinct": 1,
+              "largestStep": 0
+            },
+            "rail.height": {
+              "range": 0.00006103515625,
+              "distinct": 1,
+              "largestStep": 0.00006103515625
+            },
+            "item0.y": {
+              "range": 37.97039794921875,
+              "distinct": 29,
+              "largestStep": 3.599853515625
+            },
+            "item0.height": {
+              "range": 0.00006103515625,
+              "distinct": 2,
+              "largestStep": 0.000030517578125
+            },
+            "item1.y": {
+              "range": 37.97039794921875,
+              "distinct": 29,
+              "largestStep": 3.599853515625
+            },
+            "item1.height": {
+              "range": 0.00006103515625,
+              "distinct": 1,
+              "largestStep": 0.00006103515625
+            },
+            "item2.y": {
+              "range": 37.97039794921875,
+              "distinct": 29,
+              "largestStep": 3.599853515625
+            },
+            "item2.height": {
+              "range": 0.00006103515625,
+              "distinct": 2,
+              "largestStep": 0.000030517578125
+            },
+            "item3.y": {
+              "range": 37.97039794921875,
+              "distinct": 29,
+              "largestStep": 3.599853515625
+            },
+            "item3.height": {
+              "range": 0,
+              "distinct": 1,
+              "largestStep": 0
+            },
+            "item4.y": {
+              "range": 37.97039794921875,
+              "distinct": 29,
+              "largestStep": 3.599853515625
+            },
+            "item4.height": {
+              "range": 0.0001220703125,
+              "distinct": 1,
+              "largestStep": 0.0001220703125
+            },
+            "gap0": {
+              "range": 0.00006103515625,
+              "distinct": 2,
+              "largestStep": 0.000030517578125
+            },
+            "gap1": {
+              "range": 0.00006103515625,
+              "distinct": 1,
+              "largestStep": 0.00006103515625
+            },
+            "gap2": {
+              "range": 0.00006103515625,
+              "distinct": 2,
+              "largestStep": 0.000030517578125
+            },
+            "gap3": {
+              "range": 0,
+              "distinct": 1,
+              "largestStep": 0
+            }
+          },
+          "fillColors": 28,
+          "from": {
+            "x": 993.015625,
+            "y": 351.140625,
+            "width": 50.390625,
+            "height": 329.265625
+          },
+          "to": {
+            "x": 993.015625,
+            "y": 389.109375,
+            "width": 50.390625,
+            "height": 329.265625
+          },
+          "alignment": {
+            "verticalError": 0,
+            "horizontalError": 0
+          }
+        },
+        {
+          "label": "候车",
+          "previewZoom": 0.84,
+          "frames": 80,
+          "geometry": {
+            "rail.x": {
+              "range": 0,
+              "distinct": 1,
+              "largestStep": 0
+            },
+            "rail.y": {
+              "range": 37.97039794921875,
+              "distinct": 31,
+              "largestStep": 3.59381103515625
+            },
+            "rail.width": {
+              "range": 0,
+              "distinct": 1,
+              "largestStep": 0
+            },
+            "rail.height": {
+              "range": 0.00006103515625,
+              "distinct": 1,
+              "largestStep": 0.00006103515625
+            },
+            "item0.y": {
+              "range": 37.97039794921875,
+              "distinct": 31,
+              "largestStep": 3.59381103515625
+            },
+            "item0.height": {
+              "range": 0.00006103515625,
+              "distinct": 2,
+              "largestStep": 0.000030517578125
+            },
+            "item1.y": {
+              "range": 37.97039794921875,
+              "distinct": 31,
+              "largestStep": 3.59381103515625
+            },
+            "item1.height": {
+              "range": 0.00006103515625,
+              "distinct": 1,
+              "largestStep": 0.00006103515625
+            },
+            "item2.y": {
+              "range": 37.97039794921875,
+              "distinct": 31,
+              "largestStep": 3.59381103515625
+            },
+            "item2.height": {
+              "range": 0.00006103515625,
+              "distinct": 2,
+              "largestStep": 0.00006103515625
+            },
+            "item3.y": {
+              "range": 37.97039794921875,
+              "distinct": 31,
+              "largestStep": 3.5938720703125
+            },
+            "item3.height": {
+              "range": 0.0001220703125,
+              "distinct": 1,
+              "largestStep": 0.0001220703125
+            },
+            "item4.y": {
+              "range": 37.97039794921875,
+              "distinct": 31,
+              "largestStep": 3.5938720703125
+            },
+            "item4.height": {
+              "range": 0.0001220703125,
+              "distinct": 1,
+              "largestStep": 0.00006103515625
+            },
+            "gap0": {
+              "range": 0.00006103515625,
+              "distinct": 2,
+              "largestStep": 0.000030517578125
+            },
+            "gap1": {
+              "range": 0.00006103515625,
+              "distinct": 1,
+              "largestStep": 0.00006103515625
+            },
+            "gap2": {
+              "range": 0.00006103515625,
+              "distinct": 2,
+              "largestStep": 0.00006103515625
+            },
+            "gap3": {
+              "range": 0.0001220703125,
+              "distinct": 1,
+              "largestStep": 0.0001220703125
+            }
+          },
+          "fillColors": 28,
+          "from": {
+            "x": 993.015625,
+            "y": 389.109375,
+            "width": 50.390625,
+            "height": 329.265625
+          },
+          "to": {
+            "x": 993.015625,
+            "y": 351.140625,
+            "width": 50.390625,
+            "height": 329.265625
+          },
+          "alignment": {
+            "verticalError": 0.0234375,
+            "horizontalError": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "390px interrupted town to ride to town transition retains the same navigation and final target",
+      "status": "PASS",
+      "evidence": {
+        "previewZoom": 1,
+        "frames": 97,
+        "geometry": {
+          "rail.x": {
+            "range": 0,
+            "distinct": 1,
+            "largestStep": 0
+          },
+          "rail.y": {
+            "range": 90,
+            "distinct": 46,
+            "largestStep": 16.474273681640625
+          },
+          "rail.width": {
+            "range": 0,
+            "distinct": 1,
+            "largestStep": 0
+          },
+          "rail.height": {
+            "range": 0.00006103515625,
+            "distinct": 1,
+            "largestStep": 0.00006103515625
+          },
+          "item0.y": {
+            "range": 90,
+            "distinct": 46,
+            "largestStep": 16.474273681640625
+          },
+          "item0.height": {
+            "range": 0.00006103515625,
+            "distinct": 1,
+            "largestStep": 0.00006103515625
+          },
+          "item1.y": {
+            "range": 90,
+            "distinct": 46,
+            "largestStep": 16.474273681640625
+          },
+          "item1.height": {
+            "range": 0.00006103515625,
+            "distinct": 1,
+            "largestStep": 0.000030517578125
+          },
+          "item2.y": {
+            "range": 90,
+            "distinct": 46,
+            "largestStep": 16.47430419921875
+          },
+          "item2.height": {
+            "range": 0.00006103515625,
+            "distinct": 1,
+            "largestStep": 0.00006103515625
+          },
+          "item3.y": {
+            "range": 90,
+            "distinct": 46,
+            "largestStep": 16.47430419921875
+          },
+          "item3.height": {
+            "range": 0.0001220703125,
+            "distinct": 1,
+            "largestStep": 0.00006103515625
+          },
+          "item4.y": {
+            "range": 90,
+            "distinct": 46,
+            "largestStep": 16.47430419921875
+          },
+          "item4.height": {
+            "range": 0.00006103515625,
+            "distinct": 1,
+            "largestStep": 0.00006103515625
+          },
+          "gap0": {
+            "range": 0.00006103515625,
+            "distinct": 1,
+            "largestStep": 0.00006103515625
+          },
+          "gap1": {
+            "range": 0.00006103515625,
+            "distinct": 1,
+            "largestStep": 0.000030517578125
+          },
+          "gap2": {
+            "range": 0.00006103515625,
+            "distinct": 1,
+            "largestStep": 0.00006103515625
+          },
+          "gap3": {
+            "range": 0.0001220703125,
+            "distinct": 1,
+            "largestStep": 0.00006103515625
+          }
+        },
+        "fillColors": 39,
+        "from": {
+          "x": 315,
+          "y": 282,
+          "width": 60,
+          "height": 392
+        },
+        "to": {
+          "x": 315,
+          "y": 372,
+          "width": 60,
+          "height": 392
+        },
+        "alignment": {
+          "verticalError": 0.00933837890625,
+          "horizontalError": 0
+        }
+      }
+    },
+    {
+      "name": "320px interrupted town to ride to town transition retains the same navigation and final target",
+      "status": "PASS",
+      "evidence": {
+        "previewZoom": 1,
+        "frames": 99,
+        "geometry": {
+          "rail.x": {
+            "range": 0,
+            "distinct": 1,
+            "largestStep": 0
+          },
+          "rail.y": {
+            "range": 18,
+            "distinct": 46,
+            "largestStep": 2.9187469482421875
+          },
+          "rail.width": {
+            "range": 0,
+            "distinct": 1,
+            "largestStep": 0
+          },
+          "rail.height": {
+            "range": 56,
+            "distinct": 46,
+            "largestStep": 9.078125
+          },
+          "item0.y": {
+            "range": 20,
+            "distinct": 46,
+            "largestStep": 3.2468719482421875
+          },
+          "item0.height": {
+            "range": 12,
+            "distinct": 44,
+            "largestStep": 1.9531097412109375
+          },
+          "item1.y": {
+            "range": 8.00164794921875,
+            "distinct": 42,
+            "largestStep": 1.29376220703125
+          },
+          "item1.height": {
+            "range": 12,
+            "distinct": 44,
+            "largestStep": 1.9375
+          },
+          "item2.y": {
+            "range": 4.017608642578125,
+            "distinct": 43,
+            "largestStep": 0.64373779296875
+          },
+          "item2.height": {
+            "range": 12,
+            "distinct": 44,
+            "largestStep": 1.953125
+          },
+          "item3.y": {
+            "range": 16.001983642578125,
+            "distinct": 46,
+            "largestStep": 2.59686279296875
+          },
+          "item3.height": {
+            "range": 12,
+            "distinct": 44,
+            "largestStep": 1.9375
+          },
+          "item4.y": {
+            "range": 28.001983642578125,
+            "distinct": 46,
+            "largestStep": 4.53436279296875
+          },
+          "item4.height": {
+            "range": 12,
+            "distinct": 44,
+            "largestStep": 1.9375
+          },
+          "gap0": {
+            "range": 12,
+            "distinct": 44,
+            "largestStep": 1.9531097412109375
+          },
+          "gap1": {
+            "range": 12,
+            "distinct": 44,
+            "largestStep": 1.9375
+          },
+          "gap2": {
+            "range": 12,
+            "distinct": 44,
+            "largestStep": 1.953125
+          },
+          "gap3": {
+            "range": 12,
+            "distinct": 44,
+            "largestStep": 1.9375
+          }
+        },
+        "fillColors": 38,
+        "from": {
+          "x": 253,
+          "y": 208,
+          "width": 55,
+          "height": 341
+        },
+        "to": {
+          "x": 253,
+          "y": 226,
+          "width": 55,
+          "height": 285
+        },
+        "alignment": {
+          "verticalError": 0.0000152587890625,
+          "horizontalError": 0
+        }
+      }
+    },
+    {
+      "name": "1440px interrupted town to ride to town transition retains the same navigation and final target",
+      "status": "PASS",
+      "evidence": {
+        "previewZoom": 0.84,
+        "frames": 97,
+        "geometry": {
+          "rail.x": {
+            "range": 0,
+            "distinct": 1,
+            "largestStep": 0
+          },
+          "rail.y": {
+            "range": 37.97039794921875,
+            "distinct": 40,
+            "largestStep": 3.567626953125
+          },
+          "rail.width": {
+            "range": 0,
+            "distinct": 1,
+            "largestStep": 0
+          },
+          "rail.height": {
+            "range": 0.00006103515625,
+            "distinct": 1,
+            "largestStep": 0.00006103515625
+          },
+          "item0.y": {
+            "range": 37.97039794921875,
+            "distinct": 41,
+            "largestStep": 3.567626953125
+          },
+          "item0.height": {
+            "range": 0.00006103515625,
+            "distinct": 2,
+            "largestStep": 0.000030517578125
+          },
+          "item1.y": {
+            "range": 37.97039794921875,
+            "distinct": 41,
+            "largestStep": 3.567626953125
+          },
+          "item1.height": {
+            "range": 0.00006103515625,
+            "distinct": 1,
+            "largestStep": 0.00006103515625
+          },
+          "item2.y": {
+            "range": 37.97039794921875,
+            "distinct": 41,
+            "largestStep": 3.567626953125
+          },
+          "item2.height": {
+            "range": 0.00006103515625,
+            "distinct": 2,
+            "largestStep": 0.00006103515625
+          },
+          "item3.y": {
+            "range": 37.97039794921875,
+            "distinct": 41,
+            "largestStep": 3.567626953125
+          },
+          "item3.height": {
+            "range": 0,
+            "distinct": 1,
+            "largestStep": 0
+          },
+          "item4.y": {
+            "range": 37.97039794921875,
+            "distinct": 41,
+            "largestStep": 3.567626953125
+          },
+          "item4.height": {
+            "range": 0.0001220703125,
+            "distinct": 1,
+            "largestStep": 0.00006103515625
+          },
+          "gap0": {
+            "range": 0.00006103515625,
+            "distinct": 2,
+            "largestStep": 0.000030517578125
+          },
+          "gap1": {
+            "range": 0.00006103515625,
+            "distinct": 1,
+            "largestStep": 0.00006103515625
+          },
+          "gap2": {
+            "range": 0.00006103515625,
+            "distinct": 2,
+            "largestStep": 0.00006103515625
+          },
+          "gap3": {
+            "range": 0,
+            "distinct": 1,
+            "largestStep": 0
+          }
+        },
+        "fillColors": 26,
+        "from": {
+          "x": 993.015625,
+          "y": 351.140625,
+          "width": 50.390625,
+          "height": 329.265625
+        },
+        "to": {
+          "x": 993.015625,
+          "y": 389.109375,
+          "width": 50.390625,
+          "height": 329.265625
+        },
+        "alignment": {
+          "verticalError": 0,
+          "horizontalError": 0
+        }
+      }
+    },
+    {
+      "name": "system reduced motion settles global geometry and groove immediately",
+      "status": "PASS",
+      "evidence": [
+        {
+          "label": "古镇",
+          "alignment": {
+            "verticalError": 0.0000152587890625,
+            "horizontalError": 0
+          },
+          "rail": {
+            "x": 253,
+            "y": 226,
+            "width": 55,
+            "height": 285
+          }
+        },
+        {
+          "label": "候车",
+          "alignment": {
+            "verticalError": 0,
+            "horizontalError": 0
+          },
+          "rail": {
+            "x": 253,
+            "y": 208,
+            "width": 55,
+            "height": 341
+          }
+        }
+      ]
+    },
+    {
+      "name": "preference reduced motion settles global geometry and groove immediately",
+      "status": "PASS",
+      "evidence": [
+        {
+          "label": "古镇",
+          "alignment": {
+            "verticalError": 0.0000152587890625,
+            "horizontalError": 0
+          },
+          "rail": {
+            "x": 253,
+            "y": 226,
+            "width": 55,
+            "height": 285
+          }
+        },
+        {
+          "label": "候车",
+          "alignment": {
+            "verticalError": 0,
+            "horizontalError": 0
+          },
+          "rail": {
+            "x": 253,
+            "y": 208,
+            "width": 55,
+            "height": 341
+          }
+        }
+      ]
+    },
+    {
+      "name": "Uncaught JavaScript errors",
+      "status": "PASS",
+      "detail": []
+    }
+  ]
+}

@@ -20,6 +20,7 @@ async function newPage(width, height, { size = 'M', system = false, quiet = fals
   pages.add(page); page.setDefaultTimeout(15000); page.on('pageerror', error => errors.push(error.message));
   await page.addInitScript(({ size, quiet }) => localStorage.setItem('baixi.mobile.v2', JSON.stringify({ size, quiet })), { size, quiet });
   await page.goto(`${base}/#/ride`); await page.locator('.mobile-main[data-screen=ride]').waitFor();
+  await page.locator('.launch-app[data-launch=done]').waitFor();
   await page.evaluate(() => document.fonts.ready); await page.waitForTimeout(650);
   return page;
 }

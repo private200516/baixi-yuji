@@ -29,10 +29,10 @@ export function Glyph({ name, className = '' }: { name: GlyphName; className?: s
   return <svg className={`glyph ${className}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[name]}</svg>;
 }
 export function TransitMark() {
-  return <svg className="transit-mark" viewBox="0 0 70 44" fill="currentColor" aria-hidden="true"><rect x="4" y="-3" width="16" height="48" rx="8" transform="rotate(42 20 22)"/><rect x="30" y="7" width="16" height="36" rx="8" transform="rotate(42 38 25)"/><path d="M58 23c5-5 11-1 11 5v8c0 5-3 7-7 7h-7c-6 0-8-6-4-10Z"/></svg>;
+  return <img className="transit-mark nh-mark" src={`${import.meta.env.BASE_URL}brand/nh-logo.svg`} alt="" aria-hidden="true" width="64" height="64"/>;
 }
 export function RiverMark() {
-  return <svg className="river-mark" viewBox="0 0 68 66" aria-hidden="true"><circle cx="42" cy="9" r="7" fill="var(--clay)"/><path d="M4 28C11 12 20 17 31 26c12 8 22-12 29-4 9 10 5 29-3 35C32 73 1 56 4 28Z" fill="var(--teal)"/><path d="M6 38c14-4 28-2 46-10-9 8-31 12-28 15 9 5 22 8 36 12C42 58 31 43 6 38Z" fill="var(--paper)"/></svg>;
+  return <img className="river-mark nh-mark" src={`${import.meta.env.BASE_URL}brand/nh-logo.svg`} alt="" aria-hidden="true" width="64" height="64"/>;
 }
 export function DotLandscape() {
   return <svg className="dot-landscape" viewBox="0 0 320 108" aria-hidden="true">{Array.from({ length: 11 }, (_, row) => Array.from({ length: 30 }, (_, col) => {
