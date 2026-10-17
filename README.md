@@ -1,6 +1,8 @@
 # 乡序 2.0 · 手机公共交通 APP 原型
 
-[在线 Demo](https://private200516.github.io/baixi-yuji/#/ride) · [古镇地图](https://private200516.github.io/baixi-yuji/#/town) · [2.2.1 下载与更新说明](https://github.com/private200516/baixi-yuji/releases/tag/v2.2.1)
+[在线 Demo](https://private200516.github.io/baixi-yuji/#/ride) · [古镇地图](https://private200516.github.io/baixi-yuji/#/town) · [2.2.2 下载与更新说明](https://github.com/private200516/baixi-yuji/releases/tag/v2.2.2)
+
+**2.2.2 手机启动兼容修复：**启动页显示“宁海公交”。启动视频改用无损fast-start副本，补齐静音自动播放和内联配置；将首帧等待与播放中停滞分开处理，后台时间不计入等待。浏览器拒绝视频播放时展示约4秒的NH矢量徽标动画，再衔接页面，保留每次打开播放及无跳过入口。[问题复现与验收](docs/mobile-startup-validation.md)。
 
 **2.2.1 主题巴士与每次启动：**右上角展示前童、许家山、龙宫、力洋四款主题巴士之一，每次完整打开等概率随机选择，当前浏览期间保持同款。两行文字改为“宁海旅游专线”和“XML6805JEVJ0C8”。每次打开或刷新都播放完整约4秒启动动画，无跳过入口；系统减少动态效果、应用安静模式及老年模式仍播放原视频，仅简化末尾过渡。[本轮行为与验收](docs/theme-bus-validation.md)。
 
@@ -62,6 +64,7 @@ pnpm test:ui-motion
 pnpm test:navigation-motion
 pnpm test:journey
 pnpm test:startup
+pnpm test:mobile-startup
 pnpm test:theme-bus
 pnpm build
 pnpm preview
@@ -83,6 +86,6 @@ pnpm preview
 
 每次上线递增版本号：小修复或视觉调整升补丁版本，功能增量升次版本；同步源码、Demo、下载包并保留旧版。
 
-源码位于 `main`，静态Demo通过 `gh-pages` 发布，主题巴士与当前启动策略见 [v2.2.1](docs/releases/v2.2.1.md)，NH品牌初版见 [v2.2.0](docs/releases/v2.2.0.md)，六色主题见 [v2.1.1](docs/releases/v2.1.1.md)，数据联动见 [v2.1.0](docs/releases/v2.1.0.md)，导航修复见 [v2.0.1](docs/releases/v2.0.1.md)，初版变更见 [v2.0.0](docs/releases/v2.0.0.md)。旧版保留；`design/` 为旧版设计交付资料，本次没有更新线上Figma。
+源码位于 `main`，静态Demo通过 `gh-pages` 发布，手机启动兼容修复见 [v2.2.2](docs/releases/v2.2.2.md)，主题巴士见 [v2.2.1](docs/releases/v2.2.1.md)，NH品牌初版见 [v2.2.0](docs/releases/v2.2.0.md)，六色主题见 [v2.1.1](docs/releases/v2.1.1.md)，数据联动见 [v2.1.0](docs/releases/v2.1.0.md)，导航修复见 [v2.0.1](docs/releases/v2.0.1.md)，初版变更见 [v2.0.0](docs/releases/v2.0.0.md)。旧版保留；`design/` 为旧版设计交付资料，本次没有更新线上Figma。
 
 ![古村地图场景](docs/palette-v2.1.1/town.png)

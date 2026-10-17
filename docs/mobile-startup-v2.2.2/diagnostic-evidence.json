@@ -1,0 +1,129 @@
+{
+  "baseline": {
+    "at": "2026-10-17T20:12:44.235Z",
+    "version": {
+      "name": "乡序",
+      "version": "2.2.1",
+      "release": "UI 2.0",
+      "tag": "v2.2.1"
+    },
+    "engine": "Installed desktop Edge with mobile viewport; not a real phone or Safari",
+    "network": "All URLs intercepted and fulfilled from an in-memory local dist snapshot. No external requests.",
+    "scenarios": [
+      {
+        "name": "ordinary_load",
+        "initial": {
+          "autoplay": false,
+          "muted": true,
+          "defaultMuted": false,
+          "mutedAttribute": false,
+          "playsInline": true,
+          "opacity": "0",
+          "canPlayType": "probably",
+          "markup": "<video class=\"launch-video\" data-playing=\"false\" playsinline=\"\" preload=\"auto\" disablepictureinpicture=\"\" src=\"./brand/nh-launch.mp4\"></video>"
+        },
+        "reason": "ended",
+        "elapsedMs": 5062.199999988079,
+        "ended": [
+          {
+            "type": "ended",
+            "at": 4242.29999999702,
+            "time": 4.041667,
+            "duration": 4.041667,
+            "readyState": 4,
+            "networkState": 1,
+            "trusted": true
+          }
+        ],
+        "lastMediaTime": 4.041667,
+        "pageErrors": []
+      },
+      {
+        "name": "first_media_response_delayed_3500ms",
+        "initial": {
+          "autoplay": false,
+          "muted": true,
+          "defaultMuted": false,
+          "mutedAttribute": false,
+          "playsInline": true,
+          "opacity": "0",
+          "canPlayType": "probably",
+          "markup": "<video class=\"launch-video\" data-playing=\"false\" playsinline=\"\" preload=\"auto\" disablepictureinpicture=\"\" src=\"./brand/nh-launch.mp4\"></video>"
+        },
+        "reason": "media-timeout",
+        "elapsedMs": 4037.7999999970198,
+        "ended": [],
+        "lastMediaTime": 0,
+        "pageErrors": []
+      },
+      {
+        "name": "progressing_media_at_0_4_rate",
+        "initial": {
+          "autoplay": false,
+          "muted": true,
+          "defaultMuted": false,
+          "mutedAttribute": false,
+          "playsInline": true,
+          "opacity": "0",
+          "canPlayType": "probably",
+          "markup": "<video class=\"launch-video\" data-playing=\"true\" playsinline=\"\" preload=\"auto\" disablepictureinpicture=\"\" src=\"./brand/nh-launch.mp4\"></video>"
+        },
+        "reason": "media-timeout",
+        "elapsedMs": 9668.89999999106,
+        "ended": [],
+        "lastMediaTime": 3.383049,
+        "pageErrors": []
+      }
+    ]
+  },
+  "videoPreparation": {
+    "at": "2026-10-17T20:18:26.895Z",
+    "bytes": 1488145,
+    "fastStart": true,
+    "reencoded": false,
+    "sourceUnchanged": true,
+    "sourceSha256": "62616b47c01eb66c1576ab3d9eb0d4a78d932f44f09cf1dc749961c8bb97d453",
+    "mobileSha256": "3bca973bbba5787f01fd1c8b891dbd338c006fae7788399be62a4e606f518f90",
+    "metadataUnchangedExceptChunkOffsets": true,
+    "chunkOffsetsVerified": 2,
+    "samplesVerified": 97,
+    "media": {
+      "codec": "avc1.64001f",
+      "width": 960,
+      "height": 960,
+      "durationSeconds": 4.041666666666667,
+      "timescale": 12288,
+      "sampleCount": 97,
+      "framesPerSecond": 24,
+      "audioTracks": 0
+    },
+    "mdatPayload": {
+      "bytes": 1464498,
+      "originalSha256": "697d4f09ac9974ff08344c60d2b5ace1cf8cc6d8548043ec63d1de00634c269e",
+      "mobileSha256": "697d4f09ac9974ff08344c60d2b5ace1cf8cc6d8548043ec63d1de00634c269e",
+      "byteIdentical": true
+    }
+  },
+  "remuxPlayback": {
+    "at": "2026-10-17T20:19:49.324Z",
+    "engine": "Installed Edge, mobile viewport; not real mobile Safari",
+    "result": "PASS",
+    "requests": [
+      {
+        "range": "bytes=0-",
+        "start": 0,
+        "end": 1488144
+      }
+    ],
+    "errors": [],
+    "ended": {
+      "type": "ended",
+      "time": 4.041667,
+      "duration": 4.041667,
+      "width": 960,
+      "height": 960,
+      "trusted": true,
+      "error": null
+    }
+  }
+}

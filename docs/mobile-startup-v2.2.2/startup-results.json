@@ -1,0 +1,249 @@
+{
+  "at": "2026-10-17T20:42:11.678Z",
+  "base": "http://127.0.0.1:5173",
+  "isolatedBrowserProfile": true,
+  "lastRun": {
+    "filter": "Unavailable storage",
+    "checks": [
+      "Unavailable storage writes cannot suppress the film or trap the revealed app",
+      "No uncaught JavaScript errors"
+    ]
+  },
+  "checks": [
+    {
+      "name": "390px natural MP4 playback advances to a trusted ended event, then crossfades into the app",
+      "status": "PASS",
+      "at": "2026-10-17T20:29:37.671Z",
+      "evidence": {
+        "requests": 1,
+        "ended": {
+          "type": "ended",
+          "at": 4391.79999999702,
+          "time": 4.041667,
+          "duration": 4.041667,
+          "trusted": true
+        },
+        "trustedTimeUpdates": 16,
+        "crossfadeFrames": 39,
+        "revealDurationMs": 650,
+        "focus": "main-view"
+      }
+    },
+    {
+      "name": "320px L startup and revealed page stay inside the viewport",
+      "status": "PASS",
+      "at": "2026-10-17T20:29:43.532Z",
+      "evidence": {
+        "width": 320,
+        "height": 568,
+        "size": "L",
+        "reason": "ended"
+      }
+    },
+    {
+      "name": "1440px M startup and revealed page stay inside the viewport",
+      "status": "PASS",
+      "at": "2026-10-17T20:29:48.784Z",
+      "evidence": {
+        "width": 1440,
+        "height": 900,
+        "size": "M",
+        "reason": "ended"
+      }
+    },
+    {
+      "name": "Every full reload replays naturally while in-app navigation does not restart the film",
+      "status": "PASS",
+      "at": "2026-10-17T20:29:54.271Z",
+      "evidence": {
+        "firstVideoRequests": 1,
+        "requestsAfterReload": 2,
+        "requestsAfterNavigation": 2,
+        "legacySeenFlagIgnored": true
+      }
+    },
+    {
+      "name": "A town deep link survives the full film and Escape cannot skip the launch",
+      "status": "PASS",
+      "at": "2026-10-17T20:30:06.455Z",
+      "evidence": {
+        "hash": "#/town",
+        "selectedVillage": "xujiashan"
+      }
+    },
+    {
+      "name": "system reduced motion plays the full film and shortens only the final reveal",
+      "status": "PASS",
+      "at": "2026-10-17T20:30:11.837Z",
+      "evidence": {
+        "videoRequests": 1,
+        "ended": {
+          "type": "ended",
+          "at": 4292.5,
+          "time": 4.041667,
+          "duration": 4.041667,
+          "trusted": true
+        },
+        "finalRevealMs": 3.199999999999818,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      }
+    },
+    {
+      "name": "quiet reduced motion plays the full film and shortens only the final reveal",
+      "status": "PASS",
+      "at": "2026-10-17T20:30:16.525Z",
+      "evidence": {
+        "videoRequests": 1,
+        "ended": {
+          "type": "ended",
+          "at": 4298.79999999702,
+          "time": 4.041667,
+          "duration": 4.041667,
+          "trusted": true
+        },
+        "finalRevealMs": 5.600000002979868,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      }
+    },
+    {
+      "name": "senior reduced motion plays the full film and shortens only the final reveal",
+      "status": "PASS",
+      "at": "2026-10-17T20:30:21.225Z",
+      "evidence": {
+        "videoRequests": 1,
+        "ended": {
+          "type": "ended",
+          "at": 4253.29999999702,
+          "time": 4.041667,
+          "duration": 4.041667,
+          "trusted": true
+        },
+        "finalRevealMs": 5.300000002980596,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      }
+    },
+    {
+      "name": "A failed MP4 request falls back to the logo and releases the app within a bounded time",
+      "status": "PASS",
+      "at": "2026-10-17T20:30:25.849Z",
+      "evidence": {
+        "reason": "media-error",
+        "fallback": {
+          "durationMs": 4049.8,
+          "clipFrames": 56
+        },
+        "releaseAfterMs": 4833.1
+      }
+    },
+    {
+      "name": "Rejected play promise falls back without an unhandled error or focus trap",
+      "status": "PASS",
+      "at": "2026-10-17T20:30:31.248Z",
+      "evidence": {
+        "reason": "playback-blocked",
+        "fallback": {
+          "durationMs": 4083.2000000000003,
+          "clipFrames": 57
+        },
+        "releaseAfterMs": 4849.900000000001
+      }
+    },
+    {
+      "name": "A hung video request cannot hold the app beyond the no-progress watchdog",
+      "status": "PASS",
+      "at": "2026-10-17T20:30:36.613Z",
+      "evidence": {
+        "reason": "media-timeout",
+        "releaseAfterMs": 14816.1,
+        "fallback": {
+          "durationMs": 4066.5,
+          "clipFrames": 57
+        }
+      }
+    },
+    {
+      "name": "Progress without an ended event still respects the absolute startup deadline",
+      "status": "PASS",
+      "at": "2026-10-17T20:40:00.578Z",
+      "evidence": {
+        "simulatedFault": "advancing media time with no ended event",
+        "releaseAfterMs": 24832.300000000003,
+        "reason": "media-timeout",
+        "fallback": {
+          "durationMs": 4066.5,
+          "clipFrames": 56
+        }
+      }
+    },
+    {
+      "name": "A second tab in the same browser context also plays the film to completion",
+      "status": "PASS",
+      "at": "2026-10-17T20:31:21.282Z",
+      "evidence": {
+        "completedTabs": 2,
+        "ended": {
+          "trusted": true,
+          "time": 4.041667,
+          "duration": 4.041667
+        }
+      }
+    },
+    {
+      "name": "Enabling OS reduced motion during playback does not interrupt the film",
+      "status": "PASS",
+      "at": "2026-10-17T20:31:31.701Z",
+      "evidence": {
+        "reason": "ended",
+        "fullFilmPlayed": true,
+        "finalRevealMs": 10.59999999701995
+      }
+    },
+    {
+      "name": "No uncaught JavaScript errors",
+      "status": "PASS",
+      "at": "2026-10-17T20:42:11.471Z",
+      "evidence": []
+    },
+    {
+      "name": "Synchronous play rejection also runs the complete fallback and restores interaction",
+      "status": "PASS",
+      "at": "2026-10-17T20:41:22.035Z",
+      "evidence": {
+        "simulatedFault": "synchronous NotAllowedError from play()",
+        "reason": "playback-blocked",
+        "fallback": {
+          "durationMs": 4099.8,
+          "clipFrames": 57
+        },
+        "releaseAfterMs": 4866.5
+      }
+    },
+    {
+      "name": "Unavailable storage writes cannot suppress the film or trap the revealed app",
+      "status": "PASS",
+      "at": "2026-10-17T20:42:05.505Z",
+      "evidence": {
+        "simulatedFault": "QuotaExceededError on Storage.setItem",
+        "blockedStorageWrites": 1,
+        "trustedEnded": {
+          "type": "ended",
+          "at": 4341.79999999702,
+          "time": 4.041667,
+          "duration": 4.041667,
+          "trusted": true
+        },
+        "settingsOpened": true,
+        "inMemorySizeChanged": "L"
+      }
+    }
+  ]
+}

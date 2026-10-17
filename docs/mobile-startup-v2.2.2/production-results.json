@@ -1,0 +1,31 @@
+{
+  "checkedAt": "2026-10-17T20:49:36.881Z",
+  "status": "PASS",
+  "startup": {
+    "naturalEnded": true,
+    "mediaType": "video/mp4",
+    "themeBus": true,
+    "replayOnReload": true,
+    "gateRemoved": true
+  },
+  "screens": [
+    "ride",
+    "return",
+    "scan",
+    "route",
+    "ticket",
+    "town",
+    "help",
+    "delay"
+  ],
+  "subpath": "/pages-project/",
+  "mapPoints": 5,
+  "selection": "longgong",
+  "journey": {
+    "routeProposalId": "longgong-xujiashan",
+    "direction": "return",
+    "dataVersion": "2026-10-09-road-research-v2",
+    "restored": true
+  },
+  "errors": []
+}

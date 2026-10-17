@@ -1,0 +1,217 @@
+{
+  "at": "2026-10-17T20:38:21.328Z",
+  "base": "http://127.0.0.1:5173",
+  "engine": "Microsoft Edge / Chromium",
+  "emulationOnly": true,
+  "limits": [
+    "Not tested on a physical iPhone or Android phone.",
+    "iPhone descriptor uses Chromium here, not Safari/WebKit.",
+    "Visibility tests simulate the document visibility API; they do not emulate OS background suspension or timer throttling."
+  ],
+  "lastRun": {
+    "filter": null,
+    "checks": [
+      "iPhone 13 emulation: a 3.5s delayed first response still plays naturally and shows its poster",
+      "iPhone 13 emulation: continuous slow playback takes about 10s and is not timed out",
+      "Pixel 7 emulation: a 3.5s delayed first response still plays naturally and shows its poster",
+      "Pixel 7 emulation: continuous slow playback takes about 10s and is not timed out",
+      "Autoplay rejection uses at least four seconds of animated NH fallback before revealing the app",
+      "A decoded video that stops progressing uses the five-second stall budget then the full fallback",
+      "Simulated hidden time does not consume the first-frame budget and resume still plays the full film",
+      "Simulated hidden state pauses the native fallback animation and preserves four visible seconds",
+      "A late hidden timeupdate does not double-credit the visible stall budget after resume",
+      "No uncaught JavaScript errors"
+    ]
+  },
+  "checks": [
+    {
+      "name": "iPhone 13 emulation: a 3.5s delayed first response still plays naturally and shows its poster",
+      "status": "PASS",
+      "at": "2026-10-17T20:36:40.373Z",
+      "evidence": {
+        "emulation": "iPhone 13",
+        "browserEngine": "Chromium / Edge",
+        "delayedResponseMs": [
+          3499
+        ],
+        "media": {
+          "poster": "http://127.0.0.1:5173/brand/nh-launch-poster.svg",
+          "decoded": true,
+          "opacity": "1",
+          "autoplay": true,
+          "muted": true,
+          "defaultMuted": true,
+          "playsInline": true,
+          "webkitInline": true,
+          "currentTime": 0
+        },
+        "ended": {
+          "type": "ended",
+          "t": 7865.5999999940395,
+          "time": 4.041667,
+          "duration": 4.041667,
+          "trusted": true,
+          "hidden": false
+        },
+        "elapsedMs": 8349.7
+      }
+    },
+    {
+      "name": "iPhone 13 emulation: continuous slow playback takes about 10s and is not timed out",
+      "status": "PASS",
+      "at": "2026-10-17T20:36:49.264Z",
+      "evidence": {
+        "emulation": "iPhone 13",
+        "playbackRate": 0.4,
+        "trustedEnded": {
+          "type": "ended",
+          "t": 10351.59999999404,
+          "time": 4.041667,
+          "duration": 4.041667,
+          "trusted": true,
+          "hidden": false
+        },
+        "naturalPlaybackMs": 10104.5
+      }
+    },
+    {
+      "name": "Pixel 7 emulation: a 3.5s delayed first response still plays naturally and shows its poster",
+      "status": "PASS",
+      "at": "2026-10-17T20:37:00.765Z",
+      "evidence": {
+        "emulation": "Pixel 7",
+        "browserEngine": "Chromium / Edge",
+        "delayedResponseMs": [
+          3514
+        ],
+        "media": {
+          "poster": "http://127.0.0.1:5173/brand/nh-launch-poster.svg",
+          "decoded": true,
+          "opacity": "1",
+          "autoplay": true,
+          "muted": true,
+          "defaultMuted": true,
+          "playsInline": true,
+          "webkitInline": true,
+          "currentTime": 0
+        },
+        "ended": {
+          "type": "ended",
+          "t": 7847.5,
+          "time": 4.041667,
+          "duration": 4.041667,
+          "trusted": true,
+          "hidden": false
+        },
+        "elapsedMs": 8383
+      }
+    },
+    {
+      "name": "Pixel 7 emulation: continuous slow playback takes about 10s and is not timed out",
+      "status": "PASS",
+      "at": "2026-10-17T20:37:09.537Z",
+      "evidence": {
+        "emulation": "Pixel 7",
+        "playbackRate": 0.4,
+        "trustedEnded": {
+          "type": "ended",
+          "t": 10391.60000000894,
+          "time": 4.041667,
+          "duration": 4.041667,
+          "trusted": true,
+          "hidden": false
+        },
+        "naturalPlaybackMs": 10118.90000000596
+      }
+    },
+    {
+      "name": "Autoplay rejection uses at least four seconds of animated NH fallback before revealing the app",
+      "status": "PASS",
+      "at": "2026-10-17T20:37:21.051Z",
+      "evidence": {
+        "simulatedFault": "NotAllowedError from play()",
+        "fallback": {
+          "visibleDurationMs": 4083.2,
+          "distinctClipFrames": 57
+        },
+        "elapsedMs": 4849.7
+      }
+    },
+    {
+      "name": "A decoded video that stops progressing uses the five-second stall budget then the full fallback",
+      "status": "PASS",
+      "at": "2026-10-17T20:37:26.614Z",
+      "evidence": {
+        "simulatedFault": "playback paused and retry play() cannot advance it",
+        "stallBudgetMs": 5126.6,
+        "fallback": {
+          "visibleDurationMs": 4049.7999999999993,
+          "distinctClipFrames": 56
+        }
+      }
+    },
+    {
+      "name": "Simulated hidden time does not consume the first-frame budget and resume still plays the full film",
+      "status": "PASS",
+      "at": "2026-10-17T20:37:37.548Z",
+      "evidence": {
+        "visibilityMethod": "test-only document.hidden/visibilityState getters plus visibilitychange event; not OS backgrounding",
+        "hiddenMs": 10506.89999999106,
+        "ended": {
+          "type": "ended",
+          "t": 15935.5,
+          "time": 4.041667,
+          "duration": 4.041667,
+          "trusted": true,
+          "hidden": false
+        },
+        "visibleTimePreserved": true
+      }
+    },
+    {
+      "name": "Simulated hidden state pauses the native fallback animation and preserves four visible seconds",
+      "status": "PASS",
+      "at": "2026-10-17T20:37:54.594Z",
+      "evidence": {
+        "visibilityMethod": "simulated document visibility; native Web Animations currentTime observed",
+        "pausedBefore": {
+          "clip": "inset(0px 33.6341% 0px 0px)",
+          "time": 500.03700000217657
+        },
+        "pausedAfter": {
+          "clip": "inset(0px 33.6341% 0px 0px)",
+          "time": 500.03700000217657
+        },
+        "remainingAfterResumeMs": 4213.599999997019,
+        "fallback": {
+          "visibleDurationMs": 4083.1000000000004,
+          "distinctClipFrames": 57
+        }
+      }
+    },
+    {
+      "name": "A late hidden timeupdate does not double-credit the visible stall budget after resume",
+      "status": "PASS",
+      "at": "2026-10-17T20:38:05.162Z",
+      "evidence": {
+        "injectedLateHiddenTimeupdate": {
+          "at": 3880.5,
+          "hidden": true,
+          "time": 0.703206
+        },
+        "resumeToFallbackMs": 5452.29999999702,
+        "fallback": {
+          "visibleDurationMs": 4066.5,
+          "distinctClipFrames": 56
+        },
+        "visibilityMethod": "test-simulated late background media event"
+      }
+    },
+    {
+      "name": "No uncaught JavaScript errors",
+      "status": "PASS",
+      "at": "2026-10-17T20:38:21.12Z",
+      "evidence": []
+    }
+  ]
+}

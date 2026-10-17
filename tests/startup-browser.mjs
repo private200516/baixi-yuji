@@ -3,7 +3,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { chromium } from 'playwright';
 
 const base = (process.env.PREVIEW_URL || 'http://127.0.0.1:5173').replace(/\/$/, '');
-const output = '.delivery/bus-v221', reportPath = `${output}/startup-results.json`;
+const output = '.delivery/mobile-v222', reportPath = `${output}/startup-results.json`;
 const filter = process.env.STARTUP_TEST_FILTER ? new RegExp(process.env.STARTUP_TEST_FILTER, 'i') : null;
 const browser = await chromium.launch({ headless: true, channel: process.env.PLAYWRIGHT_CHANNEL || 'msedge' });
 const checks = [], names = [], errors = [], captures = [], contexts = new Set();
@@ -24,8 +24,8 @@ async function create({ width = 390, height = 844, size = 'M', quiet = false, se
   const context = await browser.newContext({ viewport: { width, height }, locale: 'zh-CN', reducedMotion: system ? 'reduce' : 'no-preference' });
   contexts.add(context);
   const page = await context.newPage(), videoRequests = [];
-  page.setDefaultTimeout(15000); page.on('pageerror', error => errors.push(error.message));
-  page.on('request', request => { if (/\/brand\/nh-launch\.mp4(?:\?|$)/.test(request.url())) videoRequests.push(request.url()); });
+  page.setDefaultTimeout(30000); page.on('pageerror', error => errors.push(error.message));
+  page.on('request', request => { if (/\/brand\/nh-launch-mobile\.mp4(?:\?|$)/.test(request.url())) videoRequests.push(request.url()); });
   await page.addInitScript(({ size, quiet, senior, fault }) => {
     if (!sessionStorage.getItem('startup-test-seeded')) {
       localStorage.setItem('baixi.mobile.v2', JSON.stringify({ size, regularSize: 'M', quiet, senior, favorite: false, savedReturn: '18:00' }));
@@ -34,6 +34,11 @@ async function create({ width = 390, height = 844, size = 'M', quiet = false, se
     // Old releases remembered a completed launch. It must no longer suppress the film.
     sessionStorage.setItem('xiangxu.launch.nh.v1', 'seen');
     if (fault === 'play-rejection') HTMLMediaElement.prototype.play = () => Promise.reject(new DOMException('Injected autoplay rejection', 'NotAllowedError'));
+    if (fault === 'play-throw') HTMLMediaElement.prototype.play = () => { throw new DOMException('Injected synchronous autoplay rejection', 'NotAllowedError'); };
+    if (fault === 'storage-writes') {
+      window.__blockedStorageWrites = 0;
+      Storage.prototype.setItem = () => { window.__blockedStorageWrites++; throw new DOMException('Injected unavailable storage', 'QuotaExceededError'); };
+    }
     if (fault === 'endless-progress') {
       const started = new WeakMap();
       HTMLMediaElement.prototype.play = function() {
@@ -54,7 +59,8 @@ async function create({ width = 390, height = 844, size = 'M', quiet = false, se
       if (app) {
         window.__startupEvidence.frames.push({ at, phase: app.dataset.launch, reason: app.dataset.launchReason || '', appOpacity: +getComputedStyle(app).opacity,
           overlayOpacity: overlay ? +getComputedStyle(overlay).opacity : null, inert: app.inert, ariaHidden: app.getAttribute('aria-hidden'),
-          videoTime: video?.currentTime ?? null, duration: video?.duration ?? null, fallback: !!document.querySelector('.launch-fallback') });
+          videoTime: video?.currentTime ?? null, duration: video?.duration ?? null, fallback: !!document.querySelector('.launch-fallback'),
+          fallbackClip: document.querySelector('.launch-fallback-mark') ? getComputedStyle(document.querySelector('.launch-fallback-mark')).clipPath : null });
         if (app.dataset.launch === 'done') { window.__startupEvidence.doneAt = at; return; }
       }
       requestAnimationFrame(sample);
@@ -92,11 +98,25 @@ async function focusReleased(page) {
   await page.waitForFunction(() => document.activeElement?.id === 'main-view' || document.activeElement?.matches('.senior-heading h2'));
   assert.equal(await page.getByRole('button', { name: '设置', exact: true }).isEnabled(), true);
 }
+function animatedFallback(data) {
+  const frames = data.frames.filter(frame => frame.phase === 'fallback');
+  const end = data.frames.find(frame => frame.phase === 'revealing')?.at ?? data.doneAt;
+  assert.ok(frames.length > 10, 'fallback must remain animated instead of flashing a static logo');
+  const duration = end - frames[0].at;
+  assert.ok(duration >= 4000 && duration < 4600, `fallback duration ${duration}ms`);
+  assert.ok(new Set(frames.map(frame => frame.fallbackClip)).size > 10, 'fallback clip path has no intermediate animation frames');
+  return { durationMs: duration, clipFrames: new Set(frames.map(frame => frame.fallbackClip)).size };
+}
 
 await check('390px natural MP4 playback advances to a trusted ended event, then crossfades into the app', async () => {
   const { page, videoRequests } = await create(); await load(page);
   assert.equal(await page.locator('.launch-app').evaluate(el => el.inert), true);
   assert.equal(await page.locator('.launch-app').getAttribute('aria-hidden'), 'true');
+  assert.equal(await page.locator('.launch-wordmark strong').innerText(), '宁海公交');
+  assert.equal(await page.locator('.launch-screen').getAttribute('aria-label'), '宁海公交启动动画');
+  const attributes = await page.locator('video').evaluate(media => ({ autoplay: media.autoplay, muted: media.muted, defaultMuted: media.defaultMuted, playsInline: media.playsInline, inlineAttribute: media.hasAttribute('playsinline'), webkitInline: media.hasAttribute('webkit-playsinline'), poster: media.poster, source: media.currentSrc || media.src, opacity: getComputedStyle(media).opacity }));
+  assert.ok(attributes.autoplay && attributes.muted && attributes.defaultMuted && attributes.playsInline && attributes.inlineAttribute && attributes.webkitInline);
+  assert.ok(attributes.poster.endsWith('/brand/nh-launch-poster.svg')); assert.ok(attributes.source.endsWith('/brand/nh-launch-mobile.mp4')); assert.equal(attributes.opacity, '1');
   await page.waitForFunction(() => document.querySelector('.launch-video')?.currentTime > .4);
   assert.equal(await page.locator('.launch-screen button,.launch-skip').count(), 0);
   await page.keyboard.press('Tab'); assert.equal(await page.locator('.launch-screen').evaluate(el => el === document.activeElement), true);
@@ -183,37 +203,60 @@ for (const mode of ['system', 'quiet', 'senior']) {
 }
 
 await check('A failed MP4 request falls back to the logo and releases the app within a bounded time', async () => {
-  const { page } = await create(); await page.route('**/brand/nh-launch.mp4*', route => route.abort('failed'));
+  const { page } = await create(); await page.route('**/brand/nh-launch-mobile.mp4*', route => route.abort('failed'));
   await load(page); await done(page); await focusReleased(page); const data = await evidence(page);
   assert.equal(await page.locator('.launch-app').getAttribute('data-launch-reason'), 'media-error');
   assert.ok(data.frames.some(frame => frame.fallback && frame.phase === 'fallback'));
-  assert.ok(data.doneAt - data.frames[0].at < 2300); await screenshot(page, '390-mp4-error-recovered');
-  return { reason: 'media-error', fallbackShown: true, releaseAfterMs: data.doneAt - data.frames[0].at };
+  const fallback = animatedFallback(data); assert.ok(data.doneAt - data.frames[0].at < 6500); await screenshot(page, '390-mp4-error-recovered');
+  return { reason: 'media-error', fallback, releaseAfterMs: data.doneAt - data.frames[0].at };
 });
 
 await check('Rejected play promise falls back without an unhandled error or focus trap', async () => {
   const { page } = await create({ fault: 'play-rejection' }); await load(page); await done(page); await focusReleased(page); const data = await evidence(page);
   assert.equal(await page.locator('.launch-app').getAttribute('data-launch-reason'), 'playback-blocked');
-  assert.ok(data.frames.some(frame => frame.fallback)); assert.ok(data.doneAt - data.frames[0].at < 2300);
-  return { reason: 'playback-blocked', releaseAfterMs: data.doneAt - data.frames[0].at };
+  const fallback = animatedFallback(data); assert.ok(data.doneAt - data.frames[0].at < 6500);
+  return { reason: 'playback-blocked', fallback, releaseAfterMs: data.doneAt - data.frames[0].at };
+});
+
+await check('Synchronous play rejection also runs the complete fallback and restores interaction', async () => {
+  const { page } = await create({ fault: 'play-throw' }); await load(page); await done(page); await focusReleased(page); const data = await evidence(page);
+  assert.equal(await page.locator('.launch-app').getAttribute('data-launch-reason'), 'playback-blocked');
+  const fallback = animatedFallback(data); assert.ok(data.doneAt - data.frames[0].at < 6500);
+  return { simulatedFault: 'synchronous NotAllowedError from play()', reason: 'playback-blocked', fallback, releaseAfterMs: data.doneAt - data.frames[0].at };
+});
+
+await check('Unavailable storage writes cannot suppress the film or trap the revealed app', async () => {
+  const { page } = await create({ fault: 'storage-writes' }); await load(page); await done(page); await focusReleased(page);
+  const data = await evidence(page), ended = data.events.find(event => event.type === 'ended' && event.trusted);
+  assert.ok(ended); assert.ok(ended.time >= ended.duration - .05);
+  await page.getByRole('button', { name: '设置', exact: true }).click(); await page.getByRole('dialog', { name: '设置', exact: true }).waitFor();
+  await page.getByRole('button', { name: '大字号', exact: true }).click();
+  const blockedStorageWrites = await page.evaluate(() => window.__blockedStorageWrites); assert.ok(blockedStorageWrites > 0, 'storage fault was not exercised');
+  assert.equal(await page.locator('html').getAttribute('data-text-size'), 'L');
+  return { simulatedFault: 'QuotaExceededError on Storage.setItem', blockedStorageWrites, trustedEnded: ended, settingsOpened: true, inMemorySizeChanged: 'L' };
 });
 
 await check('A hung video request cannot hold the app beyond the no-progress watchdog', async () => {
   const { page } = await create(); let held;
-  await page.route('**/brand/nh-launch.mp4*', route => { held = route; });
+  await page.route('**/brand/nh-launch-mobile.mp4*', route => { held = route; });
   await load(page); await done(page); await focusReleased(page); const data = await evidence(page);
   assert.equal(await page.locator('.launch-app').getAttribute('data-launch-reason'), 'media-timeout');
-  const elapsed = data.doneAt - data.frames[0].at; assert.ok(elapsed >= 2600 && elapsed < 4500, `hung request held app for ${elapsed}ms`);
-  assert.ok(data.frames.some(frame => frame.fallback)); await held?.abort().catch(() => {});
-  return { reason: 'media-timeout', releaseAfterMs: elapsed, fallbackShown: true };
+  const elapsed = data.doneAt - data.frames[0].at; assert.ok(elapsed >= 14000 && elapsed < 17000, `hung request held app for ${elapsed}ms`);
+  const fallback = animatedFallback(data); await held?.abort().catch(() => {});
+  return { reason: 'media-timeout', releaseAfterMs: elapsed, fallback };
 });
 
 await check('Progress without an ended event still respects the absolute startup deadline', async () => {
-  const { page } = await create({ fault: 'endless-progress' }); await load(page); await done(page); await focusReleased(page); const data = await evidence(page);
+  const { page } = await create({ fault: 'endless-progress' }); const held = [];
+  // Prevent native autoplay from finishing the real film while simulating a
+  // defective player that reports progress forever without an ended event.
+  await page.route('**/brand/nh-launch-mobile.mp4*', route => { held.push(route); });
+  await load(page); await done(page); await focusReleased(page); const data = await evidence(page);
   assert.equal(await page.locator('.launch-app').getAttribute('data-launch-reason'), 'media-timeout');
-  const elapsed = data.doneAt - data.frames[0].at; assert.ok(elapsed >= 8500 && elapsed < 10500, `absolute deadline failed: ${elapsed}ms`);
+  const elapsed = data.doneAt - data.frames[0].at; assert.ok(elapsed >= 24000 && elapsed < 28000, `absolute deadline failed: ${elapsed}ms`);
   assert.ok(data.events.filter(event => event.type === 'timeupdate').length >= 25);
-  return { simulatedFault: 'advancing media time with no ended event', releaseAfterMs: elapsed, reason: 'media-timeout' };
+  const fallback = animatedFallback(data); await Promise.all(held.map(route => route.abort().catch(() => {})));
+  return { simulatedFault: 'advancing media time with no ended event', releaseAfterMs: elapsed, reason: 'media-timeout', fallback };
 });
 
 await check('A second tab in the same browser context also plays the film to completion', async () => {
