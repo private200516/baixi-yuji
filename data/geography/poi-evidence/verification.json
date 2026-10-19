@@ -1,0 +1,92 @@
+{
+  "checkedAt": "2026-10-19",
+  "scope": "First researched sample: 12 sourced introductions in five villages, three published geographic reference points; not an exhaustive inventory, field survey, entrance list, boarding-point list or operating service.",
+  "catalogFile": "src/geography/poiCatalog.ts",
+  "coverageFile": "docs/village-poi-coverage.md",
+  "coordinateOrder": "longitude, latitude",
+  "normalizedCrs": "EPSG:4326",
+  "coordinateTransformation": "No datum conversion. Published decimal WGS84 coordinates retained; DMS independently checked using degrees + minutes/60 + seconds/3600.",
+  "records": [
+    {
+      "poiId": "qingtan-shuangzhi",
+      "sourceUrl": "https://zh.wikipedia.org/w/index.php?oldid=85668020&title=双枝庙",
+      "sourceRevision": "85668020",
+      "sourceDate": "2025-01-13",
+      "sourceDms": "29°25′57.29″N 121°17′31.58″E",
+      "sourceDecimal": [121.2921056, 29.4325806],
+      "purpose": "Published building reference point; unknown accuracy, not an entrance or surveyed point.",
+      "identityCrossCheck": "Shenzhen Town Spatial Plan PDF page 29 explicitly names 清潭双枝庙古戏台; page 30 historical-cultural resources table. Relevant page visually reviewed."
+    },
+    {
+      "poiId": "longgong-chen-hall",
+      "sourceUrl": "https://zh.wikipedia.org/w/index.php?oldid=89181774&title=龙宫陈氏宗祠",
+      "sourceRevision": "89181774",
+      "sourceDate": "2025-09-17",
+      "sourceDms": "29°22′28.54″N 121°16′29.50″E",
+      "sourceDecimal": [121.2748611, 29.3745944],
+      "purpose": "Published building reference point; unknown accuracy, not an entrance or surveyed point.",
+      "identityCrossCheck": "Ninghai News 2017-04-24 龙宫陈氏宗祠的建筑艺术 full article confirms village, alias 星聚堂 and architectural history."
+    },
+    {
+      "poiId": "meizhitian-shenkantou",
+      "sourceUrl": "https://www.openstreetmap.org/way/1210271570",
+      "sourceObject": "way/1210271570",
+      "sourceTimestamp": "2026-07-28T02:16:18Z",
+      "sourceDecimal": [121.5036383, 29.2394411],
+      "sourceField": "elements[type=way,id=1210271570].center",
+      "requiredTags": { "name": "申坎头水库", "natural": "water", "water": "reservoir" },
+      "purpose": "Overpass bounding-box center of a water feature; reference-only landscape location, not a shore, entrance, walkable destination or safe standing location.",
+      "identityCrossCheck": "Ninghai News 2014-12-30 field visit explicitly names 梅枝田申坎头水库 along the village visit. Association is supported by the article, not proximity or an inferred administrative boundary.",
+      "geometry": null,
+      "geometryNote": "Follow-up geometry endpoint requests failed. No fabricated polygon or boundary is substituted."
+    }
+  ],
+  "retainedEvidence": [
+    {
+      "file": "data/geography/poi-evidence/pois.overpass.json",
+      "sha256": "df2a3d50813ec286f1bc2b5bf796c54fff4992ce00a1d0382292c9baa5a54f23",
+      "sourceRecord": "data/geography/poi-evidence/pois.source.json",
+      "queryFile": "data/geography/poi-evidence/pois.overpass.ql",
+      "elementCount": 152,
+      "license": "ODbL-1.0",
+      "attributionUrl": "https://www.openstreetmap.org/copyright"
+    },
+    {
+      "file": "data/geography/poi-evidence/shenzhen-spatial-plan.pdf",
+      "sha256": "efe872c3fce477dc5d03956e51f0ec2ff6ddc03e40bfd954e57af53b657e98eb",
+      "sourceUrl": "https://zjjcmspublic.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/jcms_files/jcms1/web3575/site/attach/0/2fb4309afa884382a51c3ac35dae0c71.pdf",
+      "title": "宁海县深甽镇国土空间总体规划",
+      "publishedAt": null,
+      "reviewImage": "data/geography/poi-evidence/shenzhen-page29-review.png",
+      "reviewNote": "Page 29 visually inspected; 清潭双枝庙古戏台 explicitly identified. Not used to derive coordinates."
+    },
+    {
+      "file": "data/research/ruoao-plan.pdf",
+      "sha256": "b315b6e669758b1965440783b632230db0eb7993ba2946756466f45b4f5dfe99",
+      "sourceUrl": "https://zjjcmspublic.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/jcms_files/jcms1/web3575/site/attach/0/550ebc7cf2c7407d973729780d1fb30c.pdf",
+      "title": "宁海县一市镇箬岙村历史文化名村保护规划（2023—2035年）简本",
+      "publishedAt": "2025-07",
+      "reviewImages": ["data/geography/poi-evidence/ruoao-page6-review.png", "data/geography/poi-evidence/ruoao-page9-review.png"],
+      "reviewNote": "Text and protection-element photos on pages 5–6 support identity and summary. Pages 7/9 have no adequate geospatial registration; no latitude/longitude derived from these drawings."
+    }
+  ],
+  "unresolvedCandidates": [
+    {
+      "name": "旧采石场",
+      "villageCandidate": "xujiashan",
+      "osmObject": "way/1347061000",
+      "sourceArticle": "https://www.ctnews.com.cn/paper/content/202609/01/content_114961.html",
+      "articleTitle": "许家山“石头记”",
+      "publishedAt": "2026-09-01",
+      "status": "not-added",
+      "reason": "The article mentions village quarry remains, but does not uniquely identify the OSM feature through position, extent or another corroborating identifier. Same village and feature category do not establish object identity."
+    },
+    {
+      "villageId": "ruoao",
+      "status": "text-only",
+      "reason": "Protection plan confirms names and village association, but cannot yield defensible WGS84 POI coordinates without georeferencing evidence."
+    }
+  ],
+  "imagePolicy": "All catalog image fields are null. Source article photos are not copied into product UI without reusable rights and subject verification.",
+  "publicAccessPolicy": "All publicAccessStatus fields are unknown. Historic-cultural descriptions do not grant entry, imply free access, or provide walking navigation."
+}

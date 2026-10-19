@@ -1,6 +1,8 @@
-# 乡序 2.0 · 手机公共交通 APP 原型
+# 乡序 2.3 · 手机公共交通 APP 原型
 
-[在线 Demo](https://private200516.github.io/baixi-yuji/#/ride) · [古镇地图](https://private200516.github.io/baixi-yuji/#/town) · [2.2.2 下载与更新说明](https://github.com/private200516/baixi-yuji/releases/tag/v2.2.2)
+[在线 Demo](https://private200516.github.io/baixi-yuji/?v=2.3.0#/ride) · [古镇地图](https://private200516.github.io/baixi-yuji/?v=2.3.0#/town) · [2.3.0 下载与更新说明](https://github.com/private200516/baixi-yuji/releases/tag/v2.3.0)
+
+**2.3.0 旅游环线与景点简介：** 在 v2.2.2 上增加独立规划环线、村落编号、景点资料点及原样式简介弹层；首次进入古镇默认全线，浏览后保留地图视角。五村共有 12 条有来源的简介，3 个已核对公开资料坐标；其余只保留文字清单，不虚构落点。许家山和箬岙目前通过文字清单阅读，尚无可落图景点坐标。用户随后授权同步此前软件增量，本版据此发布；[原本地验收记录](docs/town-guide-validation.md)保留当时未发布的历史状态，[本版更新说明](docs/releases/v2.3.0.md)记录发布范围。
 
 **2.2.2 手机启动兼容修复：**启动页显示“宁海公交”。启动视频改用无损fast-start副本，补齐静音自动播放和内联配置；将首帧等待与播放中停滞分开处理，后台时间不计入等待。浏览器拒绝视频播放时展示约4秒的NH矢量徽标动画，再衔接页面，保留每次打开播放及无跳过入口。[问题复现与验收](docs/mobile-startup-validation.md)。
 
@@ -32,7 +34,9 @@
 
 选村复用同一个地图实例，以720ms平滑移动到新村落；测量悬浮控件尺寸，使点位保持在上方标题和底部卡片之间。卡片分层淡入、内容轻移，原凹槽与圆座480ms同步移动，图标保留固定排列位置。尊重系统减少动态效果、应用设置及老年模式。
 
-“查看道路方案”进入原线路面板的研究状态，复用四个条目选择目的村；返程入口携带独立方向的研究记录。明确选定方案后，可在原地图画布查看该区间；未选择方案时保持默认村落平面视图。MapLibre/WebGL失败时仍能用文字选择器选村；底图保留OpenStreetMap署名和ODbL许可。
+“查看道路方案”进入原线路面板的研究状态，复用四个条目选择目的村；返程入口携带独立方向的研究记录。明确选定方案后，可在原地图画布查看该区间。首次进入且无恢复中的任务时展示完整规划环线，顶部“查看完整环线”始终可回到总览；当前区间与全环线独立保留。MapLibre/WebGL失败时仍能用文字选择器选村和景点清单阅读简介；底图保留OpenStreetMap署名和ODbL许可。
+
+本地环游顺序为清潭→龙宫→箬岙→梅枝田→许家山→清潭，沿真实样本道路闭合约143.9公里，包含局部折返，不能据此推断旅游巴士可通行或已运营。村内景点使用独立资料源，点选后在既有 `SheetPanel` 中展示介绍；“听一遍”只使用设备本地中文语音，不自动朗读。缺坐标的记录保留在同源清单中，缺照片时隐藏图片区。小屏密集点聚合为可点入口，不挪动真实地理位置；关闭简介恢复焦点及原地图范围。
 
 场景样式只作用于古镇页面，不加载历史 `geography.css` 或 `mobile-product.css`。历史卡片地图封装 `GeographicTownMap.tsx` 保留，但当前古镇页使用场景布局。当前视图为平面真实地图，没有虚构建筑或地形。
 
@@ -66,7 +70,9 @@ pnpm test:journey
 pnpm test:startup
 pnpm test:mobile-startup
 pnpm test:theme-bus
+pnpm test:town-guide
 pnpm build
+pnpm test:town-guide-production
 pnpm preview
 ```
 
@@ -81,11 +87,14 @@ pnpm preview
 - [数据来源](docs/data-sources.md)
 - [村落核验](docs/village-verification.md)
 - [地图局部数据](docs/map-depth-data.md)
+- [旅游环线闭合与道路限制](docs/travel-loop-closure.md)
+- [五村景点覆盖与坐标缺口](docs/village-poi-coverage.md)
+- [本地地图增量验收](docs/town-guide-validation.md)
 - [本轮范围与验收](docs/journey-link-validation.md)
 - [以前的GitHub与Figma交付记录](docs/previous-release-readme.md)
 
 每次上线递增版本号：小修复或视觉调整升补丁版本，功能增量升次版本；同步源码、Demo、下载包并保留旧版。
 
-源码位于 `main`，静态Demo通过 `gh-pages` 发布，手机启动兼容修复见 [v2.2.2](docs/releases/v2.2.2.md)，主题巴士见 [v2.2.1](docs/releases/v2.2.1.md)，NH品牌初版见 [v2.2.0](docs/releases/v2.2.0.md)，六色主题见 [v2.1.1](docs/releases/v2.1.1.md)，数据联动见 [v2.1.0](docs/releases/v2.1.0.md)，导航修复见 [v2.0.1](docs/releases/v2.0.1.md)，初版变更见 [v2.0.0](docs/releases/v2.0.0.md)。旧版保留；`design/` 为旧版设计交付资料，本次没有更新线上Figma。
+源码位于 `main`，静态Demo通过 `gh-pages` 发布，环线与简介见 [v2.3.0](docs/releases/v2.3.0.md)，手机启动兼容修复见 [v2.2.2](docs/releases/v2.2.2.md)，主题巴士见 [v2.2.1](docs/releases/v2.2.1.md)，NH品牌初版见 [v2.2.0](docs/releases/v2.2.0.md)，六色主题见 [v2.1.1](docs/releases/v2.1.1.md)，数据联动见 [v2.1.0](docs/releases/v2.1.0.md)，导航修复见 [v2.0.1](docs/releases/v2.0.1.md)，初版变更见 [v2.0.0](docs/releases/v2.0.0.md)。旧版保留；`design/` 为旧版设计交付资料，本次没有更新线上Figma。
 
-![古村地图场景](docs/palette-v2.1.1/town.png)
+![古村地图场景](docs/town-guide-validation/390-overview.png)

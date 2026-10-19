@@ -1,0 +1,31 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>旅行地图组件交互验证（测试点）</title><div id="root"></div><script type="module">
+import React,{useState,useEffect,useRef} from 'react';
+import {createRoot} from 'react-dom/client';
+import {GeographyMap} from '../src/geography/GeographyMap.tsx';
+import '../src/geography/geography.css';
+import 'maplibre-gl/dist/maplibre-gl.css';
+const verificationStatus={identity:'verified',summary:'verified',coordinates:'verified'};
+// Test-only fixture coordinates deliberately exercise overlapping touch targets.
+// These are never imported by the app or presented as verified sightseeing locations.
+const fixtures=[
+  {id:'fixture-a',villageId:'xujiashan',officialName:'交互测试点甲',category:'historic-house',normalizedCoordinate:[121.5338,29.3212],verificationStatus},
+  {id:'fixture-b',villageId:'xujiashan',officialName:'交互测试点乙',category:'bridge',normalizedCoordinate:[121.53381,29.32121],verificationStatus},
+  {id:'fixture-c',villageId:'xujiashan',officialName:'交互测试点丙',category:'temple',normalizedCoordinate:[121.535,29.3223],verificationStatus},
+  {id:'pending',villageId:'xujiashan',officialName:'未核验测试点',category:'bridge',normalizedCoordinate:null,verificationStatus:{...verificationStatus,coordinates:'pending'}},
+];
+function Harness(){
+  const [scope,setScope]=useState('loop'),[loop,setLoop]=useState(null),[selectedId,onSelect]=useState('xujiashan'),[fitRequest,setFit]=useState(0),[mounted,setMounted]=useState(true),[selectedPois,setSelectedPois]=useState([]),[large,setLarge]=useState(false),[padding,setPadding]=useState(150);
+  const camera=useRef(null),[villageGroups,setVillageGroups]=useState(false),[selectedVillages,setSelectedVillages]=useState([]);
+  useEffect(()=>{fetch('/geography/travel-loop.json').then(r=>r.json()).then(setLoop);},[]);
+  return React.createElement('main',{className:'geography-app',style:{padding:'12px',maxWidth:'900px'}},
+    React.createElement('p',{},'隔离测试组件；测试景点不属于正式名录'),
+    ...['loop','route','village'].map(id=>React.createElement('button',{'data-scope':id,key:id,onClick:()=>{setScope(id);setFit(n=>n+1);}},id)),
+    React.createElement('button',{'data-mount':true,onClick:()=>setMounted(value=>!value)},'切换挂载'),
+    React.createElement('button',{'data-large':true,onClick:()=>{setLarge(value=>!value);setPadding(value=>value===150?170:150);}},'改变字体与避让'),
+    React.createElement('button',{'data-village-grouping':true,onClick:()=>setVillageGroups(true)},'启用村点聚合'),
+    React.createElement('div',{style:{height:'600px',position:'relative'}},mounted&&React.createElement(GeographyMap,{selectedId,onSelect,scope,travelLoop:loop,route:loop?{id:'test-interval',geometry:{type:'LineString',coordinates:loop.segments[0].coordinates}}:null,pois:fixtures,selectedPoiId:selectedPois[0]??null,onPoiSelect:setSelectedPois,onVillageGroupSelect:villageGroups?setSelectedVillages:undefined,reducedMotion:true,large,presentation:'scene',viewportInsets:{top:padding,bottom:120,left:24,right:70},cameraSnapshot:camera.current,onCameraChange:value=>{camera.current=value;},fitRequest})),
+    React.createElement('output',{'data-selected-villages':selectedVillages.join(',')},selectedVillages.join(',')),
+    React.createElement('output',{'data-selected-pois':selectedPois.join(',')},selectedPois.join(',')));
+}
+createRoot(document.getElementById('root')).render(React.createElement(Harness));
+</script></html>

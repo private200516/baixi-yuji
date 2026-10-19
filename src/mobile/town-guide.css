@@ -1,0 +1,38 @@
+.town-overview-action{text-align:left;color:var(--ink)}
+.town-overview-action p{display:flex;align-items:center;gap:8px;font-size:calc(13px * var(--type-scale,1));color:var(--teal-dark)}
+.town-overview-action p .glyph{width:14px;height:14px}
+.town-card-actions{display:flex;align-items:stretch;border-top:1px solid var(--line);margin-top:8px}
+.town-card-actions .town-route-action,.town-card-actions .town-poi-action{flex:1;min-width:0;min-height:48px;border:0;margin:0;display:flex;align-items:center;justify-content:center;gap:3px;color:var(--teal-dark);font-size:calc(12px * var(--type-scale,1));line-height:1.4}
+.town-card-actions .town-poi-action{border-left:1px solid var(--line)}
+.town-card-actions .glyph{width:12px;height:12px;flex-shrink:0}
+.town-guide-content{font-size:calc(14px * var(--type-scale,1));line-height:1.75;overflow-wrap:anywhere}
+.town-guide-content .guide-meta{color:var(--teal-dark);font-size:calc(12px * var(--type-scale,1));margin-bottom:12px;line-height:1.6}
+.town-guide-content .poi-summary{font-size:calc(15px * var(--type-scale,1));line-height:1.9;margin:12px 0 18px}
+.town-guide-content .guide-note,.town-guide-content .guide-access{font-size:calc(12px * var(--type-scale,1));color:var(--muted);line-height:1.8;margin:12px 0}
+.town-guide-content .guide-access{display:flex;align-items:flex-start;gap:8px;border-radius:16px;background:var(--mist);padding:12px;color:var(--ink)}
+.guide-access .glyph{width:18px;height:18px;margin-top:3px;flex-shrink:0}
+.town-guide-content .guide-listen,.town-guide-content .guide-secondary{min-height:50px;font-size:calc(14px * var(--type-scale,1))}
+.town-guide-content .guide-listen{margin-top:18px}.town-guide-content .guide-secondary{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:10px 14px;border:1px solid var(--line-strong);border-radius:26px;color:var(--teal-dark);margin-top:14px}
+.guide-secondary .glyph{width:14px;height:14px}.guide-message{padding:12px 0;color:var(--ink);font-size:calc(13px * var(--type-scale,1))}
+.town-guide-content .guide-sources{border-top:1px solid var(--line);margin-top:20px;padding-top:6px;font-size:calc(12px * var(--type-scale,1));color:var(--muted)}
+.guide-sources summary{min-height:48px;cursor:pointer;padding:12px 0;color:var(--teal-dark)}.guide-sources ul{padding-left:18px;margin:10px 0}.guide-sources li{margin:10px 0}.guide-sources a{text-decoration:underline;text-underline-offset:3px}.guide-sources small{display:block}
+.guide-village-order,.guide-poi-list{list-style:none;padding:0;margin:14px 0}.guide-village-order button,.guide-poi-list button{display:flex;align-items:center;gap:12px;width:100%;min-height:64px;text-align:left;padding:12px 0;border-bottom:1px solid var(--line)}
+.guide-village-order button>b,.guide-category-icon{display:grid;place-items:center;flex-shrink:0;width:32px;height:32px;border-radius:50%;background:var(--mist);color:var(--teal-dark)}
+.guide-village-order button>span,.guide-poi-list button>span:nth-child(2){min-width:0;flex:1}.guide-village-order strong,.guide-poi-list strong{display:block;font-size:calc(15px * var(--type-scale,1));font-weight:650}
+.guide-village-order small,.guide-poi-list small{display:block;font-size:calc(12px * var(--type-scale,1));color:var(--muted);margin-top:4px}.guide-village-order .glyph,.guide-poi-list button>.glyph{width:16px;height:16px;flex-shrink:0}.guide-category-icon .glyph{width:19px;height:19px}
+.guide-loop-return{color:var(--teal-dark);font-size:calc(13px * var(--type-scale,1));padding:8px 0}.guide-empty{background:var(--mist);border-radius:18px;padding:18px;margin:18px 0}.guide-photo{margin:12px 0}.guide-photo img{display:block;max-width:100%;max-height:180px;object-fit:cover;border-radius:18px}.guide-photo figcaption{font-size:calc(10px * var(--type-scale,1));color:var(--muted)}
+.town-scene .town-loop-copy h3{font-size:calc(23px * var(--type-scale,1))}
+@container town-scene (max-width:360px){.town-overview-action p{font-size:calc(12px * var(--type-scale,1))}.town-card-actions .town-route-action,.town-card-actions .town-poi-action{font-size:calc(11px * var(--type-scale,1))}}
+@media(max-width:360px){.town-guide-content .poi-summary{font-size:calc(14px * var(--type-scale,1))}.town-guide-content .guide-listen{margin-top:14px}}
+/* Keep the original cards and bus identity inside a small phone, leaving room for the map. */
+@container town-scene (max-width:360px){
+  .town-scene .town-title-card h2{font-size:calc(28px * var(--type-scale,1))}
+  .town-scene .town-overview-action p{font-size:calc(12px * var(--type-scale,1))}
+}
+@container town-scene (max-height:540px){
+  .town-scene .town-title-card{padding:8px 10px}
+  .town-scene .town-title-card h2{font-size:calc(26px * var(--type-scale,1))}
+  .town-scene .town-overview-action p{font-size:calc(12px * var(--type-scale,1))}
+  .town-scene .town-loop-copy h3{font-size:calc(21px * var(--type-scale,1))}
+  .town-scene .town-card-actions{margin-top:5px}
+}

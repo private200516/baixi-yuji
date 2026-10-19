@@ -6,15 +6,16 @@ export type MultiLineString = { type:'MultiLineString'; coordinates:number[][][]
 export type Polygon = { type:'Polygon'; coordinates:number[][][] };
 export type FeatureCollection = { type:'FeatureCollection'; features:{type:'Feature';properties:Record<string,unknown>|null;geometry:LineString|MultiLineString|Polygon|{type:'MultiPolygon';coordinates:number[][][][]}|{type:'Point';coordinates:number[]}}[] };
 
-export type MapScope = 'county' | 'route' | 'village';
+export type MapScope = 'county' | 'loop' | 'route' | 'village';
 export type MapDepth = 'flat' | 'relief';
 export type MapPresentation = 'card' | 'scene';
 export type MapViewportInsets = { top:number; bottom:number; left:number; right:number };
+export type MapCameraSnapshot = { center:[number,number]; zoom:number; bearing:number; pitch:number; padding?:MapViewportInsets };
 export type MapRoute = { id: string; geometry: LineString | MultiLineString | null; geometryStatus?: string };
 export type MapBoardingPoint = { id: string; name: string; coordinates: [number, number]; status: 'suggested' | 'verified'; villageId?: string };
 export type MapDetail = { crs: string; layers: Record<'buildings' | 'detail-roads' | 'detail-water', string>; villageBuildingCounts: Record<string, number> };
 export const emptyCollection: FeatureCollection = { type: 'FeatureCollection', features: [] };
-export const scopeNames: Record<MapScope,string> = { county:'全县古村',route:'当前区间',village:'村落局部' };
+export const scopeNames: Record<MapScope,string> = { county:'全县古村',loop:'规划旅行环线',route:'当前区间',village:'村落局部' };
 
 export function mapStyle(base: FeatureCollection[], detail: FeatureCollection[], presentation:MapPresentation='card'): StyleSpecification {
   const scene=presentation==='scene';
@@ -24,6 +25,9 @@ export function mapStyle(base: FeatureCollection[], detail: FeatureCollection[],
     sources:{
       boundary:{type:'geojson',data:base[0]},roads:{type:'geojson',data:base[1]},water:{type:'geojson',data:base[2]},
       buildings:{type:'geojson',data:detail[0]},'detail-roads':{type:'geojson',data:detail[1]},'detail-water':{type:'geojson',data:detail[2]},
+      'travel-loop':{type:'geojson',data:emptyCollection},
+      'loop-directions':{type:'geojson',data:emptyCollection},
+      'village-pois':{type:'geojson',data:emptyCollection},
       proposal:{type:'geojson',data:emptyCollection},
     },
     layers:[
@@ -39,8 +43,11 @@ export function mapStyle(base: FeatureCollection[], detail: FeatureCollection[],
       {id:'local-paths',type:'line',source:'detail-roads',minzoom:14,filter:['==',['get','movement'],'non-motor'],paint:{'line-color':'#7E8D87','line-width':1.5,'line-dasharray':[2,2]}},
       {id:'building-footprints',type:'fill',source:'buildings',minzoom:14,paint:{'fill-color':'#B5C4BF','fill-outline-color':'#6D817B','fill-opacity':.92}},
       {id:'building-models',type:'fill-extrusion',source:'buildings',minzoom:14,layout:{visibility:'none'},paint:{'fill-extrusion-color':'#EFE6C1','fill-extrusion-height':['get','displayHeight'],'fill-extrusion-base':0,'fill-extrusion-opacity':1}},
+      {id:'travel-loop-case',type:'line',source:'travel-loop',layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':'#F5F2E9','line-width':9}},
+      {id:'travel-loop-line',type:'line',source:'travel-loop',layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':'#087F8C','line-width':5}},
       {id:'proposal-case',type:'line',source:'proposal',layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':'#24383A','line-width':8}},
       {id:'proposal-line',type:'line',source:'proposal',layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':'#F47C64','line-width':4.5}},
+      {id:'loop-direction-arrows',type:'symbol',source:'loop-directions',layout:{'icon-image':'loop-direction','icon-rotate':['get','bearing'],'icon-rotation-alignment':'map','icon-pitch-alignment':'viewport','icon-size':.65,'icon-allow-overlap':false,'icon-padding':10}},
       {id:'county-edge',type:'line',source:'boundary',layout:{visibility:scene?'none':'visible'},paint:{'line-color':'#087F8C','line-width':1.8}},
     ],
   };

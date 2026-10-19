@@ -1,0 +1,1 @@
+[out:json][timeout:50];(nwr["name"](around:1000,29.3211666,121.5337458);nwr["name"](around:1000,29.3753662,121.2721072);nwr["name"](around:1000,29.4315601,121.2881886);nwr["name"](around:1000,29.2348314,121.506495);nwr["name"](around:1000,29.184526,121.4779495););out center tags;

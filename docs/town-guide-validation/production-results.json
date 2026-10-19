@@ -1,0 +1,156 @@
+{
+  "checkedAt": "2026-10-19T10:54:52.727Z",
+  "status": "PASS",
+  "subpath": "/baixi-yuji/",
+  "servedDirectory": "dist",
+  "channel": "msedge",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "dataMode": "unmodified-production-build",
+  "checks": [
+    {
+      "name": "Homepage startup reaches done using the actual media",
+      "status": "PASS",
+      "evidence": {
+        "screen": "ride",
+        "state": "done",
+        "reason": "ended",
+        "media": [
+          {
+            "path": "/baixi-yuji/brand/nh-launch-mobile.mp4",
+            "status": 206
+          }
+        ]
+      }
+    },
+    {
+      "name": "Town opens the genuine complete loop under the production subpath",
+      "status": "PASS",
+      "evidence": {
+        "localJsonStatus": 200,
+        "localJsonPath": "/baixi-yuji/geography/travel-loop.json",
+        "distanceMeters": 143880,
+        "closureStatus": "closed-directed-road-cycle",
+        "orderedVillageIds": [
+          "qingtan",
+          "longgong",
+          "ruoao",
+          "meizhitian",
+          "xujiashan"
+        ],
+        "sourceSha256": "b73e7e099db875540314b8606e76fa61014dc0f41c2a568ef877ac66f922dfc1",
+        "camera": {
+          "center": "121.42210646073829,29.19364590696557",
+          "zoom": "9.21",
+          "pitch": "0"
+        }
+      }
+    },
+    {
+      "name": "One real Qingtan POI click opens its introduction and Back closes before navigation",
+      "status": "PASS",
+      "evidence": {
+        "poiId": "qingtan-shuangzhi",
+        "summaryLength": 84,
+        "clicksToIntroduction": 1,
+        "backKeptHash": "#/town",
+        "cameraBefore": {
+          "center": "121.2906453149123,29.430387047362586",
+          "zoom": "15.32",
+          "pitch": "0"
+        },
+        "cameraAfter": {
+          "center": "121.2906453149123,29.430387047362586",
+          "zoom": "15.32",
+          "pitch": "0"
+        },
+        "focusRestored": true
+      }
+    },
+    {
+      "name": "Return-to-loop control restores the overview",
+      "status": "PASS",
+      "evidence": {
+        "scope": "loop",
+        "camera": {
+          "center": "121.42210646073818,29.19364590696557",
+          "zoom": "9.21",
+          "pitch": "0"
+        },
+        "visibleVillageNodes": 5
+      }
+    },
+    {
+      "name": "Large text set through Settings keeps the real introduction and close button usable",
+      "status": "PASS",
+      "evidence": {
+        "size": "L",
+        "poiId": "qingtan-shuangzhi",
+        "geometry": {
+          "left": 0,
+          "right": 390,
+          "top": 175.75,
+          "bottom": 844,
+          "scrollWidth": 388,
+          "clientWidth": 388,
+          "focusInside": true
+        },
+        "closeButton": {
+          "width": 69.328125,
+          "height": 44,
+          "inViewport": true,
+          "hitTarget": true
+        },
+        "closed": true
+      }
+    },
+    {
+      "name": "Local fonts and all requested assets load without JavaScript or HTTP failures",
+      "status": "PASS",
+      "evidence": {
+        "font": {
+          "checked": true,
+          "loadedFaces": 2,
+          "status": "loaded"
+        },
+        "resources": [
+          {
+            "path": "/baixi-yuji/fonts/baixi-sans.woff2",
+            "status": 200
+          },
+          {
+            "path": "/baixi-yuji/fonts/baixi-kai.woff2",
+            "status": 200
+          },
+          {
+            "path": "/baixi-yuji/fonts/xiangxu-sans.woff2",
+            "status": 200
+          },
+          {
+            "path": "/baixi-yuji/fonts/xiangxu-kai.woff2",
+            "status": 200
+          }
+        ],
+        "requestedResources": 29,
+        "errors": {
+          "javascript": [],
+          "console": [],
+          "http": [],
+          "requests": []
+        }
+      }
+    }
+  ],
+  "errors": {
+    "javascript": [],
+    "console": [],
+    "http": [],
+    "requests": []
+  },
+  "abortedRequests": [],
+  "buildIndexSha256": "062e2d4628220341ac168fc876b8ec9439ad64766cf2c96342490d81e1591eb6",
+  "browserVersion": "155.0.4283.62",
+  "finishedAt": "2026-10-19T10:55:05.842Z"
+}

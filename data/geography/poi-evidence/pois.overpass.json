@@ -1,0 +1,2162 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-07-28T02:16:18Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 2453222394,
+  "lat": 29.3753662,
+  "lon": 121.2721072,
+  "tags": {
+    "name": "龙宫村",
+    "name:en": "Longgong",
+    "place": "village",
+    "source": "GNS"
+  }
+},
+{
+  "type": "node",
+  "id": 2453273790,
+  "lat": 29.3740700,
+  "lon": 121.2769107,
+  "tags": {
+    "bus": "yes",
+    "name": "龙宫村口",
+    "name:zh": "龙宫村口",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 2453273798,
+  "lat": 29.3742628,
+  "lon": 121.2799263,
+  "tags": {
+    "bus": "yes",
+    "name": "杉树顶",
+    "name:zh": "杉树顶",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 2453273802,
+  "lat": 29.3744204,
+  "lon": 121.2746590,
+  "tags": {
+    "bus": "yes",
+    "name": "龙宫村1",
+    "name:zh": "龙宫村1",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 2453273803,
+  "lat": 29.3744089,
+  "lon": 121.2800407,
+  "tags": {
+    "bus": "yes",
+    "name": "杉树顶",
+    "name:zh": "杉树顶",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 3680585468,
+  "lat": 29.4319498,
+  "lon": 121.2884292,
+  "tags": {
+    "bus": "yes",
+    "name": "清潭",
+    "name:zh": "清潭",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 3680585492,
+  "lat": 29.4265487,
+  "lon": 121.2806562,
+  "tags": {
+    "bus": "yes",
+    "name": "下横山",
+    "name:zh": "下横山",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 3680585510,
+  "lat": 29.4320246,
+  "lon": 121.2880484,
+  "tags": {
+    "bus": "yes",
+    "name": "清潭",
+    "name:zh": "清潭",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 3964559886,
+  "lat": 29.2337137,
+  "lon": 121.5052710,
+  "tags": {
+    "bus": "yes",
+    "name": "梅枝田",
+    "name:zh": "梅枝田",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 4884534803,
+  "lat": 29.3267407,
+  "lon": 121.5393034,
+  "tags": {
+    "int_name": "Minhutian",
+    "name": "民户田",
+    "place": "village"
+  }
+},
+{
+  "type": "node",
+  "id": 4884534804,
+  "lat": 29.3211666,
+  "lon": 121.5337458,
+  "tags": {
+    "int_name": "Xujiashan",
+    "name": "许家山",
+    "place": "village"
+  }
+},
+{
+  "type": "node",
+  "id": 5140439249,
+  "lat": 29.3264160,
+  "lon": 121.5403340,
+  "tags": {
+    "bus": "yes",
+    "name": "民户田",
+    "name:zh": "民户田",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 5140439372,
+  "lat": 29.3192356,
+  "lon": 121.5349065,
+  "tags": {
+    "bus": "yes",
+    "name": "许家山",
+    "name:zh": "许家山",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 5272358061,
+  "lat": 29.3740752,
+  "lon": 121.2707484,
+  "tags": {
+    "bus": "yes",
+    "name": "龙宫",
+    "name:zh": "龙宫",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 5272358062,
+  "lat": 29.3740589,
+  "lon": 121.2706572,
+  "tags": {
+    "bus": "yes",
+    "name": "龙宫",
+    "name:zh": "龙宫",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 5272358066,
+  "lat": 29.3744527,
+  "lon": 121.2747784,
+  "tags": {
+    "bus": "yes",
+    "name": "龙宫村1",
+    "name:zh": "龙宫村1",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 8624752341,
+  "lat": 29.3262904,
+  "lon": 121.5403261,
+  "tags": {
+    "bus": "yes",
+    "name": "民户田",
+    "name:zh": "民户田",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 8993747819,
+  "lat": 29.1859667,
+  "lon": 121.4828360,
+  "tags": {
+    "bus": "yes",
+    "name": "箬岙",
+    "name:zh": "箬岙",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 8993747826,
+  "lat": 29.1895634,
+  "lon": 121.4822674,
+  "tags": {
+    "bus": "yes",
+    "name": "上箬岙",
+    "name:zh": "上箬岙",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 9470889346,
+  "lat": 29.2348314,
+  "lon": 121.5064950,
+  "tags": {
+    "capital": "10",
+    "name": "梅枝田村",
+    "name:en": "Meizhitian",
+    "name:zh": "梅枝田村",
+    "name:zh-Hans": "梅枝田村",
+    "name:zh-Hant": "梅枝田村",
+    "name:zh-Latn-pinyin": "Méizhītián Cūn",
+    "place": "village",
+    "place:CN": "village"
+  }
+},
+{
+  "type": "node",
+  "id": 9470889354,
+  "lat": 29.2355799,
+  "lon": 121.5108766,
+  "tags": {
+    "capital": "10",
+    "name": "下田村",
+    "name:en": "Xiatian",
+    "name:zh": "下田村",
+    "name:zh-Hans": "下田村",
+    "name:zh-Hant": "下田村",
+    "name:zh-Latn-pinyin": "Xiàtián Cūn",
+    "place": "village",
+    "place:CN": "village"
+  }
+},
+{
+  "type": "node",
+  "id": 9471546436,
+  "lat": 29.1845260,
+  "lon": 121.4779495,
+  "tags": {
+    "capital": "10",
+    "name": "箬岙村",
+    "name:en": "Ruo'ao",
+    "name:zh": "箬岙村",
+    "name:zh-Hans": "箬岙村",
+    "name:zh-Hant": "箬岙村",
+    "name:zh-Latn-pinyin": "Ruòào Cūn",
+    "place": "village",
+    "place:CN": "village"
+  }
+},
+{
+  "type": "node",
+  "id": 10931261589,
+  "lat": 29.4315601,
+  "lon": 121.2881886,
+  "tags": {
+    "name": "清潭村",
+    "place": "village"
+  }
+},
+{
+  "type": "node",
+  "id": 10931262532,
+  "lat": 29.4313146,
+  "lon": 121.2808423,
+  "tags": {
+    "name": "上张庄",
+    "place": "hamlet"
+  }
+},
+{
+  "type": "node",
+  "id": 10931262533,
+  "lat": 29.4381675,
+  "lon": 121.2840454,
+  "tags": {
+    "name": "上陈",
+    "place": "hamlet"
+  }
+},
+{
+  "type": "node",
+  "id": 10977191696,
+  "lat": 29.3214887,
+  "lon": 121.5414458,
+  "tags": {
+    "name": "许家村",
+    "place": "hamlet"
+  }
+},
+{
+  "type": "node",
+  "id": 10977191697,
+  "lat": 29.3219065,
+  "lon": 121.5406338,
+  "tags": {
+    "bus": "yes",
+    "name": "许家村",
+    "name:zh": "许家村",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 10977191716,
+  "lat": 29.3157972,
+  "lon": 121.5260656,
+  "tags": {
+    "name": "亦长坪",
+    "place": "hamlet"
+  }
+},
+{
+  "type": "node",
+  "id": 12248404130,
+  "lat": 29.3740133,
+  "lon": 121.2707698,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "龙宫",
+    "name:zh": "龙宫",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12248404131,
+  "lat": 29.3741138,
+  "lon": 121.2706196,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "龙宫",
+    "name:zh": "龙宫",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12248404132,
+  "lat": 29.3737996,
+  "lon": 121.2728345,
+  "tags": {
+    "bus": "yes",
+    "name": "龙宫村2",
+    "name:zh": "龙宫村2",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 12248404133,
+  "lat": 29.3737398,
+  "lon": 121.2729579,
+  "tags": {
+    "bus": "yes",
+    "name": "龙宫村2",
+    "name:zh": "龙宫村2",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 12248404134,
+  "lat": 29.3737983,
+  "lon": 121.2729934,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "龙宫村2",
+    "name:zh": "龙宫村2",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12248404135,
+  "lat": 29.3737585,
+  "lon": 121.2727976,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "龙宫村2",
+    "name:zh": "龙宫村2",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12248404136,
+  "lat": 29.3743943,
+  "lon": 121.2747958,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "龙宫村1",
+    "name:zh": "龙宫村1",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12248404137,
+  "lat": 29.3744831,
+  "lon": 121.2746376,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "龙宫村1",
+    "name:zh": "龙宫村1",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12248404138,
+  "lat": 29.3740846,
+  "lon": 121.2771261,
+  "tags": {
+    "bus": "yes",
+    "name": "龙宫村口",
+    "name:zh": "龙宫村口",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 12248404139,
+  "lat": 29.3740460,
+  "lon": 121.2771106,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "龙宫村口",
+    "name:zh": "龙宫村口",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12248404140,
+  "lat": 29.3741325,
+  "lon": 121.2768933,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "龙宫村口",
+    "name:zh": "龙宫村口",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12248404141,
+  "lat": 29.3744340,
+  "lon": 121.2799832,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "杉树顶",
+    "name:zh": "杉树顶",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12248404142,
+  "lat": 29.3742353,
+  "lon": 121.2799644,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "杉树顶",
+    "name:zh": "杉树顶",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12249483864,
+  "lat": 29.4330763,
+  "lon": 121.2971743,
+  "tags": {
+    "bus": "yes",
+    "name": "俞陈",
+    "name:zh": "俞陈",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 12249483865,
+  "lat": 29.4330353,
+  "lon": 121.2968404,
+  "tags": {
+    "bus": "yes",
+    "name": "俞陈",
+    "name:zh": "俞陈",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 12249483866,
+  "lat": 29.4330149,
+  "lon": 121.2971789,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "俞陈",
+    "name:zh": "俞陈",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12249483867,
+  "lat": 29.4330966,
+  "lon": 121.2967980,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "俞陈",
+    "name:zh": "俞陈",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12249483868,
+  "lat": 29.4317253,
+  "lon": 121.2910996,
+  "tags": {
+    "bus": "yes",
+    "name": "双枝庙",
+    "name:zh": "双枝庙",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 12249483869,
+  "lat": 29.4317818,
+  "lon": 121.2911823,
+  "tags": {
+    "bus": "yes",
+    "name": "双枝庙",
+    "name:zh": "双枝庙",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 12249483870,
+  "lat": 29.4316647,
+  "lon": 121.2911198,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "双枝庙",
+    "name:zh": "双枝庙",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12249483871,
+  "lat": 29.4318352,
+  "lon": 121.2911358,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "双枝庙",
+    "name:zh": "双枝庙",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12249483872,
+  "lat": 29.4319683,
+  "lon": 121.2880245,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "清潭",
+    "name:zh": "清潭",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12249483873,
+  "lat": 29.4319987,
+  "lon": 121.2884483,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "清潭",
+    "name:zh": "清潭",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12249483874,
+  "lat": 29.4297858,
+  "lon": 121.2844170,
+  "tags": {
+    "bus": "yes",
+    "name": "上张",
+    "name:zh": "上张",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 12249483875,
+  "lat": 29.4298380,
+  "lon": 121.2844474,
+  "tags": {
+    "bus": "yes",
+    "name": "上张",
+    "name:zh": "上张",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 12249483876,
+  "lat": 29.4297993,
+  "lon": 121.2843753,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "上张",
+    "name:zh": "上张",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12249483877,
+  "lat": 29.4298308,
+  "lon": 121.2844746,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "上张",
+    "name:zh": "上张",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12249483878,
+  "lat": 29.4262698,
+  "lon": 121.2806801,
+  "tags": {
+    "bus": "yes",
+    "name": "下横山",
+    "name:zh": "下横山",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 12249483879,
+  "lat": 29.4265486,
+  "lon": 121.2807074,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "下横山",
+    "name:zh": "下横山",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12249483880,
+  "lat": 29.4262682,
+  "lon": 121.2806135,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "下横山",
+    "name:zh": "下横山",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12319127673,
+  "lat": 29.1857672,
+  "lon": 121.4828247,
+  "tags": {
+    "bus": "yes",
+    "name": "箬岙",
+    "name:zh": "箬岙",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 12319127674,
+  "lat": 29.1859573,
+  "lon": 121.4827636,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "箬岙",
+    "name:zh": "箬岙",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12319127675,
+  "lat": 29.1857887,
+  "lon": 121.4828709,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "箬岙",
+    "name:zh": "箬岙",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12319127676,
+  "lat": 29.1894346,
+  "lon": 121.4822674,
+  "tags": {
+    "bus": "yes",
+    "name": "上箬岙",
+    "name:zh": "上箬岙",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 12319127677,
+  "lat": 29.1894405,
+  "lon": 121.4822245,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "上箬岙",
+    "name:zh": "上箬岙",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12319127678,
+  "lat": 29.1895751,
+  "lon": 121.4823022,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "上箬岙",
+    "name:zh": "上箬岙",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12319142366,
+  "lat": 29.2431014,
+  "lon": 121.5030883,
+  "tags": {
+    "bus": "yes",
+    "name": "长阳",
+    "name:zh": "长阳",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 12319142367,
+  "lat": 29.2432709,
+  "lon": 121.5032489,
+  "tags": {
+    "bus": "yes",
+    "name": "长阳",
+    "name:zh": "长阳",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 12319142368,
+  "lat": 29.2432188,
+  "lon": 121.5033013,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "长阳",
+    "name:zh": "长阳",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12319142369,
+  "lat": 29.2431533,
+  "lon": 121.5030384,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "长阳",
+    "name:zh": "长阳",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12319142370,
+  "lat": 29.2338777,
+  "lon": 121.5052286,
+  "tags": {
+    "bus": "yes",
+    "name": "梅枝田",
+    "name:zh": "梅枝田",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 12319142371,
+  "lat": 29.2338756,
+  "lon": 121.5051815,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "梅枝田",
+    "name:zh": "梅枝田",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12319142372,
+  "lat": 29.2337094,
+  "lon": 121.5053236,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "梅枝田",
+    "name:zh": "梅枝田",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12323635822,
+  "lat": 29.3262910,
+  "lon": 121.5402997,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "民户田",
+    "name:zh": "民户田",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12323635823,
+  "lat": 29.3264115,
+  "lon": 121.5403801,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "民户田",
+    "name:zh": "民户田",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12323635824,
+  "lat": 29.3218451,
+  "lon": 121.5406311,
+  "tags": {
+    "bus": "yes",
+    "name": "许家村",
+    "name:zh": "许家村",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 12323635825,
+  "lat": 29.3219092,
+  "lon": 121.5406872,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "许家村",
+    "name:zh": "许家村",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12323635826,
+  "lat": 29.3218403,
+  "lon": 121.5405679,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "许家村",
+    "name:zh": "许家村",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12323635827,
+  "lat": 29.3191024,
+  "lon": 121.5349597,
+  "tags": {
+    "bus": "yes",
+    "name": "许家山",
+    "name:zh": "许家山",
+    "public_transport": "stop_position"
+  }
+},
+{
+  "type": "node",
+  "id": 12323635828,
+  "lat": 29.3190959,
+  "lon": 121.5349111,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "许家山",
+    "name:zh": "许家山",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12323635829,
+  "lat": 29.3192479,
+  "lon": 121.5349567,
+  "tags": {
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "许家山",
+    "name:zh": "许家山",
+    "public_transport": "platform"
+  }
+},
+{
+  "type": "node",
+  "id": 12460699252,
+  "lat": 29.3266518,
+  "lon": 121.5396398,
+  "tags": {
+    "name": "民户田小店",
+    "shop": "general"
+  }
+},
+{
+  "type": "way",
+  "id": 237427990,
+  "center": {
+    "lat": 29.3738666,
+    "lon": 121.2711758
+  },
+  "tags": {
+    "highway": "primary",
+    "name": "象山-义乌",
+    "ref": "G527",
+    "source": "bing"
+  }
+},
+{
+  "type": "way",
+  "id": 237427991,
+  "center": {
+    "lat": 29.3870434,
+    "lon": 121.2875179
+  },
+  "tags": {
+    "cycleway": "shared_lane",
+    "highway": "primary",
+    "name": "象山-义乌",
+    "ref": "G527",
+    "source": "bing"
+  }
+},
+{
+  "type": "way",
+  "id": 237427992,
+  "center": {
+    "lat": 29.3772455,
+    "lon": 121.2582973
+  },
+  "tags": {
+    "highway": "primary",
+    "name": "象山-义乌",
+    "ref": "G527",
+    "source": "bing"
+  }
+},
+{
+  "type": "way",
+  "id": 237427996,
+  "center": {
+    "lat": 29.3738926,
+    "lon": 121.2687234
+  },
+  "tags": {
+    "bridge": "yes",
+    "highway": "trunk",
+    "layer": "1",
+    "name": "象山-义乌",
+    "ref": "G527",
+    "source": "bing"
+  }
+},
+{
+  "type": "way",
+  "id": 237427998,
+  "center": {
+    "lat": 29.3737968,
+    "lon": 121.2736380
+  },
+  "tags": {
+    "bridge": "yes",
+    "highway": "trunk",
+    "layer": "1",
+    "name": "象山-义乌",
+    "ref": "G527",
+    "source": "bing"
+  }
+},
+{
+  "type": "way",
+  "id": 363951369,
+  "center": {
+    "lat": 29.4322465,
+    "lon": 121.2992188
+  },
+  "tags": {
+    "highway": "tertiary",
+    "name": "大里-孔家（原Y439）",
+    "ref": "Y410"
+  }
+},
+{
+  "type": "way",
+  "id": 393242705,
+  "center": {
+    "lat": 29.2381449,
+    "lon": 121.5021775
+  },
+  "tags": {
+    "highway": "secondary",
+    "name": "越溪-沙柳",
+    "ref": "X405",
+    "source": "Bing"
+  }
+},
+{
+  "type": "way",
+  "id": 496701795,
+  "center": {
+    "lat": 29.3303819,
+    "lon": 121.5254509
+  },
+  "tags": {
+    "highway": "tertiary",
+    "name": "瓦窑头-铜岭脚（原杨家-铜岭脚）",
+    "ref": "未定（原Y407B）"
+  }
+},
+{
+  "type": "way",
+  "id": 529093814,
+  "center": {
+    "lat": 29.3242692,
+    "lon": 121.5431062
+  },
+  "tags": {
+    "highway": "tertiary",
+    "name": "竹家岙（-许家山）-亦长坪",
+    "ref": "Y408"
+  }
+},
+{
+  "type": "way",
+  "id": 545526756,
+  "center": {
+    "lat": 29.3734266,
+    "lon": 121.2733334
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "name": "龙宫村免费停车场"
+  }
+},
+{
+  "type": "way",
+  "id": 971708190,
+  "center": {
+    "lat": 29.1861676,
+    "lon": 121.4800793
+  },
+  "tags": {
+    "highway": "tertiary",
+    "name": "镇南路",
+    "ref": "Y419"
+  }
+},
+{
+  "type": "way",
+  "id": 1159338564,
+  "center": {
+    "lat": 29.4232474,
+    "lon": 121.2755566
+  },
+  "tags": {
+    "highway": "tertiary",
+    "name": "大里-孔家（原Y439）",
+    "ref": "Y410"
+  }
+},
+{
+  "type": "way",
+  "id": 1176536028,
+  "center": {
+    "lat": 29.4318558,
+    "lon": 121.2887382
+  },
+  "tags": {
+    "bridge": "yes",
+    "highway": "tertiary",
+    "layer": "1",
+    "name": "大里-孔家（原Y439）",
+    "ref": "Y410"
+  }
+},
+{
+  "type": "way",
+  "id": 1176536030,
+  "center": {
+    "lat": 29.4278214,
+    "lon": 121.2825498
+  },
+  "tags": {
+    "highway": "tertiary",
+    "name": "大里-孔家（原Y439）",
+    "ref": "Y410"
+  }
+},
+{
+  "type": "way",
+  "id": 1176536031,
+  "center": {
+    "lat": 29.4256873,
+    "lon": 121.2806352
+  },
+  "tags": {
+    "bridge": "yes",
+    "highway": "tertiary",
+    "layer": "1",
+    "name": "大里-孔家（原Y439）",
+    "ref": "Y410"
+  }
+},
+{
+  "type": "way",
+  "id": 1182057768,
+  "center": {
+    "lat": 29.3232106,
+    "lon": 121.5416299
+  },
+  "tags": {
+    "name": "许家山房车露营公园",
+    "tourism": "camp_site"
+  }
+},
+{
+  "type": "way",
+  "id": 1182164091,
+  "center": {
+    "lat": 29.3239078,
+    "lon": 121.5349875
+  },
+  "tags": {
+    "area": "yes",
+    "name": "许家山石头村",
+    "tourism": "attraction"
+  }
+},
+{
+  "type": "way",
+  "id": 1182817679,
+  "center": {
+    "lat": 29.2285836,
+    "lon": 121.5197582
+  },
+  "tags": {
+    "highway": "tertiary",
+    "name": "越溪-梅枝田（梅歧田-外塘）",
+    "ref": "X412;Y421"
+  }
+},
+{
+  "type": "way",
+  "id": 1191984836,
+  "center": {
+    "lat": 29.4309778,
+    "lon": 121.2862750
+  },
+  "tags": {
+    "highway": "tertiary",
+    "name": "大里-孔家（原Y439）",
+    "ref": "Y410"
+  }
+},
+{
+  "type": "way",
+  "id": 1191984837,
+  "center": {
+    "lat": 29.4298948,
+    "lon": 121.2844805
+  },
+  "tags": {
+    "bridge": "yes",
+    "highway": "tertiary",
+    "layer": "1",
+    "name": "大里-孔家（原Y439）",
+    "ref": "Y410"
+  }
+},
+{
+  "type": "way",
+  "id": 1210271570,
+  "center": {
+    "lat": 29.2394411,
+    "lon": 121.5036383
+  },
+  "tags": {
+    "name": "申坎头水库",
+    "natural": "water",
+    "water": "reservoir"
+  }
+},
+{
+  "type": "way",
+  "id": 1323745274,
+  "center": {
+    "lat": 29.4319298,
+    "lon": 121.2884951
+  },
+  "tags": {
+    "highway": "tertiary",
+    "name": "大里-孔家（原Y439）",
+    "ref": "Y410"
+  }
+},
+{
+  "type": "way",
+  "id": 1323745275,
+  "center": {
+    "lat": 29.4319872,
+    "lon": 121.2882388
+  },
+  "tags": {
+    "highway": "tertiary",
+    "name": "大里-孔家（原Y439）",
+    "ref": "Y410"
+  }
+},
+{
+  "type": "way",
+  "id": 1331945417,
+  "center": {
+    "lat": 29.3168407,
+    "lon": 121.5305441
+  },
+  "tags": {
+    "highway": "tertiary",
+    "name": "竹家岙（-许家山）-亦长坪",
+    "ref": "Y408"
+  }
+},
+{
+  "type": "way",
+  "id": 1347061000,
+  "center": {
+    "lat": 29.3212556,
+    "lon": 121.5353570
+  },
+  "tags": {
+    "name": "旧采石场",
+    "natural": "bare_rock"
+  }
+},
+{
+  "type": "relation",
+  "id": 7292787,
+  "center": {
+    "lat": 29.3740769,
+    "lon": 121.5437673
+  },
+  "tags": {
+    "name": "宁海登山步道",
+    "name:en": "Ninghai Trail System",
+    "name:zh-Hans": "宁海登山步道",
+    "network": "nwn",
+    "ref": "NTS",
+    "route": "hiking",
+    "type": "route",
+    "website": "https://www.nhdsbd.com/map.html",
+    "wikipedia": "zh:宁海国家登山健身步道"
+  }
+},
+{
+  "type": "relation",
+  "id": 18158783,
+  "center": {
+    "lat": 29.3986803,
+    "lon": 121.2926001
+  },
+  "tags": {
+    "from": "马岙车站",
+    "name": "宁海816-1路：马岙车站 -> 深甽车站",
+    "name:zh": "宁海816-1路：马岙车站 -> 深甽车站",
+    "opening_hours": "Mo-Su 06:00-16:40",
+    "public_transport:version": "2",
+    "ref": "宁海816-1",
+    "route": "bus",
+    "to": "深甽车站",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 18158784,
+  "center": {
+    "lat": 29.3986329,
+    "lon": 121.2924213
+  },
+  "tags": {
+    "from": "深甽车站",
+    "name": "宁海816-1路：深甽车站 -> 马岙车站",
+    "name:zh": "宁海816-1路：深甽车站 -> 马岙车站",
+    "opening_hours": "Mo-Su 06:00-17:00",
+    "public_transport:version": "2",
+    "ref": "宁海816-1",
+    "route": "bus",
+    "to": "马岙车站",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 18158792,
+  "center": {
+    "lat": 29.3970098,
+    "lon": 121.2842558
+  },
+  "tags": {
+    "from": "望海岗驿站",
+    "name": "宁海816-5路：望海岗驿站 -> 深甽车站",
+    "name:zh": "宁海816-5路：望海岗驿站 -> 深甽车站",
+    "opening_hours": "Mo-Su 08:20-14:15",
+    "public_transport:version": "2",
+    "ref": "宁海816-5",
+    "route": "bus",
+    "to": "深甽车站",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 18158795,
+  "center": {
+    "lat": 29.3970098,
+    "lon": 121.2841958
+  },
+  "tags": {
+    "from": "深甽车站",
+    "name": "宁海816-5路：深甽车站 -> 望海岗驿站",
+    "name:zh": "宁海816-5路：深甽车站 -> 望海岗驿站",
+    "opening_hours": "Mo-Su 07:25-13:20",
+    "public_transport:version": "2",
+    "ref": "宁海816-5",
+    "route": "bus",
+    "to": "望海岗驿站",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 18158796,
+  "center": {
+    "lat": 29.4011475,
+    "lon": 121.2895769
+  },
+  "tags": {
+    "from": "深甽车站",
+    "name": "宁海816-6路：深甽车站 -> 蒋家山",
+    "name:zh": "宁海816-6路：深甽车站 -> 蒋家山",
+    "opening_hours": "Mo-Su 16:00",
+    "public_transport:version": "2",
+    "ref": "宁海816-6",
+    "route": "bus",
+    "to": "蒋家山",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 18158797,
+  "center": {
+    "lat": 29.4011475,
+    "lon": 121.2897090
+  },
+  "tags": {
+    "from": "野猪坑",
+    "name": "宁海816-6路：野猪坑 -> 深甽车站",
+    "name:zh": "宁海816-6路：野猪坑 -> 深甽车站",
+    "opening_hours": "Mo-Su 06:45-08:05",
+    "public_transport:version": "2",
+    "ref": "宁海816-6",
+    "route": "bus",
+    "to": "深甽车站",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 18158821,
+  "center": {
+    "lat": 29.4011475,
+    "lon": 121.2895769
+  },
+  "tags": {
+    "from": "深甽车站",
+    "name": "宁海816-6路：深甽车站 -> 野猪坑",
+    "name:zh": "宁海816-6路：深甽车站 -> 野猪坑",
+    "opening_hours": "Mo-Su 06:40-14:00",
+    "public_transport:version": "2",
+    "ref": "宁海816-6",
+    "route": "bus",
+    "to": "野猪坑",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 18158822,
+  "center": {
+    "lat": 29.4011475,
+    "lon": 121.2897090
+  },
+  "tags": {
+    "from": "蒋家山",
+    "name": "宁海816-6路：蒋家山 -> 深甽车站",
+    "name:zh": "宁海816-6路：蒋家山 -> 深甽车站",
+    "opening_hours": "Mo-Su 07:10",
+    "public_transport:version": "2",
+    "ref": "宁海816-6",
+    "route": "bus",
+    "to": "深甽车站",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 18158831,
+  "center": {
+    "lat": 29.3740636,
+    "lon": 121.2706947
+  },
+  "tags": {
+    "name": "龙宫",
+    "name:zh": "龙宫",
+    "public_transport": "stop_area",
+    "type": "public_transport"
+  }
+},
+{
+  "type": "relation",
+  "id": 18158832,
+  "center": {
+    "lat": 29.3737697,
+    "lon": 121.2728955
+  },
+  "tags": {
+    "name": "龙宫村2",
+    "name:zh": "龙宫村2",
+    "public_transport": "stop_area",
+    "type": "public_transport"
+  }
+},
+{
+  "type": "relation",
+  "id": 18158833,
+  "center": {
+    "lat": 29.3744387,
+    "lon": 121.2747167
+  },
+  "tags": {
+    "name": "龙宫村1",
+    "name:zh": "龙宫村1",
+    "public_transport": "stop_area",
+    "type": "public_transport"
+  }
+},
+{
+  "type": "relation",
+  "id": 18158834,
+  "center": {
+    "lat": 29.3740893,
+    "lon": 121.2770097
+  },
+  "tags": {
+    "name": "龙宫村口",
+    "name:zh": "龙宫村口",
+    "public_transport": "stop_area",
+    "type": "public_transport"
+  }
+},
+{
+  "type": "relation",
+  "id": 18158835,
+  "center": {
+    "lat": 29.3743346,
+    "lon": 121.2799835
+  },
+  "tags": {
+    "name": "杉树顶",
+    "name:zh": "杉树顶",
+    "public_transport": "stop_area",
+    "type": "public_transport"
+  }
+},
+{
+  "type": "relation",
+  "id": 18158870,
+  "center": {
+    "lat": 29.3745740,
+    "lon": 121.3457497
+  },
+  "tags": {
+    "from": "宁海客运枢纽",
+    "name": "宁海816路：宁海客运枢纽 -> 马岙车站",
+    "name:zh": "宁海816路：宁海客运枢纽 -> 马岙车站",
+    "opening_hours": "Mo-Su 07:15-16:40",
+    "public_transport:version": "2",
+    "ref": "宁海816",
+    "route": "bus",
+    "to": "马岙车站",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 18158871,
+  "center": {
+    "lat": 29.3742161,
+    "lon": 121.3456986
+  },
+  "tags": {
+    "from": "马岙车站",
+    "name": "宁海816路：马岙车站 -> 宁海客运枢纽",
+    "name:zh": "宁海816路：马岙车站 -> 宁海客运枢纽",
+    "opening_hours": "Mo-Su 05:50-15:10",
+    "public_transport:version": "2",
+    "ref": "宁海816",
+    "route": "bus",
+    "to": "宁海客运枢纽",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 18160893,
+  "center": {
+    "lat": 29.4258642,
+    "lon": 121.3153916
+  },
+  "tags": {
+    "from": "深甽车站",
+    "name": "宁海810-1路：深甽车站 -> 清潭",
+    "name:zh": "宁海810-1路：深甽车站 -> 清潭",
+    "opening_hours": "Mo-Su 06:00-12:40",
+    "public_transport:version": "2",
+    "ref": "宁海810-1",
+    "route": "bus",
+    "to": "清潭",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 18160894,
+  "center": {
+    "lat": 29.4257166,
+    "lon": 121.3153214
+  },
+  "tags": {
+    "from": "清潭",
+    "name": "宁海810-1路：清潭 -> 深甽车站",
+    "name:zh": "宁海810-1路：清潭 -> 深甽车站",
+    "opening_hours": "Mo-Su 06:20-13:00",
+    "public_transport:version": "2",
+    "ref": "宁海810-1",
+    "route": "bus",
+    "to": "深甽车站",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 18160902,
+  "center": {
+    "lat": 29.4257166,
+    "lon": 121.3065479
+  },
+  "tags": {
+    "from": "孔家",
+    "name": "宁海810-1路：孔家 -> 深甽车站",
+    "name:zh": "宁海810-1路：孔家 -> 深甽车站",
+    "opening_hours": "Mo-Su 09:00-15:40",
+    "public_transport:version": "2",
+    "ref": "宁海810-1",
+    "route": "bus",
+    "to": "深甽车站",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 18160903,
+  "center": {
+    "lat": 29.4258642,
+    "lon": 121.3064019
+  },
+  "tags": {
+    "from": "深甽车站",
+    "name": "宁海810-1路：深甽车站 -> 孔家",
+    "name:zh": "宁海810-1路：深甽车站 -> 孔家",
+    "opening_hours": "Mo-Su 08:40-15:20",
+    "public_transport:version": "2",
+    "ref": "宁海810-1",
+    "route": "bus",
+    "to": "孔家",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 18160905,
+  "center": {
+    "lat": 29.4330558,
+    "lon": 121.2969885
+  },
+  "tags": {
+    "name": "俞陈",
+    "name:zh": "俞陈",
+    "public_transport": "stop_area",
+    "type": "public_transport"
+  }
+},
+{
+  "type": "relation",
+  "id": 18160906,
+  "center": {
+    "lat": 29.4317499,
+    "lon": 121.2911409
+  },
+  "tags": {
+    "name": "双枝庙",
+    "name:zh": "双枝庙",
+    "public_transport": "stop_area",
+    "type": "public_transport"
+  }
+},
+{
+  "type": "relation",
+  "id": 18160907,
+  "center": {
+    "lat": 29.4319872,
+    "lon": 121.2882364
+  },
+  "tags": {
+    "name": "清潭",
+    "name:zh": "清潭",
+    "public_transport": "stop_area",
+    "type": "public_transport"
+  }
+},
+{
+  "type": "relation",
+  "id": 18160908,
+  "center": {
+    "lat": 29.4298119,
+    "lon": 121.2844249
+  },
+  "tags": {
+    "name": "上张",
+    "name:zh": "上张",
+    "public_transport": "stop_area",
+    "type": "public_transport"
+  }
+},
+{
+  "type": "relation",
+  "id": 18160909,
+  "center": {
+    "lat": 29.4264084,
+    "lon": 121.2806604
+  },
+  "tags": {
+    "name": "下横山",
+    "name:zh": "下横山",
+    "public_transport": "stop_area",
+    "type": "public_transport"
+  }
+},
+{
+  "type": "relation",
+  "id": 18160911,
+  "center": {
+    "lat": 29.3843962,
+    "lon": 121.3596462
+  },
+  "tags": {
+    "from": "孔家",
+    "name": "宁海810路：孔家 -> 宁海客运枢纽",
+    "name:zh": "宁海810路：孔家 -> 宁海客运枢纽",
+    "opening_hours": "Mo-Su 06:20-14:50",
+    "public_transport:version": "2",
+    "ref": "宁海810",
+    "route": "bus",
+    "to": "宁海客运枢纽",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 18160913,
+  "center": {
+    "lat": 29.3846937,
+    "lon": 121.3597302
+  },
+  "tags": {
+    "from": "宁海客运枢纽",
+    "name": "宁海810路：宁海客运枢纽 -> 孔家",
+    "name:zh": "宁海810路：宁海客运枢纽 -> 孔家",
+    "opening_hours": "Mo-Su 07:30-16:00",
+    "public_transport:version": "2",
+    "ref": "宁海810",
+    "route": "bus",
+    "to": "孔家",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 18257224,
+  "center": {
+    "lat": 29.1858669,
+    "lon": 121.4828172
+  },
+  "tags": {
+    "name": "箬岙",
+    "name:zh": "箬岙",
+    "public_transport": "stop_area",
+    "type": "public_transport"
+  }
+},
+{
+  "type": "relation",
+  "id": 18257225,
+  "center": {
+    "lat": 29.1895048,
+    "lon": 121.4822634
+  },
+  "tags": {
+    "name": "上箬岙",
+    "name:zh": "上箬岙",
+    "public_transport": "stop_area",
+    "type": "public_transport"
+  }
+},
+{
+  "type": "relation",
+  "id": 18257227,
+  "center": {
+    "lat": 29.1871985,
+    "lon": 121.4796067
+  },
+  "tags": {
+    "from": "牛台",
+    "name": "宁海256路：牛台 -> 一市",
+    "name:zh": "宁海256路：牛台 -> 一市",
+    "opening_hours": "Mo-Su 07:10-15:00",
+    "public_transport:version": "2",
+    "ref": "宁海256",
+    "route": "bus",
+    "to": "一市",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 18257228,
+  "center": {
+    "lat": 29.1872506,
+    "lon": 121.4795979
+  },
+  "tags": {
+    "from": "一市",
+    "name": "宁海256路：一市 -> 牛台",
+    "name:zh": "宁海256路：一市 -> 牛台",
+    "opening_hours": "Mo-Su 07:10-15:00",
+    "public_transport:version": "2",
+    "ref": "宁海256",
+    "route": "bus",
+    "to": "牛台",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 18257272,
+  "center": {
+    "lat": 29.2508253,
+    "lon": 121.4805943
+  },
+  "tags": {
+    "from": "宁海东站",
+    "name": "宁海285-1路：宁海东站 -> 大林",
+    "name:zh": "宁海285-1路：宁海东站 -> 大林",
+    "opening_hours": "Mo-Su 07:20-17:00",
+    "public_transport:version": "2",
+    "ref": "宁海285-1",
+    "route": "bus",
+    "to": "大林",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 18257273,
+  "center": {
+    "lat": 29.2570117,
+    "lon": 121.4811051
+  },
+  "tags": {
+    "from": "大林",
+    "name": "宁海285-1路：大林 -> 宁海东站",
+    "name:zh": "宁海285-1路：大林 -> 宁海东站",
+    "opening_hours": "Mo-Su 05:30-16:30",
+    "public_transport:version": "2",
+    "ref": "宁海285-1",
+    "route": "bus",
+    "to": "宁海东站",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 18257276,
+  "center": {
+    "lat": 29.2508253,
+    "lon": 121.4790473
+  },
+  "tags": {
+    "from": "宁海东站",
+    "name": "宁海285路：宁海东站 -> 白莲寺",
+    "name:zh": "宁海285路：宁海东站 -> 白莲寺",
+    "opening_hours": "Mo-Su 06:45-17:30",
+    "public_transport:version": "2",
+    "ref": "宁海285",
+    "route": "bus",
+    "to": "白莲寺",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 18257277,
+  "center": {
+    "lat": 29.2502570,
+    "lon": 121.4797203
+  },
+  "tags": {
+    "from": "白莲寺",
+    "name": "宁海285路：白莲寺 -> 宁海东站",
+    "name:zh": "宁海285路：白莲寺 -> 宁海东站",
+    "opening_hours": "Mo-Su 05:50-16:20",
+    "public_transport:version": "2",
+    "ref": "宁海285",
+    "route": "bus",
+    "to": "宁海东站",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 18257285,
+  "center": {
+    "lat": 29.2431861,
+    "lon": 121.5031699
+  },
+  "tags": {
+    "name": "长阳",
+    "name:zh": "长阳",
+    "public_transport": "stop_area",
+    "type": "public_transport"
+  }
+},
+{
+  "type": "relation",
+  "id": 18257286,
+  "center": {
+    "lat": 29.2337935,
+    "lon": 121.5052525
+  },
+  "tags": {
+    "name": "梅枝田",
+    "name:zh": "梅枝田",
+    "public_transport": "stop_area",
+    "type": "public_transport"
+  }
+},
+{
+  "type": "relation",
+  "id": 18258358,
+  "center": {
+    "lat": 29.2358287,
+    "lon": 121.4972800
+  },
+  "tags": {
+    "from": "一市",
+    "name": "宁海252路：一市 -> 越溪",
+    "name:zh": "宁海252路：一市 -> 越溪",
+    "opening_hours": "Mo-Su 07:00-15:00",
+    "public_transport:version": "2",
+    "ref": "宁海252",
+    "route": "bus",
+    "to": "越溪",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 18258359,
+  "center": {
+    "lat": 29.2358016,
+    "lon": 121.4972910
+  },
+  "tags": {
+    "from": "越溪",
+    "name": "宁海252路：越溪 -> 一市",
+    "name:zh": "宁海252路：越溪 -> 一市",
+    "opening_hours": "Mo-Su 07:00-15:00",
+    "public_transport:version": "2",
+    "ref": "宁海252",
+    "route": "bus",
+    "to": "一市",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 18264509,
+  "center": {
+    "lat": 29.3287338,
+    "lon": 121.5417440
+  },
+  "tags": {
+    "from": "茶院",
+    "name": "宁海221-7路：茶院 -> 瓦窑头",
+    "name:zh": "宁海221-7路：茶院 -> 瓦窑头",
+    "opening_hours": "Mo-Su 06:00-13:00",
+    "public_transport:version": "2",
+    "ref": "宁海221-7",
+    "route": "bus",
+    "to": "瓦窑头",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 18264510,
+  "center": {
+    "lat": 29.3287268,
+    "lon": 121.5418171
+  },
+  "tags": {
+    "from": "瓦窑头",
+    "name": "宁海221-7路：瓦窑头 -> 茶院",
+    "name:zh": "宁海221-7路：瓦窑头 -> 茶院",
+    "opening_hours": "Mo-Su 06:15-13:15",
+    "public_transport:version": "2",
+    "ref": "宁海221-7",
+    "route": "bus",
+    "to": "茶院",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 18264512,
+  "center": {
+    "lat": 29.3263532,
+    "lon": 121.5403399
+  },
+  "tags": {
+    "name": "民户田",
+    "name:zh": "民户田",
+    "public_transport": "stop_area",
+    "type": "public_transport"
+  }
+},
+{
+  "type": "relation",
+  "id": 18264513,
+  "center": {
+    "lat": 29.3218747,
+    "lon": 121.5406275
+  },
+  "tags": {
+    "name": "许家村",
+    "name:zh": "许家村",
+    "public_transport": "stop_area",
+    "type": "public_transport"
+  }
+},
+{
+  "type": "relation",
+  "id": 18264514,
+  "center": {
+    "lat": 29.3238927,
+    "lon": 121.5520960
+  },
+  "tags": {
+    "from": "茶院",
+    "name": "宁海221-6路：茶院 -> 许家山",
+    "name:zh": "宁海221-6路：茶院 -> 许家山",
+    "opening_hours": "Mo-Su 07:30-12:30",
+    "public_transport:version": "2",
+    "ref": "宁海221-6",
+    "route": "bus",
+    "to": "许家山",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 18264515,
+  "center": {
+    "lat": 29.3238662,
+    "lon": 121.5521376
+  },
+  "tags": {
+    "from": "许家山",
+    "name": "宁海221-6路：许家山 -> 茶院",
+    "name:zh": "宁海221-6路：许家山 -> 茶院",
+    "opening_hours": "Mo-Su 07:45-12:45",
+    "public_transport:version": "2",
+    "ref": "宁海221-6",
+    "route": "bus",
+    "to": "茶院",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 18264516,
+  "center": {
+    "lat": 29.3191719,
+    "lon": 121.5349331
+  },
+  "tags": {
+    "name": "许家山",
+    "name:zh": "许家山",
+    "public_transport": "stop_area",
+    "type": "public_transport"
+  }
+},
+{
+  "type": "relation",
+  "id": 18583701,
+  "center": {
+    "lat": 29.4006923,
+    "lon": 120.9644317
+  },
+  "tags": {
+    "from": "象山",
+    "name": "527国道 象兰线",
+    "name:en": "China National Highway 527",
+    "name:zh": "527国道 象兰线",
+    "name:zh-Hans": "527国道 象兰线",
+    "name:zh-Hant": "527國道 象蘭綫",
+    "network": "CN:national",
+    "official_name": "象山－兰溪公路",
+    "ref": "G527",
+    "ref:colour": "red",
+    "route": "road",
+    "short_name": "象兰线",
+    "to": "兰溪",
+    "type": "route",
+    "wikidata": "Q48929660",
+    "wikipedia": "zh:527国道"
+  }
+}
+
+  ]
+}

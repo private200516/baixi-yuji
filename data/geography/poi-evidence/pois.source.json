@@ -1,0 +1,18 @@
+{
+  "rawFile": "data/geography/poi-evidence/pois.overpass.json",
+  "crs": "EPSG:4326",
+  "license": "ODbL-1.0",
+  "retrievedAt": "2026-10-19",
+  "note": "This endpoint returned a July 2026 OSM snapshot. The retrieval date does not mean a 2026-10 field survey.",
+  "elementCount": 152,
+  "endpoint": "https://overpass.private.coffee/api/interpreter",
+  "attributionUrl": "https://www.openstreetmap.org/copyright",
+  "sha256": "df2a3d50813ec286f1bc2b5bf796c54fff4992ce00a1d0382292c9baa5a54f23",
+  "rejectedEndpoints": [
+    "overpass-api.de: GET 406, POST 502 capacity",
+    "overpass.kumi.systems: HTTP 500"
+  ],
+  "scope": "Named objects within 1 km of five existing village representative points. Query radius is not a village boundary; no nearest-village assignment. Public transport elements are not imported into the POI catalog or operations.",
+  "osmBaseTimestamp": "2026-07-28T02:16:18Z",
+  "queryFile": "data/geography/poi-evidence/pois.overpass.ql"
+}

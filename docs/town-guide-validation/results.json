@@ -1,0 +1,676 @@
+{
+  "checkedAt": "2026-10-18T18:12:46.337Z",
+  "base": "http://127.0.0.1:5173",
+  "browser": "Installed desktop Microsoft Edge / Chromium; phone viewport emulation, not physical iOS/Android",
+  "isolatedProfile": true,
+  "lastRunFilter": "initial full loop|320px large overview|large font|Real village|Map gesture|Forward to|Seven unaffected",
+  "catalogCounts": {
+    "qingtan": {
+      "verified": 2,
+      "mappable": 1
+    },
+    "longgong": {
+      "verified": 2,
+      "mappable": 1
+    },
+    "xujiashan": {
+      "verified": 2,
+      "mappable": 0
+    },
+    "meizhitian": {
+      "verified": 3,
+      "mappable": 1
+    },
+    "ruoao": {
+      "verified": 3,
+      "mappable": 0
+    }
+  },
+  "checks": [
+    {
+      "name": "390px initial full loop, genuine order, road-return evidence and controls",
+      "status": "PASS",
+      "evidence": {
+        "camera": {
+          "center": "121.42210646073829,29.19364590696557",
+          "zoom": "9.21",
+          "pitch": "0"
+        },
+        "numbered": [
+          {
+            "id": "xujiashan",
+            "number": "5",
+            "label": "游览顺序5，查看许家山村",
+            "members": [
+              "xujiashan"
+            ],
+            "visible": true
+          },
+          {
+            "id": "longgong",
+            "number": "2",
+            "label": "游览顺序2，查看龙宫村",
+            "members": [
+              "longgong"
+            ],
+            "visible": true
+          },
+          {
+            "id": "qingtan",
+            "number": "1",
+            "label": "游览顺序1，查看清潭村，浏览起点",
+            "members": [
+              "qingtan"
+            ],
+            "visible": true
+          },
+          {
+            "id": "meizhitian",
+            "number": "4",
+            "label": "游览顺序4，查看梅枝田村",
+            "members": [
+              "meizhitian"
+            ],
+            "visible": true
+          },
+          {
+            "id": "ruoao",
+            "number": "3",
+            "label": "游览顺序3，查看箬岙村",
+            "members": [
+              "ruoao"
+            ],
+            "visible": true
+          }
+        ],
+        "sheet": {
+          "x": 0,
+          "right": 390,
+          "y": 126.609375,
+          "bottom": 844,
+          "width": 390,
+          "clientWidth": 388,
+          "scrollWidth": 388,
+          "clientHeight": 715,
+          "scrollHeight": 846,
+          "title": "五村环游",
+          "focusInside": true,
+          "activeElement": "<button class=\"sheet-close\" aria-label=\"关闭弹窗\"><svg class=\"glyph \" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m6 6 12 12M6 18 18 6\"></path></svg><"
+        },
+        "exactReturnSegment": "xujiashan-qingtan",
+        "noInventedEta": true
+      },
+      "uncaughtErrors": []
+    },
+    {
+      "name": "Uncaught JavaScript errors",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "Map gesture survives candidate navigation and whole-loop action explicitly refits",
+      "status": "PASS",
+      "evidence": {
+        "original": {
+          "center": "121.42210646073829,29.19364590696557",
+          "zoom": "9.21",
+          "pitch": "0"
+        },
+        "dragged": {
+          "center": "121.37212624933488,29.214420722685347",
+          "zoom": "9.21",
+          "pitch": "0"
+        },
+        "afterReturn": {
+          "center": "121.37212624933488,29.214420722685347",
+          "zoom": "9.21",
+          "pitch": "0"
+        },
+        "refitted": {
+          "center": "121.42210646073829,29.19364590696557",
+          "zoom": "9.21",
+          "pitch": "0"
+        }
+      },
+      "uncaughtErrors": []
+    },
+    {
+      "name": "Empty POI catalog has honest text and does not affect full road loop",
+      "status": "PASS",
+      "evidence": {
+        "injectedEmptyCatalog": true,
+        "noInventedPoi": true
+      },
+      "uncaughtErrors": []
+    },
+    {
+      "name": "Seven unaffected pages preserve v2.2.2 geometry, colors, typography and five-item rail",
+      "status": "PASS",
+      "evidence": {
+        "baselineVersion": "2.2.2",
+        "pages": [
+          {
+            "screen": "ride",
+            "matchingSelectors": 10
+          },
+          {
+            "screen": "return",
+            "matchingSelectors": 10
+          },
+          {
+            "screen": "scan",
+            "matchingSelectors": 10
+          },
+          {
+            "screen": "route",
+            "matchingSelectors": 10
+          },
+          {
+            "screen": "ticket",
+            "matchingSelectors": 10
+          },
+          {
+            "screen": "help",
+            "matchingSelectors": 10
+          },
+          {
+            "screen": "delay",
+            "matchingSelectors": 10
+          }
+        ],
+        "noUnrelatedPageLayoutChange": true
+      },
+      "uncaughtErrors": []
+    },
+    {
+      "name": "390px large font list and introduction wrap, scroll and close accessibly",
+      "status": "PASS",
+      "evidence": {
+        "list": {
+          "x": 0,
+          "right": 390,
+          "y": 401.953125,
+          "bottom": 844,
+          "width": 390,
+          "clientWidth": 388,
+          "scrollWidth": 388,
+          "clientHeight": 440,
+          "scrollHeight": 440,
+          "title": "清潭村景点",
+          "focusInside": true,
+          "activeElement": "<button class=\"sheet-close\" aria-label=\"关闭弹窗\"><svg class=\"glyph \" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m6 6 12 12M6 18 18 6\"></path></svg><"
+        },
+        "intro": {
+          "x": 0,
+          "right": 390,
+          "y": 175.75,
+          "bottom": 844,
+          "width": 390,
+          "clientWidth": 388,
+          "scrollWidth": 388,
+          "clientHeight": 666,
+          "scrollHeight": 666,
+          "title": "双枝庙",
+          "focusInside": true,
+          "activeElement": "<button class=\"sheet-close\" aria-label=\"关闭弹窗\"><svg class=\"glyph \" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m6 6 12 12M6 18 18 6\"></path></svg><"
+        },
+        "font": "L",
+        "realPoiId": "qingtan-shuangzhi"
+      },
+      "uncaughtErrors": []
+    },
+    {
+      "name": "320px large font list and introduction wrap, scroll and close accessibly",
+      "status": "PASS",
+      "evidence": {
+        "list": {
+          "x": 0,
+          "right": 320,
+          "y": 100.484375,
+          "bottom": 568,
+          "width": 320,
+          "clientWidth": 318,
+          "scrollWidth": 318,
+          "clientHeight": 466,
+          "scrollHeight": 466,
+          "title": "清潭村景点",
+          "focusInside": true,
+          "activeElement": "<button class=\"sheet-close\" aria-label=\"关闭弹窗\"><svg class=\"glyph \" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m6 6 12 12M6 18 18 6\"></path></svg><"
+        },
+        "intro": {
+          "x": 0,
+          "right": 320,
+          "y": 85.203125,
+          "bottom": 568,
+          "width": 320,
+          "clientWidth": 318,
+          "scrollWidth": 318,
+          "clientHeight": 481,
+          "scrollHeight": 708,
+          "title": "双枝庙",
+          "focusInside": true,
+          "activeElement": "<button class=\"sheet-close\" aria-label=\"关闭弹窗\"><svg class=\"glyph \" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m6 6 12 12M6 18 18 6\"></path></svg><"
+        },
+        "font": "L",
+        "realPoiId": "qingtan-shuangzhi"
+      },
+      "uncaughtErrors": []
+    },
+    {
+      "name": "Real village POI map, one-click introduction, Escape focus and same camera after close",
+      "status": "PASS",
+      "evidence": {
+        "villageId": "qingtan",
+        "realPoiId": "qingtan-shuangzhi",
+        "verifiedPoiCount": 2,
+        "verifiedCoordinateCount": 1,
+        "multiCoordinateLimitation": "Only one located POI in the best-covered real village; the multi-POI list contains additional coordinate-pending records. No invented markers or multi-marker screenshot.",
+        "cameraBefore": {
+          "center": "121.2906453149123,29.430387047362643",
+          "zoom": "15.32",
+          "pitch": "0"
+        },
+        "cameraAfter": {
+          "center": "121.2906453149123,29.430387047362643",
+          "zoom": "15.32",
+          "pitch": "0"
+        }
+      },
+      "uncaughtErrors": []
+    },
+    {
+      "name": "Controlled dense POI fixture clusters one touch target and resolves a named selection",
+      "status": "PASS",
+      "evidence": {
+        "fixtureOnly": true,
+        "duplicateCoordinatesUnmoved": true,
+        "clusterHitSize": {
+          "width": 48,
+          "height": 48
+        },
+        "selectedId": "test-dense-2",
+        "noFixtureScreenshotUsedAsGeographicEvidence": true
+      },
+      "uncaughtErrors": []
+    },
+    {
+      "name": "Keyboard trap, mobile Back, rapid village selection and overview restoration",
+      "status": "PASS",
+      "evidence": {
+        "backKeptHash": "#/town",
+        "lastVillageNames": [
+          "褚氏宗祠",
+          "城门桥",
+          "植桂书舍"
+        ],
+        "overviewCamera": {
+          "center": "121.47794950000002,29.184526000000005",
+          "zoom": "11.80",
+          "pitch": "0"
+        }
+      },
+      "uncaughtErrors": []
+    },
+    {
+      "name": "POI browsing never overwrites research endpoints or saved return plan",
+      "status": "PASS",
+      "evidence": {
+        "savedPlan": {
+          "mode": "research",
+          "selectedVillageId": "xujiashan",
+          "originVillageId": "xujiashan",
+          "destinationVillageId": "longgong",
+          "routeProposalId": "longgong-xujiashan",
+          "direction": "return",
+          "schemaVersion": 1,
+          "kind": "research-plan",
+          "dataVersion": "2026-10-09-road-research-v2",
+          "savedAt": "2026-10-18T17:04:50.200Z",
+          "routeStatus": "source-road-geometry",
+          "operatingStatus": "research-not-confirmed"
+        },
+        "savedPlanUnchanged": true,
+        "explicitOverviewAvailableDuringResearch": true
+      },
+      "uncaughtErrors": []
+    },
+    {
+      "name": "No WebGL and loop 404 still preserve village text introductions",
+      "status": "PASS",
+      "evidence": {
+        "realPoiId": "qingtan-shuangzhi",
+        "noWebGL": true,
+        "loopHttpStatus": 404,
+        "textStillAvailable": true
+      },
+      "uncaughtErrors": []
+    },
+    {
+      "name": "Null coordinates and missing photo remain readable without false map markers",
+      "status": "PASS",
+      "evidence": {
+        "sourcePoiId": "qingtan-shuangzhi",
+        "faultInjected": [
+          "null coordinate",
+          "broken image"
+        ],
+        "noFabricatedMarker": true
+      },
+      "uncaughtErrors": []
+    },
+    {
+      "name": "All five villages retain every verified POI in the same-source readable list",
+      "status": "PASS",
+      "evidence": {
+        "coverage": [
+          {
+            "villageId": "qingtan",
+            "introductionsOpened": 2,
+            "mappedCoordinateRecords": 1
+          },
+          {
+            "villageId": "longgong",
+            "introductionsOpened": 2,
+            "mappedCoordinateRecords": 1
+          },
+          {
+            "villageId": "xujiashan",
+            "introductionsOpened": 2,
+            "mappedCoordinateRecords": 0
+          },
+          {
+            "villageId": "meizhitian",
+            "introductionsOpened": 3,
+            "mappedCoordinateRecords": 1
+          },
+          {
+            "villageId": "ruoao",
+            "introductionsOpened": 3,
+            "mappedCoordinateRecords": 0
+          }
+        ],
+        "allIntroductionsOpened": 12,
+        "automaticSpeech": false
+      },
+      "uncaughtErrors": []
+    },
+    {
+      "name": "Incomplete loop keeps proven segments but never invents closure or total distance",
+      "status": "PASS",
+      "evidence": {
+        "missingSegmentId": "xujiashan-qingtan",
+        "remainingProvenSegments": 4,
+        "noInventedClosingLine": true,
+        "noCompleteDistance": true
+      },
+      "uncaughtErrors": []
+    },
+    {
+      "name": "320px large overview groups colliding villages into nonoverlapping touch targets",
+      "status": "PASS",
+      "evidence": {
+        "targets": [
+          {
+            "villageId": "xujiashan",
+            "members": [
+              "ruoao",
+              "meizhitian",
+              "xujiashan"
+            ],
+            "left": 172,
+            "top": 173,
+            "right": 220,
+            "bottom": 221,
+            "width": 48,
+            "height": 48,
+            "tabIndex": 0,
+            "label": "选择3座古村：箬岙村、梅枝田村、许家山村"
+          },
+          {
+            "villageId": "qingtan",
+            "members": [
+              "qingtan",
+              "longgong"
+            ],
+            "left": 67,
+            "top": 119,
+            "right": 115,
+            "bottom": 167,
+            "width": 48,
+            "height": 48,
+            "tabIndex": 0,
+            "label": "选择2座古村：清潭村、龙宫村"
+          }
+        ],
+        "originalCoordinatesUnmoved": true,
+        "allFiveVillagesRepresented": true,
+        "groupOpensExistingOrderSheet": true,
+        "focusAfterSelectingDifferentVillage": {
+          "tag": "BUTTON",
+          "className": "town-title-card town-overview-action",
+          "label": "查看完整环线"
+        }
+      },
+      "uncaughtErrors": []
+    },
+    {
+      "name": "Forward to a stale guide entry then reopening still lets Back close the guide",
+      "status": "PASS",
+      "evidence": {
+        "staleSameUrlEntryReused": true,
+        "oneBackClosesReopenedGuide": true,
+        "cameraRetained": true
+      },
+      "uncaughtErrors": []
+    }
+  ],
+  "captures": [
+    {
+      "path": "docs/town-guide-validation/390-overview.png",
+      "nature": "actual-catalog",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "hash": "#/town"
+    },
+    {
+      "path": "docs/town-guide-validation/baseline-ride.png",
+      "nature": "v2.2.2-frozen-build",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "hash": "#/ride"
+    },
+    {
+      "path": "docs/town-guide-validation/current-ride.png",
+      "nature": "actual-catalog",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "hash": "#/ride"
+    },
+    {
+      "path": "docs/town-guide-validation/baseline-return.png",
+      "nature": "v2.2.2-frozen-build",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "hash": "#/return"
+    },
+    {
+      "path": "docs/town-guide-validation/current-return.png",
+      "nature": "actual-catalog",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "hash": "#/return"
+    },
+    {
+      "path": "docs/town-guide-validation/baseline-scan.png",
+      "nature": "v2.2.2-frozen-build",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "hash": "#/scan"
+    },
+    {
+      "path": "docs/town-guide-validation/current-scan.png",
+      "nature": "actual-catalog",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "hash": "#/scan"
+    },
+    {
+      "path": "docs/town-guide-validation/baseline-help.png",
+      "nature": "v2.2.2-frozen-build",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "hash": "#/help"
+    },
+    {
+      "path": "docs/town-guide-validation/current-help.png",
+      "nature": "actual-catalog",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "hash": "#/help"
+    },
+    {
+      "path": "docs/town-guide-validation/390-large-overview.png",
+      "nature": "actual-catalog",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "hash": "#/town"
+    },
+    {
+      "path": "docs/town-guide-validation/390-large-list.png",
+      "nature": "actual-catalog",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "hash": "#/town"
+    },
+    {
+      "path": "docs/town-guide-validation/320-large-overview.png",
+      "nature": "actual-catalog",
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "hash": "#/town"
+    },
+    {
+      "path": "docs/town-guide-validation/320-large-list.png",
+      "nature": "actual-catalog",
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "hash": "#/town"
+    },
+    {
+      "path": "docs/town-guide-validation/390-village-pois.png",
+      "nature": "actual-catalog",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "hash": "#/town"
+    },
+    {
+      "path": "docs/town-guide-validation/390-village-poi-list.png",
+      "nature": "actual-catalog",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "hash": "#/town"
+    },
+    {
+      "path": "docs/town-guide-validation/390-poi-introduction.png",
+      "nature": "actual-catalog",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "hash": "#/town"
+    },
+    {
+      "path": "docs/town-guide-validation/390-null-coordinate-image-failure.png",
+      "nature": "fault-injected-catalog-not-geographic-evidence",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "hash": "#/town"
+    },
+    {
+      "path": "docs/town-guide-validation/390-large-intro.png",
+      "nature": "actual-catalog",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "hash": "#/town"
+    },
+    {
+      "path": "docs/town-guide-validation/320-large-intro.png",
+      "nature": "actual-catalog",
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "hash": "#/town"
+    },
+    {
+      "path": "docs/town-guide-validation/390-incomplete-loop.png",
+      "nature": "fault-injected-missing-existing-return-segment",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "hash": "#/town"
+    },
+    {
+      "path": "docs/town-guide-validation/320-map-failure-intro.png",
+      "nature": "injected-webgl-and-http-failure-real-poi",
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "hash": "#/town"
+    },
+    {
+      "path": "docs/town-guide-validation/390-after-close.png",
+      "nature": "actual-catalog",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "hash": "#/town"
+    },
+    {
+      "path": "docs/town-guide-validation/320-large-village-group-order.png",
+      "nature": "actual-catalog",
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "hash": "#/town"
+    }
+  ]
+}

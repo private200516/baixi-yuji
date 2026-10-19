@@ -7,6 +7,7 @@ import { FontSizeControl } from './FontSizeControl';
 import { SeniorExperience } from './SeniorExperience';
 import { SheetPanel } from './SheetPanel';
 import { StartupGate } from './StartupGate';
+import { localChineseVoice } from './localSpeech';
 import { busThemes, RouteIdentityContent } from './ThemeBus';
 import { useReducedMotion, useScreenMotion } from './useScreenMotion';
 import { demoStations as stations, demoReturnStops as returnStops, demoReturnSlots } from '../data/demoTransit';
@@ -140,9 +141,9 @@ export default function TransitApp() {
   function listen() {
     if (!('speechSynthesis' in window)) { setToast('当前设备不支持朗读，可以在设置中选择大字号。'); return; }
     if (speaking) { window.speechSynthesis.cancel(); setSpeaking(false); return; }
-    const voices = window.speechSynthesis.getVoices();
-    const voice = voices.find(v => v.lang.startsWith('zh') && v.localService);
-    if (!voice) { setToast('这台设备暂不能朗读，请查看页面文字，或请身边的人帮忙。'); return; }
+    const localVoice = localChineseVoice();
+    if ('error' in localVoice) { setToast(localVoice.error); return; }
+    const { voice } = localVoice;
     const message = isResearch && ['route', 'return', 'help'].includes(screen) ? `道路研究计划，从${villageName(endpoints.fromVillageId)}到${villageName(endpoints.toVillageId)}。古村不是车站，上下客点、运营班次和车辆通行条件仍未核验。保存计划不代表预约车辆。` : prefs.senior && screen === 'scan' ? '上车时出示乘车码。当前为演示码，不能用于乘车。真实乘车请按司机指引购票。' : prefs.senior && screen === 'return' ? `返程在古镇起点站上车，返回城区终点站，出发时间${slot}。点击换个时间可以选择班次，点击记住这趟车可以保存。` : prefs.senior && screen === 'help' ? `请找司机或站务人员帮忙。我在${station}，想去${destination}，请帮我确认乘车方向。` : `${station}，开往${destination}。下一班约${minutes}分钟。返程计划${slot}。`;
     const utterance = new SpeechSynthesisUtterance(`乡序。以下为演示信息。${message}出行前请向工作人员确认。`);
     utterance.lang = 'zh-CN'; utterance.voice = voice; utterance.rate = .85;
